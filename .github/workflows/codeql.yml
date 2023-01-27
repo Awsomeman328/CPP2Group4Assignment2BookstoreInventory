@@ -18,12 +18,12 @@ on:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
   schedule:
-    - cron: '40 13 * * 3'
+    - cron: '00 12 * * 3'
 
 jobs:
   analyze:
     name: Analyze
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-latest, windows-latest, macos-latest]
     permissions:
       actions: read
       contents: read
@@ -64,7 +64,7 @@ jobs:
     # 📚 See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun
 
     #   If the Autobuild fails above, remove it and uncomment the following three lines.
-    #   modify them (or add more) to build your code if your project, please refer to the EXAMPLE below for guidance.
+    #   modify them (or add more) to build your code of your project, please refer to the EXAMPLE below for guidance.
 
     # - run: |
     #     echo "Run, Build Application using script"
