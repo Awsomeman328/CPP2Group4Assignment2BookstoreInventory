@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Back-end.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="CPP2Group4Assignment2BookstoreInventory.cpp" />
   </ItemGroup>
