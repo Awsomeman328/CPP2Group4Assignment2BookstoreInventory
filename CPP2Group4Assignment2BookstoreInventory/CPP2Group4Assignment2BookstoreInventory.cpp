@@ -1,11 +1,15 @@
 // CPP2Group4Assignment2BookstoreInventory.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
+using namespace std;
 #include <iostream>
 
 int main()
 {
+
     std::cout << "testing merge to test branch from ChrisR branch";
+
+    cout << "Hello World!\n";
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
