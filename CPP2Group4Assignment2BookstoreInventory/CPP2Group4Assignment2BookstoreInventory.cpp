@@ -3,9 +3,11 @@
 
 #include <iostream>
 
+using namespace std;
+
 int main()
 {
-    std::cout << "Testing-Chris R.";
+    cout << "Testing-Chris R.";
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
