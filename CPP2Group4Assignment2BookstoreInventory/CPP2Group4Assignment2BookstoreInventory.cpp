@@ -7,8 +7,11 @@ using namespace std;
 
 int main()
 {
+
+    std::cout << "testing merge to test branch from ChrisR branch";
+
     cout << "Hello World!\n";
-    cout << "Testing-Chris R.";
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
