@@ -29,7 +29,7 @@
     <ClInclude Include="Book.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\Downloads\rapidcsv-master\rapidcsv-master\src\rapidcsv.h">
+    <ClInclude Include="Back-end.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

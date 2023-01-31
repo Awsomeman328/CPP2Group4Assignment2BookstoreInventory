@@ -1,8 +1,12 @@
 #pragma once
-#include <string>
+#include <iostream>
 #include <vector>
-#include "Book.h"
+#include "book.h"
+#include "rapidcsv.h"
+
 
 using namespace std;
 
-vector<Book> readData(string fileName);
+vector<Book> readData(string bookTitleToSearch, size_t maxResults = 135680);
+vector<Book> readData(string bookTitleToSearch, unsigned int startingIndex, size_t maxResults = 135680);
+vector<Book> readData(string bookTitleToSearch, Book bookToStartFrom, size_t maxResults = 135680);

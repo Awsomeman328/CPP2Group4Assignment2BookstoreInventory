@@ -5,11 +5,6 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CPP2Group4Assignment2BookstoreInventory", "CPP2Group4Assignment2BookstoreInventory\CPP2Group4Assignment2BookstoreInventory.vcxproj", "{0AC6035F-42AB-4ADC-B23F-D4AB8173332E}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{10347A78-187E-4F9A-ACE0-EA7A7FD3F643}"
-	ProjectSection(SolutionItems) = preProject
-		books.csv = books.csv
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
