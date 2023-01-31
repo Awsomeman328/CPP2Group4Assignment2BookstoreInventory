@@ -2,18 +2,32 @@
 #include <vector>
 #include "book.h"
 #include "rapidcsv.h"
+#include "Back-end.h"
 
 
 using namespace std;
 
-vector<Book> readData(string fileName) {
-	rapidcsv::Document doc(fileName, rapidcsv::LabelParams(0, 0));
+vector<Book> readData(string bookTitleToSearch) {
+	rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
 
-	int numRows = doc.GetRowCount();
-	int numCols = doc.GetColumnCount();
+	vector<Book> filteredBooks;
 
-	vector<Book> books;
+	int index = 0;
+	size_t found;
 
+	while (filteredBooks.size() < filteredBooks.max_size() && index < doc.GetRowCount())
+	{
+		found = doc.GetCell<string>("Book-Title", index).find(bookTitleToSearch);
+		if (found != string::npos)
+		{
+			Book b(doc.GetRowName(index), doc.GetCell<string>("Book-Title", index), doc.GetCell<string>("Book-Author", index),
+				doc.GetCell<string>("Year-Of-Publication", index), doc.GetCell<string>("Publisher", index));
+
+			filteredBooks.push_back(b);
+		}
+		index++;
+	}
+	/*
 	for (int i = 0; i < 209386; i++) {
 		Book b;
 		b.setISBN(doc.GetRowName(i));
@@ -23,22 +37,7 @@ vector<Book> readData(string fileName) {
 		b.setPublisher(doc.GetCell<string>("Publisher", i));
 		books.push_back(b);
 	}
-
-	return books;
+	*/
+	return filteredBooks;
 }
 
-int main() {
-	string fileName = "..\\books.csv";
-	vector<Book> books = readData(fileName);
-
-	cout << "Book Inventory:" << endl;
-	for (int i = 0; i < books.size(); i++) {
-		cout << "Title: " << books[i].getTitle() << endl;
-		cout << "Author: " << books[i].getAuthor() << endl;
-		cout << "Publisher: " << books[i].getPublisher() << endl;
-		cout << "Year: " << books[i].getYear() << endl;
-		cout << "ISBN: " << books[i].getISBN() << endl;
-		cout << endl;
-	}
-	return 0;
-}

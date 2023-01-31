@@ -132,6 +132,7 @@
     <ClCompile Include="CPP2Group4Assignment2BookstoreInventory.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Back-end.h" />
     <ClInclude Include="Book.h" />
   </ItemGroup>
   <ItemGroup>
