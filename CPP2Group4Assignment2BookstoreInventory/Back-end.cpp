@@ -13,9 +13,9 @@ vector<Book> readData(string fileName) {
 
 	vector<Book> books;
 
-	for (int i = 0; i < numRows; i++) {
+	for (int i = 0; i < books.size(); i++) {
 		Book b;
-		b.setISBN(doc.GetCell<string>("ISBN", i));
+		b.setISBN(doc.GetRowName(i));
 		b.setTitle(doc.GetCell<string>("Title", i));
 		b.setAuthor(doc.GetCell<string>("Author", i));
 		b.setYear(doc.GetCell<string>("Year", i));
@@ -27,11 +27,11 @@ vector<Book> readData(string fileName) {
 }
 
 int main() {
-	string fileName = "users.csv";
+	string fileName = "..\\books.csv";
 	vector<Book> books = readData(fileName);
 
 	cout << "Book Inventory:" << endl;
-	for (int i = 0; i < books.size(); i++) {
+	for (int i = 0; i < 10; i++) {
 		cout << "Title: " << books[i].getTitle() << endl;
 		cout << "Author: " << books[i].getAuthor() << endl;
 		cout << "Publisher: " << books[i].getPublisher() << endl;
@@ -41,3 +41,5 @@ int main() {
 	}
 	return 0;
 }
+
+//2

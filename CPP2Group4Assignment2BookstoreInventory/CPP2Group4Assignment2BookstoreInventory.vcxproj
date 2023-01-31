@@ -132,7 +132,6 @@
     <ClCompile Include="CPP2Group4Assignment2BookstoreInventory.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Downloads\rapidcsv-master\rapidcsv-master\src\rapidcsv.h" />
     <ClInclude Include="Book.h" />
   </ItemGroup>
   <ItemGroup>
