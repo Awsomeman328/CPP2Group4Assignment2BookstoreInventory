@@ -14,7 +14,7 @@ vector<Book> readData(string fileName) {
 
 	vector<Book> books;
 
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 209386; i++) {
 		Book b;
 		b.setISBN(doc.GetRowName(i));
 		b.setTitle(doc.GetCell<string>("Book-Title", i));
