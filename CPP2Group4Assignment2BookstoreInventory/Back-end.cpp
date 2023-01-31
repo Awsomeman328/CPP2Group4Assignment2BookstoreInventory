@@ -3,6 +3,7 @@
 #include "book.h"
 #include "rapidcsv.h"
 
+
 using namespace std;
 
 vector<Book> readData(string fileName) {
@@ -13,12 +14,12 @@ vector<Book> readData(string fileName) {
 
 	vector<Book> books;
 
-	for (int i = 0; i < books.size(); i++) {
+	for (int i = 0; i < 100; i++) {
 		Book b;
 		b.setISBN(doc.GetRowName(i));
-		b.setTitle(doc.GetCell<string>("Title", i));
-		b.setAuthor(doc.GetCell<string>("Author", i));
-		b.setYear(doc.GetCell<string>("Year", i));
+		b.setTitle(doc.GetCell<string>("Book-Title", i));
+		b.setAuthor(doc.GetCell<string>("Book-Author", i));
+		b.setYear(doc.GetCell<string>("Year-Of-Publication", i));
 		b.setPublisher(doc.GetCell<string>("Publisher", i));
 		books.push_back(b);
 	}
@@ -31,7 +32,7 @@ int main() {
 	vector<Book> books = readData(fileName);
 
 	cout << "Book Inventory:" << endl;
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < books.size(); i++) {
 		cout << "Title: " << books[i].getTitle() << endl;
 		cout << "Author: " << books[i].getAuthor() << endl;
 		cout << "Publisher: " << books[i].getPublisher() << endl;
@@ -41,5 +42,3 @@ int main() {
 	}
 	return 0;
 }
-
-//2
