@@ -135,6 +135,9 @@
     <ClInclude Include="..\..\..\..\Downloads\rapidcsv-master\rapidcsv-master\src\rapidcsv.h" />
     <ClInclude Include="Book.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\books.csv" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
