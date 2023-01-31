@@ -1,7 +1,12 @@
-#include "Book.cpp"
+#include <vector>
+#include "rapidcsv.h"
+#include "Book.h"
+
 
 using namespace std;
 
+vector<Book> readData(string fileName) {
+	rapidcsv::Document doc(fileName, rapidcsv::LabelParams(0, 0));
 
 	int numRows = doc.GetRowCount();
 	int numCols = doc.GetColumnCount();
