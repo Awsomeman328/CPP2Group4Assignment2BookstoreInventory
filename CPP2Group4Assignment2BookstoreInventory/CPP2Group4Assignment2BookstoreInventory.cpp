@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "rapidcsv.h" // Probably Don't need this
 #include "book.h"
 #include "backEnd.h"
 
@@ -54,7 +53,9 @@ int main()
         cout << "Enter a book title: ";
         cin >> searchInput;
 
+        cout << endl;
         cout << "Loading results, please wait ... " << endl;
+        cout << endl;
 
         searchResults = searchBooksByTitle(searchInput, lastLine, maxResults);
 
@@ -88,19 +89,29 @@ int main()
         {
             cout << "No records were found matching search term '" << searchInput << "'" << endl;
         }
-        //display results
+        //display results and check if there are any more results
         else
         {
-            searchNextPage = true;
             do
             {
+                // Set this to false at the start of every iteration of this loop. 
+                // Only set this to true when the user is both able to and wants to go to the next page of results.
+                searchNextPage = false;
+
+                // Display the results
                 for (unsigned int i = 0; i < searchResults.size(); i++)
                 {
                     cout << "Book Title: " << searchResults.at(i).getTitle() << endl;
                     cout << "Author: " << searchResults.at(i).getAuthor() << endl;
                     cout << "Publisher: " << searchResults.at(i).getPublisher() << endl;
-                    cout << "Publication Year: " << searchResults.at(i).getYear() << endl << endl;
+                    cout << "Publication Year: " << searchResults.at(i).getYear() << endl;
+                    cout << endl;
                 }
+                cout << "Total results: " << searchResults.size() << endl;
+                cout << endl;
+
+                // Check the size of the results vector. If its size is the same as our given max size, 
+                // then there is a chance of there being more results
                 if (searchResults.size() == maxResults)
                 {
                     cout << "There appears to be more possible search results." << endl;
@@ -111,22 +122,29 @@ int main()
                     if (toupper(input.at(0)) == 'Y')
                     {
                         searchNextPage = true;
+
+                        cout << endl;
+                        cout << "Loading additional results, please wait ... " << endl;
+                        cout << endl;
+
                         searchResults = searchBooksByTitle(searchInput, searchResults.back(), maxResults);
                     }
-                    else
-                    {
-                        searchNextPage = false;
-                    }
+
+                    cout << endl;
                 }
+
             } while (searchNextPage);
         }
+
+        // Ask user if they wish to continue or exit program.
         cout << "Press 'X' to quit, or any other key to continue. ";
         cin >> input;
+        cout << endl;
 
-        if (toupper(input.at(0)) == 'X')
-            continueLoop = false;
-        else
-            searchResults.clear();
+        if (toupper(input.at(0)) == 'X') continueLoop = false;
+        else searchResults.clear();
+
+        cout << endl;
     }
 
 	return 0;

@@ -5,8 +5,6 @@
 
 using namespace std;
 
-
-
 bool checkUserPassPair(string username, string password);
 vector<Book> searchBooksByTitle(string bookTitleToSearch, size_t maxResults);
 vector<Book> searchBooksByTitle(string bookTitleToSearch, unsigned int startingIndex, size_t maxResults);
