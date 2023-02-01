@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream> // Probably don't need this
 #include <vector>
 #include "rapidcsv.h"
 #include "book.h"

@@ -7,11 +7,9 @@ bool userExists(string username, string password) {
 	for (int i = 0; i < doc.GetRowCount(); i++) {
 		if (doc.GetRowName(i) == username && doc.GetCell<string>("Password", i) == password) {
 			return true;
-			cout << "Welcome " << username << "!" << endl;
 		}
-		else
-			return false;
 	}
+	return false;
 }
 
 // This function is hard coded to look up only the information from the books.csv file.

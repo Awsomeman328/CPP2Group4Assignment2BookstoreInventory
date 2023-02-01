@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 #include "rapidcsv.h" // Probably Don't need this
-#include "Book.h"
+#include "book.h"
 #include "back-end.h"
 
 using namespace std;
@@ -18,9 +18,9 @@ int main()
     vector<Book> searchResults;
     bool validLogin;
     string searchInput;
-    size_t maxResults = 50;
+    unsigned int maxResults = 50;
     unsigned int lastLine = 0;
-    unsigned int endOfDoc = doc.GetRowCount();
+    size_t endOfDoc = doc.GetRowCount();
     bool continueLoop = true;
     string continueInput;
     
@@ -28,9 +28,9 @@ int main()
     do
     {
         cout << "Please enter your username: ";
-        std::cin >> username;
+        cin >> username;
         cout << "Please enter your password: ";
-        std::cin >> password;
+        cin >> password;
 
         if (userExists(username, password))
         {
@@ -40,19 +40,21 @@ int main()
         {
             validLogin = false;
             cout << "Invalid username/password, press 'x' to exit or any other key to continue: ";
-            std::cin >> input;
+            cin >> input;
             if (toupper(input.at(0)) == 'X')
             {
                 break;
             }
         }
     } while (!validLogin);
+    cout << "Welcome " << username << "!" << endl;
+    cout << endl;
     
     while (continueLoop)
     {
         //search bar functionality
         cout << "Enter a book title: ";
-        std::cin >> searchInput;
+        cin >> searchInput;
 
         while (lastLine < endOfDoc)
         {
@@ -97,7 +99,7 @@ int main()
 
         }
         cout << "Press 'X' to quit, or any other key to continue. ";
-        std::cin >> continueInput;
+        cin >> continueInput;
 
         if (toupper(continueInput.at(0)) == 'X')
             continueLoop = false;
