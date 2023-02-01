@@ -128,6 +128,14 @@ int main()
                         cout << endl;
 
                         searchResults = searchBooksByTitle(searchInput, searchResults.back(), maxResults);
+
+                        // There is a chance that we get a false positive on having additional results for our search
+                        // If that's the case, then searchResults should be empty and we want to break out of the while loop.
+                        if (searchResults.empty())
+                        {
+                            searchNextPage = false; // This will let us break out of the loop without using an actual "break" statement.
+                            cout << "No additional records were found matching search term '" << searchInput << "'" << endl;
+                        }
                     }
 
                     cout << endl;
