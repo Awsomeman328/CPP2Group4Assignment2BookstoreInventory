@@ -12,12 +12,6 @@ public:
     string getPublisher();
     string getISBN();
     string getYear();
-	
-    void setISBN(string i);
-    void setTitle(string t);
-    void setAuthor(string a);
-    void setPublisher(string p);
-    void setYear(string y);
 
 private:
     string _title;
@@ -25,4 +19,10 @@ private:
     string _publisher;
     string _isbn;
     string _year;
+
+    void setISBN(string i);
+    void setTitle(string t);
+    void setAuthor(string a);
+    void setPublisher(string p);
+    void setYear(string y);
 };

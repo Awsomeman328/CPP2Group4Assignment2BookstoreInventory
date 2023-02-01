@@ -6,6 +6,18 @@
 
 using namespace std;
 
+bool userExists(string username, string password) {
+	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
+	for (int i = 0; i < doc.GetRowCount(); i++) {
+		if (doc.GetCell<string>("Username", i) == username && doc.GetCell<string>("Password", i) == password) {
+			return true;
+			cout << "Welcome " << username << "!" << endl;
+		}
+		else
+			return false;
+	}
+}
+
 // This function is hard coded to look up only the information from the books.csv file.
 // If you choose to enter a maxResults value, the recomendation is anything under 100,000.
 // Anything higher than the default (135680) will be capped to the default to prevent crashes and exceptions.
@@ -48,21 +60,6 @@ vector<Book> readData(string bookTitleToSearch, size_t maxResults) {
 // If the startingIndex is greater than the number of rows in the file, then index is set to 0.
 vector<Book> readData(string bookTitleToSearch, unsigned int startingIndex, size_t maxResults) {
 	rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
-
-bool userExists(string username, string password) {
-	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
-	for (int i = 0; i < doc.GetRowCount(); i++) {
-		if (doc.GetCell<string>("Username", i) == username && doc.GetCell<string>("Password", i) == password) {
-			return true;
-			cout << "Welcome " << username << "!" << endl;
-		}
-		else
-			return false;
-	}
-}
-
-
-
 
 	vector<Book> filteredBooks;
 	if (maxResults > 135680) maxResults = 135680;

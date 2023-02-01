@@ -27,4 +27,3 @@ void Book::setAuthor(string newAuthor) { _author = newAuthor; }
 void Book::setYear(string newYear) { _year = newYear; }
 void Book::setPublisher(string newPublisher) { _publisher = newPublisher; }
 
-//2

@@ -9,11 +9,11 @@ using namespace std;
 
 int main()
 {
-
     //variable declaration
     rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
     string username;
     string password;
+    string input;
     vector<Book> database;
     vector<Book> searchResults;
     bool validLogin;
@@ -23,37 +23,36 @@ int main()
     unsigned int endOfDoc = doc.GetRowCount();
     bool continueLoop = true;
     string continueInput;
+    
+    // login process
+    do
+    {
+        cout << "Please enter your username: ";
+        std::cin >> username;
+        cout << "Please enter your password: ";
+        std::cin >> password;
 
-    //TODO: Replace "login check function" with actual function and test
-    //login process
-    // do
-    // {
-    //     cout << "Please enter your username: ";
-    //     cin >> username;
-    //     cout << "Please enter your password: ";
-    //     cin >> password;
-
-    //     if (login check function)
-    //     {
-    //         validLogin = true;
-    //     }
-    //     else
-    //     {
-    //         validLogin = false;
-    //         cout << "Invalid username/password, press 'x' to exit or any other key to continue: ";
-    //         cin >> input;
-    //         if (toupper(input.at(0)) == 'X')
-    //         {
-    //             break;
-    //         }
-    //     }
-    // } while (!validLogin);
+        if (userExists(username, password))
+        {
+            validLogin = true;
+        }
+        else
+        {
+            validLogin = false;
+            cout << "Invalid username/password, press 'x' to exit or any other key to continue: ";
+            std::cin >> input;
+            if (toupper(input.at(0)) == 'X')
+            {
+                break;
+            }
+        }
+    } while (!validLogin);
     
     while (continueLoop)
     {
         //search bar functionality
         cout << "Enter a book title: ";
-        cin >> searchInput;
+        std::cin >> searchInput;
 
         while (lastLine < endOfDoc)
         {
@@ -98,7 +97,7 @@ int main()
 
         }
         cout << "Press 'X' to quit, or any other key to continue. ";
-        cin >> continueInput;
+        std::cin >> continueInput;
 
         if (toupper(continueInput.at(0)) == 'X')
             continueLoop = false;
