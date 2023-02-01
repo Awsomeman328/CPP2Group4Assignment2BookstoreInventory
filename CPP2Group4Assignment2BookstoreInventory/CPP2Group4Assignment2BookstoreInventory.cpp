@@ -12,14 +12,14 @@ int main()
     string username;
     string password;
     string input;
-    vector<Book> searchResults;
     bool validLogin;
+    bool continueLoop = true;
     string searchInput;
-    unsigned int maxResults = 50;
+    vector<Book> searchResults;
     unsigned int lastLine = 0;
+    unsigned int maxResults = 50;
     bool searchNextPage;
     //size_t endOfDoc = backEnd.getBooksDoc().GetRowCount();
-    bool continueLoop = true;
     
     // login process
     do
@@ -59,7 +59,7 @@ int main()
 
         searchResults = searchBooksByTitle(searchInput, lastLine, maxResults);
 
-        /*while (lastLine < endOfDoc)
+        /*while (lastLine < endOfDoc) // Seriously, Mike, what is this even for?
         {
             database = backEnd.searchBooksByTitle(searchInput, lastLine, maxResults);
             if (!database.empty())
@@ -84,7 +84,7 @@ int main()
 
         //display search results
 
-        //No hits on search
+        //No matches on search
         if (searchResults.empty())
         {
             cout << "No records were found matching search term '" << searchInput << "'" << endl;
