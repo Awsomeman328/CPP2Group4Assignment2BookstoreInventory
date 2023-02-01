@@ -3,9 +3,9 @@
 
 using namespace std;
 
-class Book {
+class Book 
+{
 public:
-    Book() {}
     Book(string ISBN, string Title, string Author, string Year, string Publisher);
     string getTitle();
     string getAuthor();

@@ -1,28 +1,26 @@
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 #include "rapidcsv.h" // Probably Don't need this
 #include "book.h"
-#include "back-end.h"
+#include "backEnd.h"
 
 using namespace std;
 
 int main()
 {
     //variable declaration
-    rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
     string username;
     string password;
     string input;
-    vector<Book> database;
     vector<Book> searchResults;
     bool validLogin;
     string searchInput;
     unsigned int maxResults = 50;
     unsigned int lastLine = 0;
-    size_t endOfDoc = doc.GetRowCount();
+    bool searchNextPage;
+    //size_t endOfDoc = backEnd.getBooksDoc().GetRowCount();
     bool continueLoop = true;
-    string continueInput;
     
     // login process
     do
@@ -32,7 +30,7 @@ int main()
         cout << "Please enter your password: ";
         cin >> password;
 
-        if (userExists(username, password))
+        if (checkUserPassPair(username, password))
         {
             validLogin = true;
         }
@@ -56,9 +54,13 @@ int main()
         cout << "Enter a book title: ";
         cin >> searchInput;
 
-        while (lastLine < endOfDoc)
+        cout << "Loading results, please wait ... " << endl;
+
+        searchResults = searchBooksByTitle(searchInput, lastLine, maxResults);
+
+        /*while (lastLine < endOfDoc)
         {
-            database = readData(searchInput, lastLine, maxResults);
+            database = backEnd.searchBooksByTitle(searchInput, lastLine, maxResults);
             if (!database.empty())
             {
                 for (unsigned short int i = 0; i < database.size(); i++)
@@ -77,7 +79,7 @@ int main()
 
 
             lastLine += (unsigned int)maxResults;
-        }
+        }*/
 
         //display search results
 
@@ -89,19 +91,39 @@ int main()
         //display results
         else
         {
-            for (unsigned int i = 0; i < searchResults.size(); i++)
+            searchNextPage = true;
+            do
             {
-                cout << "Book Title: " << searchResults.at(i).getTitle() << endl;
-                cout << "Author: " << searchResults.at(i).getAuthor() << endl;
-                cout << "Publisher: " << searchResults.at(i).getPublisher() << endl;
-                cout << "Publication Year: " << searchResults.at(i).getYear() << endl << endl;
-            }
+                for (unsigned int i = 0; i < searchResults.size(); i++)
+                {
+                    cout << "Book Title: " << searchResults.at(i).getTitle() << endl;
+                    cout << "Author: " << searchResults.at(i).getAuthor() << endl;
+                    cout << "Publisher: " << searchResults.at(i).getPublisher() << endl;
+                    cout << "Publication Year: " << searchResults.at(i).getYear() << endl << endl;
+                }
+                if (searchResults.size() == maxResults)
+                {
+                    cout << "There appears to be more possible search results." << endl;
+                    cout << "Press 'Y' to load the next page of results, or any other key to continue.";
+                    cin.ignore();
+                    cin >> input;
 
+                    if (toupper(input.at(0)) == 'Y')
+                    {
+                        searchNextPage = true;
+                        searchResults = searchBooksByTitle(searchInput, searchResults.back(), maxResults);
+                    }
+                    else
+                    {
+                        searchNextPage = false;
+                    }
+                }
+            } while (searchNextPage);
         }
         cout << "Press 'X' to quit, or any other key to continue. ";
-        cin >> continueInput;
+        cin >> input;
 
-        if (toupper(continueInput.at(0)) == 'X')
+        if (toupper(input.at(0)) == 'X')
             continueLoop = false;
         else
             searchResults.clear();
