@@ -1,4 +1,4 @@
-#include "Book.h"
+#include "book.h"
 
 // Since ISBN and Year are technically numbers, they could be stored as unsigned ints.
 // Possibly will add some overloaded functions to accomodate for both string and int values if we want or need to do so later.
@@ -10,7 +10,6 @@ Book::Book(string ISBN, string Title, string Author, string Year, string Publish
 	setYear(Year);
 	setPublisher(Publisher);
 }
-
 
 // Public functions
 string Book::getISBN() { return _isbn; }

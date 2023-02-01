@@ -1,8 +1,8 @@
 #pragma once
-#include <iostream>
+#include <iostream> // Probably don't need this
 #include <vector>
-#include "book.h"
 #include "rapidcsv.h"
+#include "book.h"
 
 
 using namespace std;

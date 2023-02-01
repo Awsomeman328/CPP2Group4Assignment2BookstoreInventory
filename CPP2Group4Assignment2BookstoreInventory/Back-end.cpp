@@ -1,15 +1,11 @@
-#include <iostream>
-#include <vector>
-#include "Book.h"
-#include "rapidcsv.h"
-#include "Back-end.h"
+#include "back-end.h"
 
 using namespace std;
 
 bool userExists(string username, string password) {
 	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
 	for (int i = 0; i < doc.GetRowCount(); i++) {
-		if (doc.GetCell<string>("Username", i) == username && doc.GetCell<string>("Password", i) == password) {
+		if (doc.GetRowName(i) == username && doc.GetCell<string>("Password", i) == password) {
 			return true;
 			cout << "Welcome " << username << "!" << endl;
 		}

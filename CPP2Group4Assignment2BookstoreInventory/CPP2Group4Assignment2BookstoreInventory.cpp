@@ -1,9 +1,9 @@
-#include "Book.h"
 #include <iostream>
-#include "Back-end.h"
 #include <vector>
 #include <string>
-#include "rapidcsv.h"
+#include "rapidcsv.h" // Probably Don't need this
+#include "Book.h"
+#include "back-end.h"
 
 using namespace std;
 
@@ -105,23 +105,5 @@ int main()
             searchResults.clear();
     }
 
-    
-
-
-
-
-	// string fileName = "..\\books.csv";
-	// vector<Book> books = readData("e");
-
-	// cout << "Book Inventory:" << endl;
-	// /*for (int i = 0; i < books.size(); i++) {
-	// 	cout << "Title: " << books[i].getTitle() << endl;
-	// 	cout << "Author: " << books[i].getAuthor() << endl;
-	// 	cout << "Publisher: " << books[i].getPublisher() << endl;
-	// 	cout << "Year: " << books[i].getYear() << endl;
-	// 	cout << "ISBN: " << books[i].getISBN() << endl;
-	// 	cout << endl;
-	// }*/
-	// cout << "Total matches found: " << books.size() << endl;
 	return 0;
 }
