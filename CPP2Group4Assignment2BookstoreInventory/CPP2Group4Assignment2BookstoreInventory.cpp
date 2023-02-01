@@ -17,10 +17,12 @@ int main()
     vector<Book> database;
     vector<Book> searchResults;
     bool validLogin;
-    string input;
+    string searchInput;
     size_t maxResults = 50;
     unsigned int lastLine = 0;
     unsigned int endOfDoc = doc.GetRowCount();
+    bool continueLoop = true;
+    string continueInput;
 
     //TODO: Replace "login check function" with actual function and test
     //login process
@@ -47,49 +49,61 @@ int main()
     //     }
     // } while (!validLogin);
     
-
-    //search bar functionality
-    cout << "Enter a book title: ";
-    cin >> input;
-
-    while(lastLine < endOfDoc )
+    while (continueLoop)
     {
-        database = readData(input, lastLine, maxResults);
-        
-        if (!database.empty())
+        //search bar functionality
+        cout << "Enter a book title: ";
+        cin >> searchInput;
+
+        while (lastLine < endOfDoc)
         {
-            for (unsigned short int i = 0; i < database.size(); i++)
+            database = readData(searchInput, lastLine, maxResults);
+            if (!database.empty())
             {
-                searchResults.push_back(database.at(i));
+                for (unsigned short int i = 0; i < database.size(); i++)
+                {
+                    searchResults.push_back(database.at(i));
+                }
+                database.clear();
             }
-            database.clear();
+
+            //failsafe to prevent a vector of thousands of objects eating all memory
+            if (searchResults.size() > 100)
+            {
+                cout << "Too many results. Terminating search." << endl;
+                break;
+            }
+
+
+            lastLine += (unsigned int)maxResults;
         }
 
-        if (searchResults.size() > 100)
+        //display search results
+
+        //No hits on search
+        if (searchResults.empty())
         {
-            cout << "Too many results. Terminating search." << endl;
+            cout << "No records were found matching search term '" << searchInput << "'" << endl;
         }
-        
-
-        lastLine += (unsigned int) maxResults;
-    }
-
-    //display search results
-
-    if (searchResults.empty())
-    {
-        cout << "No records were found matching search term '" << input << "'" << endl;
-    }
-    else
-    {
-        for (unsigned int i = 0; i < searchResults.size(); i++)
+        //display results
+        else
         {
-            cout << "Book Title: " << searchResults.at(i).getTitle() << endl;
-            cout << "Author: " << searchResults.at(i).getAuthor() << endl;
-            cout << "Publisher: " << searchResults.at(i).getPublisher() << endl;
-            cout << "Publication Year: " << searchResults.at(i).getYear() << endl;
+            for (unsigned int i = 0; i < searchResults.size(); i++)
+            {
+                cout << "Book Title: " << searchResults.at(i).getTitle() << endl;
+                cout << "Author: " << searchResults.at(i).getAuthor() << endl;
+                cout << "Publisher: " << searchResults.at(i).getPublisher() << endl;
+                cout << "Publication Year: " << searchResults.at(i).getYear() << endl << endl;
+            }
+
         }
-         
+        cout << "Press 'X' to quit, or any other key to continue. ";
+        cin >> continueInput;
+
+        if (toupper(continueInput.at(0)) == 'X')
+            continueLoop = false;
+        else
+            searchResults.clear();
     }
 
     
