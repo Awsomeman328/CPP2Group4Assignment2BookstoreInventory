@@ -3,18 +3,17 @@
 #include "book.h"
 #include "rapidcsv.h"
 
-
 using namespace std;
+
+
 
 vector<Book> readData(string fileName) {
 	rapidcsv::Document doc(fileName, rapidcsv::LabelParams(0, 0));
 
-	int numRows = doc.GetRowCount();
-	int numCols = doc.GetColumnCount();
 
 	vector<Book> books;
 
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < 22; i++) {
 		Book b;
 		b.setISBN(doc.GetRowName(i));
 		b.setTitle(doc.GetCell<string>("Book-Title", i));
@@ -23,16 +22,32 @@ vector<Book> readData(string fileName) {
 		b.setPublisher(doc.GetCell<string>("Publisher", i));
 		books.push_back(b);
 	}
-
 	return books;
 }
 
+
+bool userExists(string username, string password) {
+	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
+	for (int i = 0; i < doc.GetRowCount(); i++) {
+		if (doc.GetCell<string>("Username", i) == username && doc.GetCell<string>("Password", i) == password) {
+			return true;
+			cout << "Welcome " << username << "!" << endl;
+		}
+		else
+			return false;
+	}
+}
+
+
+
 int main() {
+	
 	string fileName = "..\\books.csv";
 	vector<Book> books = readData(fileName);
 
 	cout << "Book Inventory:" << endl;
 	for (int i = 0; i < books.size(); i++) {
+		cout << "Book: " << i + 1 << endl;
 		cout << "Title: " << books[i].getTitle() << endl;
 		cout << "Author: " << books[i].getAuthor() << endl;
 		cout << "Publisher: " << books[i].getPublisher() << endl;
@@ -40,5 +55,19 @@ int main() {
 		cout << "ISBN: " << books[i].getISBN() << endl;
 		cout << endl;
 	}
+	
+	string username, password;
+	cout << "Enter your username: ";
+	cin >> username;
+	cout << "Enter your password: ";
+	cin >> password;
+
+	if (userExists(username, password)) {
+		cout << "Access granted." << endl;
+	}
+	else {
+		cout << "Access denied." << endl;
+	}
+	
 	return 0;
 }
