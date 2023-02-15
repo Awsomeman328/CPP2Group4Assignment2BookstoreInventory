@@ -1,4 +1,6 @@
 #include "backEnd.h"
+#include <fstream>
+#include <cctype>
 
 using namespace std;
 
@@ -153,4 +155,91 @@ vector<Book> searchBooksByTitle(string bookTitleToSearch, Book bookToStartFrom, 
 	filteredBooks.shrink_to_fit();
 
 	return filteredBooks;
+}
+
+//functions to add book to inventory
+void addBookToInventory(string ISBN, string bookTitle, string bookAuthor, string pubYear, string publisher)
+{
+	ofstream inventory;
+	bool validInput = true;
+	inventory.open("..\\books.csv");
+	if (inventory.is_open())
+	{
+		if (!validateISBN)
+		{
+			validInput = false;
+		};
+	}
+	else
+		cout << "Unable to open file" << endl;
+	inventory.close();
+}
+
+bool validateISBN(string ISBN)
+{
+	bool validISBN = true;
+
+	if (ISBN.size() != 13)
+		validISBN = false;
+	for (unsigned short int i = 0; i < ISBN.size(); i++)
+	{
+		if (!isdigit(ISBN.at(i)))
+			validISBN = false;
+	}
+	return validISBN;
+}
+
+bool validateTitle(string title)
+{
+	bool validTitle = true;
+
+	if (title.empty())
+		validTitle = false;
+
+	for (unsigned short int i = 0; i < title.size(); i++)
+	{
+		if (!isalnum(title.at(i)))
+			validTitle = false;
+	}
+	return validTitle;
+}
+
+bool validateAuthor(string author)
+{
+	bool validAuthor = true;
+
+	if (author.empty())
+		validAuthor = false;
+
+	for (unsigned short int i = 0; i < author.size(); i++)
+	{
+		if (!isalpha(author.at(i)))
+			validAuthor = false;
+	}
+	return validAuthor;
+}
+
+bool validatePubYear(string pubYear)
+{
+	bool validPubYear = true;
+
+	if (pubYear.empty())
+		validPubYear = false;
+
+	for (unsigned short int i = 0; i < pubYear.size(); i++)
+	{
+		if (!isdigit(pubYear.at(i)))
+			validPubYear = false;
+	}
+	return validPubYear;
+}
+
+bool validatePublisher(string publisher)
+{
+	bool validPublisher = true;
+
+	if (publisher.empty())
+		validPublisher = false;
+
+	return validPublisher;
 }
