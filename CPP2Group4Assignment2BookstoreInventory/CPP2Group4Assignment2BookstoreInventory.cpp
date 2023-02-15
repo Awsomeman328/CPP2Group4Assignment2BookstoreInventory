@@ -78,6 +78,8 @@ int main() {
         Menu subMenu;
         subMenu.setMenuName("Book List Editing Menu");
 
+        vector<Book> usersBookList;
+
         mainMenu.addItem("Search the Database", [&input]() { // Perform action for Search the Database
             cout << "Searching the Database\n";
             vector<Book> searchResults;
@@ -209,8 +211,8 @@ int main() {
             input = trim(input);
 
             // Input validation
-            while (input.length() != 13 || !isNumber(input)) {
-                cout << "Invalid input. Book ISBN must be exactly 13 numerical digits" << ".\n";
+            while (!isNumber(input)) { // input.length() != 13 || 
+                cout << "Invalid input. Book ISBN must have only numerical digits.\n";
                 cout << "Enter the book's ISBN: ";
                 getline(cin, input);
                 input = trim(input);
@@ -323,30 +325,27 @@ int main() {
             subMenu.run();
         });
 
-        subMenu.addItem("Add a book to your \"book list\" from the inventory", [&input]() {
+        subMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &usersBookList]() {
             cout << "Adding a book to your \"book list\" from the inventory\n"; // Don't forget to also remove the book from the inventory
 
-            // Get Book ISBN
-            cout << "Enter the ISBN of the book you wish to add: ";
+            // Get Book Title
+            cout << "Enter a book title: ";
             getline(cin, input);
 
             // Remove any leading or trailing white space
             input = trim(input);
 
             // Input validation
-            while (input.length() != 13 || !isNumber(input)) {
-                cout << "Invalid input. Book ISBN must be exactly 13 numerical digits" << ".\n";
-                cout << "Enter the ISBN of the book you wish to add: ";
+            while (input.empty()) {
+                cout << "Invalid input. Book title cannot be empty" << ".\n";
+                cout << "Enter a book title: ";
                 getline(cin, input);
                 input = trim(input);
             }
 
-            // Search the database/inventory for the given ISBN.
+            // Search the database/inventory for the given Title.
             cout << "\nLoading results, please wait ... \n";
-
-            vector<Book> searchResults;// = searchBooksByISBN(input); // I'm assuming that this is a function that will be avalible for us to use,
-            // but if that's not the case then this will have to change
-            cout << "wait, ... this hasn't been implemented yet! \n";
+            vector<Book> searchResults = searchBooksByTitle(input, 0, 100);
 
             // Display search results
             //No matches on search
@@ -367,15 +366,16 @@ int main() {
                 cout << "Author: " << searchResults.at(0).getAuthor() << "\n";
                 cout << "Publisher: " << searchResults.at(0).getPublisher() << "\n";
                 cout << "Publication Year: " << searchResults.at(0).getYear() << "\n";
-                cout << "\n"; // Get Book ISBN
+                cout << "\n";
                 cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+                //cin.ignore();
                 getline(cin, input);
 
                 // Remove any leading or trailing white space
                 input = trim(input);
 
                 // Input validation
-                while (input.empty() && ( input != "Yes" || input != "No") ) {
+                while (input != "Yes" && input != "No") {
                     cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
                     cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
                     getline(cin, input);
@@ -386,49 +386,74 @@ int main() {
             if (input == "Yes")
             {
                 // Add the book in searchResults.at(0) to their "book list" (should be stored in the back end)
+                usersBookList.push_back(searchResults.at(0));
+                
                 // Once the book is added, delete the row that contains that book in the .csv file.
-                cout << "wait, ... this hasn't been implemented yet! \n";
+                deleteBookFromInventory(usersBookList.at(0).getTitle());
+                cout << "Book added!\n";
             }
         });
-        subMenu.addItem("Print your \"book list\" to the screen", []() { // Don't forget to include the total number of items in the list
+        subMenu.addItem("Print your \"book list\" to the screen", [&usersBookList]() { // Don't forget to include the total number of items in the list
             cout << "Printing your \"book list\" to the screen\n";
+            cout << "\n";
 
-            // Get book list.
-
-            cout << "wait, ... this hasn't been implemented yet! \n";
-            // Iterate through the book list and print out each book's ISBN, Title, and Author
-            /*
-            for (unsigned int i = 0; i < ???.size(); i++)
+            // Get book list and Iterate through the book list and print out each book's ISBN, Title, and Author
+            for (unsigned int i = 0; i < usersBookList.size(); i++)
             {
-                cout << "ISBN: " << ???.at(i).getISBN() << "\n";
-                cout << "Title: " << ???.at(i).getTitle() << "\n";
-                cout << "Author: " << ???.at(i).getAuthor() << "\n";
+                cout << "ISBN: " << usersBookList.at(i).getISBN() << "\n";
+                cout << "Title: " << usersBookList.at(i).getTitle() << "\n";
+                cout << "Author: " << usersBookList.at(i).getAuthor() << "\n";
                 cout << "\n";
             }
-            */
+            
             // After printing all the books to the screen, print out the total number of items in the book list
-            // cout << "Total number of books: " << ???.length() << "\n";
+            cout << "Total number of books: " << usersBookList.size() << "\n";
             cout << "\n";
         });
-        subMenu.addItem("Export your \"book list\" to a .csv file", []() {
+        subMenu.addItem("Export your \"book list\" to a .csv file", [&usersBookList]() {
             cout << "Exporting your \"book list\" to a .csv file\n";
 
-            // Get the book list.
-            cout << "wait, ... this hasn't been implemented yet! \n";
-
-            // Create a new .csv file
-
-            // Iterate through the book list and write each book to the new .csv file 
-            // The ordering of the columns is: ISBN, Book-Title, Book-Author, Year-Of-Publication, Publisher
+            exportBookList(usersBookList);
+            cout << "Books Exported to external File!\n";
 
             // After saving the external file with all of the books from the books list, remove all of the books from the books list.
-
+            usersBookList.clear();
+            cout << "User book list cleared!\n";
         });
 
         mainMenu.run();
 
         //If there are any books left in the user's "book list" then add them back to the .csv database/inventory and remove them from the list.
-
+        if (usersBookList.size() > 0) {
+            for (unsigned int i = 0; i < usersBookList.size(); i++)
+            {
+                if (!usersBookList.at(i).getDescription().empty() && !usersBookList.at(i).getGenre().empty())
+                {
+                    Book bookToAdd(
+                        usersBookList.at(i).getISBN(),
+                        usersBookList.at(i).getTitle(),
+                        usersBookList.at(i).getAuthor(),
+                        usersBookList.at(i).getYear(),
+                        usersBookList.at(i).getPublisher(),
+                        usersBookList.at(i).getDescription(),
+                        usersBookList.at(i).getGenre()); // DONE add desc and genre to this object.
+                    cout << "Adding book back to Inventory, ..." << ".\n";
+                    addBookToInventory(bookToAdd);
+                }
+                else
+                {
+                    Book bookToAdd(
+                        usersBookList.at(i).getISBN(),
+                        usersBookList.at(i).getTitle(),
+                        usersBookList.at(i).getAuthor(),
+                        usersBookList.at(i).getYear(),
+                        usersBookList.at(i).getPublisher());
+                    cout << "Adding book back to Inventory, ..." << ".\n";
+                    addBookToInventory(bookToAdd);
+                }
+            }
+            usersBookList.clear();
+        }
     }
 
     return 0;
