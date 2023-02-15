@@ -11,10 +11,6 @@
 #include <boost/algorithm/hex.hpp>
 #include "hash_password.h"
 
-
-
->>>>>>> Stashed changes
-
 using namespace std;
 
 int main() {
@@ -57,6 +53,7 @@ int main() {
             input = trim(input);
         }
         // Need to encrypt input first, then set password equal to it.
+        input = hash_password(input);
         password = input;
 
         // Validate Login Information
@@ -346,7 +343,6 @@ int main() {
             {
                 cout << "No records were found matching search term \"" << input << "\"\n";
             }
-						password = hash_password(input);
             //display results and check if there are any more results
             else if (searchResults.size() > 1)
             {
