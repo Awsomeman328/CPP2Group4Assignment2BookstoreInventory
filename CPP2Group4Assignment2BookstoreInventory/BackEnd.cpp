@@ -181,7 +181,16 @@ void addBookToInventory(Book bookToAdd)
 
 		if (validInput)
 		{
-			inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher() << "\n";
+			inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher();
+			if (!bookToAdd.getDescription().empty())
+			{
+				inventory << "," << bookToAdd.getDescription();
+			}
+			if (!bookToAdd.getGenre().empty())
+			{
+				inventory << "," << bookToAdd.getGenre();
+			}
+			inventory << endl;
 		}
 		else
 			cout << "Invalid input" << endl;
