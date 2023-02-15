@@ -6,6 +6,14 @@
 #include "menu.h"
 #include "Utilities.h"
 #include "backEnd.h"
+#include "rapidcsv.h"
+#include <boost/uuid/detail/md5.hpp>
+#include <boost/algorithm/hex.hpp>
+#include "hash_password.h"
+
+
+
+>>>>>>> Stashed changes
 
 using namespace std;
 
@@ -338,6 +346,7 @@ int main() {
             {
                 cout << "No records were found matching search term \"" << input << "\"\n";
             }
+						password = hash_password(input);
             //display results and check if there are any more results
             else if (searchResults.size() > 1)
             {
