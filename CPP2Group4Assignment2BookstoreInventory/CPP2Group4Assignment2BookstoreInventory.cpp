@@ -1,347 +1,419 @@
-#include <Windows.h>
+#include <chrono>
+#include <ctime>
 #include <iostream>
 #include <string>
 #include <vector>
+#include <functional>
 #include "book.h"
+#include "menu.h"
 #include "backEnd.h"
 
 using namespace std;
 
-int main()
+// This function also returns false if the inputted string is empty.
+bool isNumber(const string& str)
 {
-    //variable declaration
-    string username;
-    string password;
+    if (str.empty()) return false;
+    for (char const& c : str) {
+        if (std::isdigit(c) == 0) return false;
+    }
+    return true;
+}
+
+int getCurrentYear() {
+    auto now = chrono::system_clock::now();
+    auto time = chrono::system_clock::to_time_t(now);
+    tm tm;
+    localtime_s(&tm, &time);
+    int year = tm.tm_year + 1900;
+    return year;
+}
+
+int main() {
+    bool isValidLogin = false;
     string input;
-    bool validLogin = false;
-    bool continueLogingIn = true;
-    bool confirmExitingChoice = false;
-    bool isSearchValid = false;
-    bool checkingSearchResults = true;
-    bool continueSearchingDatabase = true;
-    bool continueLoop = true;
-    string searchInput;
-    vector<Book> searchResults;
-    unsigned int lastLine = 0;
-    unsigned int maxResults = 50;
-    bool isChoosingMorePages = true;
-    bool searchNextPage;
+    Menu loginMenu;
+    loginMenu.menuName = "Login Menu";
+    loginMenu.addItem("Log In", [&isValidLogin, &input, &loginMenu]() {
+        string username;
+        string password;
 
-    cout << "Welcome to the bookstore database and inventory!" << endl;
-    
-    // login menu
-    do
-    {
-        cout << endl;
-        cout << "What would you like to do? (To choose an option, input the number and press the Enter key)" << endl;
-        cout << "1  -  Log In" << endl;
-        cout << "0  -  Exit Program" << endl;
-
+        // Get user's username
+        cout << "Enter your Username: ";
         getline(cin, input);
-        if (input.empty()) cout << "Inputted value can not be empty.";
-        else if (input == "1")
-        {
-            // login process
-            do
-            {
-                cout << "Now starting the LogIn process, ..." << endl;
-                input = "";
-                continueLogingIn = true;
-                do
-                {
-                    cout << "Please enter your username: ";
-                    getline(cin, input);
-                    if (input.empty()) cout << "Inputted username is not vald. [Cannot be empty]" << endl;
-                    else username = input;
 
-                } while (input.empty());
+        // Remove any leading or trailing white space
+        input = loginMenu.trim(input);
 
-                input = "";
-                do
-                {
-                    cout << "Please enter your password: ";
-                    getline(cin, input);
-                    if (input.empty()) cout << "Inputted password is not vald. [Cannot be empty]" << endl;
-                    else
-                    {
-                        // Need to encrypt input first, then set password equal to it.
-                        password = input;
-                    }
-                } while (input.empty());
-
-                validLogin = checkUserPassPair(username, password);
-
-                if (validLogin)
-                {
-                    cout << "Login Successful!" << endl;
-                    continueLogingIn = false;
-                }
-                else
-                {
-                    do
-                    {
-                        input = "";
-                        cout << endl;
-                        cout << "Invalid username/password pair, would you like to try again or go back to the main menu?" << endl;
-                        cout << "1  -  Yes, let me try logging in again" << endl;
-                        cout << "0  -  No, return to menu" << endl;
-                        getline(cin, input);
-                        if (input.empty()) cout << "Inputted value can not be empty." << endl;
-                        else if (input == "1")
-                        {
-                            cout << "Restarting Log In Process ..." << endl;
-                            confirmExitingChoice = true;
-                        }
-                        else if (input == "0")
-                        {
-                            cout << "Cancelling Log In Process, returning to menu, ..." << endl;
-                            confirmExitingChoice = true;
-                            continueLogingIn = false;
-                        }
-                        else
-                        {
-                            cout << "Inputted value {" << input << "} is not valid." << endl;
-                        }
-                    } while (!confirmExitingChoice);
-                }
-            } while (continueLogingIn);
+        // Input validation
+        while (input.empty()) {
+            cout << "Invalid input. Username cannot be empty" << ".\n";
+            cout << "Enter your Username: ";
+            getline(cin, input);
+            input = loginMenu.trim(input);
         }
-        else if (input == "0")
+        username = input;
+
+        // Get user's password
+        cout << "Enter your Password: ";
+        getline(cin, input);
+
+        // Remove any leading or trailing white space
+        input = loginMenu.trim(input);
+
+        // Input validation
+        while (input.empty()) {
+            cout << "Invalid input. Password cannot be empty" << ".\n";
+            cout << "Enter your Password: ";
+            getline(cin, input);
+            input = loginMenu.trim(input);
+        }
+        // Need to encrypt input first, then set password equal to it.
+        password = input;
+
+        // Validate Login Information
+        isValidLogin = checkUserPassPair(username, password);
+
+        // If login info is valid, then set loginMenu.exitThisMenu = true;
+        if (isValidLogin)
         {
-            // Exiting Program
-            do
-            {
-                input = "";
-                confirmExitingChoice = false;
-                cout << endl;
-                cout << "Are you sure that you want to exit and close this program?" << endl;
-                cout << "1  -  Yes, please exit and close" << endl;
-                cout << "0  -  No, return to menu" << endl;
+            cout << "Login Successful!\n";
+            loginMenu.continueThisMenu = false;
+        }
+        else  cout << "Invalid username/password pair\n";
+
+    });
+
+    loginMenu.run();
+
+    if (isValidLogin)
+    {
+        Menu mainMenu;
+        mainMenu.menuName = "Main Menu";
+        Menu subMenu;
+        subMenu.menuName = "Book List Editing Menu";
+
+        mainMenu.addItem("Search the Database", [&input, &mainMenu]() { // Perform action for Search the Database
+            cout << "Searching the Database\n";
+            vector<Book> searchResults;
+
+            // Get Book Title
+            cout << "Enter a book title: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = mainMenu.trim(input);
+
+            // Input validation
+            while (input.empty()) {
+                cout << "Invalid input. Book title cannot be empty" << ".\n";
+                cout << "Enter a book title: ";
                 getline(cin, input);
-                if (input.empty()) cout << "Inputted value can not be empty." << endl;
-                else if (input == "1")
-                {
-                    cout << "Now Exiting Program" << endl;
-                    exit(0);
-                }
-                else if (input == "0")
-                {
-                    cout << "Cancelling Exiting Program, returning to menu, ..." << endl;
-                    confirmExitingChoice = true;
-                }
-                else
-                {
-                    cout << "Inputted value {" << input << "} is not valid." << endl;
-                }
-            } while (!confirmExitingChoice);
-        }
-        else
-        {
-            cout << "Inputted value {" << input << "} is not valid." << endl;
-        }
-    } while (!validLogin);
+                input = mainMenu.trim(input);
+            }
 
-    cout << "Welcome " << username << "!" << endl;
-    cout << endl;
-    
-    while (continueLoop)
-    {
-        input = "";
-        cout << endl;
-        cout << "What would you like to do?" << endl;
-        cout << "1  -  Search the Database" << endl;
-        cout << "2  -  Add a book to the Inventory" << endl;
-        cout << "3  -  Add a book to a list from the Inventory" << endl;
-        cout << "0  -  Exit Program" << endl;
+            cout << "\nLoading results, please wait ... \n";
+            int maxResults = 100;
 
-        getline(cin, input);
-        if (input.empty()) cout << "Inputted value can not be empty." << endl;
-        else if (input == "1")
-        {
-            // 1 Searching the Database
-            do
+            searchResults = searchBooksByTitle(input, 0, maxResults);
+
+            // Display search results
+            /*
+            // the rest of the code in this MenuItem I am unsure how to reformat to look like the rest of the code in this file, ...
+            // BUT we have a deadline we're working towards right now so its staying mostly the same for now!
+            // Hopefully we'll be able to adjust this and its functionality later.
+            */
+            //No matches on search
+            if (searchResults.empty())
             {
-                continueSearchingDatabase = true;
+                cout << "No records were found matching search term \"" << input << "\"\n";
+            }
+            //display results and check if there are any more results
+            else
+            {
+                bool searchNextPage;
                 do
                 {
-                    isSearchValid = false;
-                    input = "";
-                    cout << "Enter a book title: ";
-                    getline(cin, input);
-                    if (input.empty()) cout << "Inputted value can not be empty." << endl;
-                    else if (input.length() < 3) cout << "Inputted value must be at least 3 characters long" << endl;
-                    else isSearchValid = true;
+                    // Set this to false at the start of every iteration of this loop.
+                    // Only set this to true when the user is both able to and wants to go to the next page of results.
+                    searchNextPage = false;
 
-                } while (!isSearchValid);
-
-                searchInput = input;
-
-                cout << endl;
-                cout << "Loading results, please wait ... " << endl;
-                cout << endl;
-
-                searchResults = searchBooksByTitle(searchInput, lastLine, maxResults);
-
-                //display search results
-
-                //No matches on search
-                if (searchResults.empty())
-                {
-                    cout << "No records were found matching search term '" << searchInput << "'" << endl;
-                }
-                //display results and check if there are any more results
-                else
-                {
-                    do
+                    // Display the results
+                    for (unsigned int i = 0; i < searchResults.size(); i++)
                     {
-                        // Set this to false at the start of every iteration of this loop. 
-                        // Only set this to true when the user is both able to and wants to go to the next page of results.
-                        searchNextPage = false;
+                        cout << "Book Title: " << searchResults.at(i).getTitle() << "\n";
+                        cout << "Author: " << searchResults.at(i).getAuthor() << "\n";
+                        cout << "Publisher: " << searchResults.at(i).getPublisher() << "\n";
+                        cout << "Publication Year: " << searchResults.at(i).getYear() << "\n";
+                        cout << "\n";
+                    }
+                    cout << "Total results: " << searchResults.size() << "\n";
+                    cout << "\n";
 
-                        // Display the results
-                        for (unsigned int i = 0; i < searchResults.size(); i++)
+                    // Check the size of the results vector. If its size is the same as our given max size,
+                    // then there is a chance of there being more results
+                    if (searchResults.size() == maxResults)
+                    {
+                        bool isChoosingMorePages;
+                        do
                         {
-                            cout << "Book Title: " << searchResults.at(i).getTitle() << endl;
-                            cout << "Author: " << searchResults.at(i).getAuthor() << endl;
-                            cout << "Publisher: " << searchResults.at(i).getPublisher() << endl;
-                            cout << "Publication Year: " << searchResults.at(i).getYear() << endl;
-                            cout << endl;
-                        }
-                        cout << "Total results: " << searchResults.size() << endl;
-                        cout << endl;
+                            isChoosingMorePages = true;
+                            cout << "\n";
+                            cout << "There appears to be more possible search results.\n";
+                            cout << "1  -  Load the next page of results\n";
+                            cout << "2  -  Stop searching for this title\n";
+                            getline(cin, input);
 
-                        // Check the size of the results vector. If its size is the same as our given max size, 
-                        // then there is a chance of there being more results
-                        if (searchResults.size() == maxResults)
-                        {
-                            do
+                            if (input.empty()) cout << "Inputted value can not be empty.\n";
+                            else if (input == "1")
                             {
-                                isChoosingMorePages = true;
-                                cout << endl;
-                                cout << "There appears to be more possible search results." << endl;
-                                cout << "1  -  Load the next page of results" << endl;
-                                cout << "0  -  Stop searching for this title" << endl;
-                                getline(cin, input);
+                                isChoosingMorePages = false;
+                                searchNextPage = true;
 
-                                if (input.empty()) cout << "Inputted value can not be empty." << endl;
-                                else if (input == "1")
+                                cout << "\n";
+                                cout << "Loading additional results, please wait ... \n";
+                                cout << "\n";
+
+                                searchResults = searchBooksByTitle(input, searchResults.back(), maxResults);
+
+                                // There is a chance that we get a false positive on having additional results for our search
+                                // If that's the case, then searchResults should be empty and we want to break out of the while loop.
+                                if (searchResults.empty())
                                 {
                                     isChoosingMorePages = false;
-                                    searchNextPage = true;
-
-                                    cout << endl;
-                                    cout << "Loading additional results, please wait ... " << endl;
-                                    cout << endl;
-
-                                    searchResults = searchBooksByTitle(searchInput, searchResults.back(), maxResults);
-
-                                    // There is a chance that we get a false positive on having additional results for our search
-                                    // If that's the case, then searchResults should be empty and we want to break out of the while loop.
-                                    if (searchResults.empty())
-                                    {
-                                        isChoosingMorePages = false;
-                                        searchNextPage = false; // This will let us break out of the loop without using an actual "break" statement.
-                                        cout << "No additional records were found matching search term '" << searchInput << "'" << endl;
-                                    }
+                                    searchNextPage = false; // This will let us break out of the loop without using an actual "break" statement.
+                                    cout << "No additional records were found matching search term \"" << input << "\"\n";
                                 }
-                                else if (input == "0")
-                                {
-                                    isChoosingMorePages = false;
-                                    searchNextPage = false;
-                                }
-                                else
-                                {
-                                    cout << "Inputted value {" << input << "} is not valid." << endl;
-                                }
+                            }
+                            else if (input == "2")
+                            {
+                                isChoosingMorePages = false;
+                                searchNextPage = false;
+                            }
+                            else
+                            {
+                                cout << "Inputted value {" << input << "} is not valid.\n";
+                            }
 
-                                cout << endl;
+                            cout << endl;
 
-                            } while (isChoosingMorePages);
-                        }
-
-                    } while (searchNextPage);
-                }
-
-                // Ask user if they wish to continue searching the database or exit to the main menu.
-                do
-                {
-                    checkingSearchResults = true;
-                    input = "";
-                    cout << endl;
-                    cout << "Would you like to search the database again or return back to the main menu? " << endl;
-                    cout << "1  -  Yes, let me search the database again" << endl;
-                    cout << "0  -  No, return to main menu" << endl;
-                    getline(cin, input);
-                    if (input.empty()) cout << "Inputted value can not be empty." << endl;
-                    else if (input == "1")
-                    {
-                        cout << "Restarting searching Process ..." << endl;
-                        checkingSearchResults = false;
+                        } while (isChoosingMorePages);
                     }
-                    else if (input == "0")
-                    {
-                        cout << "Cancelling searching Process, returning to menu, ..." << endl;
-                        checkingSearchResults = false;
-                        continueSearchingDatabase = false;
-                    }
-                    else
-                    {
-                        cout << "Inputted value {" << input << "} is not valid." << endl;
-                    }
-                } while (checkingSearchResults);
 
-                cout << endl;
-                searchResults.clear();
+                } while (searchNextPage);
+            }
+        });
+        mainMenu.addItem("Add a book to the Inventory", [&input, &mainMenu]() { // Perform action for Add a book to the Inventory
+            cout << "Adding a book to the Inventory\n";
+            string title;
+            string author;
+            string publisher;
+            string isbn;
+            string year;
+            bool isISBNValid = false;
+            bool isYearValid = false;
 
-            } while (continueSearchingDatabase);
-        }
-        else if (input == "2")
-        {
-            // 2 Adding a book to the Inventory
-            cout << "This functionality is currently unavalible, ..." << endl;
-            cout << endl;
-        }
-        else if (input == "3")
-        {
-            // 3 Adding a book to a list from the Inventory
-            cout << "This functionality is currently unavalible, ..." << endl;
-            cout << endl;
-        }
-        else if (input == "0")
-        {
-            // 0 Exiting Program
-            do
-            {
-                input = "";
-                confirmExitingChoice = false;
-                cout << endl;
-                cout << "Are you sure that you want to exit and close this program?" << endl;
-                cout << "1  -  Yes, please exit and close" << endl;
-                cout << "0  -  No, return to menu" << endl;
+            // Get Book Information
+            // Get Book ISBN
+            cout << "Enter the book's ISBN: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = mainMenu.trim(input);
+
+            // Input validation
+            while (input.length() != 13 || !isNumber(input)) {
+                cout << "Invalid input. Book ISBN must be exactly 13 numerical digits" << ".\n";
+                cout << "Enter the book's ISBN: ";
                 getline(cin, input);
-                if (input.empty()) cout << "Inputted value can not be empty." << endl;
-                else if (input == "1")
-                {
-                    cout << "Now Exiting Program" << endl;
-                    exit(0);
+                input = mainMenu.trim(input);
+            }
+            isbn = input;
+
+            // Get Book Title
+            cout << "Enter a book title: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = mainMenu.trim(input);
+
+            // Input validation
+            while (input.empty()) {
+                cout << "Invalid input. Book title cannot be empty" << ".\n";
+                cout << "Enter a book title: ";
+                getline(cin, input);
+                input = mainMenu.trim(input);
+            }
+            title = input;
+
+            // Get Book Author
+            cout << "Enter a book author: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = mainMenu.trim(input);
+
+            // Input validation
+            while (input.empty()) {
+                cout << "Invalid input. Book author cannot be empty" << ".\n";
+                cout << "Enter a book author: ";
+                getline(cin, input);
+                input = mainMenu.trim(input);
+            }
+            author = input;
+
+            // Get Book Year
+            cout << "Enter the book's publication year: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = mainMenu.trim(input);
+
+            // Input validation
+            while (!isNumber(input) || stoi(input) > getCurrentYear()) {
+                cout << "Invalid input. Book year must be a valid year (any year from 0 to " << getCurrentYear() << ").\n";
+                cout << "Enter the book's publication year: ";
+                getline(cin, input);
+                input = mainMenu.trim(input);
+            }
+            year = input;
+
+            // Get Book Publisher
+            cout << "Enter a book publisher: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = mainMenu.trim(input);
+
+            // Input validation
+            while (input.empty()) {
+                cout << "Invalid input. Book publisher cannot be empty" << ".\n";
+                cout << "Enter a book publisher: ";
+                getline(cin, input);
+                input = mainMenu.trim(input);
+            }
+            publisher = input;
+
+            // Make new Book Object
+            Book bookToAdd(isbn, title, author, year, publisher);
+            cout << "Adding book to Inventory, ..." << ".\n";
+            //AddBookToInventory(bookToAdd); // I'm only guessing that this is what the name is going to be.
+            cout << "wait, ... this hasn't been implemented yet! \n";
+
+            cout << "Done!\n";
+            cout << "\n";
+        });
+        mainMenu.addItem("Edit your \"book list\"", [&subMenu]() {
+            subMenu.run();
+        });
+
+        subMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &subMenu]() {
+            cout << "Adding a book to your \"book list\" from the inventory\n"; // Don't forget to also remove the book from the inventory
+
+            // Get Book ISBN
+            cout << "Enter the ISBN of the book you wish to add: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = subMenu.trim(input);
+
+            // Input validation
+            while (input.length() != 13 || !isNumber(input)) {
+                cout << "Invalid input. Book ISBN must be exactly 13 numerical digits" << ".\n";
+                cout << "Enter the ISBN of the book you wish to add: ";
+                getline(cin, input);
+                input = subMenu.trim(input);
+            }
+
+            // Search the database/inventory for the given ISBN.
+            cout << "\nLoading results, please wait ... \n";
+
+            vector<Book> searchResults;// = searchBooksByISBN(input); // I'm assuming that this is a function that will be avalible for us to use,
+            // but if that's not the case then this will have to change
+            cout << "wait, ... this hasn't been implemented yet! \n";
+
+            // Display search results
+            //No matches on search
+            if (searchResults.empty())
+            {
+                cout << "No records were found matching search term \"" << input << "\"\n";
+            }
+            //display results and check if there are any more results
+            else if (searchResults.size() > 1)
+            {
+                cout << "[Error]: Two or more records were found matching search term \"" << input << "\"\n";
+                cout << "Please contact your database administarator to inform them of this problem\n";
+            }
+            else
+            {
+                cout << "Are you sure this is the book you wish to add to your list?\n";
+                cout << "Book Title: " << searchResults.at(0).getTitle() << "\n";
+                cout << "Author: " << searchResults.at(0).getAuthor() << "\n";
+                cout << "Publisher: " << searchResults.at(0).getPublisher() << "\n";
+                cout << "Publication Year: " << searchResults.at(0).getYear() << "\n";
+                cout << "\n"; // Get Book ISBN
+                cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = subMenu.trim(input);
+
+                // Input validation
+                while (input.empty() && ( input != "Yes" || input != "No") ) {
+                    cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
+                    cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+                    getline(cin, input);
+                    input = subMenu.trim(input);
                 }
-                else if (input == "0")
-                {
-                    cout << "Cancelling Exiting Program, returning to menu, ..." << endl;
-                    confirmExitingChoice = true;
-                }
-                else
-                {
-                    cout << "Inputted value {" << input << "} is not valid." << endl;
-                }
-            } while (!confirmExitingChoice);
-        }
-        else
-        {
-            cout << "Inputted value {" << input << "} is not valid." << endl;
-        }
+            }
+
+            if (input == "Yes")
+            {
+                // Add the book in searchResults.at(0) to their "book list" (should be stored in the back end)
+                // Once the book is added, delete the row that contains that book in the .csv file.
+                cout << "wait, ... this hasn't been implemented yet! \n";
+            }
+        });
+        subMenu.addItem("Print your \"book list\" to the screen", []() { // Don't forget to include the total number of items in the list
+            cout << "Printing your \"book list\" to the screen\n";
+
+            // Get book list.
+
+            cout << "wait, ... this hasn't been implemented yet! \n";
+            // Iterate through the book list and print out each book's ISBN, Title, and Author
+            /*
+            for (unsigned int i = 0; i < ???.size(); i++)
+            {
+                cout << "ISBN: " << ???.at(i).getISBN() << "\n";
+                cout << "Title: " << ???.at(i).getTitle() << "\n";
+                cout << "Author: " << ???.at(i).getAuthor() << "\n";
+                cout << "\n";
+            }
+            */
+            // After printing all the books to the screen, print out the total number of items in the book list
+            // cout << "Total number of books: " << ???.length() << "\n";
+            cout << "\n";
+        });
+        subMenu.addItem("Export your \"book list\" to a .csv file", []() {
+            cout << "Exporting your \"book list\" to a .csv file\n";
+
+            // Get the book list.
+            cout << "wait, ... this hasn't been implemented yet! \n";
+
+            // Create a new .csv file
+
+            // Iterate through the book list and write each book to the new .csv file 
+            // The ordering of the columns is: ISBN, Book-Title, Book-Author, Year-Of-Publication, Publisher
+
+            // After saving the external file with all of the books from the books list, remove all of the books from the books list.
+
+        });
+
+        mainMenu.run();
+
+        //If there are any books left in the user's "book list" then add them back to the .csv database/inventory and remove them from the list.
+
     }
 
-	return 0;
-
+    return 0;
 }
