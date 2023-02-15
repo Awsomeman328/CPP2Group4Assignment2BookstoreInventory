@@ -1,6 +1,7 @@
 #include "backEnd.h"
 #include <fstream>
 #include <cctype>
+#include "Utilities.h"
 
 using namespace std;
 
@@ -158,17 +159,30 @@ vector<Book> searchBooksByTitle(string bookTitleToSearch, Book bookToStartFrom, 
 }
 
 //functions to add book to inventory
-void addBookToInventory(string ISBN, string bookTitle, string bookAuthor, string pubYear, string publisher)
+void addBookToInventory(Book bookToAdd)
 {
 	ofstream inventory;
 	bool validInput = true;
 	inventory.open("..\\books.csv");
 	if (inventory.is_open())
 	{
-		if (!validateISBN)
+		if (!validateISBN(bookToAdd.getISBN()))
 		{
 			validInput = false;
 		};
+		if (!validateTitle(bookToAdd.getTitle()))
+			validInput = false;
+		if (!validateAuthor(bookToAdd.getAuthor()))
+			validInput = false;
+		if (!validatePubYear(bookToAdd.getYear()))
+			validInput = false;
+		if (!validatePublisher(bookToAdd.getPublisher()))
+			validInput = false;
+
+		if (validInput)
+		{
+			inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher();
+		}
 	}
 	else
 		cout << "Unable to open file" << endl;
@@ -223,14 +237,9 @@ bool validatePubYear(string pubYear)
 {
 	bool validPubYear = true;
 
-	if (pubYear.empty())
+	if (!isNumber(pubYear))
 		validPubYear = false;
-
-	for (unsigned short int i = 0; i < pubYear.size(); i++)
-	{
-		if (!isdigit(pubYear.at(i)))
-			validPubYear = false;
-	}
+	
 	return validPubYear;
 }
 
