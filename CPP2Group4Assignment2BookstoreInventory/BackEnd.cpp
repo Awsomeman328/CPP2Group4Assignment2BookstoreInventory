@@ -200,16 +200,32 @@ void addBookToInventory(Book bookToAdd)
 	inventory.close();
 }
 
-void deleteBookFromInventory(string ISBN)
-{
+void deleteBookFromInventory(string Title)
+{/*
 	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
-	doc.RemoveRow(ISBN);
+
+	unsigned int index = 0;
+	size_t found;
+
+	// This loop goes until we reach the end of the file.
+	while (index < doc.GetRowCount())
+	{
+		found = doc.GetCell<string>("Book-Title", index).find(Title);
+		if (found != string::npos)
+		{
+			doc.RemoveRow(index);
+		}
+		index++;
+	}
+	doc.Save();*/
+	cout << "Deleting from the inventory failed, ... \n";
 }
 
 void exportBookList(vector<Book> bookList)
 {
 	ofstream booklist;
 	booklist.open("exportedBookList.csv");
+	booklist << "ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Description,Genre\n";
 
 	for (unsigned short int i = 0; i < bookList.size(); i++)
 	{
@@ -232,8 +248,8 @@ bool validateISBN(string ISBN)
 {
 	bool validISBN = true;
 
-	if (ISBN.size() != 13)
-		validISBN = false;
+	//if (ISBN.size() != 13)
+		//validISBN = false;
 	for (unsigned short int i = 0; i < ISBN.size(); i++)
 	{
 		if (!isdigit(ISBN.at(i)))
