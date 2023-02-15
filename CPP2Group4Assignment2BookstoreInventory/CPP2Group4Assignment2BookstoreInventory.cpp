@@ -190,6 +190,8 @@ int main() {
             string publisher;
             string isbn;
             string year;
+            string desc;
+            string genre;
             bool isISBNValid = false;
             bool isYearValid = false;
 
@@ -274,8 +276,26 @@ int main() {
             }
             publisher = input;
 
+            // Get Book Description
+            cout << "Enter a book description: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            // Since description/plot is an optional value in our database, it is allowed to be empty,
+            // thus no input validation is required.
+            desc = trim(input);
+
+            // Get Book Genre
+            cout << "Enter a book genre: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            // Since genre is an optional value in our database, it is allowed to be empty,
+            // thus no input validation is required.
+            genre = trim(input);
+
             // Make new Book Object
-            Book bookToAdd(isbn, title, author, year, publisher);
+            Book bookToAdd(isbn, title, author, year, publisher); // add desc and genre to this object.
             cout << "Adding book to Inventory, ..." << ".\n";
             //AddBookToInventory(bookToAdd); // I'm only guessing that this is what the name is going to be.
             cout << "wait, ... this hasn't been implemented yet! \n";
