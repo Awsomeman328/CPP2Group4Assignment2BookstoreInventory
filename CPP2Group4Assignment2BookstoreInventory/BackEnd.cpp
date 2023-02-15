@@ -200,6 +200,34 @@ void addBookToInventory(Book bookToAdd)
 	inventory.close();
 }
 
+void deleteBookFromInventory(string ISBN)
+{
+	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
+	doc.RemoveRow(ISBN);
+}
+
+void exportBookList(vector<Book> bookList)
+{
+	ofstream booklist;
+	booklist.open("exportedBookList.csv");
+
+	for (unsigned short int i = 0; i < bookList.size(); i++)
+	{
+		booklist << bookList.at(i).getISBN() << "," << bookList.at(i).getTitle() << "," << bookList.at(i).getAuthor() << "," << bookList.at(i).getYear() << "," << bookList.at(i).getPublisher();
+		if (!bookList.at(i).getDescription().empty())
+		{
+			booklist << "," << bookList.at(i).getDescription();
+		}
+		if (!bookList.at(i).getGenre().empty())
+		{
+			booklist << "," << bookList.at(i).getGenre();
+		}
+		booklist << endl;
+	}
+
+	booklist.close();
+}
+
 bool validateISBN(string ISBN)
 {
 	bool validISBN = true;

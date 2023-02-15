@@ -17,3 +17,5 @@ bool validatePublisher(string publisher);
 void addBookToInventory(string ISBN, string bookTitle, string bookAuthor, string pubYear, string publisher);
 void addBookToInventory(string ISBN, string bookTitle, string bookAuthor, string pubYear, string publisher, string description, string genre);
 void addBookToInventory(Book bookToAdd);
+void deleteBookFromInventory(string ISBN);
+void exportBookList(vector<Book> bookList);
