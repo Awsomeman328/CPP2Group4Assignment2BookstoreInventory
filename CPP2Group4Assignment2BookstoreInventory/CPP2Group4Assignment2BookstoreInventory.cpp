@@ -6,6 +6,10 @@
 #include "menu.h"
 #include "Utilities.h"
 #include "backEnd.h"
+#include "rapidcsv.h"
+#include <boost/uuid/detail/md5.hpp>
+#include <boost/algorithm/hex.hpp>
+#include "hash_password.h"
 
 using namespace std;
 
@@ -49,6 +53,7 @@ int main() {
             input = trim(input);
         }
         // Need to encrypt input first, then set password equal to it.
+        input = hash_password(input);
         password = input;
 
         // Validate Login Information
