@@ -17,6 +17,8 @@ public:
     string getDescription();
     string getGenre();
 
+    Book(string ISBN, string Title, string Author, string Year, string Publisher);
+
 private:
     string _title;
     string _author;

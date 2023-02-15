@@ -295,10 +295,21 @@ int main() {
             genre = trim(input);
 
             // Make new Book Object
-            Book bookToAdd(isbn, title, author, year, publisher, desc, genre); // DONE add desc and genre to this object.
-            cout << "Adding book to Inventory, ..." << ".\n";
-            //AddBookToInventory(bookToAdd); // I'm only guessing that this is what the name is going to be.
-            addBookToInventory(bookToAdd);
+            
+            // With Description and Genre
+            if (!desc.empty() && !genre.empty())
+            {
+                Book bookToAdd(isbn, title, author, year, publisher, desc, genre); // DONE add desc and genre to this object.
+                cout << "Adding book to Inventory, ..." << ".\n";
+                addBookToInventory(bookToAdd);
+            }
+            else
+            {
+                Book bookToAdd(isbn, title, author, year, publisher);
+                cout << "Adding book to Inventory, ..." << ".\n";
+                addBookToInventory(bookToAdd);
+            }
+            
 
             cout << "Done!\n";
             cout << "\n";

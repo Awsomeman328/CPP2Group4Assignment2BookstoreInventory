@@ -12,6 +12,14 @@ Book::Book(string ISBN, string Title, string Author, string Year, string Publish
 	setDescription(Description);
 	setGenre(Genre);
 }
+Book::Book(string ISBN, string Title, string Author, string Year, string Publisher)
+{
+	setISBN(ISBN);
+	setTitle(Title);
+	setAuthor(Author);
+	setYear(Year);
+	setPublisher(Publisher);
+}
 
 // Public functions
 string Book::getISBN() { return _isbn; }
