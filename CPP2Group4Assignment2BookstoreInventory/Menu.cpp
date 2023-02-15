@@ -1,5 +1,8 @@
 #include "Menu.h"
 
+void Menu::setMenuName(string newName) { menuName = newName; }
+void Menu::setContinueMenu(bool newVal) { continueThisMenu = newVal; }
+
 void Menu::addItem(string text, function<void()> action) {
     MenuItem item;
     item.text = text;
@@ -33,24 +36,6 @@ int Menu::getChoice() {
     return stoi(input);
 }
 
-// Function to trim leading and trailing white space
-string Menu::trim(const string& str) {
-    size_t first = str.find_first_not_of(" \t\n\r\f\v");
-    if (first == string::npos) {
-        return "";
-    }
-    size_t last = str.find_last_not_of(" \t\n\r\f\v");
-    return str.substr(first, (last - first + 1));
-}
-
-void Menu::clearConsole() {
-    #ifdef _WIN32
-        system("cls");
-    #else
-        system("clear");
-    #endif
-}
-
 void Menu::run() {
     int choice;
     do {
@@ -65,5 +50,5 @@ void Menu::run() {
             cout << endl;
         }
     } while ((choice != items.size() + 1) && continueThisMenu);
-    continueThisMenu = true;
+    setContinueMenu(true);
 }

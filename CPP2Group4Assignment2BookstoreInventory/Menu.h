@@ -1,24 +1,29 @@
 #pragma once
+#ifndef MENU_H
+#define MENU_H
+
 #include <iostream>
 #include <string>
 #include <vector>
 #include <functional>
 #include "MenuItem.h"
-#include "book.h"
+#include "Utilities.h"
 using namespace std;
 
 class Menu
 {
-public:
+private:
     string menuName = "";
     vector<MenuItem> items;
     bool continueThisMenu = true;
 
+public:
+    void setMenuName(string newName);
+    void setContinueMenu(bool newVal);
     void addItem(string text, function<void()> action);
     void display();
     int getChoice();
-    string trim(const string& str);
-    void clearConsole();
     void run();
 };
 
+#endif

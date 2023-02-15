@@ -1,39 +1,19 @@
-#include <chrono>
-#include <ctime>
 #include <iostream>
 #include <string>
 #include <vector>
 #include <functional>
 #include "book.h"
 #include "menu.h"
+#include "Utilities.h"
 #include "backEnd.h"
 
 using namespace std;
-
-// This function also returns false if the inputted string is empty.
-bool isNumber(const string& str)
-{
-    if (str.empty()) return false;
-    for (char const& c : str) {
-        if (std::isdigit(c) == 0) return false;
-    }
-    return true;
-}
-
-int getCurrentYear() {
-    auto now = chrono::system_clock::now();
-    auto time = chrono::system_clock::to_time_t(now);
-    tm tm;
-    localtime_s(&tm, &time);
-    int year = tm.tm_year + 1900;
-    return year;
-}
 
 int main() {
     bool isValidLogin = false;
     string input;
     Menu loginMenu;
-    loginMenu.menuName = "Login Menu";
+    loginMenu.setMenuName("Login Menu");
     loginMenu.addItem("Log In", [&isValidLogin, &input, &loginMenu]() {
         string username;
         string password;
@@ -43,14 +23,14 @@ int main() {
         getline(cin, input);
 
         // Remove any leading or trailing white space
-        input = loginMenu.trim(input);
+        input = trim(input);
 
         // Input validation
         while (input.empty()) {
             cout << "Invalid input. Username cannot be empty" << ".\n";
             cout << "Enter your Username: ";
             getline(cin, input);
-            input = loginMenu.trim(input);
+            input = trim(input);
         }
         username = input;
 
@@ -59,14 +39,14 @@ int main() {
         getline(cin, input);
 
         // Remove any leading or trailing white space
-        input = loginMenu.trim(input);
+        input = trim(input);
 
         // Input validation
         while (input.empty()) {
             cout << "Invalid input. Password cannot be empty" << ".\n";
             cout << "Enter your Password: ";
             getline(cin, input);
-            input = loginMenu.trim(input);
+            input = trim(input);
         }
         // Need to encrypt input first, then set password equal to it.
         password = input;
@@ -78,7 +58,7 @@ int main() {
         if (isValidLogin)
         {
             cout << "Login Successful!\n";
-            loginMenu.continueThisMenu = false;
+            loginMenu.setContinueMenu(false);
         }
         else  cout << "Invalid username/password pair\n";
 
@@ -89,11 +69,11 @@ int main() {
     if (isValidLogin)
     {
         Menu mainMenu;
-        mainMenu.menuName = "Main Menu";
+        mainMenu.setMenuName("Main Menu");
         Menu subMenu;
-        subMenu.menuName = "Book List Editing Menu";
+        subMenu.setMenuName("Book List Editing Menu");
 
-        mainMenu.addItem("Search the Database", [&input, &mainMenu]() { // Perform action for Search the Database
+        mainMenu.addItem("Search the Database", [&input]() { // Perform action for Search the Database
             cout << "Searching the Database\n";
             vector<Book> searchResults;
 
@@ -102,14 +82,14 @@ int main() {
             getline(cin, input);
 
             // Remove any leading or trailing white space
-            input = mainMenu.trim(input);
+            input = trim(input);
 
             // Input validation
             while (input.empty()) {
                 cout << "Invalid input. Book title cannot be empty" << ".\n";
                 cout << "Enter a book title: ";
                 getline(cin, input);
-                input = mainMenu.trim(input);
+                input = trim(input);
             }
 
             cout << "\nLoading results, please wait ... \n";
@@ -203,7 +183,7 @@ int main() {
                 } while (searchNextPage);
             }
         });
-        mainMenu.addItem("Add a book to the Inventory", [&input, &mainMenu]() { // Perform action for Add a book to the Inventory
+        mainMenu.addItem("Add a book to the Inventory", [&input]() { // Perform action for Add a book to the Inventory
             cout << "Adding a book to the Inventory\n";
             string title;
             string author;
@@ -219,14 +199,14 @@ int main() {
             getline(cin, input);
 
             // Remove any leading or trailing white space
-            input = mainMenu.trim(input);
+            input = trim(input);
 
             // Input validation
             while (input.length() != 13 || !isNumber(input)) {
                 cout << "Invalid input. Book ISBN must be exactly 13 numerical digits" << ".\n";
                 cout << "Enter the book's ISBN: ";
                 getline(cin, input);
-                input = mainMenu.trim(input);
+                input = trim(input);
             }
             isbn = input;
 
@@ -235,14 +215,14 @@ int main() {
             getline(cin, input);
 
             // Remove any leading or trailing white space
-            input = mainMenu.trim(input);
+            input = trim(input);
 
             // Input validation
             while (input.empty()) {
                 cout << "Invalid input. Book title cannot be empty" << ".\n";
                 cout << "Enter a book title: ";
                 getline(cin, input);
-                input = mainMenu.trim(input);
+                input = trim(input);
             }
             title = input;
 
@@ -251,14 +231,14 @@ int main() {
             getline(cin, input);
 
             // Remove any leading or trailing white space
-            input = mainMenu.trim(input);
+            input = trim(input);
 
             // Input validation
             while (input.empty()) {
                 cout << "Invalid input. Book author cannot be empty" << ".\n";
                 cout << "Enter a book author: ";
                 getline(cin, input);
-                input = mainMenu.trim(input);
+                input = trim(input);
             }
             author = input;
 
@@ -267,14 +247,14 @@ int main() {
             getline(cin, input);
 
             // Remove any leading or trailing white space
-            input = mainMenu.trim(input);
+            input = trim(input);
 
             // Input validation
             while (!isNumber(input) || stoi(input) > getCurrentYear()) {
                 cout << "Invalid input. Book year must be a valid year (any year from 0 to " << getCurrentYear() << ").\n";
                 cout << "Enter the book's publication year: ";
                 getline(cin, input);
-                input = mainMenu.trim(input);
+                input = trim(input);
             }
             year = input;
 
@@ -283,14 +263,14 @@ int main() {
             getline(cin, input);
 
             // Remove any leading or trailing white space
-            input = mainMenu.trim(input);
+            input = trim(input);
 
             // Input validation
             while (input.empty()) {
                 cout << "Invalid input. Book publisher cannot be empty" << ".\n";
                 cout << "Enter a book publisher: ";
                 getline(cin, input);
-                input = mainMenu.trim(input);
+                input = trim(input);
             }
             publisher = input;
 
@@ -307,7 +287,7 @@ int main() {
             subMenu.run();
         });
 
-        subMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &subMenu]() {
+        subMenu.addItem("Add a book to your \"book list\" from the inventory", [&input]() {
             cout << "Adding a book to your \"book list\" from the inventory\n"; // Don't forget to also remove the book from the inventory
 
             // Get Book ISBN
@@ -315,14 +295,14 @@ int main() {
             getline(cin, input);
 
             // Remove any leading or trailing white space
-            input = subMenu.trim(input);
+            input = trim(input);
 
             // Input validation
             while (input.length() != 13 || !isNumber(input)) {
                 cout << "Invalid input. Book ISBN must be exactly 13 numerical digits" << ".\n";
                 cout << "Enter the ISBN of the book you wish to add: ";
                 getline(cin, input);
-                input = subMenu.trim(input);
+                input = trim(input);
             }
 
             // Search the database/inventory for the given ISBN.
@@ -356,14 +336,14 @@ int main() {
                 getline(cin, input);
 
                 // Remove any leading or trailing white space
-                input = subMenu.trim(input);
+                input = trim(input);
 
                 // Input validation
                 while (input.empty() && ( input != "Yes" || input != "No") ) {
                     cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
                     cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
                     getline(cin, input);
-                    input = subMenu.trim(input);
+                    input = trim(input);
                 }
             }
 

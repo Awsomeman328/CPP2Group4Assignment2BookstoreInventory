@@ -132,12 +132,14 @@
     <ClCompile Include="CPP2Group4Assignment2BookstoreInventory.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="Utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BackEnd.h" />
     <ClInclude Include="Book.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="Utilities.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\books.csv" />

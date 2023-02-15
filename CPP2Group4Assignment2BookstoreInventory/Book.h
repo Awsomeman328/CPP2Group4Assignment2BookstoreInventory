@@ -1,6 +1,8 @@
 #pragma once
-#include <string>
+#ifndef BOOK_H
+#define BOOK_H
 
+#include <string>
 using namespace std;
 
 class Book 
@@ -26,3 +28,5 @@ private:
     void setPublisher(string p);
     void setYear(string y);
 };
+
+#endif

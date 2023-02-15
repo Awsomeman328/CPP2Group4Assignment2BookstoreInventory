@@ -1,8 +1,9 @@
 #pragma once
+#ifndef MENUITEM_H
+#define MENUITEM_H
+
 #include <string>
-#include <vector>
 #include <functional>
-#include "book.h"
 using namespace std;
 
 class MenuItem {
@@ -11,3 +12,4 @@ public:
     function<void()> action;
 };
 
+#endif
