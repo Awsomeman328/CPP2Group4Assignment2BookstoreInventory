@@ -163,7 +163,7 @@ void addBookToInventory(Book bookToAdd)
 {
 	ofstream inventory;
 	bool validInput = true;
-	inventory.open("..\\books.csv");
+	inventory.open("..\\books.csv", ios::app);
 	if (inventory.is_open())
 	{
 		if (!validateISBN(bookToAdd.getISBN()))
@@ -183,6 +183,8 @@ void addBookToInventory(Book bookToAdd)
 		{
 			inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher() << "\n";
 		}
+		else
+			cout << "Invalid input" << endl;
 	}
 	else
 		cout << "Unable to open file" << endl;
@@ -210,11 +212,11 @@ bool validateTitle(string title)
 	if (title.empty())
 		validTitle = false;
 
-	for (unsigned short int i = 0; i < title.size(); i++)
+	/*for (unsigned short int i = 0; i < title.size(); i++)
 	{
 		if (!isalnum(title.at(i)))
 			validTitle = false;
-	}
+	}*/
 	return validTitle;
 }
 
@@ -225,11 +227,11 @@ bool validateAuthor(string author)
 	if (author.empty())
 		validAuthor = false;
 
-	for (unsigned short int i = 0; i < author.size(); i++)
+	/*for (unsigned short int i = 0; i < author.size(); i++)
 	{
 		if (!isalpha(author.at(i)))
 			validAuthor = false;
-	}
+	}*/
 	return validAuthor;
 }
 
