@@ -70,6 +70,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\School\c++ II\boost_1_81_0\boost\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -104,6 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\School\c++ II\boost_1_81_0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -130,10 +134,12 @@
     <ClCompile Include="Back-end.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="CPP2Group4Assignment2BookstoreInventory.cpp" />
+    <ClCompile Include="passwordEncryptor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Back-end.h" />
     <ClInclude Include="Book.h" />
+    <ClInclude Include="hash_password.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\books.csv" />

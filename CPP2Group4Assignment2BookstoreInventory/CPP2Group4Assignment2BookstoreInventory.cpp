@@ -2,14 +2,31 @@
 #include <iostream>
 #include "Back-end.h"
 #include <vector>
+<<<<<<< Updated upstream
 #include <string>
 #include "rapidcsv.h"
+=======
+#include "book.h"
+#include "backEnd.h"
+#include <boost/uuid/detail/md5.hpp>
+#include <boost/algorithm/hex.hpp>
+#include "hash_password.h"
+
+
+
+>>>>>>> Stashed changes
 
 using namespace std;
+
+
 
 int main()
 {
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
     //variable declaration
     rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
     string username;
@@ -20,6 +37,7 @@ int main()
     string searchInput;
     size_t maxResults = 50;
     unsigned int lastLine = 0;
+<<<<<<< Updated upstream
     unsigned int endOfDoc = doc.GetRowCount();
     bool continueLoop = true;
     string continueInput;
@@ -48,6 +66,15 @@ int main()
     //         }
     //     }
     // } while (!validLogin);
+=======
+    unsigned int maxResults = 50;
+    bool isChoosingMorePages = true;
+    bool searchNextPage;
+	
+	
+
+    cout << "Welcome to the bookstore database and inventory!" << endl;
+>>>>>>> Stashed changes
     
     while (continueLoop)
     {
@@ -67,12 +94,28 @@ int main()
                 database.clear();
             }
 
+<<<<<<< Updated upstream
             //failsafe to prevent a vector of thousands of objects eating all memory
             if (searchResults.size() > 100)
             {
                 cout << "Too many results. Terminating search." << endl;
                 break;
             }
+=======
+                input = "";
+                do
+                {
+                    cout << "Please enter your password: ";
+                    getline(cin, input);
+                    if (input.empty()) cout << "Inputted password is not vald. [Cannot be empty]" << endl;
+                    else
+                    {
+                        // Need to encrypt input first, then set password equal to it.
+						password = hash_password(input);
+                        password = input;
+                    }
+                } while (input.empty());
+>>>>>>> Stashed changes
 
 
             lastLine += (unsigned int)maxResults;
