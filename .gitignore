@@ -348,3 +348,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# Our own custom gitignore (this is to allow each of our individual VisualStudios to use our own local copy of the boost library)
+.vcxproj
