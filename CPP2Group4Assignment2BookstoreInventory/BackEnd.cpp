@@ -181,7 +181,7 @@ void addBookToInventory(Book bookToAdd)
 
 		if (validInput)
 		{
-			inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher();
+			inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher() << "\n";
 		}
 	}
 	else
