@@ -27,3 +27,4 @@ void exportBookList(vector<Book> bookList);
 bool addNewUser(string username, string password, string isAdmin);
 bool changeUsersPassword(string username, string newPassword);
 bool importBooks();
+bool checkUserPassAdminTrio(string username, string password);

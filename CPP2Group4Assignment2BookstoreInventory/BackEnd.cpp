@@ -51,7 +51,7 @@ bool checkUserPassPair(string username, string password)
 	vector<vector<string>> data;
 
 
-	string query = "SELECT USERNAME, PASSWORD, IS_ADMIN FROM USERS WHERE USERNAME='" + username + "'" + "AND PASSWORD='" + password + "';";
+	string query = "SELECT USERNAME, PASSWORD, IS_ADMIN FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "';";
 	const char* charQuery = convertStringToCharPointer(&query);
 
 	rc = sqlite3_exec(db, charQuery, callback, &data, &zErrMsg);
@@ -76,6 +76,35 @@ bool checkUserPassPair(string username, string password)
 		}
 	}
 	return false;*/
+}
+
+bool checkUserPassAdminTrio(string username, string password)
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+	sqlite3_open("bookstoreInventory.db", &db);
+
+	vector<vector<string>> data;
+
+
+	string query = "SELECT USERNAME, PASSWORD, IS_ADMIN FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "' AND IS_ADMIN=1;";
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &data, &zErrMsg);
+
+	sqlite3_close(db);
+
+	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but fo rnow its fine.
+	if (data.size() >= 1)
+	{
+		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
+		if (data[0][0] == username)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 vector<Book> searchBooksByTitle(string bookTitleToSearch)

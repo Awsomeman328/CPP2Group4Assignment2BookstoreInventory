@@ -13,6 +13,7 @@ using namespace std;
 
 int main() {
     bool isValidLogin = false;
+    bool isValidAdmin = false;
     string input;
 
     Menu loginMenu;
@@ -207,8 +208,56 @@ int main() {
         else  cout << "Invalid username/password pair\n";
 
     });
-    loginMenu.addItem("Admin Log In", [&adminMenu]() {
+    loginMenu.addItem("Admin Log In", [&isValidAdmin, &input, &adminMenu]() {
+        // Need to add in an Admin login
+        string username;
+    string password;
+
+    // Get user's username
+    cout << "Enter your Username: ";
+    getline(cin, input);
+
+    // Remove any leading or trailing white space
+    input = trim(input);
+
+    // Input validation
+    while (input.empty()) {
+        cout << "Invalid input. Username cannot be empty" << ".\n";
+        cout << "Enter your Username: ";
+        getline(cin, input);
+        input = trim(input);
+    }
+    username = input;
+
+    // Get user's password
+    cout << "Enter your Password: ";
+    getline(cin, input);
+
+    // Remove any leading or trailing white space
+    input = trim(input);
+
+    // Input validation
+    while (input.empty()) {
+        cout << "Invalid input. Password cannot be empty" << ".\n";
+        cout << "Enter your Password: ";
+        getline(cin, input);
+        input = trim(input);
+    }
+    // Need to encrypt input first, then set password equal to it.
+    input = hash_password(input);
+    password = input;
+
+    // Validate Login Information
+    isValidAdmin = checkUserPassAdminTrio(username, password);
+
+    // If login info is valid, then set loginMenu.exitThisMenu = true;
+    if (isValidAdmin)
+    {
+        cout << "Login Successful!\n";
         adminMenu.run();
+        isValidAdmin = false;
+    }
+    else  cout << "Invalid login: Either incorrect username/password pair or the user account is not an admin.\n";
     });
 
     loginMenu.run();
