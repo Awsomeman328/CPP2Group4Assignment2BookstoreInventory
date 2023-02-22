@@ -41,3 +41,10 @@ int getCurrentYear() {
     int year = tm.tm_year + 1900;
     return year;
 }
+
+// This function is to help with Querying the database. Since the SQLite3 library takes character pointers as arguments and not strings,
+// this turns a string into a char pointer. This is to help with trying to pass in string variables into queries.
+const char* convertStringToCharPointer(string* string) {
+    const char* insertQuery = (*string).c_str();
+    return insertQuery;
+}

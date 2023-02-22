@@ -1,27 +1,121 @@
 #include "backEnd.h"
-#include <fstream>
-#include <cctype>
-#include "Utilities.h"
 
 using namespace std;
+
+/* A callback function which is meant to be used with the C API(not the C++ API) of SQLite3
+// This function is called once per row in the result set and appends each row to a vector
+// The 1st argument is what we return
+// The 2nd argument is the number of columns in the result set
+// the 3rd argument is the row's data
+// the 4th argument is the column names
+*/
+static int callback(void* list, int argCount, char** argValue, char** azColName) {
+	
+	/* This is for adding the record returned from the database to this backEnd into this function's first argument.*/
+	vector<vector<string>>* head = static_cast<vector<vector<string>>*>(list);
+	try {
+		vector<string> row = vector<string>();
+		for (size_t i = 0; i < argCount; i++)
+		{
+			if (argValue[i] != NULL) row.push_back(argValue[i]);
+			else row.push_back("NULL");
+		}
+		head->emplace_back(row);
+	}
+	catch (...) {
+		// abort on failure, don't let exception propogate thru sqlite3 call-stack
+		return 1;
+	}
+	return 0;
+	
+}
 
 // This takes in a username and password and checks each row of the users.csv file to find a match
 // If a match is found it immedeately returns true. If it goes through the whole file and fails to find a match, it returns false.
 bool checkUserPassPair(string username, string password) 
 {
-	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
+	// This class is a pointer to where our database is. This is how we're going to connect to the database and establish the connection.
+	sqlite3* db;
+
+	// This is a char pointer to an error message. When an error occurs &/or there's a problem with the connection, the error message will be stored here.
+	char* zErrMsg = 0;
+
+	// This is effectively our return value. This gets used for returning whether or not a function succeeded or failed. 
+	// Basically there is an enum state within SQLite and this returns the state of whatever function call we make.
+	int rc;
+
+	// The first thing we have to do is open the database file. If the provided file name doesn't exist, it will make a new database file using that name.
+	sqlite3_open("bookstoreInventory.db", &db);
+
+	// Where we will store the results from our query
+	vector<vector<string>> data;
+
+
+	string query = "SELECT USERNAME, PASSWORD, IS_ADMIN FROM USERS WHERE USERNAME='" + username + "'" + "AND PASSWORD='" + password + "';";
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &data, &zErrMsg);
+
+	sqlite3_close(db);
+
+	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but fo rnow its fine.
+	if (data.size() >= 1)
+	{
+		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
+		if (data[0][0] == username)
+		{
+			return true;
+		}
+	}
+	return false;
+
+	/*rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
 	for (int i = 0; i < doc.GetRowCount(); i++) {
 		if (doc.GetRowName(i) == username && doc.GetCell<string>("Password", i) == password) {
 			return true;
 		}
 	}
-	return false;
+	return false;*/
+}
+
+vector<Book> searchBooksByTitle(string bookTitleToSearch)
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+
+	sqlite3_open("bookstoreInventory.db", &db);
+
+	vector<vector<string>> data;
+	vector<Book> booksToReturn;
+
+	string query = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + bookTitleToSearch + "%';";
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &data, &zErrMsg);
+
+	sqlite3_close(db);
+
+	// If the database returns 1 OR MORE results.
+	if (data.size() >= 1)
+	{
+		// data[i] selects the row, data[0][i] selects the cell
+		for (size_t i = 0; i < data.size(); i++)
+		{
+			//ISBN, TITLE, AUTHOR, YEAR, PUBLISHER, DESC(optional, only NULLs so far), GENRE(optional, only NULLs so far), MSRP, QUANTITY
+			Book b(data[i][0], data[i][1], data[i][2], stoi(data[i][3]), data[i][4], stod(data[i][7]), stoi(data[i][8]));
+
+			booksToReturn.push_back(b);
+		}
+	}
+
+	return booksToReturn;
 }
 
 // This function is hard coded to look up only the information from the books.csv file.
 // If you choose to enter a maxResults value, the recomendation is anything under 100,000.
 // Anything higher has an increaded chance of crashes and exceptions so we reduce maxResults back down to 100,000 for safety.
-vector<Book> searchBooksByTitle(string bookTitleToSearch, size_t maxResults) 
+/*vector<Book> searchBooksByTitle(string bookTitleToSearch, size_t maxResults)
 {
 	rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
 
@@ -33,14 +127,14 @@ vector<Book> searchBooksByTitle(string bookTitleToSearch, size_t maxResults)
 	unsigned int index = 0;
 	size_t found;
 
-	/*
+	
 	// I have no idea what the actual max_size() of filteredBooks will be as when I tested it before 
 	// I was able to get over 200,000 results without it breaking, but now I can barely get it over 180,000
 	// For now, I'm just gunna say that our absolute maximum limit for our results size is 135,680.
 	// I got this number by dividing the total number of books in our file in half, and for our actual default we'll round it down to make it even.
 	// So basically, if over 1/3 of the books are making it through the filter, then the filter is probably not specific enough.
 	// Either that, or if the user entered a valid maxResults then we merely reached their defined limit.
-	*/
+	
 
 	// This loop goes until we fill our results up to our designated max or until we reach the end of the file.
 	while (filteredBooks.size() < (maxResults) && index < doc.GetRowCount())
@@ -62,11 +156,11 @@ vector<Book> searchBooksByTitle(string bookTitleToSearch, size_t maxResults)
 	filteredBooks.shrink_to_fit();
 
 	return filteredBooks;
-}
+}*/
 
 // Overloaded function to allow the front-end programmer to input the index (int) that they want to start at.
 // If the startingIndex is greater than the number of rows in the file, then index is set to 0.
-vector<Book> searchBooksByTitle(string bookTitleToSearch, unsigned int startingIndex, size_t maxResults) 
+/*vector<Book> searchBooksByTitle(string bookTitleToSearch, unsigned int startingIndex, size_t maxResults)
 {
 	rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
 
@@ -100,10 +194,11 @@ vector<Book> searchBooksByTitle(string bookTitleToSearch, unsigned int startingI
 	filteredBooks.shrink_to_fit();
 
 	return filteredBooks;
-}
+}*/
+
 // Overloaded function to allow the front-end programmer to input the Book object/row that they want to start at.
 // This will go through the doc until it finds the matching book ISBN, then it will run as normal starting from that book.
-vector<Book> searchBooksByTitle(string bookTitleToSearch, Book bookToStartFrom, size_t maxResults) 
+/*vector<Book> searchBooksByTitle(string bookTitleToSearch, Book bookToStartFrom, size_t maxResults)
 {
 	rapidcsv::Document doc("..\\books.csv", rapidcsv::LabelParams(0, 0));
 
@@ -156,20 +251,23 @@ vector<Book> searchBooksByTitle(string bookTitleToSearch, Book bookToStartFrom, 
 	filteredBooks.shrink_to_fit();
 
 	return filteredBooks;
-}
+}*/
 
 //functions to add book to inventory
 void addBookToInventory(Book bookToAdd)
 {
-	ofstream inventory;
+	//ofstream inventory;
 	bool validInput = true;
-	inventory.open("..\\books.csv", ios::app);
-	if (inventory.is_open())
+	//inventory.open("..\\books.csv", ios::app);
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+
+	int result = sqlite3_open("bookstoreInventory.db", &db);
+	if (result == SQLITE_OK)
 	{
 		if (!validateISBN(bookToAdd.getISBN()))
-		{
 			validInput = false;
-		};
 		if (!validateTitle(bookToAdd.getTitle()))
 			validInput = false;
 		if (!validateAuthor(bookToAdd.getAuthor()))
@@ -181,23 +279,39 @@ void addBookToInventory(Book bookToAdd)
 
 		if (validInput)
 		{
-			inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher();
+			//inventory << bookToAdd.getISBN() << "," << bookToAdd.getTitle() << "," << bookToAdd.getAuthor() << "," << bookToAdd.getYear() << "," << bookToAdd.getPublisher();
+			string query = "INSERT INTO BOOKS (ISBN,TITLE,AUTHOR,PUBLICATION_YEAR,PUBLISHER,DESCRIPTION,GENRE,MSRP,QUANTITY_ON_HAND) " \
+				"VALUES ('" + bookToAdd.getISBN() + "', '" + bookToAdd.getTitle() + "', '" + bookToAdd.getAuthor() + "'," \
+				" " + to_string(bookToAdd.getYear()) + ", '" + bookToAdd.getPublisher() + "', ";
+
 			if (!bookToAdd.getDescription().empty())
 			{
-				inventory << "," << bookToAdd.getDescription();
+				//inventory << "," << bookToAdd.getDescription();
+				query += "'" + bookToAdd.getDescription() + "', ";
 			}
+			else query += "NULL, ";
+
 			if (!bookToAdd.getGenre().empty())
 			{
-				inventory << "," << bookToAdd.getGenre();
+				//inventory << "," << bookToAdd.getGenre();
+				query += "'" + bookToAdd.getGenre() + "',";
 			}
-			inventory << endl;
+			else query += "NULL,";
+
+			query += " " + to_string(bookToAdd.getMSRP()) + ", " + to_string(bookToAdd.getQuantity()) + ");";
+
+			const char* charQuery = convertStringToCharPointer(&query);
+
+			//inventory << endl;
+			rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
 		}
 		else
 			cout << "Invalid input" << endl;
 	}
 	else
 		cout << "Unable to open file" << endl;
-	inventory.close();
+	//inventory.close();
+	sqlite3_close(db);
 }
 
 void deleteBookFromInventory(string Title)
@@ -288,13 +402,19 @@ bool validateAuthor(string author)
 	return validAuthor;
 }
 
-bool validatePubYear(string pubYear)
+/*bool validatePubYear(string pubYear)
 {
 	bool validPubYear = true;
 
 	if (!isNumber(pubYear))
 		validPubYear = false;
-	
+
+	return validPubYear;
+}*/
+
+bool validatePubYear(int pubYear)
+{
+	bool validPubYear = (pubYear >= 0);
 	return validPubYear;
 }
 

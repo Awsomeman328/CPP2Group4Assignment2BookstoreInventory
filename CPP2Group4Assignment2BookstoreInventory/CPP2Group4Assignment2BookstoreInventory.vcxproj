@@ -136,6 +136,7 @@
     <ClCompile Include="CPP2Group4Assignment2BookstoreInventory.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuItem.cpp" />
+    <ClCompile Include="sqlite3.c" />
     <ClCompile Include="Utilities.cpp" />
     <ClCompile Include="passwordEncryptor.cpp" />
   </ItemGroup>
@@ -144,6 +145,7 @@
     <ClInclude Include="Book.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuItem.h" />
+    <ClInclude Include="sqlite3.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="hash_password.h" />
   </ItemGroup>

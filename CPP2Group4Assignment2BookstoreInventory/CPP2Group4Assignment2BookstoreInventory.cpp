@@ -7,8 +7,6 @@
 #include "Utilities.h"
 #include "backEnd.h"
 #include "rapidcsv.h"
-#include <boost/uuid/detail/md5.hpp>
-#include <boost/algorithm/hex.hpp>
 #include "hash_password.h"
 
 using namespace std;
@@ -102,7 +100,7 @@ int main() {
             cout << "\nLoading results, please wait ... \n";
             int maxResults = 100;
 
-            searchResults = searchBooksByTitle(input, 0, maxResults);
+            searchResults = searchBooksByTitle(input);
 
             // Display search results
             /*
@@ -161,7 +159,7 @@ int main() {
                                 cout << "Loading additional results, please wait ... \n";
                                 cout << "\n";
 
-                                searchResults = searchBooksByTitle(input, searchResults.back(), maxResults);
+                                searchResults = searchBooksByTitle(input);
 
                                 // There is a chance that we get a false positive on having additional results for our search
                                 // If that's the case, then searchResults should be empty and we want to break out of the while loop.
@@ -199,6 +197,8 @@ int main() {
             string year;
             string desc;
             string genre;
+            string msrp;
+            string quantity;
             bool isISBNValid = false;
             bool isYearValid = false;
 
@@ -211,12 +211,13 @@ int main() {
             input = trim(input);
 
             // Input validation
+            /* Need to figure out the validation method for an ISBN, ...
             while (!isNumber(input)) { // input.length() != 13 || 
                 cout << "Invalid input. Book ISBN must have only numerical digits.\n";
                 cout << "Enter the book's ISBN: ";
                 getline(cin, input);
                 input = trim(input);
-            }
+            }*/
             isbn = input;
 
             // Get Book Title
@@ -301,18 +302,51 @@ int main() {
             // thus no input validation is required.
             genre = trim(input);
 
+            // Get Book MSRP
+            cout << "Enter the book's manufacturer suggested retail price: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = trim(input);
+
+            // Input validation
+            while (!isNumber(input) || stod(input) < 34.99 || stod(input) > 103.97) {
+                cout << "Invalid input. Book price must be a valid price (any price from 34.99 to 103.97).\n";
+                cout << "Enter the book's manufacturer suggested retail price: ";
+                getline(cin, input);
+                input = trim(input);
+            }
+            msrp = input;
+
+            // Get Book Quantity
+            cout << "Enter the book's quantity: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = trim(input);
+
+            // Input validation
+            while (!isNumber(input) || stoi(input) < 0) {
+                cout << "Invalid input. Book quantity must be a valid quantity (0 or greater).\n";
+                cout << "Enter the book's quantity: ";
+                getline(cin, input);
+                input = trim(input);
+            }
+            quantity = input;
+
+
             // Make new Book Object
             
             // With Description and Genre
             if (!desc.empty() && !genre.empty())
             {
-                Book bookToAdd(isbn, title, author, year, publisher, desc, genre); // DONE add desc and genre to this object.
+                Book bookToAdd(isbn, title, author, stoi(year), publisher, desc, genre, stod(msrp), stoi(quantity)); // DONE add desc and genre to this object.
                 cout << "Adding book to Inventory, ..." << ".\n";
                 addBookToInventory(bookToAdd);
             }
             else
             {
-                Book bookToAdd(isbn, title, author, year, publisher);
+                Book bookToAdd(isbn, title, author, stoi(year), publisher, stod(msrp), stoi(quantity));
                 cout << "Adding book to Inventory, ..." << ".\n";
                 addBookToInventory(bookToAdd);
             }
@@ -345,7 +379,7 @@ int main() {
 
             // Search the database/inventory for the given Title.
             cout << "\nLoading results, please wait ... \n";
-            vector<Book> searchResults = searchBooksByTitle(input, 0, 100);
+            vector<Book> searchResults = searchBooksByTitle(input);
 
             // Display search results
             //No matches on search
@@ -436,7 +470,9 @@ int main() {
                         usersBookList.at(i).getYear(),
                         usersBookList.at(i).getPublisher(),
                         usersBookList.at(i).getDescription(),
-                        usersBookList.at(i).getGenre()); // DONE add desc and genre to this object.
+                        usersBookList.at(i).getGenre(),
+                        usersBookList.at(i).getMSRP(),
+                        usersBookList.at(i).getQuantity()); // DONE add desc and genre to this object.
                     cout << "Adding book back to Inventory, ..." << ".\n";
                     addBookToInventory(bookToAdd);
                 }
@@ -447,7 +483,9 @@ int main() {
                         usersBookList.at(i).getTitle(),
                         usersBookList.at(i).getAuthor(),
                         usersBookList.at(i).getYear(),
-                        usersBookList.at(i).getPublisher());
+                        usersBookList.at(i).getPublisher(),
+                        usersBookList.at(i).getMSRP(),
+                        usersBookList.at(i).getQuantity());
                     cout << "Adding book back to Inventory, ..." << ".\n";
                     addBookToInventory(bookToAdd);
                 }
