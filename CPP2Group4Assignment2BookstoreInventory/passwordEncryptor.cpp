@@ -1,19 +1,19 @@
 #include <iostream>
 #include <string>
-#include <boost/uuid/detail/md5.hpp>
-#include <boost/algorithm/hex.hpp>
-
-// Function to hash a password using md5
-std::string hash_password(const std::string& password) {
-    boost::uuids::detail::md5 hash;
-    boost::uuids::detail::md5::digest_type digest;
-    hash.process_bytes(password.data(), password.size());
-    hash.get_digest(digest);
-
-    std::string hashed_password;
-    boost::algorithm::hex(digest, digest + 16, std::back_inserter(hashed_password));
-    return hashed_password;
-}
+//#include <boost/uuid/detail/md5.hpp>
+//#include <boost/algorithm/hex.hpp>
+//
+//// Function to hash a password using md5
+//std::string hash_password(const std::string& password) {
+//    boost::uuids::detail::md5 hash;
+//    boost::uuids::detail::md5::digest_type digest;
+//    hash.process_bytes(password.data(), password.size());
+//    hash.get_digest(digest);
+//
+//    std::string hashed_password;
+//    boost::algorithm::hex(digest, digest + 16, std::back_inserter(hashed_password));
+//    return hashed_password;
+//}
 
 
 //To test if the function works

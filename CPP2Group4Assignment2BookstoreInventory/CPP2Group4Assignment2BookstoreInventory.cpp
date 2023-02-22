@@ -58,7 +58,7 @@ int main() {
             input = trim(input);
         }
         // Need to encrypt input first, then set password equal to it.
-        input = hash_password(input);
+        //input = hash_password(input);
         password = input;
 
         // Get if the user is an Admin or not
@@ -121,7 +121,7 @@ int main() {
         input = trim(input);
     }
     // Need to encrypt input first, then set password equal to it.
-    input = hash_password(input);
+    //input = hash_password(input);
     password = input;
 
     isValidUser = changeUsersPassword(username, password);
@@ -193,7 +193,7 @@ int main() {
             input = trim(input);
         }
         // Need to encrypt input first, then set password equal to it.
-        input = hash_password(input);
+        //input = hash_password(input);
         password = input;
 
         // Validate Login Information
@@ -244,7 +244,7 @@ int main() {
         input = trim(input);
     }
     // Need to encrypt input first, then set password equal to it.
-    input = hash_password(input);
+    //input = hash_password(input);
     password = input;
 
     // Validate Login Information
