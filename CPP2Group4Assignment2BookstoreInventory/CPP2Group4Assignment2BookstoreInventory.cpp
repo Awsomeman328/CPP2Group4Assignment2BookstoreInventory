@@ -131,8 +131,30 @@ int main() {
     }
     else cout << "[ERROR]: New password could not be changed! Please contact your database suppervisor for assistance." << endl;
     });
-    adminMenu.addItem("Import a file into the database", []() {
+    adminMenu.addItem("Import a file into the database", [&input]() {
+        cout << "Please ensure that the file you want to import is a .csv file named 'import.csv' and is in the same directory as this file." << endl;
+        cout << "Please confirm that this is the case [y/n]: ";
+        getline(cin, input);
 
+        // Remove any leading or trailing white space
+        input = trim(input);
+
+        // Input validation
+        while (input.empty() || input != "y" || input != "n") {
+            cout << "Invalid input. " << ".\n";
+            cout << "Please confirm that the above is true [y/n]: ";
+            getline(cin, input);
+            input = trim(input);
+        }
+
+        if (input == "y")
+        {
+            if (importBooks())
+            {
+                cout << "Import successful!" << endl;
+            }
+            else cout << "[ERROR]: Import could not be performed! Please contact your database suppervisor for assistance." << endl;
+        }
     });
 
     loginMenu.addItem("Log In", [&isValidLogin, &input, &loginMenu]() {

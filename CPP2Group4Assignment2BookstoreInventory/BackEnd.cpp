@@ -500,3 +500,71 @@ bool changeUsersPassword(string username, string newPassword)
 	}
 	return false;
 }
+
+bool importBooks() 
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+	sqlite3_open("bookstoreInventory.db", &db);
+
+	const char* data = "Callback function called";
+
+	string query;
+	const char* charQuery;
+
+	size_t i;
+	bool isRecordValid;
+
+	rapidcsv::Document doc("import.csv", rapidcsv::LabelParams(0, 0));
+	for (i = 0; i < doc.GetRowCount(); i++)
+	{
+		isRecordValid = true;
+
+		// get data from csv file
+		string isbn = doc.GetRowName(i);
+		string title = doc.GetCell<string>("Book-Title", i);
+		string author = doc.GetCell<string>("Book-Author", i);
+		string year = doc.GetCell<string>("Year-Of-Publication", i); // Need to check if valid year
+		string publisher = doc.GetCell<string>("Publisher", i);
+		string description = doc.GetCell<string>("Description", i);
+		string genre = doc.GetCell<string>("Genre", i);
+		string msrp = doc.GetCell<string>("MSRP", i); // Need to check if valid price
+		string quantity = doc.GetCell<string>("Quantity-On-Hand", i); // need to check if valid quantity
+
+		// Validation ... For now is just assuming that everything is valid, but will want to change this later.
+		/*if (year.empty()) // Year can be empty/NULL, but give a warning for it.
+		{
+			cout << "[WARNING]: Book " << isbn << " titled '" << title << "' at Row #" << i << "'s [year] cell value is empty!" << endl;
+			year = "NULL";
+			isRecordValid = true;
+		}
+		else if (!isStringPositiveInt(year))
+		{
+			cout << "[ERROR]: Book " << isbn << " titled '" << title << "' at Row #" << i << "'s [year] cell value is not a valid positive Int!" << endl;
+			isRecordValid = false;
+		}
+		else if (stoi(year) > 2023)
+		{
+			cout << "[ERROR]: Book " << isbn << " titled '" << title << "' at Row #" << i << "'s [year] cell value is greater than the current year (2023)!" << endl;
+			isRecordValid = false;
+		}
+		else
+		{
+			isRecordValid = true;
+		}*/
+
+		query = "INSERT INTO BOOKS (ISBN,TITLE,AUTHOR,PUBLICATION_YEAR,PUBLISHER,DESCRIPTION,GENRE,MSRP,QUANTITY_ON_HAND) " \
+			"VALUES ('" + isbn + "', '" + title + "', '" + author + "', " + year + ", '" + publisher + "'," \
+			" '" + description + "', '" + genre + "', " + msrp + ", " + quantity + "); ";
+
+		// Convert string query into a character pointer
+		charQuery = convertStringToCharPointer(&query);
+
+		/* Executing another SQL statement */
+		rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+	}
+
+	// For now, there is no check to see if the import is successful, it is just assumed that it works. ... But we will want to change this later.
+	return true;
+}
