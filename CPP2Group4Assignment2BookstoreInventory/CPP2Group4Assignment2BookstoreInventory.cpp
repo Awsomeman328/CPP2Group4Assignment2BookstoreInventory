@@ -751,6 +751,36 @@ int main() {
             // get search type
             cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title" << endl;
             getline(cin, input);
+            input = trim(input);
+        }
+
+        // Search the database/inventory for the given Title.
+        cout << "\nLoading results, please wait ... \n";
+        vector<Book> searchResults = searchBooksByTitle(db, input);
+
+        // Display search results
+        //No matches on search
+        if (searchResults.empty())
+        {
+            cout << "No records were found matching search term \"" << input << "\"\n";
+        }
+        //display results and check if there are any more results
+        else if (searchResults.size() > 1)
+        {
+            cout << "[Error]: Two or more records were found matching search term \"" << input << "\"\n";
+            cout << "Please contact your database administarator to inform them of this problem\n";
+        }
+        else
+        {
+            cout << "Are you sure this is the book you wish to add to your list?\n";
+            cout << "Book Title: " << searchResults.at(0).getTitle() << "\n";
+            cout << "Author: " << searchResults.at(0).getAuthor() << "\n";
+            cout << "Publisher: " << searchResults.at(0).getPublisher() << "\n";
+            cout << "Publication Year: " << searchResults.at(0).getYear() << "\n";
+            cout << "\n";
+            cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+            //cin.ignore();
+            getline(cin, input);
 
             // Remove any leading or trailing white space
             input = trim(input);
@@ -826,21 +856,15 @@ int main() {
                 cout << "Publisher: " << searchResults.at(0).getPublisher() << "\n";
                 cout << "Publication Year: " << searchResults.at(0).getYear() << "\n";
                 cout << "\n";
+=======
+            while (input != "Yes" && input != "No") {
+                cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
+>>>>>>> Stashed changes
                 cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
-                //cin.ignore();
                 getline(cin, input);
-
-                // Remove any leading or trailing white space
                 input = trim(input);
-
-                // Input validation
-                while (input != "Yes" && input != "No") {
-                    cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
-                    cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
-                    getline(cin, input);
-                    input = trim(input);
-                }
             }
+        }
 
             if (input == "Yes")
             {
@@ -854,17 +878,24 @@ int main() {
         });
         bookListMenu.addItem("Print your \"book list\" to the screen", [&usersBookList]() { // Don't forget to include the total number of items in the list
             cout << "Printing your \"book list\" to the screen\n";
-            cout << "\n";
+        cout << "\n";
 
-            // Get book list and Iterate through the book list and print out each book's ISBN, Title, and Author
-            for (unsigned int i = 0; i < usersBookList.size(); i++)
-            {
-                cout << "ISBN: " << usersBookList.at(i).getISBN() << "\n";
-                cout << "Title: " << usersBookList.at(i).getTitle() << "\n";
-                cout << "Author: " << usersBookList.at(i).getAuthor() << "\n";
+        // Query the database for all books in the user's book list
+        sqlite3_stmt* stmt;
+        string sql = "SELECT * FROM Books WHERE ISBN IN (";
+        for (unsigned int i = 0; i < usersBookList.size(); i++) {
+            sql += "\"" + usersBookList.at(i).getISBN() + "\",";
+        }
+        sql.pop_back(); // Remove the last comma
+        sql += ");";
+
+        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, 0) == SQLITE_OK) {
+            while (sqlite3_step(stmt) == SQLITE_ROW) {
+                cout << "ISBN: " << sqlite3_column_text(stmt, 0) << "\n";
+                cout << "Title: " << sqlite3_column_text(stmt, 1) << "\n";
+                cout << "Author: " << sqlite3_column_text(stmt, 2) << "\n";
                 cout << "\n";
             }
-            
             // After printing all the books to the screen, print out the total number of items in the book list
             cout << "Total number of books: " << usersBookList.size() << "\n";
             cout << "\n";
@@ -1126,4 +1157,5 @@ int main() {
     }
 
     return 0;
+	*/
 }
