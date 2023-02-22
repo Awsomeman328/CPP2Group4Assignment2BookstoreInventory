@@ -69,7 +69,7 @@ int main() {
         input = trim(input);
 
         // Input validation
-        while (input.empty() || input != "0" || input != "1") {
+        while (input.empty() && input != "0" && input != "1") {
             cout << "Invalid input. Admin status must be either a 0 or 1" << ".\n";
             cout << "Enter user's admin status (0 or 1): ";
             getline(cin, input);

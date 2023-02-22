@@ -474,7 +474,7 @@ bool addNewUser(string username, string password, string isAdmin)
 	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
 
 	// check that the user was created sucessfully
-	query = "SELECT * FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "' AND IS_ADMIN=" + isAdmin + ";";
+	query = "SELECT USERNAME, PASSWORD, IS_ADMIN FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "' AND IS_ADMIN=" + isAdmin + ";";
 
 	charQuery = convertStringToCharPointer(&query);
 
