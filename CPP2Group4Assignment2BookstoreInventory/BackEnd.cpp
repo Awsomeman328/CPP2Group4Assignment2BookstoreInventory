@@ -427,3 +427,76 @@ bool validatePublisher(string publisher)
 
 	return validPublisher;
 }
+
+bool addNewUser(string username, string password, string isAdmin) 
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+	sqlite3_open("bookstoreInventory.db", &db);
+	const char* data = "Callback function called";
+	vector<vector<string>> head;
+
+	string query = "INSERT INTO USERS (USERNAME,PASSWORD,IS_ADMIN) " \
+		"VALUES ('" + username + "', '" + password + "', " + isAdmin + ");";
+
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+
+	// check that the user was created sucessfully
+	query = "SELECT * FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "' AND IS_ADMIN=" + isAdmin + ";";
+
+	charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
+
+	sqlite3_close(db);
+
+	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but fo rnow its fine.
+	if (head.size() >= 1)
+	{
+		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
+		if (head[0][0] == username && head[0][1] == password && head[0][2] == isAdmin)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+bool changeUsersPassword(string username, string newPassword) 
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+	sqlite3_open("bookstoreInventory.db", &db);
+	const char* data = "Callback function called";
+	vector<vector<string>> head;
+
+	string query = "UPDATE USERS SET PASSWORD='" + newPassword + "' WHERE USERNAME='" + username + "';";
+
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+
+	// check that the user was created sucessfully
+	query = "SELECT * FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + newPassword + "';";
+
+	charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
+
+	sqlite3_close(db);
+
+	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but fo rnow its fine.
+	if (head.size() >= 1)
+	{
+		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
+		if (head[0][0] == username && head[0][1] == newPassword)
+		{
+			return true;
+		}
+	}
+	return false;
+}

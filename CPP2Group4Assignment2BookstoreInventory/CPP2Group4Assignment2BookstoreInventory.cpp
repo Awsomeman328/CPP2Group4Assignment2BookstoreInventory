@@ -14,8 +14,127 @@ using namespace std;
 int main() {
     bool isValidLogin = false;
     string input;
+
     Menu loginMenu;
     loginMenu.setMenuName("Login Menu");
+    Menu adminMenu;
+    adminMenu.setMenuName("Admin Menu");
+
+    adminMenu.addItem("Add a new User", [&input]() {
+        string username;
+        string password;
+        string isAdmin;
+        bool isValidUser;
+
+        // Get user's username
+        cout << "Enter new Username: ";
+        getline(cin, input);
+
+        // Remove any leading or trailing white space
+        input = trim(input);
+
+        // Input validation
+        while (input.empty()) {
+            cout << "Invalid input. Username cannot be empty" << ".\n";
+            cout << "Enter new Username: ";
+            getline(cin, input);
+            input = trim(input);
+        }
+        username = input;
+
+        // Get user's password
+        cout << "Enter user's Password: ";
+        getline(cin, input);
+
+        // Remove any leading or trailing white space
+        input = trim(input);
+
+        // Input validation
+        while (input.empty()) {
+            cout << "Invalid input. Password cannot be empty" << ".\n";
+            cout << "Enter user's Password: ";
+            getline(cin, input);
+            input = trim(input);
+        }
+        // Need to encrypt input first, then set password equal to it.
+        input = hash_password(input);
+        password = input;
+
+        // Get if the user is an Admin or not
+        cout << "Enter user's admin status (0 or 1): ";
+        getline(cin, input);
+
+        // Remove any leading or trailing white space
+        input = trim(input);
+
+        // Input validation
+        while (input.empty() || input != "0" || input != "1") {
+            cout << "Invalid input. Admin status must be either a 0 or 1" << ".\n";
+            cout << "Enter user's admin status (0 or 1): ";
+            getline(cin, input);
+            input = trim(input);
+        }
+        isAdmin = input;
+
+        isValidUser = addNewUser(username, password, isAdmin);
+
+        if (isValidUser)
+        {
+            cout << "New user successfuly created!" << endl;
+        }
+        else cout << "[ERROR]: New user could not be created! Please contact your database suppervisor for assistance." << endl;
+    });
+    adminMenu.addItem("Change a User's Password", [&input]() {
+        string username;
+        string password;
+        bool isValidUser;
+
+    // Get user's username
+    cout << "Enter in Username: ";
+    getline(cin, input);
+
+    // Remove any leading or trailing white space
+    input = trim(input);
+
+    // Input validation
+    while (input.empty()) {
+        cout << "Invalid input. Username cannot be empty" << ".\n";
+        cout << "Enter in Username: ";
+        getline(cin, input);
+        input = trim(input);
+    }
+    username = input;
+
+    // Get user's password
+    cout << "Enter user's Password: ";
+    getline(cin, input);
+
+    // Remove any leading or trailing white space
+    input = trim(input);
+
+    // Input validation
+    while (input.empty()) {
+        cout << "Invalid input. Password cannot be empty" << ".\n";
+        cout << "Enter user's Password: ";
+        getline(cin, input);
+        input = trim(input);
+    }
+    // Need to encrypt input first, then set password equal to it.
+    input = hash_password(input);
+    password = input;
+
+    isValidUser = changeUsersPassword(username, password);
+
+    if (isValidUser)
+    {
+        cout << "New password successfuly changed!" << endl;
+    }
+    else cout << "[ERROR]: New password could not be changed! Please contact your database suppervisor for assistance." << endl;
+    });
+    adminMenu.addItem("Import a file into the database", []() {
+
+    });
+
     loginMenu.addItem("Log In", [&isValidLogin, &input, &loginMenu]() {
         string username;
         string password;
@@ -65,6 +184,9 @@ int main() {
         }
         else  cout << "Invalid username/password pair\n";
 
+    });
+    loginMenu.addItem("Admin Log In", [&adminMenu]() {
+        adminMenu.run();
     });
 
     loginMenu.run();
