@@ -325,10 +325,8 @@ int main() {
             subMenu.run();
         });
 
-        subMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &usersBookList]() {
             cout << "Adding a book to your \"book list\" from the inventory\n"; // Don't forget to also remove the book from the inventory
 
-            // Get Book Title
             cout << "Enter a book title: ";
             getline(cin, input);
 
