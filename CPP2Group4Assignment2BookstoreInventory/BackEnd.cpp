@@ -510,7 +510,7 @@ bool changeUsersPassword(string username, string newPassword)
 	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
 
 	// check that the user was created sucessfully
-	query = "SELECT * FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + newPassword + "';";
+	query = "SELECT USERNAME, PASSWORD, IS_ADMIN FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + newPassword + "';";
 
 	charQuery = convertStringToCharPointer(&query);
 
