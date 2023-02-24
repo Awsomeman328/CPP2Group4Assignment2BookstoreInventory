@@ -134,6 +134,7 @@
     <ClCompile Include="BackEnd.cpp" />
     <ClCompile Include="Book.cpp" />
     <ClCompile Include="CPP2Group4Assignment2BookstoreInventory.cpp" />
+    <ClCompile Include="md5.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="MenuItem.cpp" />
     <ClCompile Include="sqlite3.c" />
@@ -143,6 +144,7 @@
   <ItemGroup>
     <ClInclude Include="BackEnd.h" />
     <ClInclude Include="Book.h" />
+    <ClInclude Include="md5.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="MenuItem.h" />
     <ClInclude Include="sqlite3.h" />

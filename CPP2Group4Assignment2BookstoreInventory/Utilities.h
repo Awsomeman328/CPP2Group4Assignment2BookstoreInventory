@@ -15,6 +15,6 @@ bool isNumber(const string& str);
 int getCurrentYear();
 const char* convertStringToCharPointer(string* string);
 bool isStringPositiveInt(const string& s);
-bool compareBooksByMSRP(Book& b1, Book& b2);
+bool compareBooksByMSRP(const Book& b1, const Book& b2);
 
 #endif

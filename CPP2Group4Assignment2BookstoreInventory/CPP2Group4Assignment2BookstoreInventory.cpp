@@ -194,7 +194,7 @@ int main() {
             input = trim(input);
         }
         // Need to encrypt input first, then set password equal to it.
-        //input = hash_password(input);
+        input = hash_password(input);
         password = input;
 
         // Validate Login Information
@@ -273,7 +273,7 @@ int main() {
         shoppingMenu.setMenuName("Shopping List Menu");
 
         vector<Book> usersBookList;
-        multiset<Book, bool(*)(Book&, Book&)> shoppingList(compareBooksByMSRP); // This auto-sorts its book objects based on their prices.
+        multiset<Book, bool(*)(const Book&, const Book&)> shoppingList(compareBooksByMSRP); // This auto-sorts its book objects based on their prices.
 
         mainMenu.addItem("Search the Database", [&input]() { // Perform action for Search the Database
             cout << "Searching the Database\n";
@@ -733,7 +733,7 @@ int main() {
 
             // Get shopping list and Iterate through the shopping list and print out all of the information from each book
 
-            multiset<Book, bool(*)(Book&, Book&)>::iterator shoppingListIterator = shoppingList.begin();
+            multiset<Book, bool(*)(const Book&, const Book&)>::iterator shoppingListIterator = shoppingList.begin();
 
             while (shoppingListIterator != shoppingList.end())
             {

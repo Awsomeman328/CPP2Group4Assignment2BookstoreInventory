@@ -55,7 +55,7 @@ bool isStringPositiveInt(const string& s) {
     return !s.empty() && it == s.end();
 }
 
-bool compareBooksByMSRP(Book& b1, Book& b2)
+bool compareBooksByMSRP(const Book& b1, const Book& b2)
 {
     return (b1.getMSRP() < b2.getMSRP());
 }
