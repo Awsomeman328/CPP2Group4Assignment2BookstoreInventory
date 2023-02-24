@@ -59,7 +59,7 @@ int main() {
             input = trim(input);
         }
         // Need to encrypt input first, then set password equal to it.
-        //input = hash_password(input);
+        input = hash_password(input);
         password = input;
 
         // Get if the user is an Admin or not
@@ -122,7 +122,7 @@ int main() {
         input = trim(input);
     }
     // Need to encrypt input first, then set password equal to it.
-    //input = hash_password(input);
+    input = hash_password(input);
     password = input;
 
     isValidUser = changeUsersPassword(username, password);
@@ -142,7 +142,7 @@ int main() {
         input = trim(input);
 
         // Input validation
-        while (input.empty() || input != "y" || input != "n") {
+        while (input.empty() || (input != "y" && input != "n")) {
             cout << "Invalid input. " << ".\n";
             cout << "Please confirm that the above is true [y/n]: ";
             getline(cin, input);
@@ -245,7 +245,7 @@ int main() {
         input = trim(input);
     }
     // Need to encrypt input first, then set password equal to it.
-    //input = hash_password(input);
+    input = hash_password(input);
     password = input;
 
     // Validate Login Information
@@ -457,7 +457,7 @@ int main() {
             input = trim(input);
 
             // Input validation
-            while (!isNumber(input) || stoi(input) > getCurrentYear()) {
+            while (!isStringInt(input) || stoi(input) > getCurrentYear()) {
                 cout << "Invalid input. Book year must be a valid year (any year from 0 to " << getCurrentYear() << ").\n";
                 cout << "Enter the book's publication year: ";
                 getline(cin, input);
@@ -507,8 +507,8 @@ int main() {
             input = trim(input);
 
             // Input validation
-            while (!isNumber(input) || stod(input) < 34.99 || stod(input) > 103.97) {
-                cout << "Invalid input. Book price must be a valid price (any price from 34.99 to 103.97).\n";
+            while (!isStringFloat(input) || stod(input) <= 0) {
+                cout << "Invalid input. Book price must be a valid price (any price above 0).\n";
                 cout << "Enter the book's manufacturer suggested retail price: ";
                 getline(cin, input);
                 input = trim(input);
@@ -523,7 +523,7 @@ int main() {
             input = trim(input);
 
             // Input validation
-            while (!isNumber(input) || stoi(input) < 0) {
+            while (!isStringInt(input) || stoi(input) < 0) {
                 cout << "Invalid input. Book quantity must be a valid quantity (0 or greater).\n";
                 cout << "Enter the book's quantity: ";
                 getline(cin, input);

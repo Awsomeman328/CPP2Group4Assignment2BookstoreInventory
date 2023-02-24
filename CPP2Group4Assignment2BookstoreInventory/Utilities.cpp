@@ -24,11 +24,31 @@ string trim(const string& str) {
 }
 
 // This function also returns false if the inputted string is empty.
-bool isNumber(const string& str)
+// This function does not work for decimal/floating point numbers, it only works for integers/whole numbers.
+bool isStringInt(const string& str)
 {
     if (str.empty()) return false;
     for (char const& c : str) {
         if (isdigit(c) == 0) return false;
+    }
+    return true;
+}
+// Adjusted function from isStringInt() to check for doubles and floating point numbers.
+// Just like its original, this function also returns false if the inputted string is empty.
+bool isStringFloat(const string& str)
+{
+    if (str.empty()) return false;
+
+    unsigned short int numDots = 0;
+    for (char const& c : str) {
+        if (isdigit(c) == 0) 
+        {
+            if (c == '.') {
+                numDots++;
+                if (numDots > 1) return false;
+            }
+            else return false;
+        }
     }
     return true;
 }
