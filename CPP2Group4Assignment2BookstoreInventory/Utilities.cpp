@@ -54,3 +54,8 @@ bool isStringPositiveInt(const string& s) {
     while (it != s.end() && isdigit(*it)) ++it;
     return !s.empty() && it == s.end();
 }
+
+bool compareBooksByMSRP(Book& b1, Book& b2)
+{
+    return (b1.getMSRP() < b2.getMSRP());
+}

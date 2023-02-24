@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <functional>
+#include <set>
 #include "book.h"
 #include "menu.h"
 #include "Utilities.h"
@@ -266,10 +267,13 @@ int main() {
     {
         Menu mainMenu;
         mainMenu.setMenuName("Main Menu");
-        Menu subMenu;
-        subMenu.setMenuName("Book List Editing Menu");
+        Menu bookListMenu;
+        bookListMenu.setMenuName("Book List Editing Menu");
+        Menu shoppingMenu;
+        shoppingMenu.setMenuName("Shopping List Menu");
 
         vector<Book> usersBookList;
+        multiset<Book, bool(*)(Book&, Book&)> shoppingList(compareBooksByMSRP); // This auto-sorts its book objects based on their prices.
 
         mainMenu.addItem("Search the Database", [&input]() { // Perform action for Search the Database
             cout << "Searching the Database\n";
@@ -548,11 +552,15 @@ int main() {
             cout << "Done!\n";
             cout << "\n";
         });
-        mainMenu.addItem("Edit your \"book list\"", [&subMenu]() {
-            subMenu.run();
+        mainMenu.addItem("Edit your \"book list\"", [&bookListMenu]() {
+            bookListMenu.run();
+        });
+        mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu]() {\
+            // For Week 7's HW (Assignment 5) prompt the user for if they want to add themsevles as a new SHOPPER before going to the shopping menu below.
+            shoppingMenu.run();
         });
 
-        subMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &usersBookList]() {
+        bookListMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &usersBookList]() {
             cout << "Adding a book to your \"book list\" from the inventory\n"; // Don't forget to also remove the book from the inventory
 
             // Get Book Title
@@ -620,7 +628,7 @@ int main() {
                 cout << "Book added!\n";
             }
         });
-        subMenu.addItem("Print your \"book list\" to the screen", [&usersBookList]() { // Don't forget to include the total number of items in the list
+        bookListMenu.addItem("Print your \"book list\" to the screen", [&usersBookList]() { // Don't forget to include the total number of items in the list
             cout << "Printing your \"book list\" to the screen\n";
             cout << "\n";
 
@@ -637,7 +645,7 @@ int main() {
             cout << "Total number of books: " << usersBookList.size() << "\n";
             cout << "\n";
         });
-        subMenu.addItem("Export your \"book list\" to a .csv file", [&usersBookList]() {
+        bookListMenu.addItem("Export your \"book list\" to a .csv file", [&usersBookList]() {
             cout << "Exporting your \"book list\" to a .csv file\n";
 
             exportBookList(usersBookList);
@@ -646,6 +654,110 @@ int main() {
             // After saving the external file with all of the books from the books list, remove all of the books from the books list.
             usersBookList.clear();
             cout << "User book list cleared!\n";
+        });
+
+        shoppingMenu.addItem("Add a book to your \"shopping list\" from the database.", [&input, &shoppingList]() {
+            // idk if we're supposed to save this list to an external .csv file or just within memory, 
+            // ... for now we'll just go for the memory. We can ask Prof. Carmon if he wants us to save it into a .csv file later.
+            cout << "Adding a book to your \"shopping list\" from the database\n"; // Don't forget to also remove the book from the inventory
+
+        // Get Book Title
+        cout << "Enter a book title: ";
+        getline(cin, input);
+
+        // Remove any leading or trailing white space
+        input = trim(input);
+
+        // Input validation
+        while (input.empty()) {
+            cout << "Invalid input. Book title cannot be empty" << ".\n";
+            cout << "Enter a book title: ";
+            getline(cin, input);
+            input = trim(input);
+        }
+
+        // Search the database/inventory for the given Title.
+        cout << "\nLoading results, please wait ... \n";
+        vector<Book> searchResults = searchBooksByTitle(input);
+
+        // Display search results
+        //No matches on search
+        if (searchResults.empty())
+        {
+            cout << "No records were found matching search term \"" << input << "\"\n";
+        }
+        //display results and check if there are any more results
+        else if (searchResults.size() > 1)
+        {
+            cout << "[Error]: Two or more records were found matching search term \"" << input << "\"\n";
+            cout << "Please contact your database administarator to inform them of this problem\n";
+        }
+        else
+        {
+            cout << "Are you sure this is the book you wish to add to your list?\n";
+            cout << "Book Title: " << searchResults.at(0).getTitle() << "\n";
+            cout << "Author: " << searchResults.at(0).getAuthor() << "\n";
+            cout << "Publisher: " << searchResults.at(0).getPublisher() << "\n";
+            cout << "Publication Year: " << searchResults.at(0).getYear() << "\n";
+            cout << "\n";
+            cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+            //cin.ignore();
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = trim(input);
+
+            // Input validation
+            while (input != "Yes" && input != "No") {
+                cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
+                cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+                getline(cin, input);
+                input = trim(input);
+            }
+        }
+
+        if (input == "Yes")
+        {
+            // Add the book in searchResults.at(0) to their "book list" (should be stored in the back end)
+            shoppingList.emplace(searchResults.at(0));
+
+            // Once the book is added, we used to delete the row that contains that book in the .csv file.
+            // However, since this is a "shopping cart," we don't want to decrement the quantity of this book until they "purchase" it.
+            //deleteBookFromInventory(searchResults.at(0).getTitle());
+            cout << "Book added!\n";
+        }
+            });
+        shoppingMenu.addItem("Display your \"shopping list\" to the screen.", [&shoppingList]() {
+            cout << "Printing your \"shopping list\" to the screen\n";
+            cout << "\n";
+
+            // Get shopping list and Iterate through the shopping list and print out all of the information from each book
+
+            multiset<Book, bool(*)(Book&, Book&)>::iterator shoppingListIterator = shoppingList.begin();
+
+            while (shoppingListIterator != shoppingList.end())
+            {
+                cout << "ISBN: " << shoppingListIterator->getISBN() << endl;
+                cout << "Title: " << shoppingListIterator->getTitle() << endl;
+                cout << "Author: " << shoppingListIterator->getAuthor() << endl;
+                cout << "Publication Year : " << shoppingListIterator->getYear() << endl;
+                cout << "Publisher: " << shoppingListIterator->getPublisher() << endl;
+
+                if (shoppingListIterator->getDescription().empty()) cout << "Description: NULL" << endl;
+                else cout << "Description: " << shoppingListIterator->getDescription() << endl;
+                if (shoppingListIterator->getGenre().empty()) cout << "Genre: NULL" << endl;
+                else cout << "Genre: " << shoppingListIterator->getGenre() << endl;
+
+                cout << "MSRP: $" << shoppingListIterator->getMSRP() << endl;
+                cout << "Quantity on Hand: " << shoppingListIterator->getQuantity() << endl;
+                cout << endl;
+
+                shoppingListIterator++;
+            }
+
+            // After printing all the books to the screen, print out the total number of items in the book list
+            cout << "Total number of books: " << shoppingList.size() << "\n";
+            cout << "\n";
         });
 
         mainMenu.run();

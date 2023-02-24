@@ -12,15 +12,15 @@ public:
         double MSRP, unsigned int Quantity);
     Book(string ISBN, string Title, string Author, unsigned int Year, string Publisher, 
         string Description, string Genre, double MSRP, unsigned int Quantity);
-    string getTitle();
-    string getAuthor();
-    string getPublisher();
-    string getISBN();
-    unsigned int getYear();
-    string getDescription();
-    string getGenre();
-    double getMSRP();
-    unsigned int getQuantity();
+    string getTitle() const;
+    string getAuthor() const;
+    string getPublisher() const;
+    string getISBN() const;
+    unsigned int getYear() const;
+    string getDescription() const;
+    string getGenre() const;
+    double getMSRP() const;
+    unsigned int getQuantity() const;
 
 
 private:

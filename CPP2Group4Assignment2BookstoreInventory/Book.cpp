@@ -27,15 +27,15 @@ Book::Book(string ISBN, string Title, string Author, unsigned int Year, string P
 }
 
 // Public functions
-string Book::getISBN() { return _isbn; }
-string Book::getTitle() { return _title; }
-string Book::getAuthor() { return _author; }
-unsigned int Book::getYear() { return _year; }
-string Book::getPublisher() { return _publisher; }
-string Book::getDescription() { return _description; }
-string Book::getGenre() { return _genre; }
-double Book::getMSRP() { return _msrp; }
-unsigned int Book::getQuantity() { return _quantity; }
+string Book::getISBN() const { return _isbn; }
+string Book::getTitle() const { return _title; }
+string Book::getAuthor() const { return _author; }
+unsigned int Book::getYear() const { return _year; }
+string Book::getPublisher() const { return _publisher; }
+string Book::getDescription() const { return _description; }
+string Book::getGenre() const { return _genre; }
+double Book::getMSRP() const { return _msrp; }
+unsigned int Book::getQuantity() const { return _quantity; }
 
 // Private functions 
 // Once a book object's properties have been set from its constructor, those properties cannot be changed or set again. This may be changed later if needed.
