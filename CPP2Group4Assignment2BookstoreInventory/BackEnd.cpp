@@ -343,6 +343,7 @@ void addBookToInventory(Book bookToAdd)
 	sqlite3_close(db);
 }
 
+// Everything in this function has been commented out. We probably need to fix this function so that it works again!
 void deleteBookFromInventory(string Title)
 {/*
 	rapidcsv::Document doc("..\\users.csv", rapidcsv::LabelParams(0, 0));
@@ -364,6 +365,8 @@ void deleteBookFromInventory(string Title)
 	cout << "Deleting from the inventory failed, ... \n";
 }
 
+// We may want to change this function to actually check if the export was successful or not and to then return a bool that signifies this status.
+// But for now, we can keep it like this.
 void exportBookList(vector<Book> bookList)
 {
 	ofstream booklist;
@@ -386,6 +389,32 @@ void exportBookList(vector<Book> bookList)
 
 	booklist.close();
 }
+
+// This additional export function WAS going to allow the user to pass in their own file name to use rather than the default "exportedBookList.csv".
+// BUT, after looking up the rules on naming a file, it is actually quite complicated.
+// SO INSTEAD, we are just going to give the user a warning prompt to make sure that they are sure about exporting the books to "exportedBookList.csv".
+/*void exportBookList(vector<Book> bookList, string fileName)
+{
+	ofstream booklist;
+	booklist.open("exportedBookList.csv");
+	booklist << "ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Description,Genre\n";
+
+	for (unsigned short int i = 0; i < bookList.size(); i++)
+	{
+		booklist << bookList.at(i).getISBN() << "," << bookList.at(i).getTitle() << "," << bookList.at(i).getAuthor() << "," << bookList.at(i).getYear() << "," << bookList.at(i).getPublisher();
+		if (!bookList.at(i).getDescription().empty())
+		{
+			booklist << "," << bookList.at(i).getDescription();
+		}
+		if (!bookList.at(i).getGenre().empty())
+		{
+			booklist << "," << bookList.at(i).getGenre();
+		}
+		booklist << endl;
+	}
+
+	booklist.close();
+}*/
 
 bool validateISBN(string ISBN)
 {

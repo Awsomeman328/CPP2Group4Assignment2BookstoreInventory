@@ -645,11 +645,36 @@ int main() {
             cout << "Total number of books: " << usersBookList.size() << "\n";
             cout << "\n";
         });
-        bookListMenu.addItem("Export your \"book list\" to a .csv file", [&usersBookList]() {
+        bookListMenu.addItem("Export your \"book list\" to a .csv file", [&input, &usersBookList]() {
             cout << "Exporting your \"book list\" to a .csv file\n";
+            cout << endl;
 
-            exportBookList(usersBookList);
-            cout << "Books Exported to external File!\n";
+            // If there is already a file named "exportedBookList.csv" when this system exports the list again, that file will be deleted and overwritten.
+            // Ask user to confirm that they want to go through with this and to export "exportedBookList.csv".
+            cout << "If there is already a file named \"exportedBookList.csv\" in the same directory as this file, \n";
+            cout << "then that file will be completely deleted and overwritten with your new \"book list\". \n";
+            cout << "Would you like to still go through with this exoirt action? [y/n]: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = trim(input);
+
+            // Input validation
+            while (input.empty() || (input != "y" && input != "n")) {
+                cout << "Invalid input. " << ".\n";
+                cout << "Please confirm that the above is true [y/n]: ";
+                getline(cin, input);
+                input = trim(input);
+            }
+
+            if (input == "y")
+            {
+                // In the future, this fuction may return a bool on if this export was successful or not.
+                // If we do that, then we can change the structure of this part to resemble the import function in the admin menu.
+                exportBookList(usersBookList);
+                cout << "Books Exported to external File!\n";
+            }
+            
 
             // After saving the external file with all of the books from the books list, remove all of the books from the books list.
             usersBookList.clear();
