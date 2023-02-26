@@ -1,4 +1,7 @@
 #include "backEnd.h"
+#include <set>
+#include "Book.h"
+#include "Utilities.h"
 
 using namespace std;
 
@@ -628,6 +631,11 @@ bool importBooks()
 }
 
 void addNewShopper(string name, string email)
+{
+	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
+}
+
+void purchaseShoppingCart(multiset<Book, bool(*)(const Book&, const Book&)> shoppingList(compareBooksByMSRP))
 {
 	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
 }

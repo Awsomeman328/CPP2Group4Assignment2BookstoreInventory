@@ -4,8 +4,9 @@
 #include <vector>
 #include "rapidcsv.h"
 #include "sqlite3.h"
-#include "book.h"
-#include "utilities.h"
+#include "Book.h"
+#include "Utilities.h"
+#include <set>
 
 using namespace std;
 
@@ -29,3 +30,4 @@ bool changeUsersPassword(string username, string newPassword);
 bool importBooks();
 bool checkUserPassAdminTrio(string username, string password);
 void addNewShopper(string name, string email);
+void purchaseShoppingList(multiset<Book, bool(*)(const Book&, const Book&)> shoppingList(compareBooksByMSRP));

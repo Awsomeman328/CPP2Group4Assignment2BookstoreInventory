@@ -791,6 +791,10 @@ int main() {
             cout << "Total number of books: " << shoppingList.size() << "\n";
             cout << "\n";
         });
+        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList])
+        {
+            purchaseShoppingList(shoppingList);
+        }
 
         mainMenu.run();
 
