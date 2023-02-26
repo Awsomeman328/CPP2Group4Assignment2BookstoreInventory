@@ -635,7 +635,7 @@ void addNewShopper(string name, string email)
 	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
 }
 
-//void purchaseShoppingCart(multiset<Book, bool(*)(const Book&, const Book&)> &shoppingList)
-//{
-//	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
-//}
+void purchaseShoppingList(multiset<Book, bool(*)(const Book&, const Book&)> &shoppingList)
+{
+	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
+}

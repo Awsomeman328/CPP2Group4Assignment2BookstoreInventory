@@ -801,7 +801,7 @@ int main() {
         });
         shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable]()
             {
-                //purchaseShoppingList(&shoppingList);
+                purchaseShoppingList(shoppingList);
                 if (inShopperTable == true)
                 {
                     cout << "In shopper table" << endl;
