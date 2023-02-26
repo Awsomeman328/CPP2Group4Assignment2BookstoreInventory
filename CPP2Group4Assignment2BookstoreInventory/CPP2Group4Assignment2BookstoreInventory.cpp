@@ -272,6 +272,7 @@ int main() {
         Menu shoppingMenu;
         shoppingMenu.setMenuName("Shopping List Menu");
 
+        bool inShopperTable = false;
         vector<Book> usersBookList;
         multiset<Book, bool(*)(const Book&, const Book&)> shoppingList(compareBooksByMSRP); // This auto-sorts its book objects based on their prices.
 
@@ -555,15 +556,22 @@ int main() {
         mainMenu.addItem("Edit your \"book list\"", [&bookListMenu]() {
             bookListMenu.run();
         });
-        mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu]() {\
+        mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu, &input, &inShopperTable]() {
             // For Week 7's HW (Assignment 5) prompt the user for if they want to add themsevles as a new SHOPPER before going to the shopping menu below.
-            string shopperName;
-            string shopperEmail;
-            cout << "Enter shopper's name: "; 
-            getline(cin, shopperName);
-            cout << "Enter shopper's email: ";
-            getline(cin, shopperEmail);
-            addNewShopper(shopperName, shopperEmail);
+            cout << "Would you like to create a new shopper? Y/N";
+            getline(cin, input);
+            if (toupper(input.at(0)) == 'Y')
+            {
+                string shopperName;
+                    string shopperEmail;
+                    cout << "Enter shopper's name: ";
+                    getline(cin, shopperName);
+                    cout << "Enter shopper's email: ";
+                    getline(cin, shopperEmail);
+                    addNewShopper(shopperName, shopperEmail);
+                    inShopperTable = true;
+            }
+                
             shoppingMenu.run();
         });
 
@@ -791,10 +799,17 @@ int main() {
             cout << "Total number of books: " << shoppingList.size() << "\n";
             cout << "\n";
         });
-        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList])
-        {
-            purchaseShoppingList(shoppingList);
-        }
+        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable]()
+            {
+                //purchaseShoppingList(&shoppingList);
+                if (inShopperTable == true)
+                {
+                    cout << "In shopper table" << endl;
+                }
+
+                else
+                    cout << "Guest" << endl;
+            });
 
         mainMenu.run();
 
