@@ -557,6 +557,13 @@ int main() {
         });
         mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu]() {\
             // For Week 7's HW (Assignment 5) prompt the user for if they want to add themsevles as a new SHOPPER before going to the shopping menu below.
+            string shopperName;
+            string shopperEmail;
+            cout << "Enter shopper's name: "; 
+            getline(cin, shopperName);
+            cout << "Enter shopper's email: ";
+            getline(cin, shopperEmail);
+            addNewShopper(shopperName, shopperEmail);
             shoppingMenu.run();
         });
 

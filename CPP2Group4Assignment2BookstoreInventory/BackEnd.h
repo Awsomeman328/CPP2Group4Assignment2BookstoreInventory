@@ -28,3 +28,4 @@ bool addNewUser(string username, string password, string isAdmin);
 bool changeUsersPassword(string username, string newPassword);
 bool importBooks();
 bool checkUserPassAdminTrio(string username, string password);
+void addNewShopper(string name, string email);

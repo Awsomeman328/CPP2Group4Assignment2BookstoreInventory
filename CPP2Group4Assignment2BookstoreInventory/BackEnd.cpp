@@ -626,3 +626,8 @@ bool importBooks()
 	// For now, there is no check to see if the import is successful, it is just assumed that it works. ... But we will want to change this later.
 	return true;
 }
+
+void addNewShopper(string name, string email)
+{
+	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
+}
