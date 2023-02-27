@@ -1,6 +1,6 @@
 #include "book.h"
 
-// 
+// Constructors
 Book::Book(string ISBN, string Title, string Author, unsigned int Year, string Publisher, 
 	double MSRP, unsigned int Quantity)
 {
