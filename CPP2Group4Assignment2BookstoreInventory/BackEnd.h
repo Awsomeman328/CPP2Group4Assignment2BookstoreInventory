@@ -31,3 +31,4 @@ bool importBooks();
 bool checkUserPassAdminTrio(string username, string password);
 void addNewShopper(string name, string email);
 void purchaseShoppingList(multiset<Book, bool(*)(const Book&, const Book&)> &shoppingList);
+double calcTotalPrice(multiset<Book, bool(*)(const Book&, const Book&)> shoppingList);

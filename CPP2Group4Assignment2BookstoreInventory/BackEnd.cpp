@@ -639,3 +639,15 @@ void purchaseShoppingList(multiset<Book, bool(*)(const Book&, const Book&)> &sho
 {
 	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
 }
+
+double calcTotalPrice(multiset<Book, bool(*)(const Book&, const Book&)> shoppingList)
+{
+	double totalPrice = 0;
+	multiset<Book, bool(*)(const Book&, const Book&)>::iterator shoppingListIterator = shoppingList.begin();
+	while (shoppingListIterator != shoppingList.end())
+	{
+		totalPrice += shoppingListIterator->getMSRP();
+		shoppingListIterator++;
+	}
+	return totalPrice;
+}

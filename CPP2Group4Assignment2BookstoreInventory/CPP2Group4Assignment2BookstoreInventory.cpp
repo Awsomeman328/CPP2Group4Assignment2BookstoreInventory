@@ -558,7 +558,7 @@ int main() {
         });
         mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu, &input, &inShopperTable]() {
             // For Week 7's HW (Assignment 5) prompt the user for if they want to add themsevles as a new SHOPPER before going to the shopping menu below.
-            cout << "Would you like to create a new shopper? Y/N";
+            cout << "Would you like to create a new shopper? Y/N" << endl;
             getline(cin, input);
             if (toupper(input.at(0)) == 'Y')
             {
@@ -809,6 +809,7 @@ int main() {
 
                 else
                     cout << "Guest" << endl;
+                cout << calcTotalPrice(shoppingList);
             });
 
         mainMenu.run();
