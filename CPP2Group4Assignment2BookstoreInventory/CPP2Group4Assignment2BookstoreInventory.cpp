@@ -273,6 +273,8 @@ int main() {
         Menu shoppingMenu;
         shoppingMenu.setMenuName("Shopping List Menu");
 
+        // This variable is probably not useful for us since we should be able to always ask the back-end if our current shopper data matches up with any
+        // records in the database, but FOR NOW this is fine.
         bool inShopperTable = false;
         vector<Book> usersBookList;
         multiset<Book, bool(*)(const Book&, const Book&)> shoppingList(compareBooksByMSRP); // This auto-sorts its book objects based on their prices.
@@ -1046,7 +1048,7 @@ int main() {
             cout << "Total number of books: " << shoppingList.size() << "\n";
             cout << "\n";
         });
-        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable, &shopperFirstName, &shopperLastName]()
+        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable, &shopperFirstName, &shopperLastName, &shopperEmail]()
             {
                 // We probably want to ask the users to first confirm that they would like to purchase everything in their shopping list,
                 // ... but this is fine for now,
@@ -1057,10 +1059,12 @@ int main() {
                 double totalPricePostTax = totalPricePreTax + totalTax;
 
                 // Returns if the purchase was successful or not.
-                if (purchaseShoppingList(shoppingList))
+                if (purchaseShoppingList(shopperFirstName, shopperLastName, shopperEmail, shoppingList))
                 {
+                    // We will probably want to ACTUALLY ask the back-end and database if our current shopper data matches any records in the database,
+                    // BUT FOR NOW, this is fine.
                     cout << "Customer: ";
-                    if (inShopperTable == true)
+                    if (inShopperTable == true) 
                     {
                         cout << shopperFirstName << " " << shopperLastName << endl;
                     }
