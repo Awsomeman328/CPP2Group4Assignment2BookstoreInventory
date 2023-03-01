@@ -654,7 +654,7 @@ bool decreaseBoughtBooks(multiset<Book, bool(*)(const Book&, const Book&)>& shop
 	else
 	{
 		// This will for sure going to be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week! Then its more of a maybe.
-		cout << "Successfully updated quantity amount for all books in shopping list." << endl;
+		//cout << "Successfully updated quantity amount for all books in shopping list." << endl;
 		sqlite3_close(db);
 		return true;
 	}
@@ -696,7 +696,7 @@ bool increaseTotalSpent(string shopperFirstName, string shopperLastName, string 
 	else
 	{
 		// This will for sure going to be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week! Then its more of a maybe.
-		cout << "Successfully updated " << shopperFirstName << " " << shopperLastName << "'s total spent." << endl;
+		//cout << "Successfully updated " << shopperFirstName << " " << shopperLastName << "'s total spent." << endl;
 		sqlite3_close(db);
 		return true;
 	}
