@@ -385,6 +385,50 @@ bool addNewUser(string username, string password, string isAdmin)
 	return false;
 }
 
+bool addNewShopper(string shopperName, string email, double totalSpent, string password)
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+	sqlite3_open("bookstoreInventory.db", &db);
+	const char* data = "Callback function called";
+	vector<vector<string>> head;
+	
+	//if table doesnt already exists in db
+	const char* createTableQuery = "CREATE TABLE IF NOT EXISTS SHOPPERS("  \
+		"NAME TEXT NOT NULL," \
+		"EMAIL TEXT NOT NULL," \
+		"TOTAL_SPENT REAL," \
+		"PASSWORD TEXT NOT NULL);";
+
+	string query = "INSERT INTO SHOPPERS (NAME, EMAIL, TOTAL_SPENT, PASSWORD) " \
+		"VALUES ('" + shopperName + "', '" + email + "', '" + to_string(totalSpent) + "', '" + password + "');";
+
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+
+	// check that the shopper was created successfully
+	query = "SELECT NAME, EMAIL, TOTAL_SPENT, PASSWORD FROM SHOPPERS WHERE NAME='" + shopperName + "' AND password='" + password + "'";
+
+	charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
+
+	sqlite3_close(db);
+
+	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but for now it's fine.
+	if (head.size() >= 1)
+	{
+		// data[i] selects the row, data[0][i] selects the cell, so this checks if the NAME of the first result was returned.
+		if (head[0][0] == shopperName && head[0][1] == email && stod(head[0][2]) == totalSpent && head[0][3] == password)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
 bool changeUsersPassword(string username, string newPassword) 
 {
 	sqlite3* db;
@@ -489,6 +533,7 @@ bool importBooks()
 	return true;
 }
 
+<<<<<<< Updated upstream
 void addNewShopper(string name, string email)
 {
 	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
@@ -509,4 +554,86 @@ double calcTotalPrice(multiset<Book, bool(*)(const Book&, const Book&)> shopping
 		shoppingListIterator++;
 	}
 	return totalPrice;
+=======
+bool decreaseBoughtBooks(string bookTitle, int quantity)
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+
+	rc = sqlite3_open("bookstoreInventory.db", &db);
+
+	if (rc)
+	{
+		cerr << "Error opening database: " << sqlite3_errmsg(db) << endl;
+		sqlite3_close(db);
+		return false;
+	}
+
+	string query = "SELECT BOUGHT FROM BOOKS WHERE TITLE='" + bookTitle + "'";
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	vector<vector<string>> head;
+	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
+
+	if (head.size() >= 1)
+	{
+		int currentQuantity = stoi(head[0][0]);
+		int newQuantity = currentQuantity - quantity;
+		query = "UPDATE BOOKS SET BOUGHT=" + to_string(newQuantity) + " WHERE TITLE='" + bookTitle + "'";
+		charQuery = convertStringToCharPointer(&query);
+		rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+		if (rc != SQLITE_OK)
+		{
+			cerr << "Error updating database: " << sqlite3_errmsg(db) << endl;
+			sqlite3_close(db);
+			return false;
+		}
+		else
+		{
+			cout << "Successfully updated shopping list books for " << bookTitle << "." << endl;
+			sqlite3_close(db);
+			return true;
+		}
+	}
+	else
+	{
+		cerr << "Error: Book not found in database." << endl;
+		sqlite3_close(db);
+		return false;
+	}
+}
+
+bool increaseTotalSpent(string shopperName, double amountSpent)
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+
+	rc = sqlite3_open("bookstoreInventory.db", &db);
+
+	if (rc)
+	{
+		cerr << "Error opening database: " << sqlite3_errmsg(db) << endl;
+		sqlite3_close(db);
+		return false;
+	}
+
+	string query = "UPDATE SHOPPERS SET TOTAL_SPENT = TOTAL_SPENT + " + to_string(amountSpent) + " WHERE NAME='" + shopperName + "'";
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+	if (rc != SQLITE_OK)
+	{
+		cerr << "Error updating database: " << sqlite3_errmsg(db) << endl;
+		sqlite3_close(db);
+		return false;
+	}
+	else
+	{
+		cout << "Successfully updated " << shopperName << "'s total spent." << endl;
+		sqlite3_close(db);
+		return true;
+	}
+>>>>>>> Stashed changes
 }
