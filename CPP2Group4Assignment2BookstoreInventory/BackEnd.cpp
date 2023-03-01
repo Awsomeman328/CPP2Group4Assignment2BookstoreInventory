@@ -567,7 +567,6 @@ void addNewShopper(string firstName, string lastName, string shopperEmail)
 bool purchaseShoppingList(string shopperFirstName, string shopperLastName, string shopperEmail, 
 	multiset<Book, bool(*)(const Book&, const Book&)> &shoppingList)
 {
-	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
 	// Charge customer and decrease our book quantity
 	return (increaseTotalSpent(shopperFirstName, shopperLastName, shopperEmail, shoppingList) && decreaseBoughtBooks(shoppingList));
 }

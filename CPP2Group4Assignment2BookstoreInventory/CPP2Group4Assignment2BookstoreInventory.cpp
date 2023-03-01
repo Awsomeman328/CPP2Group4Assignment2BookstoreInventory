@@ -689,7 +689,7 @@ int main() {
             // For Week 7's HW (Assignment 5) prompt the user for if they want to add themsevles as a new SHOPPER before going to the shopping menu below.
             cout << "Would you like to create a new shopper? [Hit 'Y' for yes, or anything else to skip]" << endl;
             getline(cin, input);
-            if (toupper(input.at(0)) == 'Y')
+            if (!input.empty() && toupper(input.at(0)) == 'Y')
             {
                 cout << "Enter shopper's first name: ";
                 getline(cin, input);
@@ -1078,6 +1078,7 @@ int main() {
                     }
                     cout << "Tax: $" << totalTax << endl;
                     cout << "Total: $" << totalPricePostTax << endl;
+                    shoppingList.clear();
                 }
                 else 
                 {
