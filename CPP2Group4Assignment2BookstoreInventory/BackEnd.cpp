@@ -103,7 +103,7 @@ bool checkUserPassAdminTrio(string username, string password)
 	return false;
 }
 
-vector<Book> searchBooks(string bookTitleToSearch, int searchType)
+vector<Book> searchBooks(string inputToSearch, int searchType)
 {
 	sqlite3* db;
 	char* zErrMsg = 0;
@@ -114,7 +114,40 @@ vector<Book> searchBooks(string bookTitleToSearch, int searchType)
 	vector<vector<string>> data;
 	vector<Book> booksToReturn;
 
-	string query = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + bookTitleToSearch + "%';";
+	string query = "SELECT * FROM BOOKS WHERE "; // Select all records from the Books table where, ...
+	
+	// 1:ISBN, 2:Title, 3:Author, 4:Year, 5:Publisher, 6:MSRP, 7:Quantity
+	switch (searchType)
+	{
+	case 1: // ISBN
+
+		break;
+	case 2: // Title
+		query += "TITLE LIKE '%" + inputToSearch + "%';";
+		break;
+	case 3: // Author
+		query += "AUTHOR LIKE '%" + inputToSearch + "%';";
+		break;
+	case 4: // Year
+
+		break;
+	case 5: // Publisher
+		query += "PUBLISHER LIKE '%" + inputToSearch + "%';";
+		break;
+	case 6: // MSRP
+
+		break;
+	case 7: // Quantity
+
+		break;
+	default:
+		// This is actually a REALLY REALLY REALLY BAD IDEA to make a Book Object an error warning, but this will be for testing purposes only hopefully.
+		Book b("Bad Switch", "Bad Switch", "Bad Switch", 0, "Bad Switch", 0.0, 0);
+		booksToReturn.push_back(b);
+		return booksToReturn;
+		break;
+	}
+	
 	const char* charQuery = convertStringToCharPointer(&query);
 
 	rc = sqlite3_exec(db, charQuery, callback, &data, &zErrMsg);

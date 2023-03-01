@@ -288,10 +288,10 @@ int main() {
             // get search type
             do
             {
-                cout << "Which search type would you like to use? \n1: Search by title\n2: Search by Author\n3: Search by ISBN"
-                    << "\n4: Search by Publisher\n5: Search by Publication Year\n6: Search by Price\n7: Search by Quantity on Hand" << endl;
+                cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title\n3: Search by Author"
+                    << "\n4: Search by Publication Year\n5: Search by Publisher\n6: Search by Price\n7: Search by Quantity on Hand" << endl;
                 getline(cin, input);
-                if (stoi(input) == 1 || stoi(input) == 2 || stoi(input) == 3 || stoi(input) == 4 || stoi(input) == 5 || stoi(input) == 6 || stoi(input) == 7)
+                if (!input.empty() && stoi(input) >= 1 && stoi(input) <= 7 )
                 {
                     validSearchType = true;
                     searchType = stoi(input);
@@ -302,39 +302,6 @@ int main() {
             switch (searchType)
             {
             case 1:
-                // Get Book Title
-                cout << "Enter a book title: ";
-                getline(cin, input);
-
-                // Remove any leading or trailing white space
-                input = trim(input);
-
-                // Input validation
-                while (input.empty()) {
-                    cout << "Invalid input. Book title cannot be empty" << ".\n";
-                    cout << "Enter a book title: ";
-                    getline(cin, input);
-                    input = trim(input);
-                }
-                break;
-
-            case 2:
-                // Get Author
-                cout << "Enter author's name: ";
-                getline(cin, input);
-
-                // Remove any leading or trailing white space
-                input = trim(input);
-
-                // Input validation
-                while (input.empty()) {
-                    cout << "Invalid input. Author cannot be empty" << ".\n";
-                    cout << "Enter author name: ";
-                    getline(cin, input);
-                    input = trim(input);
-                }
-                break;
-            case 3:
                 // Get ISBN
                 cout << "Enter ISBN: ";
                 getline(cin, input);
@@ -350,9 +317,10 @@ int main() {
                     input = trim(input);
                 }
                 break;
-            case 4:
-                // Get Publisher
-                cout << "Enter Publisher: ";
+
+            case 2:
+                // Get Book Title
+                cout << "Enter a book title: ";
                 getline(cin, input);
 
                 // Remove any leading or trailing white space
@@ -360,13 +328,29 @@ int main() {
 
                 // Input validation
                 while (input.empty()) {
-                    cout << "Invalid input. Publisher cannot be empty" << ".\n";
-                    cout << "Enter Publisher: ";
+                    cout << "Invalid input. Book title cannot be empty" << ".\n";
+                    cout << "Enter a book title: ";
                     getline(cin, input);
                     input = trim(input);
                 }
                 break;
-            case 5:
+            case 3:
+                // Get Author
+                cout << "Enter author's name: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Author cannot be empty" << ".\n";
+                    cout << "Enter author name: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 4:
                 // Get Year
                 cout << "Enter Publication Year: ";
                 getline(cin, input);
@@ -378,6 +362,22 @@ int main() {
                 while (input.empty()) {
                     cout << "Invalid input. Publication Year cannot be empty" << ".\n";
                     cout << "Enter Publication Year: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 5:
+                // Get Publisher
+                cout << "Enter Publisher: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Publisher cannot be empty" << ".\n";
+                    cout << "Enter Publisher: ";
                     getline(cin, input);
                     input = trim(input);
                 }

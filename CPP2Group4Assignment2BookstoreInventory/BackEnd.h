@@ -12,7 +12,7 @@ using namespace std;
 
 bool checkUserPassPair(string username, string password);
 bool checkUserPassAdminTrio(string username, string password);
-vector<Book> searchBooks(string bookTitleToSearch, int searchType);
+vector<Book> searchBooks(string inputToSearch, int searchType);
 bool validateISBN(string ISBN);
 bool validateTitle(string title);
 bool validateAuthor(string author);
