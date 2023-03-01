@@ -120,7 +120,7 @@ vector<Book> searchBooks(string inputToSearch, int searchType)
 	switch (searchType)
 	{
 	case 1: // ISBN
-
+		query += "ISBN LIKE '%" + inputToSearch + "%';";
 		break;
 	case 2: // Title
 		query += "TITLE LIKE '%" + inputToSearch + "%';";
@@ -129,16 +129,16 @@ vector<Book> searchBooks(string inputToSearch, int searchType)
 		query += "AUTHOR LIKE '%" + inputToSearch + "%';";
 		break;
 	case 4: // Year
-
+		query += "PUBLICATION_YEAR LIKE '%" + inputToSearch + "%';";
 		break;
 	case 5: // Publisher
 		query += "PUBLISHER LIKE '%" + inputToSearch + "%';";
 		break;
 	case 6: // MSRP
-
+		query += "WHERE MSRP=" + inputToSearch +";";
 		break;
 	case 7: // Quantity
-
+		query += "WHERE QUANTITY_ON_HAND=" + inputToSearch + ";";
 		break;
 	default:
 		// This is actually a REALLY REALLY REALLY BAD IDEA to make a Book Object an error warning, but this will be for testing purposes only hopefully.
@@ -385,50 +385,6 @@ bool addNewUser(string username, string password, string isAdmin)
 	return false;
 }
 
-bool addNewShopper(string shopperName, string email, double totalSpent, string password)
-{
-	sqlite3* db;
-	char* zErrMsg = 0;
-	int rc;
-	sqlite3_open("bookstoreInventory.db", &db);
-	const char* data = "Callback function called";
-	vector<vector<string>> head;
-	
-	//if table doesnt already exists in db
-	const char* createTableQuery = "CREATE TABLE IF NOT EXISTS SHOPPERS("  \
-		"NAME TEXT NOT NULL," \
-		"EMAIL TEXT NOT NULL," \
-		"TOTAL_SPENT REAL," \
-		"PASSWORD TEXT NOT NULL);";
-
-	string query = "INSERT INTO SHOPPERS (NAME, EMAIL, TOTAL_SPENT, PASSWORD) " \
-		"VALUES ('" + shopperName + "', '" + email + "', '" + to_string(totalSpent) + "', '" + password + "');";
-
-	const char* charQuery = convertStringToCharPointer(&query);
-
-	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
-
-	// check that the shopper was created successfully
-	query = "SELECT NAME, EMAIL, TOTAL_SPENT, PASSWORD FROM SHOPPERS WHERE NAME='" + shopperName + "' AND password='" + password + "'";
-
-	charQuery = convertStringToCharPointer(&query);
-
-	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
-
-	sqlite3_close(db);
-
-	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but for now it's fine.
-	if (head.size() >= 1)
-	{
-		// data[i] selects the row, data[0][i] selects the cell, so this checks if the NAME of the first result was returned.
-		if (head[0][0] == shopperName && head[0][1] == email && stod(head[0][2]) == totalSpent && head[0][3] == password)
-		{
-			return true;
-		}
-	}
-	return false;
-}
-
 bool changeUsersPassword(string username, string newPassword) 
 {
 	sqlite3* db;
@@ -533,15 +489,87 @@ bool importBooks()
 	return true;
 }
 
-<<<<<<< Updated upstream
-void addNewShopper(string name, string email)
+// In the future, we may want to have this funcion return a bool or int to signal if this function was sucessful or not.
+// But for now it is alright, we'll keep it as void for now.
+void addNewShopper(string firstName, string lastName, string shopperEmail)
 {
-	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+	sqlite3_open("bookstoreInventory.db", &db);
+	const char* data = "Callback function called";
+	vector<vector<string>> head;
+
+	/* I'm glad you thought of this, but we don't need this.
+	//if table doesnt already exists in db
+	const char* createTableQuery = "CREATE TABLE IF NOT EXISTS SHOPPERS("  \
+		"NAME TEXT NOT NULL," \
+		"EMAIL TEXT NOT NULL," \
+		"TOTAL_SPENT REAL," \
+		//"PASSWORD TEXT NOT NULL);";*/
+
+	// First, we need to check if the given shopper already exists. 
+	// If it does exist then we don't want to add a new one. If it doesn't exist then we doo want to add this new shopper to the table.
+
+	string query = "SELECT FIRST_NAME, LAST_NAME, EMAIL FROM SHOPPERS " \
+		"WHERE FIRST_NAME='" + firstName + "' AND LAST_NAME='" + lastName + "' AND EMAIL='" + shopperEmail + "';";
+	
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
+
+	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but for now it's fine.
+	if (head.size() >= 1)
+	{
+		// If it does exist then we don't want to add a new one. ...
+		return;
+	}
+
+	query = "INSERT INTO SHOPPERS (FIRST_NAME, LAST_NAME, EMAIL, TOTAL_SPENT) " \
+		"VALUES ('" + firstName + "', '" + lastName + "', '" + shopperEmail + "', 0.00);";
+
+	charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+
+	/* This part of the function is part of the rest of the commented out section below for checking that we sucessfully added the shopper to the table.
+	 * BUT since this doesn't return a bool yet this check is pointless until that change it made.
+	 * 
+	// check that the shopper was created successfully
+	query = "SELECT NAME, EMAIL, TOTAL_SPENT, PASSWORD FROM SHOPPERS WHERE NAME='" + shopperName + "' AND password='" + password + "'";
+
+	charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
+	*/
+
+	sqlite3_close(db);
+
+	/* The rest of this function is validating if this query succeeded or not. 
+	 * But since this doesn't return a bool yet, this is useless until that change is made.
+	 * 
+	// If the database returns 1 OR MORE results. ... In the future will want to limit it to make sure that it is ONLY 1 result, but for now it's fine.
+	if (head.size() >= 1)
+	{
+		// data[i] selects the row, data[0][i] selects the cell, so this checks if the NAME of the first result was returned.
+		if (head[0][0] == shopperName && head[0][1] == email && stod(head[0][2]) == totalSpent && head[0][3] == password)
+		{
+			return true;
+		}
+	}
+	return false;
+	*/
 }
 
-void purchaseShoppingList(multiset<Book, bool(*)(const Book&, const Book&)> &shoppingList)
+// Returns whether the purchase was successful or not.
+// For now this function only buys a single copy of each book. 
+// In the future we will want to add the option/ability to purchase more than 1 copy of each book, but for now it is fine.
+bool purchaseShoppingList(string shopperFirstName, string shopperLastName, string shopperEmail, 
+	multiset<Book, bool(*)(const Book&, const Book&)> &shoppingList)
 {
 	cout << "PLACEHOLDER FUNCTION, PAY NO ATTENTION TO THE MAN BEHIND THE CURTAIN" << endl;
+	// Charge customer and decrease our book quantity
+	return (increaseTotalSpent(shopperFirstName, shopperLastName, shopperEmail, shoppingList) && decreaseBoughtBooks(shoppingList));
 }
 
 double calcTotalPrice(multiset<Book, bool(*)(const Book&, const Book&)> shoppingList)
@@ -554,8 +582,11 @@ double calcTotalPrice(multiset<Book, bool(*)(const Book&, const Book&)> shopping
 		shoppingListIterator++;
 	}
 	return totalPrice;
-=======
-bool decreaseBoughtBooks(string bookTitle, int quantity)
+}
+
+// The logic for being able to specify the number of copies of each book the user is buying is already partically in here, 
+// but since we currently don't have that support on the front-end it will be disabled for now.
+bool decreaseBoughtBooks(multiset<Book, bool(*)(const Book&, const Book&)>& shoppingList)
 {
 	sqlite3* db;
 	char* zErrMsg = 0;
@@ -565,75 +596,109 @@ bool decreaseBoughtBooks(string bookTitle, int quantity)
 
 	if (rc)
 	{
+		// This will probably be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week!
 		cerr << "Error opening database: " << sqlite3_errmsg(db) << endl;
 		sqlite3_close(db);
 		return false;
 	}
 
-	string query = "SELECT BOUGHT FROM BOOKS WHERE TITLE='" + bookTitle + "'";
-	const char* charQuery = convertStringToCharPointer(&query);
-
+	string query;
+	string bigQuery = "";
+	const char* charQuery;
 	vector<vector<string>> head;
-	rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
 
-	if (head.size() >= 1)
+	// Make a loop and iterate through each book in the shoppingList
+	multiset<Book, bool(*)(const Book&, const Book&)>::iterator shoppingListIterator = shoppingList.begin();
+	while (shoppingListIterator != shoppingList.end())
 	{
-		int currentQuantity = stoi(head[0][0]);
-		int newQuantity = currentQuantity - quantity;
-		query = "UPDATE BOOKS SET BOUGHT=" + to_string(newQuantity) + " WHERE TITLE='" + bookTitle + "'";
+		// Do stuff
+		query = "SELECT QUANTITY_ON_HAND FROM BOOKS WHERE ISBN='" + shoppingListIterator->getISBN() + "';";
 		charQuery = convertStringToCharPointer(&query);
-		rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
-		if (rc != SQLITE_OK)
+
+		rc = sqlite3_exec(db, charQuery, callback, &head, &zErrMsg);
+
+		if (head.size() >= 1)
 		{
-			cerr << "Error updating database: " << sqlite3_errmsg(db) << endl;
-			sqlite3_close(db);
-			return false;
+			// Glad to see there was thought taken into account for figuring out HOW MANY copies of the book the user is buying, ...
+			// BUT we don't need to decrease the amount on our end when the database can do it for us.
+			// We DO however need to check that the QUANTITY_ON_HAND within the database is not 0, otherwise we have none of that book in our inventory!
+			//int currentQuantity = stoi(head[0][0]);
+			//int newQuantity = currentQuantity - quantity;
+			if (stoi(head[0][0]) <= 0) 
+			{
+				// This will probably be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week!
+				cerr << "Error: Book named \"" << shoppingListIterator->getTitle() << "\" has no avalible copies in the inventory." << endl;
+				sqlite3_close(db);
+				return false;
+			}
+			bigQuery += "UPDATE BOOKS SET QUANTITY_ON_HAND=QUANTITY_ON_HAND - 1 WHERE ISBN='" + shoppingListIterator->getISBN() + "';\n\n";
 		}
 		else
 		{
-			cout << "Successfully updated shopping list books for " << bookTitle << "." << endl;
+			// This will probably be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week!
+			cerr << "Error: Book named \"" << shoppingListIterator->getTitle() <<"\" not found in database." << endl;
 			sqlite3_close(db);
-			return true;
+			return false;
 		}
-	}
-	else
-	{
-		cerr << "Error: Book not found in database." << endl;
-		sqlite3_close(db);
-		return false;
-	}
-}
-
-bool increaseTotalSpent(string shopperName, double amountSpent)
-{
-	sqlite3* db;
-	char* zErrMsg = 0;
-	int rc;
-
-	rc = sqlite3_open("bookstoreInventory.db", &db);
-
-	if (rc)
-	{
-		cerr << "Error opening database: " << sqlite3_errmsg(db) << endl;
-		sqlite3_close(db);
-		return false;
+		shoppingListIterator++;
 	}
 
-	string query = "UPDATE SHOPPERS SET TOTAL_SPENT = TOTAL_SPENT + " + to_string(amountSpent) + " WHERE NAME='" + shopperName + "'";
-	const char* charQuery = convertStringToCharPointer(&query);
-
+	charQuery = convertStringToCharPointer(&bigQuery);
 	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
 	if (rc != SQLITE_OK)
 	{
+		// This will probably be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week!
 		cerr << "Error updating database: " << sqlite3_errmsg(db) << endl;
 		sqlite3_close(db);
 		return false;
 	}
 	else
 	{
-		cout << "Successfully updated " << shopperName << "'s total spent." << endl;
+		// This will for sure going to be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week! Then its more of a maybe.
+		cout << "Successfully updated quantity amount for all books in shopping list." << endl;
 		sqlite3_close(db);
 		return true;
 	}
->>>>>>> Stashed changes
+	
+}
+
+bool increaseTotalSpent(string shopperFirstName, string shopperLastName, string shopperEmail, multiset<Book, bool(*)(const Book&, const Book&)>& shoppingList)
+{
+	sqlite3* db;
+	char* zErrMsg = 0;
+	int rc;
+
+	rc = sqlite3_open("bookstoreInventory.db", &db);
+
+	if (rc)
+	{
+		// This will probably be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week!
+		cerr << "Error opening database: " << sqlite3_errmsg(db) << endl;
+		sqlite3_close(db);
+		return false;
+	}
+
+	double totalPricePreTax = calcTotalPrice(shoppingList);
+	double totalTax = totalPricePreTax * 0.06;
+	double totalPricePostTax = totalPricePreTax + totalTax;
+
+	string query = "UPDATE SHOPPERS SET TOTAL_SPENT = TOTAL_SPENT + " + to_string(totalPricePostTax) + " " \
+		"WHERE FIRST_NAME='" + shopperFirstName + "' AND LAST_NAME='" + shopperLastName + "' AND EMAIL='" + shopperEmail + "';";
+	const char* charQuery = convertStringToCharPointer(&query);
+
+	rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
+	if (rc != SQLITE_OK)
+	{
+		// This will probably be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week!
+		cerr << "Error updating database: " << sqlite3_errmsg(db) << endl;
+		sqlite3_close(db);
+		return false;
+	}
+	else
+	{
+		// This will for sure going to be changed if it outputs to the command console, ... UNLESS we move over to QT this coming week! Then its more of a maybe.
+		cout << "Successfully updated " << shopperFirstName << " " << shopperLastName << "'s total spent." << endl;
+		sqlite3_close(db);
+		return true;
+	}
 }
