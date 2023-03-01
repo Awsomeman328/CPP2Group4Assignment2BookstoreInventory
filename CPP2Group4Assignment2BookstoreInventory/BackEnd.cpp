@@ -103,7 +103,7 @@ bool checkUserPassAdminTrio(string username, string password)
 	return false;
 }
 
-vector<Book> searchBooksByTitle(string bookTitleToSearch)
+vector<Book> searchBooks(string bookTitleToSearch, int searchType)
 {
 	sqlite3* db;
 	char* zErrMsg = 0;

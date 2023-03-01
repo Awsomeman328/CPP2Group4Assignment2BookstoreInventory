@@ -282,26 +282,143 @@ int main() {
         mainMenu.addItem("Search the Database", [&input]() { // Perform action for Search the Database
             cout << "Searching the Database\n";
             vector<Book> searchResults;
+            int searchType;
+            bool validSearchType = false;
 
-            // Get Book Title
-            cout << "Enter a book title: ";
-            getline(cin, input);
-
-            // Remove any leading or trailing white space
-            input = trim(input);
-
-            // Input validation
-            while (input.empty()) {
-                cout << "Invalid input. Book title cannot be empty" << ".\n";
+            // get search type
+            do
+            {
+                cout << "Which search type would you like to use? \n1: Search by title\n2: Search by Author\n3: Search by ISBN"
+                    << "\n4: Search by Publisher\n5: Search by Publication Year\n6: Search by Price\n7: Search by Quantity on Hand" << endl;
+                getline(cin, input);
+                if (stoi(input) == 1 || stoi(input) == 2 || stoi(input) == 3 || stoi(input) == 4 || stoi(input) == 5 || stoi(input) == 6 || stoi(input) == 7)
+                {
+                    validSearchType = true;
+                    searchType = stoi(input);
+                }
+                else
+                    cout << "Invalid entry, please try again\n";
+            } while (!validSearchType);
+            switch (searchType)
+            {
+            case 1:
+                // Get Book Title
                 cout << "Enter a book title: ";
                 getline(cin, input);
-                input = trim(input);
-            }
 
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Book title cannot be empty" << ".\n";
+                    cout << "Enter a book title: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+
+            case 2:
+                // Get Author
+                cout << "Enter author's name: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Author cannot be empty" << ".\n";
+                    cout << "Enter author name: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 3:
+                // Get ISBN
+                cout << "Enter ISBN: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. ISBN cannot be empty" << ".\n";
+                    cout << "Enter ISBN: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 4:
+                // Get Publisher
+                cout << "Enter Publisher: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Publisher cannot be empty" << ".\n";
+                    cout << "Enter Publisher: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 5:
+                // Get Year
+                cout << "Enter Publication Year: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Publication Year cannot be empty" << ".\n";
+                    cout << "Enter Publication Year: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 6:
+                // Get MSRP
+                cout << "Enter an MSRP: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. MSRP cannot be empty" << ".\n";
+                    cout << "Enter an MSRP: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 7:
+                // Get Quantity
+                cout << "Enter Quantity on Hand: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Quantity cannot be empty" << ".\n";
+                    cout << "Enter Quantity on Hand: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            }
             cout << "\nLoading results, please wait ... \n";
             int maxResults = 100;
 
-            searchResults = searchBooksByTitle(input);
+            searchResults = searchBooks(input, searchType);
 
             // Display search results
             /*
@@ -360,7 +477,7 @@ int main() {
                                 cout << "Loading additional results, please wait ... \n";
                                 cout << "\n";
 
-                                searchResults = searchBooksByTitle(input);
+                                searchResults = searchBooks(input, searchType);
 
                                 // There is a chance that we get a false positive on having additional results for our search
                                 // If that's the case, then searchResults should be empty and we want to break out of the while loop.
@@ -578,25 +695,62 @@ int main() {
 
         bookListMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &usersBookList]() {
             cout << "Adding a book to your \"book list\" from the inventory\n"; // Don't forget to also remove the book from the inventory
+            int searchType;
+            bool validSearchType = false;
 
-            // Get Book Title
-            cout << "Enter a book title: ";
-            getline(cin, input);
-
-            // Remove any leading or trailing white space
-            input = trim(input);
-
-            // Input validation
-            while (input.empty()) {
-                cout << "Invalid input. Book title cannot be empty" << ".\n";
+            // get search type
+            do
+            {
+                cout << "Which search type would you like to use? \n1: Search by title\n2: Search by ISBN" << endl;
+                getline(cin, input);
+                if (stoi(input) == 1 || stoi(input) == 2)
+                {
+                    validSearchType = true;
+                    searchType = stoi(input);
+                }
+                else
+                    cout << "Invalid entry, please try again\n";
+            } while (!validSearchType);
+            switch (searchType)
+            {
+            case 1:
+                // Get Book Title
                 cout << "Enter a book title: ";
                 getline(cin, input);
+
+                // Remove any leading or trailing white space
                 input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Book title cannot be empty" << ".\n";
+                    cout << "Enter a book title: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+
+            case 2:
+                // Get ISBN
+                cout << "Enter ISBN: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. ISBN cannot be empty" << ".\n";
+                    cout << "Enter ISBN: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
             }
 
             // Search the database/inventory for the given Title.
             cout << "\nLoading results, please wait ... \n";
-            vector<Book> searchResults = searchBooksByTitle(input);
+            vector<Book> searchResults = searchBooks(input, searchType);
 
             // Display search results
             //No matches on search
@@ -701,25 +855,62 @@ int main() {
             // idk if we're supposed to save this list to an external .csv file or just within memory, 
             // ... for now we'll just go for the memory. We can ask Prof. Carmon if he wants us to save it into a .csv file later.
             cout << "Adding a book to your \"shopping list\" from the database\n"; // Don't forget to also remove the book from the inventory
+        int searchType;
+        bool validSearchType = false;
 
-        // Get Book Title
-        cout << "Enter a book title: ";
-        getline(cin, input);
-
-        // Remove any leading or trailing white space
-        input = trim(input);
-
-        // Input validation
-        while (input.empty()) {
-            cout << "Invalid input. Book title cannot be empty" << ".\n";
+        // get search type
+        do
+        {
+            cout << "Which search type would you like to use? \n1: Search by title\n2: Search by ISBN" << endl;
+            getline(cin, input);
+            if (stoi(input) == 1 || stoi(input) == 2)
+            {
+                validSearchType = true;
+                searchType = stoi(input);
+            }
+            else
+                cout << "Invalid entry, please try again\n";
+        } while (!validSearchType);
+        switch (searchType)
+        {
+        case 1:
+            // Get Book Title
             cout << "Enter a book title: ";
             getline(cin, input);
+
+            // Remove any leading or trailing white space
             input = trim(input);
+
+            // Input validation
+            while (input.empty()) {
+                cout << "Invalid input. Book title cannot be empty" << ".\n";
+                cout << "Enter a book title: ";
+                getline(cin, input);
+                input = trim(input);
+            }
+            break;
+
+        case 2:
+            // Get ISBN
+            cout << "Enter ISBN: ";
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = trim(input);
+
+            // Input validation
+            while (input.empty()) {
+                cout << "Invalid input. ISBN cannot be empty" << ".\n";
+                cout << "Enter ISBN: ";
+                getline(cin, input);
+                input = trim(input);
+            }
+            break;
         }
 
         // Search the database/inventory for the given Title.
         cout << "\nLoading results, please wait ... \n";
-        vector<Book> searchResults = searchBooksByTitle(input);
+        vector<Book> searchResults = searchBooks(input, searchType);
 
         // Display search results
         //No matches on search
