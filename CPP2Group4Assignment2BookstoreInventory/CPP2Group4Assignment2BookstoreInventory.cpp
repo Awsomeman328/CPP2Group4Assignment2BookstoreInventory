@@ -9,6 +9,7 @@
 #include "book.h"
 #include "menu.h"
 #include "utilities.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -16,6 +17,8 @@ int main() {
     bool isValidLogin = false;
     bool isValidAdmin = false;
     string input;
+    string shopperName;
+    string shopperEmail;
 
     Menu loginMenu;
     loginMenu.setMenuName("Login Menu");
@@ -556,20 +559,18 @@ int main() {
         mainMenu.addItem("Edit your \"book list\"", [&bookListMenu]() {
             bookListMenu.run();
         });
-        mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu, &input, &inShopperTable]() {
+        mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu, &input, &inShopperTable, &shopperName, &shopperEmail]() {
             // For Week 7's HW (Assignment 5) prompt the user for if they want to add themsevles as a new SHOPPER before going to the shopping menu below.
             cout << "Would you like to create a new shopper? Y/N" << endl;
             getline(cin, input);
             if (toupper(input.at(0)) == 'Y')
             {
-                string shopperName;
-                    string shopperEmail;
-                    cout << "Enter shopper's name: ";
-                    getline(cin, shopperName);
-                    cout << "Enter shopper's email: ";
-                    getline(cin, shopperEmail);
-                    addNewShopper(shopperName, shopperEmail);
-                    inShopperTable = true;
+                cout << "Enter shopper's name: ";
+                getline(cin, shopperName);
+                cout << "Enter shopper's email: ";
+                getline(cin, shopperEmail);
+                addNewShopper(shopperName, shopperEmail);
+                inShopperTable = true;
             }
                 
             shoppingMenu.run();
@@ -799,17 +800,22 @@ int main() {
             cout << "Total number of books: " << shoppingList.size() << "\n";
             cout << "\n";
         });
-        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable]()
+        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable, &shopperName]()
             {
+                cout << fixed << setprecision(2);
                 purchaseShoppingList(shoppingList);
                 if (inShopperTable == true)
                 {
-                    cout << "In shopper table" << endl;
+                    cout << "Customer: " << shopperName << endl;
                 }
-
-                else
-                    cout << "Guest" << endl;
-                cout << calcTotalPrice(shoppingList);
+                multiset<Book, bool(*)(const Book&, const Book&)>::iterator shoppingListIterator = shoppingList.begin();
+                while (shoppingListIterator != shoppingList.end())
+                {
+                    cout << shoppingListIterator->getTitle() << "\n$" << shoppingListIterator->getMSRP() << endl << endl;
+                    shoppingListIterator++;
+                }
+                cout << "Tax: $" << calcTotalPrice(shoppingList) * .06 << endl;
+                cout << "Total: $" << calcTotalPrice(shoppingList) + (calcTotalPrice(shoppingList) * .06);
             });
 
         mainMenu.run();
