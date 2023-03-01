@@ -129,16 +129,16 @@ vector<Book> searchBooks(string inputToSearch, int searchType)
 		query += "AUTHOR LIKE '%" + inputToSearch + "%';";
 		break;
 	case 4: // Year
-		query += "PUBLICATION_YEAR LIKE '%" + inputToSearch + "%';";
+		query += "PUBLICATION_YEAR=" + inputToSearch + ";";
 		break;
 	case 5: // Publisher
 		query += "PUBLISHER LIKE '%" + inputToSearch + "%';";
 		break;
 	case 6: // MSRP
-		query += "WHERE MSRP=" + inputToSearch +";";
+		query += "MSRP=" + inputToSearch +";";
 		break;
 	case 7: // Quantity
-		query += "WHERE QUANTITY_ON_HAND=" + inputToSearch + ";";
+		query += "QUANTITY_ON_HAND=" + inputToSearch + ";";
 		break;
 	default:
 		// This is actually a REALLY REALLY REALLY BAD IDEA to make a Book Object an error warning, but this will be for testing purposes only hopefully.
