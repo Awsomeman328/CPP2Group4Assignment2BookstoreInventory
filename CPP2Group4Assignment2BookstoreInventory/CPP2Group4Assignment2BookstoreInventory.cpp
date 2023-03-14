@@ -17,8 +17,6 @@ int main() {
     bool isValidLogin = false;
     bool isValidAdmin = false;
     string input;
-    string shopperName;
-    string shopperEmail;
 
     Menu loginMenu;
     loginMenu.setMenuName("Login Menu");
@@ -215,53 +213,53 @@ int main() {
     loginMenu.addItem("Admin Log In", [&isValidAdmin, &input, &adminMenu]() {
         // Need to add in an Admin login
         string username;
-    string password;
+        string password;
 
-    // Get user's username
-    cout << "Enter your Username: ";
-    getline(cin, input);
-
-    // Remove any leading or trailing white space
-    input = trim(input);
-
-    // Input validation
-    while (input.empty()) {
-        cout << "Invalid input. Username cannot be empty" << ".\n";
+        // Get user's username
         cout << "Enter your Username: ";
         getline(cin, input);
+    
+        // Remove any leading or trailing white space
         input = trim(input);
-    }
-    username = input;
 
-    // Get user's password
-    cout << "Enter your Password: ";
-    getline(cin, input);
+        // Input validation
+        while (input.empty()) {
+            cout << "Invalid input. Username cannot be empty" << ".\n";
+            cout << "Enter your Username: ";
+            getline(cin, input);
+            input = trim(input);
+        }
+        username = input;
 
-    // Remove any leading or trailing white space
-    input = trim(input);
-
-    // Input validation
-    while (input.empty()) {
-        cout << "Invalid input. Password cannot be empty" << ".\n";
+        // Get user's password
         cout << "Enter your Password: ";
         getline(cin, input);
+
+        // Remove any leading or trailing white space
         input = trim(input);
-    }
-    // Need to encrypt input first, then set password equal to it.
-    input = hash_password(input);
-    password = input;
 
-    // Validate Login Information
-    isValidAdmin = checkUserPassAdminTrio(username, password);
+        // Input validation
+        while (input.empty()) {
+            cout << "Invalid input. Password cannot be empty" << ".\n";
+            cout << "Enter your Password: ";
+            getline(cin, input);
+            input = trim(input);
+        }
+        // Need to encrypt input first, then set password equal to it.
+        input = hash_password(input);
+        password = input;
 
-    // If login info is valid, then set loginMenu.exitThisMenu = true;
-    if (isValidAdmin)
-    {
-        cout << "Login Successful!\n";
-        adminMenu.run();
-        isValidAdmin = false;
-    }
-    else  cout << "Invalid login: Either incorrect username/password pair or the user account is not an admin.\n";
+        // Validate Login Information
+        isValidAdmin = checkUserPassAdminTrio(username, password);
+
+        // If login info is valid, then set loginMenu.exitThisMenu = true;
+        if (isValidAdmin)
+        {
+            cout << "Login Successful!\n";
+            adminMenu.run();
+            isValidAdmin = false;
+        }
+        else  cout << "Invalid login: Either incorrect username/password pair or the user account is not an admin.\n";
     });
 
     loginMenu.run();
@@ -275,66 +273,44 @@ int main() {
         Menu shoppingMenu;
         shoppingMenu.setMenuName("Shopping List Menu");
 
+        // This variable is probably not useful for us since we should be able to always ask the back-end if our current shopper data matches up with any
+        // records in the database, but FOR NOW this is fine.
         bool inShopperTable = false;
         vector<Book> usersBookList;
         multiset<Book, bool(*)(const Book&, const Book&)> shoppingList(compareBooksByMSRP); // This auto-sorts its book objects based on their prices.
+
+        // All of these can be condensed into a single Shopper class or shopperInfo container like a map or something. But for now we'll keep it as is.
+        string shopperFirstName;
+        string shopperLastName;
+        string shopperEmail;
 
         mainMenu.addItem("Search the Database", [&input]() { // Perform action for Search the Database
             cout << "Searching the Database\n";
             vector<Book> searchResults;
             int searchType;
-            bool validSearchType = false;
 
             // get search type
-            do
+            cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title\n3: Search by Author"
+                << "\n4: Search by Publication Year\n5: Search by Publisher\n6: Search by Price\n7: Search by Quantity on Hand" << endl;
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = trim(input);
+
+            // Input validation
+            while (!isStringInt(input) || stoi(input) < 1 || stoi(input) > 7)
             {
-                cout << "Which search type would you like to use? \n1: Search by title\n2: Search by Author\n3: Search by ISBN"
-                    << "\n4: Search by Publisher\n5: Search by Publication Year\n6: Search by Price\n7: Search by Quantity on Hand" << endl;
+                cout << "Invalid entry, please try again\n";
+                cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title\n3: Search by Author"
+                    << "\n4: Search by Publication Year\n5: Search by Publisher\n6: Search by Price\n7: Search by Quantity on Hand" << endl;
                 getline(cin, input);
-                if (stoi(input) == 1 || stoi(input) == 2 || stoi(input) == 3 || stoi(input) == 4 || stoi(input) == 5 || stoi(input) == 6 || stoi(input) == 7)
-                {
-                    validSearchType = true;
-                    searchType = stoi(input);
-                }
-                else
-                    cout << "Invalid entry, please try again\n";
-            } while (!validSearchType);
+                input = trim(input);
+            }
+            searchType = stoi(input);
+
             switch (searchType)
             {
             case 1:
-                // Get Book Title
-                cout << "Enter a book title: ";
-                getline(cin, input);
-
-                // Remove any leading or trailing white space
-                input = trim(input);
-
-                // Input validation
-                while (input.empty()) {
-                    cout << "Invalid input. Book title cannot be empty" << ".\n";
-                    cout << "Enter a book title: ";
-                    getline(cin, input);
-                    input = trim(input);
-                }
-                break;
-
-            case 2:
-                // Get Author
-                cout << "Enter author's name: ";
-                getline(cin, input);
-
-                // Remove any leading or trailing white space
-                input = trim(input);
-
-                // Input validation
-                while (input.empty()) {
-                    cout << "Invalid input. Author cannot be empty" << ".\n";
-                    cout << "Enter author name: ";
-                    getline(cin, input);
-                    input = trim(input);
-                }
-                break;
-            case 3:
                 // Get ISBN
                 cout << "Enter ISBN: ";
                 getline(cin, input);
@@ -350,9 +326,10 @@ int main() {
                     input = trim(input);
                 }
                 break;
-            case 4:
-                // Get Publisher
-                cout << "Enter Publisher: ";
+
+            case 2:
+                // Get Book Title
+                cout << "Enter a book title: ";
                 getline(cin, input);
 
                 // Remove any leading or trailing white space
@@ -360,13 +337,29 @@ int main() {
 
                 // Input validation
                 while (input.empty()) {
-                    cout << "Invalid input. Publisher cannot be empty" << ".\n";
-                    cout << "Enter Publisher: ";
+                    cout << "Invalid input. Book title cannot be empty" << ".\n";
+                    cout << "Enter a book title: ";
                     getline(cin, input);
                     input = trim(input);
                 }
                 break;
-            case 5:
+            case 3:
+                // Get Author
+                cout << "Enter author's name: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Author cannot be empty" << ".\n";
+                    cout << "Enter author name: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 4:
                 // Get Year
                 cout << "Enter Publication Year: ";
                 getline(cin, input);
@@ -378,6 +371,22 @@ int main() {
                 while (input.empty()) {
                     cout << "Invalid input. Publication Year cannot be empty" << ".\n";
                     cout << "Enter Publication Year: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+            case 5:
+                // Get Publisher
+                cout << "Enter Publisher: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Publisher cannot be empty" << ".\n";
+                    cout << "Enter Publisher: ";
                     getline(cin, input);
                     input = trim(input);
                 }
@@ -676,17 +685,59 @@ int main() {
         mainMenu.addItem("Edit your \"book list\"", [&bookListMenu]() {
             bookListMenu.run();
         });
-        mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu, &input, &inShopperTable, &shopperName, &shopperEmail]() {
+        mainMenu.addItem("Edit your \"shopping list\"", [&shoppingMenu, &input, &inShopperTable, &shopperFirstName, &shopperLastName, &shopperEmail]() {
             // For Week 7's HW (Assignment 5) prompt the user for if they want to add themsevles as a new SHOPPER before going to the shopping menu below.
-            cout << "Would you like to create a new shopper? Y/N" << endl;
+            cout << "Would you like to create a new shopper? [Hit 'Y' for yes, or anything else to skip]" << endl;
             getline(cin, input);
-            if (toupper(input.at(0)) == 'Y')
+            if (!input.empty() && toupper(input.at(0)) == 'Y')
             {
-                cout << "Enter shopper's name: ";
-                getline(cin, shopperName);
+                cout << "Enter shopper's first name: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. First Name cannot be empty" << ".\n";
+                    cout << "Enter shopper's first name: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                shopperFirstName = input;
+
+                cout << "Enter shopper's last name: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Last Name cannot be empty" << ".\n";
+                    cout << "Enter shopper's last name: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                shopperLastName = input;
+
+
                 cout << "Enter shopper's email: ";
-                getline(cin, shopperEmail);
-                addNewShopper(shopperName, shopperEmail);
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Email cannot be empty" << ".\n";
+                    cout << "Enter shopper's email: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                shopperEmail = input;
+
+                addNewShopper(shopperFirstName, shopperLastName, shopperEmail);
                 inShopperTable = true;
             }
                 
@@ -696,41 +747,27 @@ int main() {
         bookListMenu.addItem("Add a book to your \"book list\" from the inventory", [&input, &usersBookList]() {
             cout << "Adding a book to your \"book list\" from the inventory\n"; // Don't forget to also remove the book from the inventory
             int searchType;
-            bool validSearchType = false;
 
             // get search type
-            do
+            cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title" << endl;
+            getline(cin, input);
+
+            // Remove any leading or trailing white space
+            input = trim(input);
+
+            // Input validation
+            while (!isStringInt(input) || stoi(input) < 1 || stoi(input) > 2)
             {
-                cout << "Which search type would you like to use? \n1: Search by title\n2: Search by ISBN" << endl;
+                cout << "Invalid entry, please try again\n";
+                cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title" << endl;
                 getline(cin, input);
-                if (stoi(input) == 1 || stoi(input) == 2)
-                {
-                    validSearchType = true;
-                    searchType = stoi(input);
-                }
-                else
-                    cout << "Invalid entry, please try again\n";
-            } while (!validSearchType);
+                input = trim(input);
+            }
+            searchType = stoi(input);
+
             switch (searchType)
             {
             case 1:
-                // Get Book Title
-                cout << "Enter a book title: ";
-                getline(cin, input);
-
-                // Remove any leading or trailing white space
-                input = trim(input);
-
-                // Input validation
-                while (input.empty()) {
-                    cout << "Invalid input. Book title cannot be empty" << ".\n";
-                    cout << "Enter a book title: ";
-                    getline(cin, input);
-                    input = trim(input);
-                }
-                break;
-
-            case 2:
                 // Get ISBN
                 cout << "Enter ISBN: ";
                 getline(cin, input);
@@ -742,6 +779,23 @@ int main() {
                 while (input.empty()) {
                     cout << "Invalid input. ISBN cannot be empty" << ".\n";
                     cout << "Enter ISBN: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
+
+            case 2:
+                // Get Book Title
+                cout << "Enter a book title: ";
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Book title cannot be empty" << ".\n";
+                    cout << "Enter a book title: ";
                     getline(cin, input);
                     input = trim(input);
                 }
@@ -855,110 +909,113 @@ int main() {
             // idk if we're supposed to save this list to an external .csv file or just within memory, 
             // ... for now we'll just go for the memory. We can ask Prof. Carmon if he wants us to save it into a .csv file later.
             cout << "Adding a book to your \"shopping list\" from the database\n"; // Don't forget to also remove the book from the inventory
-        int searchType;
-        bool validSearchType = false;
+            int searchType;
 
-        // get search type
-        do
-        {
-            cout << "Which search type would you like to use? \n1: Search by title\n2: Search by ISBN" << endl;
-            getline(cin, input);
-            if (stoi(input) == 1 || stoi(input) == 2)
-            {
-                validSearchType = true;
-                searchType = stoi(input);
-            }
-            else
-                cout << "Invalid entry, please try again\n";
-        } while (!validSearchType);
-        switch (searchType)
-        {
-        case 1:
-            // Get Book Title
-            cout << "Enter a book title: ";
+            // get search type
+            cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title" << endl;
             getline(cin, input);
 
             // Remove any leading or trailing white space
             input = trim(input);
 
             // Input validation
-            while (input.empty()) {
-                cout << "Invalid input. Book title cannot be empty" << ".\n";
-                cout << "Enter a book title: ";
+            while (!isStringInt(input) || stoi(input) < 1 || stoi(input) > 2)
+            {
+                cout << "Invalid entry, please try again\n";
+                cout << "Which search type would you like to use? \n1: Search by ISBN\n2: Search by Title" << endl;
                 getline(cin, input);
                 input = trim(input);
             }
-            break;
+            searchType = stoi(input);
 
-        case 2:
-            // Get ISBN
-            cout << "Enter ISBN: ";
-            getline(cin, input);
-
-            // Remove any leading or trailing white space
-            input = trim(input);
-
-            // Input validation
-            while (input.empty()) {
-                cout << "Invalid input. ISBN cannot be empty" << ".\n";
+            switch (searchType)
+            {
+            case 1:
+                // Get ISBN
                 cout << "Enter ISBN: ";
                 getline(cin, input);
+
+                // Remove any leading or trailing white space
                 input = trim(input);
-            }
-            break;
-        }
 
-        // Search the database/inventory for the given Title.
-        cout << "\nLoading results, please wait ... \n";
-        vector<Book> searchResults = searchBooks(input, searchType);
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. ISBN cannot be empty" << ".\n";
+                    cout << "Enter ISBN: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
 
-        // Display search results
-        //No matches on search
-        if (searchResults.empty())
-        {
-            cout << "No records were found matching search term \"" << input << "\"\n";
-        }
-        //display results and check if there are any more results
-        else if (searchResults.size() > 1)
-        {
-            cout << "[Error]: Two or more records were found matching search term \"" << input << "\"\n";
-            cout << "Please contact your database administarator to inform them of this problem\n";
-        }
-        else
-        {
-            cout << "Are you sure this is the book you wish to add to your list?\n";
-            cout << "Book Title: " << searchResults.at(0).getTitle() << "\n";
-            cout << "Author: " << searchResults.at(0).getAuthor() << "\n";
-            cout << "Publisher: " << searchResults.at(0).getPublisher() << "\n";
-            cout << "Publication Year: " << searchResults.at(0).getYear() << "\n";
-            cout << "\n";
-            cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
-            //cin.ignore();
-            getline(cin, input);
-
-            // Remove any leading or trailing white space
-            input = trim(input);
-
-            // Input validation
-            while (input != "Yes" && input != "No") {
-                cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
-                cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+            case 2:
+                // Get Book Title
+                cout << "Enter a book title: ";
                 getline(cin, input);
+
+                // Remove any leading or trailing white space
                 input = trim(input);
+
+                // Input validation
+                while (input.empty()) {
+                    cout << "Invalid input. Book title cannot be empty" << ".\n";
+                    cout << "Enter a book title: ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+                break;
             }
-        }
 
-        if (input == "Yes")
-        {
-            // Add the book in searchResults.at(0) to their "book list" (should be stored in the back end)
-            shoppingList.emplace(searchResults.at(0));
+            // Search the database/inventory for the given Title.
+            cout << "\nLoading results, please wait ... \n";
+            vector<Book> searchResults = searchBooks(input, searchType);
 
-            // Once the book is added, we used to delete the row that contains that book in the .csv file.
-            // However, since this is a "shopping cart," we don't want to decrement the quantity of this book until they "purchase" it.
-            //deleteBookFromInventory(searchResults.at(0).getTitle());
-            cout << "Book added!\n";
-        }
-            });
+            // Display search results
+            //No matches on search
+            if (searchResults.empty())
+            {
+                cout << "No records were found matching search term \"" << input << "\"\n";
+            }
+            //display results and check if there are any more results
+            else if (searchResults.size() > 1)
+            {
+                cout << "[Error]: Two or more records were found matching search term \"" << input << "\"\n";
+                cout << "Please contact your database administarator to inform them of this problem\n";
+            }
+            else
+            {
+                cout << "Are you sure this is the book you wish to add to your list?\n";
+                cout << "Book Title: " << searchResults.at(0).getTitle() << "\n";
+                cout << "Author: " << searchResults.at(0).getAuthor() << "\n";
+                cout << "Publisher: " << searchResults.at(0).getPublisher() << "\n";
+                cout << "Publication Year: " << searchResults.at(0).getYear() << "\n";
+                cout << "\n";
+                cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+                //cin.ignore();
+                getline(cin, input);
+
+                // Remove any leading or trailing white space
+                input = trim(input);
+
+                // Input validation
+                while (input != "Yes" && input != "No") {
+                    cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
+                    cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
+                    getline(cin, input);
+                    input = trim(input);
+                }
+            }
+
+            if (input == "Yes")
+            {
+                // Add the book in searchResults.at(0) to their "book list" (should be stored in the back end)
+                shoppingList.emplace(searchResults.at(0));
+
+                // Once the book is added, we used to delete the row that contains that book in the .csv file.
+                // However, since this is a "shopping cart," we don't want to decrement the quantity of this book until they "purchase" it.
+                //deleteBookFromInventory(searchResults.at(0).getTitle());
+                cout << "Book added!\n";
+            }
+        });
         shoppingMenu.addItem("Display your \"shopping list\" to the screen.", [&shoppingList]() {
             cout << "Printing your \"shopping list\" to the screen\n";
             cout << "\n";
@@ -991,22 +1048,42 @@ int main() {
             cout << "Total number of books: " << shoppingList.size() << "\n";
             cout << "\n";
         });
-        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable, &shopperName]()
+        shoppingMenu.addItem("Purchase shopping cart", [&shoppingList, &inShopperTable, &shopperFirstName, &shopperLastName, &shopperEmail]()
             {
+                // We probably want to ask the users to first confirm that they would like to purchase everything in their shopping list,
+                // ... but this is fine for now,
                 cout << fixed << setprecision(2);
-                purchaseShoppingList(shoppingList);
-                if (inShopperTable == true)
+                
+                double totalPricePreTax = calcTotalPrice(shoppingList);
+                double totalTax = totalPricePreTax * 0.06;
+                double totalPricePostTax = totalPricePreTax + totalTax;
+
+                // Returns if the purchase was successful or not.
+                if (purchaseShoppingList(shopperFirstName, shopperLastName, shopperEmail, shoppingList))
                 {
-                    cout << "Customer: " << shopperName << endl;
+                    // We will probably want to ACTUALLY ask the back-end and database if our current shopper data matches any records in the database,
+                    // BUT FOR NOW, this is fine.
+                    cout << "Customer: ";
+                    if (inShopperTable == true) 
+                    {
+                        cout << shopperFirstName << " " << shopperLastName << endl;
+                    }
+                    else cout << "Guest" << endl;
+
+                    multiset<Book, bool(*)(const Book&, const Book&)>::iterator shoppingListIterator = shoppingList.begin();
+                    while (shoppingListIterator != shoppingList.end())
+                    {
+                        cout << shoppingListIterator->getTitle() << "\n$" << shoppingListIterator->getMSRP() << endl << endl;
+                        shoppingListIterator++;
+                    }
+                    cout << "Tax: $" << totalTax << endl;
+                    cout << "Total: $" << totalPricePostTax << endl;
+                    shoppingList.clear();
                 }
-                multiset<Book, bool(*)(const Book&, const Book&)>::iterator shoppingListIterator = shoppingList.begin();
-                while (shoppingListIterator != shoppingList.end())
+                else 
                 {
-                    cout << shoppingListIterator->getTitle() << "\n$" << shoppingListIterator->getMSRP() << endl << endl;
-                    shoppingListIterator++;
+                    cout << "[ERROR]: An error has occured with purchasing your shopping list. We are sorry for the inconvenience." << endl;
                 }
-                cout << "Tax: $" << calcTotalPrice(shoppingList) * .06 << endl;
-                cout << "Total: $" << calcTotalPrice(shoppingList) + (calcTotalPrice(shoppingList) * .06);
             });
 
         mainMenu.run();
