@@ -477,3 +477,26 @@ double calcTotalPrice(multiset<Book, bool(*)(const Book&, const Book&)> shopping
 	}
 	return totalPrice;
 }
+
+void outputToLogFile(string functionCalled)
+{
+	ofstream log;
+	chrono::system_clock::time_point operationCompletedtp = chrono::system_clock::now();
+	time_t operationCompleted = chrono::system_clock::to_time_t(operationCompletedtp);
+	char str[26];
+
+	log.open("logfile.txt", ios::app);
+
+	if (!log)
+	{
+		cout << "file failed to open" << endl;
+	}
+
+	else
+	{
+		log << functionCalled << " completed at " << ctime_s(str, sizeof str, &operationCompleted);
+		cout << "Log created" << endl;
+	}
+
+	log.close();
+}
