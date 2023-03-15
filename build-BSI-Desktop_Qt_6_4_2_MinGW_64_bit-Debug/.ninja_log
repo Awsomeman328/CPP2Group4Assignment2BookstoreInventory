@@ -1,30 +1,19 @@
 # ninja log v5
-2	1142	7005912316834513	BSI_autogen/timestamp	5fc96518a7dacce4
-2	1142	7005912316834513	BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-2	1142	7005912316834513	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/timestamp	5fc96518a7dacce4
-2	1142	7005912316834513	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-1158	3132	7005912339533290	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	f895f13868156b11
-1143	3215	7005912340348507	CMakeFiles/BSI.dir/main.cpp.obj	fa68823467b5e2ae
-1190	5361	7005912361799319	CMakeFiles/BSI.dir/dbmanager.cpp.obj	58aeeed68573e651
-8	405	7005913647962139	BSI_autogen/timestamp	5fc96518a7dacce4
-8	405	7005913647962139	BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-8	405	7005913647962139	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/timestamp	5fc96518a7dacce4
-8	405	7005913647962139	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-7	373	7005917337519987	BSI_autogen/timestamp	5fc96518a7dacce4
-7	373	7005917337519987	BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-7	373	7005917337519987	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/timestamp	5fc96518a7dacce4
-7	373	7005917337519987	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-393	4168	7005917375403279	CMakeFiles/BSI.dir/mainwindow.cpp.obj	821f9355a1c18ccb
-4171	4563	7005917379369393	BSI.exe	f6188b577011ef45
-10	326	7005918004755897	BSI_autogen/timestamp	5fc96518a7dacce4
-10	326	7005918004755897	BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-10	326	7005918004755897	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/timestamp	5fc96518a7dacce4
-10	326	7005918004755897	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
-343	4233	7005918043756808	CMakeFiles/BSI.dir/mainwindow.cpp.obj	821f9355a1c18ccb
-4234	4622	7005918047552240	BSI.exe	f6188b577011ef45
 8	307	7005920718145126	BSI_autogen/timestamp	5fc96518a7dacce4
 8	307	7005920718145126	BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
+1190	5361	7005912361799319	CMakeFiles/BSI.dir/dbmanager.cpp.obj	58aeeed68573e651
 8	307	7005920718145126	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/timestamp	5fc96518a7dacce4
 8	307	7005920718145126	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
+1158	3132	7005912339533290	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	f895f13868156b11
+1143	3215	7005912340348507	CMakeFiles/BSI.dir/main.cpp.obj	fa68823467b5e2ae
 327	4303	7005920758045805	CMakeFiles/BSI.dir/mainwindow.cpp.obj	821f9355a1c18ccb
 4304	4681	7005920761778801	BSI.exe	f6188b577011ef45
+7	911	7005932160338917	BSI_autogen/timestamp	5fc96518a7dacce4
+7	911	7005932160338917	BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
+7	911	7005932160338917	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/timestamp	5fc96518a7dacce4
+7	911	7005932160338917	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	5fc96518a7dacce4
+915	2766	7005932181083573	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	f895f13868156b11
+912	2804	7005932181468598	CMakeFiles/BSI.dir/main.cpp.obj	fa68823467b5e2ae
+919	4696	7005932200382284	CMakeFiles/BSI.dir/dbmanager.cpp.obj	58aeeed68573e651
+917	4893	7005932202334217	CMakeFiles/BSI.dir/mainwindow.cpp.obj	821f9355a1c18ccb
+4893	5251	7005932205950034	BSI.exe	f6188b577011ef45
