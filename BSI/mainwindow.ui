@@ -662,7 +662,7 @@
    <sender>pushButtonExit</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>close()</slot>
+   <slot>exitProgram()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>749</x>
@@ -694,5 +694,6 @@
  <slots>
   <slot>searchDB()</slot>
   <slot>logIn()</slot>
+  <slot>exitProgram()</slot>
  </slots>
 </ui>

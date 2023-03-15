@@ -17,6 +17,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::exitProgram()
+{
+    outputToLogFile("MainWindow.exitProgram");
+    close();
+}
+
 void MainWindow::createDB()
 {
     dbManager db("sample1.db");
@@ -53,6 +59,7 @@ void MainWindow::searchDB()
     dbManager db("bookstoreInventory.db");
     QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDB->text());
 
+    outputToLogFile("dbManager.searchDB");
 
     ui->textEditLarge->append(&"Number of Results: " [ searchResults.size() ]);
     for (unsigned short index = 0; index < searchResults.size(); index++)

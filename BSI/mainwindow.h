@@ -24,5 +24,6 @@ public slots:
     void readTable();
     void searchDB();
     void logIn();
+    void exitProgram();
 };
 #endif // MAINWINDOW_H
