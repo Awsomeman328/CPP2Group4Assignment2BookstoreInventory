@@ -1,7 +1,9 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "backEnd.h"
 #include <set>
 #include "Book.h"
 #include "Utilities.h"
+
 
 using namespace std;
 
@@ -67,6 +69,7 @@ bool checkUserPassPair(string username, string password)
 		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
 		if (data[0][0] == username)
 		{
+			outputToLogFile("checkUserPassPair");
 			return true;
 		}
 	}
@@ -97,6 +100,7 @@ bool checkUserPassAdminTrio(string username, string password)
 		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
 		if (data[0][0] == username)
 		{
+			outputToLogFile("checkUserPassAdminTrio");
 			return true;
 		}
 	}
@@ -153,6 +157,7 @@ vector<Book> searchBooks(string inputToSearch, int searchType)
 	rc = sqlite3_exec(db, charQuery, callback, &data, &zErrMsg);
 
 	sqlite3_close(db);
+	outputToLogFile("searchBooks");
 
 	// If the database returns 1 OR MORE results.
 	if (data.size() >= 1)
@@ -229,6 +234,7 @@ void addBookToInventory(Book bookToAdd)
 		cout << "Unable to open file" << endl;
 	//inventory.close();
 	sqlite3_close(db);
+	outputToLogFile("addBookToInventory");
 }
 
 // Everything in this function has been commented out. We probably need to fix this function so that it works again!
@@ -379,6 +385,7 @@ bool addNewUser(string username, string password, string isAdmin)
 		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
 		if (head[0][0] == username && head[0][1] == password && head[0][2] == isAdmin)
 		{
+			outputToLogFile("addNewUser");
 			return true;
 		}
 	}
@@ -415,6 +422,7 @@ bool changeUsersPassword(string username, string newPassword)
 		// data[i] selects the row, data[0][i] selects the cell, so this checks if the USERNAME of the first result was returned.
 		if (head[0][0] == username && head[0][1] == newPassword)
 		{
+			outputToLogFile("changeUsersPassword");
 			return true;
 		}
 	}
@@ -485,6 +493,8 @@ bool importBooks()
 		rc = sqlite3_exec(db, charQuery, callback, 0, &zErrMsg);
 	}
 
+	outputToLogFile("importBooks");
+
 	// For now, there is no check to see if the import is successful, it is just assumed that it works. ... But we will want to change this later.
 	return true;
 }
@@ -544,6 +554,8 @@ void addNewShopper(string firstName, string lastName, string shopperEmail)
 	*/
 
 	sqlite3_close(db);
+
+	outputToLogFile("addNewShopper");
 
 	/* The rest of this function is validating if this query succeeded or not. 
 	 * But since this doesn't return a bool yet, this is useless until that change is made.
@@ -658,7 +670,7 @@ bool decreaseBoughtBooks(multiset<Book, bool(*)(const Book&, const Book&)>& shop
 		sqlite3_close(db);
 		return true;
 	}
-	
+	outputToLogFile("decreaseBoughtBooks");
 }
 
 bool increaseTotalSpent(string shopperFirstName, string shopperLastName, string shopperEmail, multiset<Book, bool(*)(const Book&, const Book&)>& shoppingList)
@@ -700,6 +712,7 @@ bool increaseTotalSpent(string shopperFirstName, string shopperLastName, string 
 		sqlite3_close(db);
 		return true;
 	}
+	outputToLogFile("increaseTotalSpent");
 }
 
 void outputToLogFile(string functionCalled)
@@ -707,7 +720,7 @@ void outputToLogFile(string functionCalled)
 	ofstream log;
 	chrono::system_clock::time_point operationCompletedtp = chrono::system_clock::now();
 	time_t operationCompleted = chrono::system_clock::to_time_t(operationCompletedtp);
-	char str[26];
+	//char str[26];
 
 	log.open("logfile.txt", ios::app);
 
@@ -718,7 +731,7 @@ void outputToLogFile(string functionCalled)
 
 	else
 	{
-		log << functionCalled << " completed at " << ctime_s(str, sizeof str, &operationCompleted);
+		log << functionCalled << " completed at " << ctime(&operationCompleted);
 		cout << "Log created" << endl;
 	}
 
