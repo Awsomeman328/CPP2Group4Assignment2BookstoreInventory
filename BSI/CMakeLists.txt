@@ -19,6 +19,15 @@ set(PROJECT_SOURCES
         mainwindow.ui
         dbmanager.h
         dbmanager.cpp
+        book.h
+        book.cpp
+        utilities.h
+        utilities.cpp
+        md5.h
+        md5.cpp
+        rapidcsv.h
+        hashpasswordencryptor.h
+        hashpasswordencryptor.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

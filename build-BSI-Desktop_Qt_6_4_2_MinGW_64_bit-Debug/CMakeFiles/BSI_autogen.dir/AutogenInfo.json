@@ -308,15 +308,45 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h",
+			"MU",
+			"EWIEGA46WW/moc_book.cpp",
+			null
+		],
+		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_dbmanager.cpp",
 			null
 		],
 		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h",
+			"MU",
+			"EWIEGA46WW/moc_hashpasswordencryptor.cpp",
+			null
+		],
+		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h",
+			"MU",
+			"EWIEGA46WW/moc_md5.cpp",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h",
+			"MU",
+			"EWIEGA46WW/moc_rapidcsv.cpp",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h",
+			"MU",
+			"EWIEGA46WW/moc_utilities.cpp",
 			null
 		]
 	],
@@ -392,7 +422,17 @@
 	"SOURCES" : 
 	[
 		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.cpp",
+			"MU",
+			null
+		],
+		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.cpp",
 			"MU",
 			null
 		],
@@ -403,6 +443,16 @@
 		],
 		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.cpp",
 			"MU",
 			null
 		]

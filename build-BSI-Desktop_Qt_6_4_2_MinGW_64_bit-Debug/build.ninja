@@ -81,6 +81,38 @@ build CMakeFiles/BSI.dir/dbmanager.cpp.obj: CXX_COMPILER__BSI_Debug C$:/Users/Aw
   OBJECT_DIR = CMakeFiles\BSI.dir
   OBJECT_FILE_DIR = CMakeFiles\BSI.dir
 
+build CMakeFiles/BSI.dir/book.cpp.obj: CXX_COMPILER__BSI_Debug C$:/Users/Awsoe/OneDrive/Documents/School/Winter$ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.cpp || cmake_object_order_depends_target_BSI
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\BSI.dir\book.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17
+  INCLUDES = -I"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/include" -isystem C:/Qt/6.4.2/mingw_64/include/QtCore -isystem C:/Qt/6.4.2/mingw_64/include -isystem C:/Qt/6.4.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.4.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.4.2/mingw_64/include/QtGui -isystem C:/Qt/6.4.2/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\BSI.dir
+  OBJECT_FILE_DIR = CMakeFiles\BSI.dir
+
+build CMakeFiles/BSI.dir/utilities.cpp.obj: CXX_COMPILER__BSI_Debug C$:/Users/Awsoe/OneDrive/Documents/School/Winter$ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.cpp || cmake_object_order_depends_target_BSI
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\BSI.dir\utilities.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17
+  INCLUDES = -I"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/include" -isystem C:/Qt/6.4.2/mingw_64/include/QtCore -isystem C:/Qt/6.4.2/mingw_64/include -isystem C:/Qt/6.4.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.4.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.4.2/mingw_64/include/QtGui -isystem C:/Qt/6.4.2/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\BSI.dir
+  OBJECT_FILE_DIR = CMakeFiles\BSI.dir
+
+build CMakeFiles/BSI.dir/md5.cpp.obj: CXX_COMPILER__BSI_Debug C$:/Users/Awsoe/OneDrive/Documents/School/Winter$ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.cpp || cmake_object_order_depends_target_BSI
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\BSI.dir\md5.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17
+  INCLUDES = -I"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/include" -isystem C:/Qt/6.4.2/mingw_64/include/QtCore -isystem C:/Qt/6.4.2/mingw_64/include -isystem C:/Qt/6.4.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.4.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.4.2/mingw_64/include/QtGui -isystem C:/Qt/6.4.2/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\BSI.dir
+  OBJECT_FILE_DIR = CMakeFiles\BSI.dir
+
+build CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj: CXX_COMPILER__BSI_Debug C$:/Users/Awsoe/OneDrive/Documents/School/Winter$ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.cpp || cmake_object_order_depends_target_BSI
+  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_SQL_LIB -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
+  DEP_FILE = CMakeFiles\BSI.dir\hashpasswordencryptor.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17
+  INCLUDES = -I"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/include" -isystem C:/Qt/6.4.2/mingw_64/include/QtCore -isystem C:/Qt/6.4.2/mingw_64/include -isystem C:/Qt/6.4.2/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.4.2/mingw_64/include/QtWidgets -isystem C:/Qt/6.4.2/mingw_64/include/QtGui -isystem C:/Qt/6.4.2/mingw_64/include/QtSql
+  OBJECT_DIR = CMakeFiles\BSI.dir
+  OBJECT_FILE_DIR = CMakeFiles\BSI.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target BSI
@@ -89,7 +121,7 @@ build CMakeFiles/BSI.dir/dbmanager.cpp.obj: CXX_COMPILER__BSI_Debug C$:/Users/Aw
 #############################################
 # Link the executable BSI.exe
 
-build BSI.exe: CXX_EXECUTABLE_LINKER__BSI_Debug CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj CMakeFiles/BSI.dir/main.cpp.obj CMakeFiles/BSI.dir/mainwindow.cpp.obj CMakeFiles/BSI.dir/dbmanager.cpp.obj | C$:/Qt/6.4.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.4.2/mingw_64/lib/libQt6Sql.a C$:/Qt/6.4.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.4.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.4.2/mingw_64/lib/libQt6EntryPoint.a || BSI_autogen BSI_autogen_timestamp_deps
+build BSI.exe: CXX_EXECUTABLE_LINKER__BSI_Debug CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj CMakeFiles/BSI.dir/main.cpp.obj CMakeFiles/BSI.dir/mainwindow.cpp.obj CMakeFiles/BSI.dir/dbmanager.cpp.obj CMakeFiles/BSI.dir/book.cpp.obj CMakeFiles/BSI.dir/utilities.cpp.obj CMakeFiles/BSI.dir/md5.cpp.obj CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj | C$:/Qt/6.4.2/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.4.2/mingw_64/lib/libQt6Sql.a C$:/Qt/6.4.2/mingw_64/lib/libQt6Gui.a C$:/Qt/6.4.2/mingw_64/lib/libQt6Core.a C$:/Qt/6.4.2/mingw_64/lib/libQt6EntryPoint.a || BSI_autogen BSI_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.4.2/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.4.2/mingw_64/lib/libQt6Sql.a  C:/Qt/6.4.2/mingw_64/lib/libQt6Gui.a  -ld3d11  -ldxgi  -ldxguid  C:/Qt/6.4.2/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.4.2/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

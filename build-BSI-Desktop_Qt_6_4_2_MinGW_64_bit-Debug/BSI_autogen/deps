@@ -540,11 +540,20 @@ BSI_autogen/timestamp: \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/CMakeLists.txt \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.cpp \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.cpp \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.cpp \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/main.cpp \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.cpp \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.cpp \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.cpp \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeRCCompiler.cmake \
