@@ -79,7 +79,7 @@
          <item>
           <widget class="QPushButton" name="pushButtonLogIn">
            <property name="text">
-            <string>Log In</string>
+            <string>Log In - Not Yet Implemented</string>
            </property>
           </widget>
          </item>

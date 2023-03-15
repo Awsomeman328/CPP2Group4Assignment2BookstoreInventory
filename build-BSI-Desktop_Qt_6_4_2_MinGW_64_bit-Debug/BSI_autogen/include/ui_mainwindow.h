@@ -631,7 +631,7 @@ public:
         labelUsername->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
         labelPassword->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
         lineEditPassword->setPlaceholderText(QString());
-        pushButtonLogIn->setText(QCoreApplication::translate("MainWindow", "Log In", nullptr));
+        pushButtonLogIn->setText(QCoreApplication::translate("MainWindow", "Log In - Not Yet Implemented", nullptr));
         pushButtonExit->setText(QCoreApplication::translate("MainWindow", "Exit Program", nullptr));
         labelSearchDatabase->setText(QCoreApplication::translate("MainWindow", "Search the Database 2", nullptr));
         labelSearchBy->setText(QCoreApplication::translate("MainWindow", "Search By: ", nullptr));
