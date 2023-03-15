@@ -23,5 +23,6 @@ public slots:
     void createTable();
     void readTable();
     void searchDB();
+    void logIn();
 };
 #endif // MAINWINDOW_H

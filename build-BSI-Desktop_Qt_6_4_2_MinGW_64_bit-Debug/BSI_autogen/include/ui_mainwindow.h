@@ -617,6 +617,7 @@ public:
         retranslateUi(MainWindow);
         QObject::connect(btnSearchDB, SIGNAL(clicked()), MainWindow, SLOT(searchDB()));
         QObject::connect(pushButtonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
+        QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(logIn()));
 
         tabWidget_2->setCurrentIndex(0);
         comboBoxSearchBy->setCurrentIndex(1);

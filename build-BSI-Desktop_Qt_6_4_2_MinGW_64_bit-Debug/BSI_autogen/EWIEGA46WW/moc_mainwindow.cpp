@@ -26,13 +26,14 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[12];
+    uint offsetsAndSizes[14];
     char stringdata0[11];
     char stringdata1[9];
     char stringdata2[1];
     char stringdata3[12];
     char stringdata4[10];
     char stringdata5[9];
+    char stringdata6[6];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -43,14 +44,16 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(20, 0),  // ""
         QT_MOC_LITERAL(21, 11),  // "createTable"
         QT_MOC_LITERAL(33, 9),  // "readTable"
-        QT_MOC_LITERAL(43, 8)   // "searchDB"
+        QT_MOC_LITERAL(43, 8),  // "searchDB"
+        QT_MOC_LITERAL(52, 5)   // "logIn"
     },
     "MainWindow",
     "createDB",
     "",
     "createTable",
     "readTable",
-    "searchDB"
+    "searchDB",
+    "logIn"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -61,7 +64,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -69,12 +72,14 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   38,    2, 0x0a,    1 /* Public */,
-       3,    0,   39,    2, 0x0a,    2 /* Public */,
-       4,    0,   40,    2, 0x0a,    3 /* Public */,
-       5,    0,   41,    2, 0x0a,    4 /* Public */,
+       1,    0,   44,    2, 0x0a,    1 /* Public */,
+       3,    0,   45,    2, 0x0a,    2 /* Public */,
+       4,    0,   46,    2, 0x0a,    3 /* Public */,
+       5,    0,   47,    2, 0x0a,    4 /* Public */,
+       6,    0,   48,    2, 0x0a,    5 /* Public */,
 
  // slots: parameters
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -99,6 +104,8 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'readTable'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'searchDB'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'logIn'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -114,6 +121,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->createTable(); break;
         case 2: _t->readTable(); break;
         case 3: _t->searchDB(); break;
+        case 4: _t->logIn(); break;
         default: ;
         }
     }
@@ -139,13 +147,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 4)
+        if (_id < 5)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 4;
+        _id -= 5;
     }
     return _id;
 }

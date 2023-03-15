@@ -674,8 +674,25 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButtonLogIn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>logIn()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>searchDB()</slot>
+  <slot>logIn()</slot>
  </slots>
 </ui>

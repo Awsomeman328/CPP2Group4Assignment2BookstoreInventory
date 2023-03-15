@@ -308,6 +308,12 @@
 	"HEADERS" : 
 	[
 		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h",
+			"MU",
+			"EWIEGA46WW/moc_backend.cpp",
+			null
+		],
+		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h",
 			"MU",
 			"EWIEGA46WW/moc_book.cpp",
@@ -421,6 +427,11 @@
 	"SETTINGS_FILE" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_2_MinGW_64_bit-Debug/CMakeFiles/BSI_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.cpp",
+			"MU",
+			null
+		],
 		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.cpp",
 			"MU",

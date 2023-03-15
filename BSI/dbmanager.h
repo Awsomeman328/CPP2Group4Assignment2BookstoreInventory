@@ -12,6 +12,7 @@ public:
     std::string createDB(const QString& path); // The returned string will send a message of if this method was successful
     QVector<QVariant> readDB(const QString& path);
     QVector<QVector<QVariant>> searchDB(const QString& path, const QString searchTerm);
+    QVector<bool> checkLogInInfo(const QString username, const QString password);
 
 
 private:

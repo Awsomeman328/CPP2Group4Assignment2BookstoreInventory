@@ -148,7 +148,7 @@ QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QStrin
         rowResult.push_back( query.value(idMSRP) );
         rowResult.push_back( query.value(idCurQuantity) );
 
-        searchResults.push_back(rowResult);;
+        searchResults.push_back(rowResult);
 
     }
 
@@ -158,4 +158,56 @@ QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QStrin
     qDebug() << "Database: returning search results";
     return searchResults;
 
+}
+
+// This function returns a vector of bools that is either of size 0, 1, or 2.
+// If the size is 0 or null, then there were no results for the log in process.
+// If the size is 1, then exactly one result was found. The resulting bool represents if the user is an admin or not
+// If the size is 2, then more than one result was found. The values of the returned bools are irrelevent and should be ignored.
+QVector<bool> dbManager::checkLogInInfo(const QString username, const QString password)
+{
+    QVector<bool> logInResults;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       qDebug() << "Error: connection with database failed";
+    }
+    else
+    {
+       qDebug() << "Database: connection ok";
+    }
+
+    qDebug() << "Database: starting login process";
+
+    QSqlQuery query("SELECT * FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "';");
+    int idAdmin = query.record().indexOf("IS_ADMIN");
+
+    int numResults = 0;
+
+    while (query.next())
+    {
+
+        qDebug() << "Database: found a result";
+        numResults++;
+
+        // If the DB finds more than one match in the table, ...
+        if (numResults > 1) {
+            logInResults.push_front(false);
+            break;
+        }
+
+        //logInResults.push_back(true);
+
+        if (query.value(idAdmin) == 1) logInResults.push_back(true);
+        else logInResults.push_back(false);
+
+    }
+
+    qDebug() << "Database: closing connection";
+    m_db.close();
+
+    qDebug() << "Database: returning search results";
+    return logInResults;
 }

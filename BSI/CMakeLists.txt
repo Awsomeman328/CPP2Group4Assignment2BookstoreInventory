@@ -28,6 +28,8 @@ set(PROJECT_SOURCES
         rapidcsv.h
         hashpasswordencryptor.h
         hashpasswordencryptor.cpp
+        backend.h
+        backend.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

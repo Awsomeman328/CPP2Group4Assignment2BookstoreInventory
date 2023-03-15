@@ -2,6 +2,8 @@
 #include "./ui_mainwindow.h"
 
 #include "dbmanager.h"
+#include "hashpasswordencryptor.h"
+#include "backend.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -65,6 +67,41 @@ void MainWindow::searchDB()
     }
 
 
+
+}
+
+void MainWindow::logIn()
+{
+    QString username = ui->lineEditUsername->text();
+    QString password = QString::fromStdString( hash_password( ui->lineEditPassword->text().toStdString() ) );
+
+    QVector<bool> loginStatus = attemptLogin(username, password);
+
+    if (loginStatus.size() == NULL)
+    {
+
+        ui->statusbar->showMessage("Login Failed! No UserPass pairs of given inputs.");
+
+    }
+    else if (loginStatus.size() == 1)
+    {
+
+        if (loginStatus[0])
+        {
+            ui->statusbar->showMessage("Login Successful! Admin Access Granted!");
+        }
+        else
+        {
+            ui->statusbar->showMessage("Login Successful!");
+        }
+
+    }
+    else
+    {
+
+        ui->statusbar->showMessage("DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
+
+    }
 
 }
 
