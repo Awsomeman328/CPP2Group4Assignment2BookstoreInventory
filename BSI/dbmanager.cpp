@@ -36,6 +36,7 @@ std::string dbManager::createDB(const QString& path)
        std::cout << "Success";
     }
 
+    // Technically, the rest of this SHOULD be within the .open() if statement above. Its fine for now, but should probably make this change.
     CreateQuery.prepare("CREATE TABLE BOOK(ISBN INTEGER PRIMARY KEY UNIQUE, TITLE STRING, PUBLISHED INTEGER)");
     if(CreateQuery.exec())
     {
