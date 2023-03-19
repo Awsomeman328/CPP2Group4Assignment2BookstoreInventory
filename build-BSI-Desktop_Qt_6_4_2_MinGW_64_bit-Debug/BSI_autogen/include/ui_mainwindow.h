@@ -122,6 +122,8 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(800, 600);
+        MainWindow->setMinimumSize(QSize(800, 600));
+        MainWindow->setTabShape(QTabWidget::Rounded);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget = new QWidget(centralwidget);
@@ -616,7 +618,7 @@ public:
 
         retranslateUi(MainWindow);
         QObject::connect(btnSearchDB, SIGNAL(clicked()), MainWindow, SLOT(searchDB()));
-        QObject::connect(pushButtonExit, SIGNAL(clicked()), MainWindow, SLOT(exitProgram()));
+        QObject::connect(pushButtonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
         QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(logIn()));
         QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(readTable()));
 

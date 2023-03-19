@@ -2,8 +2,10 @@
 #ifndef UTILITIES_H
 #define UTILITIES_H
 
+#include <QDebug>
 #include <chrono>
 #include <ctime>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include "book.h"
@@ -17,6 +19,6 @@ int getCurrentYear();
 const char* convertStringToCharPointer(string* string);
 bool isStringPositiveInt(const string& s);
 bool compareBooksByMSRP(const Book& b1, const Book& b2);
-void outputToLogFile(string functionCalled);
+void outputToLogFile(string logMessage);
 
 #endif // UTILITIES_H

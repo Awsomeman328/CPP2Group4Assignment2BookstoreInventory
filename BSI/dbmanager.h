@@ -4,6 +4,7 @@
 
 #include <Qtsql/QtSql>
 #include <QVector>
+#include "utilities.h"
 
 class dbManager
 {

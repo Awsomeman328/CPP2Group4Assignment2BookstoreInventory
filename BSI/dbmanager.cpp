@@ -113,79 +113,89 @@ QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QStrin
 
     if (!m_db.open())
     {
-       qDebug() << "Error: connection with database failed";
+        outputToLogFile("dbManager::searchDB(" + path.toStdString() + ", .., ..) Error: connection with database failed");
+        //qDebug() << "dbManager::searchDB(" + path + ", .., ..) Error: connection with database failed";
     }
     else
     {
-       qDebug() << "Database: connection ok";
+        outputToLogFile("dbManager::searchDB(" + path.toStdString() + ", .., ..) Database: connection ok");
+        //qDebug() << "Database: connection ok";
+
+        outputToLogFile("dbManager::searchDB(.., " + searchTerm.toStdString() + ", " + to_string(searchCategory) + ") Database: connection ok");
+        //qDebug() << "dbManager::searchDB(.., " + searchTerm + ", " + QString::fromStdString(to_string(searchCategory)) + ") Database: connection ok";
+
+        QString queryString;
+
+        switch (searchCategory) {
+        case 0:
+            queryString = "SELECT * FROM BOOKS WHERE ISBN LIKE '%" + searchTerm + "%';";
+            break;
+        case 1:
+            queryString = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + searchTerm + "%';";
+            break;
+        case 2:
+            queryString = "SELECT * FROM BOOKS WHERE AUTHOR LIKE '%" + searchTerm + "%';";
+            break;
+        case 3:
+            queryString = "SELECT * FROM BOOKS WHERE PUBLICATION_YEAR=" + searchTerm + ";";
+            break;
+        case 4:
+            queryString = "SELECT * FROM BOOKS WHERE PUBLISHER LIKE '%" + searchTerm + "%';";
+            break;
+        case 5:
+            queryString = "SELECT * FROM BOOKS WHERE MSRP=" + searchTerm + ";";
+            break;
+        case 6:
+            queryString = "SELECT * FROM BOOKS WHERE QUANTITY_ON_HAND=" + searchTerm + ";";
+            break;
+        default:
+            queryString = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + searchTerm + "%';";
+            break;
+        }
+
+        QSqlQuery query(queryString);
+        int idISBN = query.record().indexOf("ISBN");
+        int idTitle = query.record().indexOf("TITLE");
+        int idAuthor = query.record().indexOf("AUTHOR");
+        int idYear = query.record().indexOf("PUBLICATION_YEAR");
+        int idPublisher = query.record().indexOf("PUBLISHER");
+        int idMSRP = query.record().indexOf("MSRP");
+        int idCurQuantity = query.record().indexOf("QUANTITY_ON_HAND");
+
+        int numResults = 0;
+
+        while (query.next())
+        {
+
+            if (numResults == 0)
+            {
+                outputToLogFile("dbManager::searchDB(.., .., ..) Database: found at least 1 result");
+                //qDebug() << "dbManager::searchDB(.., .., ..) Database: found at least 1 result";
+            }
+            numResults++;
+
+            QVector<QVariant> rowResult;
+            rowResult.push_back( numResults );
+            rowResult.push_back( query.value(idISBN) );
+            rowResult.push_back( query.value(idTitle) );
+            rowResult.push_back( query.value(idAuthor) );
+            rowResult.push_back( query.value(idYear) );
+            rowResult.push_back( query.value(idPublisher) );
+            rowResult.push_back( query.value(idMSRP) );
+            rowResult.push_back( query.value(idCurQuantity) );
+
+            searchResults.push_back(rowResult);
+
+        }
     }
 
-    qDebug() << "Database: starting search";
 
-    QString queryString;
-
-    switch (searchCategory) {
-    case 0:
-        queryString = "SELECT * FROM BOOKS WHERE ISBN LIKE '%" + searchTerm + "%';";
-        break;
-    case 1:
-        queryString = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + searchTerm + "%';";
-        break;
-    case 2:
-        queryString = "SELECT * FROM BOOKS WHERE AUTHOR LIKE '%" + searchTerm + "%';";
-        break;
-    case 3:
-        queryString = "SELECT * FROM BOOKS WHERE PUBLICATION_YEAR=" + searchTerm + ";";
-        break;
-    case 4:
-        queryString = "SELECT * FROM BOOKS WHERE PUBLISHER LIKE '%" + searchTerm + "%';";
-        break;
-    case 5:
-        queryString = "SELECT * FROM BOOKS WHERE MSRP=" + searchTerm + ";";
-        break;
-    case 6:
-        queryString = "SELECT * FROM BOOKS WHERE QUANTITY_ON_HAND=" + searchTerm + ";";
-        break;
-    default:
-        queryString = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + searchTerm + "%';";
-        break;
-    }
-
-    QSqlQuery query(queryString);
-    int idISBN = query.record().indexOf("ISBN");
-    int idTitle = query.record().indexOf("TITLE");
-    int idAuthor = query.record().indexOf("AUTHOR");
-    int idYear = query.record().indexOf("PUBLICATION_YEAR");
-    int idPublisher = query.record().indexOf("PUBLISHER");
-    int idMSRP = query.record().indexOf("MSRP");
-    int idCurQuantity = query.record().indexOf("QUANTITY_ON_HAND");
-
-    int numResults = 0;
-
-    while (query.next())
-    {
-
-        qDebug() << "Database: found a result";
-        numResults++;
-
-        QVector<QVariant> rowResult;
-        rowResult.push_back( numResults );
-        rowResult.push_back( query.value(idISBN) );
-        rowResult.push_back( query.value(idTitle) );
-        rowResult.push_back( query.value(idAuthor) );
-        rowResult.push_back( query.value(idYear) );
-        rowResult.push_back( query.value(idPublisher) );
-        rowResult.push_back( query.value(idMSRP) );
-        rowResult.push_back( query.value(idCurQuantity) );
-
-        searchResults.push_back(rowResult);
-
-    }
-
-    qDebug() << "Database: closing connection";
+    outputToLogFile("dbManager::searchDB(.., .., ..) Database: closing connection");
+    //qDebug() << "dbManager::searchDB(.., .., ..) Database: closing connection";
     m_db.close();
 
-    qDebug() << "Database: returning search results";
+    outputToLogFile("dbManager::searchDB(.., .., ..) Database: returning search results");
+    //qDebug() << "dbManager::searchDB(.., .., ..) Database: returning search results";
     return searchResults;
 
 }
@@ -202,80 +212,92 @@ QVector<bool> dbManager::checkLogInInfo(const QString username, const QString pa
 
     if (!m_db.open())
     {
-       qDebug() << "Error: connection with database failed";
+       outputToLogFile("dbManager::checkLogInInfo() Error: connection with database named \"bookstoreInventory.db\" failed");
     }
     else
     {
-       qDebug() << "Database: connection ok";
+       outputToLogFile("dbManager::checkLogInInfo() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+       outputToLogFile("dbManager::checkLogInInfo() Database: starting login process");
+
+       QSqlQuery query("SELECT * FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "';");
+       int idAdmin = query.record().indexOf("IS_ADMIN");
+
+       int numResults = 0;
+
+       while (query.next())
+       {
+
+           if (numResults == 0)
+           {
+               outputToLogFile("dbManager::checkLogInInfo() Database: found at least 1 result");
+               //qDebug() << "dbManager::checkLogInInfo() Database: found at least 1 result";
+           }
+           numResults++;
+
+           // If the DB finds more than one match in the table, ...
+           if (numResults > 1) {
+               logInResults.push_front(false);
+               break;
+           }
+
+           //logInResults.push_back(true);
+
+           if (query.value(idAdmin) == 1) logInResults.push_back(true);
+           else logInResults.push_back(false);
+
+       }
+
+
     }
-
-    qDebug() << "Database: starting login process";
-
-    QSqlQuery query("SELECT * FROM USERS WHERE USERNAME='" + username + "' AND PASSWORD='" + password + "';");
-    int idAdmin = query.record().indexOf("IS_ADMIN");
-
-    int numResults = 0;
-
-    while (query.next())
-    {
-
-        qDebug() << "Database: found a result";
-        numResults++;
-
-        // If the DB finds more than one match in the table, ...
-        if (numResults > 1) {
-            logInResults.push_front(false);
-            break;
-        }
-
-        //logInResults.push_back(true);
-
-        if (query.value(idAdmin) == 1) logInResults.push_back(true);
-        else logInResults.push_back(false);
-
-    }
-
-    qDebug() << "Database: closing connection";
+    outputToLogFile("dbManager::checkLogInInfo() Database: closing connection");
     m_db.close();
 
-    qDebug() << "Database: returning search results";
+
+    outputToLogFile("dbManager::checkLogInInfo() Database: returning login results: ");
     return logInResults;
 }
 
 QVector<QVariant> dbManager::getTotalNumBooks()
 {
-    QVector<bool> logInResults;
+    QVector<QVariant> results;
     m_db = QSqlDatabase::addDatabase("QSQLITE");
     m_db.setDatabaseName("bookstoreInventory.db");
 
     if (!m_db.open())
     {
-       qDebug() << "Error: connection with database failed";
+       outputToLogFile("dbManager::getTotalNumBooks() Error: connection with database named \"bookstoreInventory.db\" failed");
     }
     else
     {
-       qDebug() << "Database: connection ok";
+       outputToLogFile("dbManager::getTotalNumBooks() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+       outputToLogFile("dbManager::getTotalNumBooks() Database: starting book counting process");
+
+
+
+       QString queryString1 = "SELECT COUNT(*) FROM BOOKS;";
+       QString queryString2 = "SELECT SUM(QUANTITY_ON_HAND) FROM BOOKS;";
+
+       QSqlQuery query1(queryString1);
+       QSqlQuery query2(queryString2);
+
+       if (query1.next())
+       {
+           results.push_back( query1.value(0) );
+       }
+
+       if (query2.next())
+       {
+           results.push_back( query2.value(0) );
+       }
     }
 
-    qDebug() << "Database: starting book counting process";
 
-    QVector<QVariant> results;
 
-    QString queryString1 = "SELECT COUNT(*) FROM BOOKS;";
-    QString queryString2 = "SELECT SUM(QUANTITY_ON_HAND) FROM BOOKS;";
+    outputToLogFile("dbManager::getTotalNumBooks() Database: closing connection");
+    m_db.close();
 
-    QSqlQuery query1(queryString1);
-    QSqlQuery query2(queryString2);
-
-    if (query1.next())
-    {
-        results.push_back( query1.value(0) );
-    }
-
-    if (query2.next())
-    {
-        results.push_back( query2.value(0) );
-    }
-
+    outputToLogFile("dbManager::getTotalNumBooks() Database: returning search results");
     return results;
 }

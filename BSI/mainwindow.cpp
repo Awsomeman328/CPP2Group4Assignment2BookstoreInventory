@@ -1,10 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 
-#include "dbmanager.h"
-#include "hashpasswordencryptor.h"
-#include "backend.h"
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -17,9 +13,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    outputToLogFile("MainWindow::closeEvent(*event) Now attempting to Close Program...");
+    QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Scroll Rack",
+                                                                    tr("Are you sure?\n"),
+                                                                    QMessageBox::Cancel | QMessageBox::No | QMessageBox::Yes,
+                                                                    QMessageBox::Yes);
+        if (resBtn != QMessageBox::Yes) {
+            outputToLogFile("MainWindow::closeEvent(..) Closing the program has been cancelled.");
+            event->ignore();
+        } else {
+            outputToLogFile("MainWindow::closeEvent(..) Now Closing Program via Close Event.\n");
+            event->accept();
+        }
+}
+
 void MainWindow::exitProgram()
 {
-    outputToLogFile("MainWindow.exitProgram");
+    outputToLogFile("MainWindow::exitProgram() Closing Program via Exit Button.");
     close();
 }
 
@@ -70,7 +82,7 @@ void MainWindow::searchDB()
     const int searchCategory = ui->comboBoxSearchBy->currentIndex();
     QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDB->text(), searchCategory);
 
-    outputToLogFile("dbManager.searchDB");
+    //outputToLogFile("dbManager.searchDB");
 
     ui->textEditLarge->append(&"Number of Results: " [ searchResults.size() ]);
     for (unsigned short index = 0; index < searchResults.size(); index++)
@@ -95,10 +107,12 @@ void MainWindow::logIn()
 
     QVector<bool> loginStatus = attemptLogin(username, password);
 
+    // We can probably get rid of the commented out lines that would use the status bar to display the logIn results,
     if (loginStatus.size() == NULL)
     {
 
-        ui->statusbar->showMessage("Login Failed! No UserPass pairs of given inputs.");
+        outputToLogFile("MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.");
+        //ui->statusbar->showMessage("Login Failed! No UserPass pairs of given inputs.");
 
     }
     else if (loginStatus.size() == 1)
@@ -106,18 +120,21 @@ void MainWindow::logIn()
 
         if (loginStatus[0])
         {
-            ui->statusbar->showMessage("Login Successful! Admin Access Granted!");
+            outputToLogFile("MainWindow::logIn() Login Successful! Admin Access Granted!");
+            //ui->statusbar->showMessage("Login Successful! Admin Access Granted!");
         }
         else
         {
-            ui->statusbar->showMessage("Login Successful!");
+            outputToLogFile("MainWindow::logIn() Login Successful!");
+            //ui->statusbar->showMessage("Login Successful!");
         }
 
     }
     else
     {
 
-        ui->statusbar->showMessage("DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
+        outputToLogFile("MainWindow::logIn() DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
+        //ui->statusbar->showMessage("DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
 
     }
 
