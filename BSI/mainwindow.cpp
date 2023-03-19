@@ -57,7 +57,8 @@ void MainWindow::readTable()
 void MainWindow::searchDB()
 {
     dbManager db("bookstoreInventory.db");
-    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDB->text());
+    const int searchCategory = ui->comboBoxSearchBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDB->text(), searchCategory);
 
     outputToLogFile("dbManager.searchDB");
 

@@ -105,7 +105,7 @@ QVector<QVariant> dbManager::readDB(const QString& path)
 
 }
 
-QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QString searchTerm)
+QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QString searchTerm, const int searchCategory)
 {
     QVector<QVector<QVariant>> searchResults;
     m_db = QSqlDatabase::addDatabase("QSQLITE");
@@ -122,7 +122,36 @@ QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QStrin
 
     qDebug() << "Database: starting search";
 
-    QSqlQuery query("SELECT * FROM BOOKS WHERE TITLE LIKE '%" + searchTerm + "%';");
+    QString queryString;
+
+    switch (searchCategory) {
+    case 0:
+        queryString = "SELECT * FROM BOOKS WHERE ISBN LIKE '%" + searchTerm + "%';";
+        break;
+    case 1:
+        queryString = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + searchTerm + "%';";
+        break;
+    case 2:
+        queryString = "SELECT * FROM BOOKS WHERE AUTHOR LIKE '%" + searchTerm + "%';";
+        break;
+    case 3:
+        queryString = "SELECT * FROM BOOKS WHERE PUBLICATION_YEAR=" + searchTerm + ";";
+        break;
+    case 4:
+        queryString = "SELECT * FROM BOOKS WHERE PUBLISHER LIKE '%" + searchTerm + "%';";
+        break;
+    case 5:
+        queryString = "SELECT * FROM BOOKS WHERE MSRP=" + searchTerm + ";";
+        break;
+    case 6:
+        queryString = "SELECT * FROM BOOKS WHERE QUANTITY_ON_HAND=" + searchTerm + ";";
+        break;
+    default:
+        queryString = "SELECT * FROM BOOKS WHERE TITLE LIKE '%" + searchTerm + "%';";
+        break;
+    }
+
+    QSqlQuery query(queryString);
     int idISBN = query.record().indexOf("ISBN");
     int idTitle = query.record().indexOf("TITLE");
     int idAuthor = query.record().indexOf("AUTHOR");
