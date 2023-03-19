@@ -618,6 +618,7 @@ public:
         QObject::connect(btnSearchDB, SIGNAL(clicked()), MainWindow, SLOT(searchDB()));
         QObject::connect(pushButtonExit, SIGNAL(clicked()), MainWindow, SLOT(exitProgram()));
         QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(logIn()));
+        QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(readTable()));
 
         tabWidget_2->setCurrentIndex(0);
         comboBoxSearchBy->setCurrentIndex(1);

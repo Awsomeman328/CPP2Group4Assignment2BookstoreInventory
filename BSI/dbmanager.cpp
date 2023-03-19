@@ -241,3 +241,41 @@ QVector<bool> dbManager::checkLogInInfo(const QString username, const QString pa
     qDebug() << "Database: returning search results";
     return logInResults;
 }
+
+QVector<QVariant> dbManager::getTotalNumBooks()
+{
+    QVector<bool> logInResults;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       qDebug() << "Error: connection with database failed";
+    }
+    else
+    {
+       qDebug() << "Database: connection ok";
+    }
+
+    qDebug() << "Database: starting book counting process";
+
+    QVector<QVariant> results;
+
+    QString queryString1 = "SELECT COUNT(*) FROM BOOKS;";
+    QString queryString2 = "SELECT SUM(QUANTITY_ON_HAND) FROM BOOKS;";
+
+    QSqlQuery query1(queryString1);
+    QSqlQuery query2(queryString2);
+
+    if (query1.next())
+    {
+        results.push_back( query1.value(0) );
+    }
+
+    if (query2.next())
+    {
+        results.push_back( query2.value(0) );
+    }
+
+    return results;
+}

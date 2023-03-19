@@ -13,6 +13,7 @@ public:
     QVector<QVariant> readDB(const QString& path);
     QVector<QVector<QVariant>> searchDB(const QString& path, const QString searchTerm, const int searchCategory);
     QVector<bool> checkLogInInfo(const QString username, const QString password);
+    QVector<QVariant> getTotalNumBooks();
 
 
 private:

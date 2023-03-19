@@ -690,10 +690,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButtonLogIn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>readTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>searchDB()</slot>
   <slot>logIn()</slot>
   <slot>exitProgram()</slot>
+  <slot>readTable()</slot>
  </slots>
 </ui>

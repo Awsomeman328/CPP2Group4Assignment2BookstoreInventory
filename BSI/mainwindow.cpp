@@ -37,9 +37,10 @@ void MainWindow::createTable()
     ui->statusbar->showMessage(QString::fromStdString(db.createDB("books.db")));
 }
 
+// If we actually use this function for getting our number of books, then rename this function to something more appropreate.
 void MainWindow::readTable()
 {
-
+    /*
     dbManager db("books.db");
     QVector<QVariant> ISBNs = db.readDB("books.db");
 
@@ -49,8 +50,17 @@ void MainWindow::readTable()
         ui->textEditLarge->append(ISBNs[index].toString());
 
     }
+    */
 
+    // My recomendation for this is to make an infinite loop that calls db.getTotalNumBooks() every 6-12 seconds
+    // which would basically update the status bar automatically in the background each time it gets called.
+    // Can probably accomplish this using Streams as we learned from our Week 9 Lecture.
+    dbManager db("bookstoreInventory.db");
 
+    // Note that this does not update the status bar, it only gives the values to display within the statud bar.
+    // The first number is the total number of records in the database, aka the number of unique books our bookstore carries.
+    // The second number is the total sum of all of our books' QUANTITY_ON_HAND values, aka the total number of all of the book printings we currently have on stock.
+    QVector<QVariant> numBooks = db.getTotalNumBooks();
 
 }
 
@@ -110,6 +120,8 @@ void MainWindow::logIn()
         ui->statusbar->showMessage("DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
 
     }
+
+
 
 }
 
