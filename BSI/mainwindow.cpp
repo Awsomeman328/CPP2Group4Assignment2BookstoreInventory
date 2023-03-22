@@ -6,11 +6,58 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // Create the menu bar and menus
+        QMenuBar *menuBar = new QMenuBar(this);
+        QMenu *fileMenu = new QMenu("File");
+        QMenu *editMenu = new QMenu("Edit");
+        QMenu *helpMenu = new QMenu("Help");
+
+        // Create the menu items and add them to the menus
+        QAction *newAction = new QAction("New", this);
+        QAction *openAction = new QAction("Open", this);
+        QAction *saveAction = new QAction("Save", this);
+        QAction *exitAction = new QAction("Exit", this);
+        QAction *cutAction = new QAction("Cut", this);
+        QAction *copyAction = new QAction("Copy", this);
+        QAction *pasteAction = new QAction("Paste", this);
+        QAction *aboutAction = new QAction("About", this);
+
+        fileMenu->addAction(newAction);
+        fileMenu->addAction(openAction);
+        fileMenu->addAction(saveAction);
+        fileMenu->addAction(exitAction);
+        editMenu->addAction(cutAction);
+        editMenu->addAction(copyAction);
+        editMenu->addAction(pasteAction);
+        helpMenu->addAction(aboutAction);
+
+        // Add the menus to the menu bar
+        menuBar->addMenu(fileMenu);
+        menuBar->addMenu(editMenu);
+        menuBar->addMenu(helpMenu);
+
+        // Set the menu bar as the main window's menu bar
+        setMenuBar(menuBar);
+
+        // Connect the menu items to their respective functions
+        connect(newAction, &QAction::triggered, this, &MainWindow::createDB);
+        connect(openAction, &QAction::triggered, this, &MainWindow::readTable);
+        connect(saveAction, &QAction::triggered, this, &MainWindow::createTable);
+        connect(exitAction, &QAction::triggered, this, &MainWindow::exitProgram);
+        connect(cutAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::cut);
+        connect(copyAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::copy);
+        connect(pasteAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::paste);
+        connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::showAboutDialog()
+{
+    QMessageBox::about(this, "About", "This is a simple text editor.");
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)

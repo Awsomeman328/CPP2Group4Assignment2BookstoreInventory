@@ -30,6 +30,9 @@ set(PROJECT_SOURCES
         hashpasswordencryptor.cpp
         backend.h
         backend.cpp
+        loginscreen.ui
+        loginscreen.cpp
+        loginscreen.h
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
