@@ -34,7 +34,7 @@ QVector<bool> attemptLogin(QString username, QString password)
     dbManager db("bookstoreInventory.db");
     QVector<bool> results = db.checkLogInInfo(username, password);
 
-    outputToLogFile("attemptLogin");
+    //outputToLogFile("attemptLogin");
 
     return results;
 }
