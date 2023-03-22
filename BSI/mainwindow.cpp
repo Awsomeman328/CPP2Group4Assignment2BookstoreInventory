@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "dbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -48,6 +49,25 @@ MainWindow::MainWindow(QWidget *parent)
         connect(copyAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::copy);
         connect(pasteAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::paste);
         connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
+
+
+        // Create a label to display the number of books
+            QLabel *statusLabel = new QLabel(this);
+
+            // Get the total number of books from the database
+            dbManager db("bookstoreInventory.db");
+            QVector<QVariant> totalNumBooks = db.getTotalNumBooks();
+            int numBooks = totalNumBooks[0].toInt();
+            int totalQuantity = totalNumBooks[1].toInt();
+
+            // Set the text of the status label to display the total number of books
+            statusLabel->setText(QString("Total number of books: %1").arg(numBooks));
+
+            // Add the label to the status bar
+            statusBar()->addWidget(statusLabel);
+
+            // Add the status bar to the main window
+            setStatusBar(statusBar());
 }
 
 MainWindow::~MainWindow()

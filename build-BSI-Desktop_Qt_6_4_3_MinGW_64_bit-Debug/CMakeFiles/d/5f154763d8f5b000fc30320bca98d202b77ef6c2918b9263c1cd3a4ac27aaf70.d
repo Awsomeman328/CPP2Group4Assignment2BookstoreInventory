@@ -292,7 +292,6 @@ BSI_autogen/timestamp: \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlglobal.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlversion.h \
-  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QDialog \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -882,6 +881,5 @@ BSI_autogen/timestamp: \
   CMakeFiles/3.24.2/CMakeCXXCompiler.cmake \
   CMakeFiles/3.24.2/CMakeRCCompiler.cmake \
   CMakeFiles/3.24.2/CMakeSystem.cmake \
-  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.ui \
   C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.ui \
   C:/Qt/Tools/CMake_64/bin/cmake.exe
