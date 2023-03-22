@@ -332,6 +332,12 @@
 			null
 		],
 		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h",
+			"MU",
+			"EWIEGA46WW/moc_loginscreen.cpp",
+			null
+		],
+		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -444,6 +450,11 @@
 		],
 		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.cpp",
 			"MU",
 			null
 		],

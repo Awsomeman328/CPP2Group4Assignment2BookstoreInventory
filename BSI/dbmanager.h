@@ -15,6 +15,8 @@ public:
     QVector<QVector<QVariant>> searchDB(const QString& path, const QString searchTerm, const int searchCategory);
     QVector<bool> checkLogInInfo(const QString username, const QString password);
     QVector<QVariant> getTotalNumBooks();
+    bool addBookRecordToDatabase(Book newBook);
+    bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
 
 
 private:
