@@ -116,6 +116,23 @@ void MainWindow::createTable()
     ui->statusbar->showMessage(QString::fromStdString(db.createDB("books.db")));
 }
 
+void MainWindow::addBookToDB()
+{
+    Book newBook(
+                ui->lineEditISBN->text().toStdString(),
+                ui->lineEditTITLE->text().toStdString(),
+                ui->lineEditAUTHOR->text().toStdString(),
+                ui->lineEditYEAR->text().toInt(),
+                ui->lineEditPUBLISHER->text().toStdString(),
+                ui->lineEditDESC->text().toStdString(),
+                ui->lineEditGENRE->text().toStdString(),
+                ui->lineEditMSRP->text().toDouble(),
+                ui->lineEditQUANTITY->text().toInt());
+
+    dbManager db("bookstoreInventory.db");
+    db.addBookRecordToDatabase(newBook);
+}
+
 // If we actually use this function for getting our number of books, then rename this function to something more appropreate.
 void MainWindow::readTable()
 {
