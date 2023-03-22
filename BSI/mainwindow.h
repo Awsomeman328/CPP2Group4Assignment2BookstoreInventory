@@ -46,5 +46,6 @@ public slots:
     void searchDB();
     void logIn();
     void exitProgram();
+    void addBookToDB();
 };
 #endif // MAINWINDOW_H
