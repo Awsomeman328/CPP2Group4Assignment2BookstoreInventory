@@ -82,3 +82,33 @@ bool compareBooksByMSRP(const Book& b1, const Book& b2)
 {
     return (b1.getMSRP() < b2.getMSRP());
 }
+
+// Make sure to use use this function to update the log file when:
+// We have a successful db operation, a user logs into the application, a user exits this application, etc.
+// logMessage is what will be written into the log.
+void outputToLogFile(string logMessage)
+{
+    ofstream log;
+    chrono::system_clock::time_point operationCompletedtp = chrono::system_clock::now();
+    time_t operationCompleted = chrono::system_clock::to_time_t(operationCompletedtp);
+
+    log.open("logfile.txt", ios::app);
+
+    if (!log)
+    {
+        qDebug() << "Error: log file failed to open";
+    }
+
+    else
+        {
+            struct tm * timeinfo;
+            timeinfo = localtime(&operationCompleted);
+            char buffer[80];
+            strftime(buffer, 80, "[%Y-%m-%d %H:%M:%S] ", timeinfo);
+
+            log << buffer << logMessage << endl;
+            qDebug() << "Log created: " << buffer << QString::fromStdString(logMessage);
+        }
+
+    log.close();
+}

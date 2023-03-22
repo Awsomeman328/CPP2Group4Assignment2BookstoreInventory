@@ -1,0 +1,471 @@
+[2023-03-21 02:11:03] main() Starting Program, ...
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 02:12:34] attemptLogin
+[2023-03-21 02:12:34] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 02:12:34] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 02:12:34] attemptLogin
+[2023-03-21 02:12:34] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 02:12:34] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 02:12:35] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 02:12:35] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 02:12:35] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 02:12:35] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 02:12:35] attemptLogin
+[2023-03-21 02:12:35] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 02:12:35] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 02:12:35] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 02:12:35] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 02:12:35] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 02:12:41] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-21 02:12:43] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-21 15:18:00] main() Starting Program, ...
+[2023-03-21 15:18:13] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-21 15:18:19] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-21 23:17:33] main() Starting Program, ...
+[2023-03-21 23:17:56] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-21 23:17:56] dbManager::searchDB(.., , 1) Database: connection ok
+[2023-03-21 23:17:56] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-21 23:17:56] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-21 23:18:37] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:37] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:18:37] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:18:37] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:18:37] attemptLogin
+[2023-03-21 23:18:37] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:18:37] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:37] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:18:37] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:18:37] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:18:40] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:40] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:18:40] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:18:40] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:18:40] attemptLogin
+[2023-03-21 23:18:40] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:18:40] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:40] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:18:40] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:18:40] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:18:41] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:41] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:18:41] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:18:41] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:18:41] attemptLogin
+[2023-03-21 23:18:41] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:18:41] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:41] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:18:41] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:18:41] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:18:42] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:42] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:18:42] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:18:42] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:18:42] attemptLogin
+[2023-03-21 23:18:42] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:18:42] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:42] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:18:42] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:18:42] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:18:45] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:45] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:18:45] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:18:45] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:18:45] attemptLogin
+[2023-03-21 23:18:45] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:18:45] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:18:45] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:18:45] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:18:45] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:19:03] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:19:03] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:19:03] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:19:03] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:19:03] attemptLogin
+[2023-03-21 23:19:03] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:19:03] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:19:03] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:19:03] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:19:03] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:19:04] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:19:04] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:19:04] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:19:04] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:19:04] attemptLogin
+[2023-03-21 23:19:04] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:19:04] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:19:04] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:19:04] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:19:04] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:19:05] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:19:05] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-21 23:19:05] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-21 23:19:05] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-21 23:19:05] attemptLogin
+[2023-03-21 23:19:05] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-21 23:19:05] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-21 23:19:05] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-21 23:19:05] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-21 23:19:05] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-21 23:19:07] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-21 23:19:16] MainWindow::closeEvent(..) Closing the program has been cancelled.
+[2023-03-21 23:19:19] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-21 23:19:20] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-22 16:06:13] main() Starting Program, ...
+[2023-03-22 16:06:21] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:06:21] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:06:21] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:06:21] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:06:31] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-22 16:06:37] MainWindow::closeEvent(..) Closing the program has been cancelled.
+[2023-03-22 16:06:40] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:06:40] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:06:40] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:06:40] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:06:40] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:06:40] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:06:40] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:06:40] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:06:40] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:06:42] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:06:42] dbManager::searchDB(.., , 1) Database: connection ok
+[2023-03-22 16:06:42] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:06:42] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:07:06] MainWindow::exitProgram() Closing Program via Exit Button.
+[2023-03-22 16:07:06] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-22 16:07:08] MainWindow::closeEvent(..) Closing the program has been cancelled.
+[2023-03-22 16:08:20] MainWindow::exitProgram() Closing Program via Exit Button.
+[2023-03-22 16:08:20] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-22 16:08:21] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-22 16:09:35] main() Starting Program, ...
+[2023-03-22 16:09:48] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:48] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:48] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:48] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:48] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:48] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:48] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:48] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:48] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:49] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:49] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:49] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:49] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:49] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:49] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:49] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:49] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:49] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:50] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:50] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:50] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:50] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:50] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:50] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:50] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:50] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:50] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:51] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:51] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:51] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:51] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:52] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:52] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:52] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:52] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:52] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:53] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:53] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:53] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:53] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:53] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:53] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:54] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:54] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:54] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: starting login process
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: closing connection
+[2023-03-22 16:09:54] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-03-22 16:09:54] MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:09:54] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:12:35] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-22 16:12:36] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-22 16:33:14] main() Starting Program, ...
+[2023-03-22 16:33:14] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:33:14] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:33:14] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:33:14] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:33:31] main() Starting Program, ...
+[2023-03-22 16:33:31] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:33:31] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:33:31] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:33:31] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:37:10] main() Starting Program, ...
+[2023-03-22 16:37:10] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:37:10] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:37:10] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:37:10] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:47:27] main() Starting Program, ...
+[2023-03-22 16:47:27] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:47:27] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:47:27] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:47:27] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:47:43] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:43] dbManager::searchDB(.., adfadf, 1) Database: connection ok
+[2023-03-22 16:47:43] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:43] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:50] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:50] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:50] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:50] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:54] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:54] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:54] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:54] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:54] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:55] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:55] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:55] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:55] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:55] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:55] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:55] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:56] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:56] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:56] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:56] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:56] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:47:56] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:47:56] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:47:56] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:47:59] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-22 16:48:00] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-22 16:49:07] main() Starting Program, ...
+[2023-03-22 16:49:07] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:49:07] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:49:07] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:49:07] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:49:22] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:22] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:22] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:22] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:23] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:23] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:23] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:23] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:23] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:23] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:23] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:24] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:24] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:24] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:24] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:24] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:39] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:39] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:39] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:39] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:40] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:40] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:40] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:40] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:40] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., harry potter, 1) Database: connection ok
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-03-22 16:49:40] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-03-22 16:49:42] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-22 16:49:44] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-22 16:51:18] main() Starting Program, ...
+[2023-03-22 16:51:18] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:51:18] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:51:18] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:51:18] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:52:55] main() Starting Program, ...
+[2023-03-22 16:52:55] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-22 16:52:55] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-22 16:52:55] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-22 16:52:55] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-22 16:53:21] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-22 16:53:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+

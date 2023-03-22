@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-1f8eef38212e7fdfa5f4.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "BSI",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "BSI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BSI-Debug-73865247a9d60e4f5e5a.json",
+					"name" : "BSI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "BSI_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BSI_autogen-Debug-a1781671851df918b1bd.json",
+					"name" : "BSI_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "BSI_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-BSI_autogen_timestamp_deps-Debug-698ac3fc5f8e8cd74c95.json",
+					"name" : "BSI_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug",
+		"source" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

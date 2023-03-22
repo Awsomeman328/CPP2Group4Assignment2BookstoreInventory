@@ -2,6 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QCloseEvent>
+#include <QMessageBox>
+
+#include "dbmanager.h"
+#include "hashpasswordencryptor.h"
+#include "backend.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,6 +23,21 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void closeEvent(QCloseEvent *event);
+        QMenuBar *menuBar;
+        QMenu *fileMenu;
+        QMenu *editMenu;
+        QMenu *helpMenu;
+        QAction *newAction;
+        QAction *openAction;
+        QAction *saveAction;
+        QAction *exitAction;
+        QAction *cutAction;
+        QAction *copyAction;
+        QAction *pasteAction;
+        QAction *aboutAction;
+
+        void showAboutDialog();
 
 public slots:
     void createDB();
@@ -25,5 +46,6 @@ public slots:
     void searchDB();
     void logIn();
     void exitProgram();
+    void addBookToDB();
 };
 #endif // MAINWINDOW_H

@@ -6,12 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>800</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1280</width>
+    <height>800</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -19,8 +28,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>801</width>
-      <height>551</height>
+      <width>1271</width>
+      <height>751</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -148,7 +157,7 @@
              <x>10</x>
              <y>10</y>
              <width>411</width>
-             <height>381</height>
+             <height>446</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -283,9 +292,40 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_27">
+               <layout class="QVBoxLayout" name="verticalLayout">
+                <item>
+                 <widget class="QLineEdit" name="lineEditISBN"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditTITLE"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditAUTHOR"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditYEAR"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditPUBLISHER"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditDESC"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditGENRE"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditMSRP"/>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditQUANTITY"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
                 <property name="text">
-                 <string>Not Yet Implemented</string>
+                 <string>Add</string>
                 </property>
                </widget>
               </item>
@@ -617,7 +657,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>320</width>
+           <width>800</width>
            <height>0</height>
           </size>
          </property>
@@ -633,7 +673,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1280</width>
      <height>21</height>
     </rect>
    </property>
@@ -662,7 +702,7 @@
    <sender>pushButtonExit</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>exitProgram()</slot>
+   <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>749</x>
@@ -690,10 +730,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButtonLogIn</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>readTable()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>357</x>
+     <y>108</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>399</x>
+     <y>299</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>searchDB()</slot>
   <slot>logIn()</slot>
   <slot>exitProgram()</slot>
+  <slot>readTable()</slot>
  </slots>
 </ui>

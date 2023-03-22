@@ -34,7 +34,7 @@ QVector<bool> attemptLogin(QString username, QString password)
     dbManager db("bookstoreInventory.db");
     QVector<bool> results = db.checkLogInInfo(username, password);
 
-    outputToLogFile("attemptLogin");
+    //outputToLogFile("attemptLogin");
 
     return results;
 }
@@ -728,25 +728,4 @@ bool increaseTotalSpent(string shopperFirstName, string shopperLastName, string 
 }
  */
 
-void outputToLogFile(string functionCalled)
-{
-    ofstream log;
-    chrono::system_clock::time_point operationCompletedtp = chrono::system_clock::now();
-    time_t operationCompleted = chrono::system_clock::to_time_t(operationCompletedtp);
-    //char str[26];
 
-    log.open("logfile.txt", ios::app);
-
-    if (!log)
-    {
-        cout << "file failed to open" << endl;
-    }
-
-    else
-    {
-        log << functionCalled << " completed at " << ctime(&operationCompleted);
-        cout << "Log created" << endl;
-    }
-
-    log.close();
-}

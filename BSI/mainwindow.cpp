@@ -1,15 +1,73 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-
 #include "dbmanager.h"
-#include "hashpasswordencryptor.h"
-#include "backend.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // Create the menu bar and menus
+        QMenuBar *menuBar = new QMenuBar(this);
+        QMenu *fileMenu = new QMenu("File");
+        QMenu *editMenu = new QMenu("Edit");
+        QMenu *helpMenu = new QMenu("Help");
+
+        // Create the menu items and add them to the menus
+        QAction *newAction = new QAction("New", this);
+        QAction *openAction = new QAction("Open", this);
+        QAction *saveAction = new QAction("Save", this);
+        QAction *exitAction = new QAction("Exit", this);
+        QAction *cutAction = new QAction("Cut", this);
+        QAction *copyAction = new QAction("Copy", this);
+        QAction *pasteAction = new QAction("Paste", this);
+        QAction *aboutAction = new QAction("About", this);
+
+        fileMenu->addAction(newAction);
+        fileMenu->addAction(openAction);
+        fileMenu->addAction(saveAction);
+        fileMenu->addAction(exitAction);
+        editMenu->addAction(cutAction);
+        editMenu->addAction(copyAction);
+        editMenu->addAction(pasteAction);
+        helpMenu->addAction(aboutAction);
+
+        // Add the menus to the menu bar
+        menuBar->addMenu(fileMenu);
+        menuBar->addMenu(editMenu);
+        menuBar->addMenu(helpMenu);
+
+        // Set the menu bar as the main window's menu bar
+        setMenuBar(menuBar);
+
+        // Connect the menu items to their respective functions
+        connect(newAction, &QAction::triggered, this, &MainWindow::createDB);
+        connect(openAction, &QAction::triggered, this, &MainWindow::readTable);
+        connect(saveAction, &QAction::triggered, this, &MainWindow::createTable);
+        connect(exitAction, &QAction::triggered, this, &MainWindow::exitProgram);
+        connect(cutAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::cut);
+        connect(copyAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::copy);
+        connect(pasteAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::paste);
+        connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
+
+
+        // Create a label to display the number of books
+            QLabel *statusLabel = new QLabel(this);
+
+            // Get the total number of books from the database
+            dbManager db("bookstoreInventory.db");
+            QVector<QVariant> totalNumBooks = db.getTotalNumBooks();
+            int numBooks = totalNumBooks[0].toInt();
+            int totalQuantity = totalNumBooks[1].toInt();
+
+            // Set the text of the status label to display the total number of books
+            statusLabel->setText(QString("Total number of books: %1").arg(numBooks));
+
+            // Add the label to the status bar
+            statusBar()->addWidget(statusLabel);
+
+            // Add the status bar to the main window
+            setStatusBar(statusBar());
 }
 
 MainWindow::~MainWindow()
@@ -17,9 +75,30 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::showAboutDialog()
+{
+    QMessageBox::about(this, "About", "This is a simple text editor.");
+}
+
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    outputToLogFile("MainWindow::closeEvent(*event) Now attempting to Close Program...");
+    QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Scroll Rack",
+                                                                    tr("Are you sure?\n"),
+                                                                    QMessageBox::Cancel | QMessageBox::No | QMessageBox::Yes,
+                                                                    QMessageBox::Yes);
+        if (resBtn != QMessageBox::Yes) {
+            outputToLogFile("MainWindow::closeEvent(..) Closing the program has been cancelled.");
+            event->ignore();
+        } else {
+            outputToLogFile("MainWindow::closeEvent(..) Now Closing Program via Close Event.\n");
+            event->accept();
+        }
+}
+
 void MainWindow::exitProgram()
 {
-    outputToLogFile("MainWindow.exitProgram");
+    outputToLogFile("MainWindow::exitProgram() Closing Program via Exit Button.");
     close();
 }
 
@@ -37,9 +116,27 @@ void MainWindow::createTable()
     ui->statusbar->showMessage(QString::fromStdString(db.createDB("books.db")));
 }
 
+void MainWindow::addBookToDB()
+{
+    Book newBook(
+                ui->lineEditISBN->text().toStdString(),
+                ui->lineEditTITLE->text().toStdString(),
+                ui->lineEditAUTHOR->text().toStdString(),
+                ui->lineEditYEAR->text().toInt(),
+                ui->lineEditPUBLISHER->text().toStdString(),
+                ui->lineEditDESC->text().toStdString(),
+                ui->lineEditGENRE->text().toStdString(),
+                ui->lineEditMSRP->text().toDouble(),
+                ui->lineEditQUANTITY->text().toInt());
+
+    dbManager db("bookstoreInventory.db");
+    db.addBookRecordToDatabase(newBook);
+}
+
+// If we actually use this function for getting our number of books, then rename this function to something more appropreate.
 void MainWindow::readTable()
 {
-
+    /*
     dbManager db("books.db");
     QVector<QVariant> ISBNs = db.readDB("books.db");
 
@@ -49,17 +146,27 @@ void MainWindow::readTable()
         ui->textEditLarge->append(ISBNs[index].toString());
 
     }
+    */
 
+    // My recomendation for this is to make an infinite loop that calls db.getTotalNumBooks() every 6-12 seconds
+    // which would basically update the status bar automatically in the background each time it gets called.
+    // Can probably accomplish this using Streams as we learned from our Week 9 Lecture.
+    dbManager db("bookstoreInventory.db");
 
+    // Note that this does not update the status bar, it only gives the values to display within the statud bar.
+    // The first number is the total number of records in the database, aka the number of unique books our bookstore carries.
+    // The second number is the total sum of all of our books' QUANTITY_ON_HAND values, aka the total number of all of the book printings we currently have on stock.
+    QVector<QVariant> numBooks = db.getTotalNumBooks();
 
 }
 
 void MainWindow::searchDB()
 {
     dbManager db("bookstoreInventory.db");
-    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDB->text());
+    const int searchCategory = ui->comboBoxSearchBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDB->text(), searchCategory);
 
-    outputToLogFile("dbManager.searchDB");
+    //outputToLogFile("dbManager.searchDB");
 
     ui->textEditLarge->append(&"Number of Results: " [ searchResults.size() ]);
     for (unsigned short index = 0; index < searchResults.size(); index++)
@@ -84,10 +191,12 @@ void MainWindow::logIn()
 
     QVector<bool> loginStatus = attemptLogin(username, password);
 
+    // We can probably get rid of the commented out lines that would use the status bar to display the logIn results,
     if (loginStatus.size() == NULL)
     {
 
-        ui->statusbar->showMessage("Login Failed! No UserPass pairs of given inputs.");
+        outputToLogFile("MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.");
+        //ui->statusbar->showMessage("Login Failed! No UserPass pairs of given inputs.");
 
     }
     else if (loginStatus.size() == 1)
@@ -95,20 +204,25 @@ void MainWindow::logIn()
 
         if (loginStatus[0])
         {
-            ui->statusbar->showMessage("Login Successful! Admin Access Granted!");
+            outputToLogFile("MainWindow::logIn() Login Successful! Admin Access Granted!");
+            //ui->statusbar->showMessage("Login Successful! Admin Access Granted!");
         }
         else
         {
-            ui->statusbar->showMessage("Login Successful!");
+            outputToLogFile("MainWindow::logIn() Login Successful!");
+            //ui->statusbar->showMessage("Login Successful!");
         }
 
     }
     else
     {
 
-        ui->statusbar->showMessage("DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
+        outputToLogFile("MainWindow::logIn() DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
+        //ui->statusbar->showMessage("DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
 
     }
+
+
 
 }
 
