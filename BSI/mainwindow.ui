@@ -156,8 +156,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>411</width>
-             <height>446</height>
+             <width>512</width>
+             <height>490</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -296,6 +296,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditISBN">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>ISBN</string>
                   </property>
                  </widget>
@@ -303,6 +306,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditTITLE">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>TITLE</string>
                   </property>
                  </widget>
@@ -310,6 +316,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditAUTHOR">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>AUTHOR</string>
                   </property>
                  </widget>
@@ -317,6 +326,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditYEAR">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>PUBLICATION YEAR</string>
                   </property>
                  </widget>
@@ -324,6 +336,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditPUBLISHER">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>PUBLISHER</string>
                   </property>
                  </widget>
@@ -331,6 +346,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditDESC">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>DESCRIPTION</string>
                   </property>
                  </widget>
@@ -338,6 +356,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditGENRE">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>GENRE</string>
                   </property>
                  </widget>
@@ -345,6 +366,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditMSRP">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>MSRP</string>
                   </property>
                  </widget>
@@ -352,6 +376,9 @@
                 <item>
                  <widget class="QLineEdit" name="lineEditQUANTITY">
                   <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
                    <string>QUANTITY</string>
                   </property>
                  </widget>
@@ -481,7 +508,7 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>411</width>
+             <width>482</width>
              <height>381</height>
             </rect>
            </property>
@@ -710,7 +737,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
