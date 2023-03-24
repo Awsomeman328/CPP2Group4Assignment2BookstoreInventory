@@ -1023,18 +1023,9 @@ int main() {
                 cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
                 //cin.ignore();
                 getline(cin, input);
-
-                // Remove any leading or trailing white space
                 input = trim(input);
-
-                // Input validation
-                while (input != "Yes" && input != "No") {
-                    cout << "Invalid input. Answer needs to be either \"Yes\" or \"No\".\n";
-                    cout << "Enter \"Yes\" to confirm or \"No\" to cancel : ";
-                    getline(cin, input);
-                    input = trim(input);
-                }
             }
+        }
 
             if (input == "Yes")
             {
@@ -1117,6 +1108,40 @@ int main() {
                 }
             });
 
+        // Query the database for all books in the user's book list
+        sqlite3_stmt* stmt;
+        string sql = "SELECT * FROM Books WHERE ISBN IN (";
+        for (unsigned int i = 0; i < usersBookList.size(); i++) {
+            sql += "\"" + usersBookList.at(i).getISBN() + "\",";
+        }
+        sql.pop_back(); // Remove the last comma
+        sql += ");";
+
+        if (sqlite3_prepare_v2(db, sql.c_str(), -1, &stmt, 0) == SQLITE_OK) {
+            while (sqlite3_step(stmt) == SQLITE_ROW) {
+                string isbn = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+                string title = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 1));
+                string author = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 2));
+
+                // Write the book to the file
+                outFile << isbn << "," << title << "," << author << "\n";
+            }
+
+            // Clean up
+            sqlite3_finalize(stmt);
+        }
+        else {
+            cerr << "Error preparing statement: " << sqlite3_errmsg(db) << endl;
+            outFile.close();
+            return;
+        }
+
+        // After saving the external file with all of the books from the books list, remove all of the books from the books list.
+        usersBookList.clear();
+        cout << "User book list cleared!\n";
+            });
+
+		/*
         mainMenu.run();
 
         //If there are any books left in the user's "book list" then add them back to the .csv database/inventory and remove them from the list.
