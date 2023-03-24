@@ -1,5 +1,5 @@
-C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/EWIEGA46WW/moc_loginscreen.cpp: C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h \
-  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
+C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/EWIEGA46WW/moc_loginscreen.cpp: C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h \
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QHash \
@@ -642,8 +642,8 @@ C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
-  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h \
-  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
-  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
-  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
-  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h \
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h

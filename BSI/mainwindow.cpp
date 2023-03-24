@@ -1,5 +1,5 @@
 #include "mainwindow.h"
-#include "./ui_mainwindow.h"
+#include <./ui_mainwindow.h>
 #include "dbmanager.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -57,11 +57,11 @@ MainWindow::MainWindow(QWidget *parent)
             // Get the total number of books from the database
             dbManager db("bookstoreInventory.db");
             QVector<QVariant> totalNumBooks = db.getTotalNumBooks();
-            int numBooks = totalNumBooks[0].toInt();
-            int totalQuantity = totalNumBooks[1].toInt();
+            QString numBooks = totalNumBooks[0].toString();
+            QString totalQuantity = totalNumBooks[1].toString();
 
             // Set the text of the status label to display the total number of books
-            statusLabel->setText(QString("Total number of books: %1").arg(numBooks));
+            statusLabel->setText(QString("Total number of unique books: " + numBooks + " | Total quantity of books currently on hand: " + totalQuantity));
 
             // Add the label to the status bar
             statusBar()->addWidget(statusLabel);

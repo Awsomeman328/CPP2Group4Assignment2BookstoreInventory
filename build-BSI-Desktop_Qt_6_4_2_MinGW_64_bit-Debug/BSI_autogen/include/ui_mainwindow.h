@@ -226,7 +226,7 @@ public:
         tab_3->setObjectName("tab_3");
         verticalLayoutWidget_7 = new QWidget(tab_3);
         verticalLayoutWidget_7->setObjectName("verticalLayoutWidget_7");
-        verticalLayoutWidget_7->setGeometry(QRect(10, 10, 411, 446));
+        verticalLayoutWidget_7->setGeometry(QRect(10, 10, 512, 490));
         verticalLayout_12 = new QVBoxLayout(verticalLayoutWidget_7);
         verticalLayout_12->setObjectName("verticalLayout_12");
         verticalLayout_12->setContentsMargins(0, 0, 0, 0);
@@ -471,7 +471,7 @@ public:
         tab_4->setObjectName("tab_4");
         verticalLayoutWidget_8 = new QWidget(tab_4);
         verticalLayoutWidget_8->setObjectName("verticalLayoutWidget_8");
-        verticalLayoutWidget_8->setGeometry(QRect(10, 10, 411, 381));
+        verticalLayoutWidget_8->setGeometry(QRect(10, 10, 482, 381));
         verticalLayout_14 = new QVBoxLayout(verticalLayoutWidget_8);
         verticalLayout_14->setObjectName("verticalLayout_14");
         verticalLayout_14->setContentsMargins(0, 0, 0, 0);
@@ -670,7 +670,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1280, 21));
+        menubar->setGeometry(QRect(0, 0, 1280, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -709,6 +709,24 @@ public:
 
         btnSearchDB->setText(QCoreApplication::translate("MainWindow", "Search Database", nullptr));
         label_26->setText(QCoreApplication::translate("MainWindow", "Add a book to the Inventory", nullptr));
+        lineEditISBN->setText(QString());
+        lineEditISBN->setPlaceholderText(QCoreApplication::translate("MainWindow", "ISBN", nullptr));
+        lineEditTITLE->setText(QString());
+        lineEditTITLE->setPlaceholderText(QCoreApplication::translate("MainWindow", "TITLE", nullptr));
+        lineEditAUTHOR->setText(QString());
+        lineEditAUTHOR->setPlaceholderText(QCoreApplication::translate("MainWindow", "AUTHOR", nullptr));
+        lineEditYEAR->setText(QString());
+        lineEditYEAR->setPlaceholderText(QCoreApplication::translate("MainWindow", "PUBLICATION YEAR", nullptr));
+        lineEditPUBLISHER->setText(QString());
+        lineEditPUBLISHER->setPlaceholderText(QCoreApplication::translate("MainWindow", "PUBLISHER", nullptr));
+        lineEditDESC->setText(QString());
+        lineEditDESC->setPlaceholderText(QCoreApplication::translate("MainWindow", "DESCRIPTION", nullptr));
+        lineEditGENRE->setText(QString());
+        lineEditGENRE->setPlaceholderText(QCoreApplication::translate("MainWindow", "GENRE", nullptr));
+        lineEditMSRP->setText(QString());
+        lineEditMSRP->setPlaceholderText(QCoreApplication::translate("MainWindow", "MSRP", nullptr));
+        lineEditQUANTITY->setText(QString());
+        lineEditQUANTITY->setPlaceholderText(QCoreApplication::translate("MainWindow", "QUANTITY", nullptr));
         pushButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         label_28->setText(QCoreApplication::translate("MainWindow", "Add a book to your Shopping List from the database", nullptr));
         label_29->setText(QCoreApplication::translate("MainWindow", "Not Yet Implemented", nullptr));

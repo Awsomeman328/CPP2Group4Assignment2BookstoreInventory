@@ -17,7 +17,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Scroll Rack - A Bookstore Inventory Database</string>
   </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
@@ -737,9 +737,63 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuPlease">
+    <property name="title">
+     <string>Please</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuAdd">
+    <property name="title">
+     <string>Use</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuA">
+    <property name="title">
+     <string>The</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuMenu">
+    <property name="title">
+     <string>UI</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuHere">
+    <property name="title">
+     <string>File</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuTo">
+    <property name="title">
+     <string>To</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuMake">
+    <property name="title">
+     <string>Make</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuThis">
+    <property name="title">
+     <string>This</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuMenu_2">
+    <property name="title">
+     <string>Menu</string>
+    </property>
+   </widget>
+   <addaction name="menuPlease"/>
+   <addaction name="menuAdd"/>
+   <addaction name="menuA"/>
+   <addaction name="menuMenu"/>
+   <addaction name="menuHere"/>
+   <addaction name="menuTo"/>
+   <addaction name="menuMake"/>
+   <addaction name="menuThis"/>
+   <addaction name="menuMenu_2"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

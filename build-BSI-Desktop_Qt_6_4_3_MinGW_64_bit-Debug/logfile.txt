@@ -469,3 +469,88 @@
 [2023-03-22 16:53:21] MainWindow::closeEvent(*event) Now attempting to Close Program...
 [2023-03-22 16:53:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
 
+[2023-03-24 12:52:20] main() Starting Program, ...
+[2023-03-24 12:52:20] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 12:52:20] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 12:52:20] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 12:52:20] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 12:52:30] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 12:52:32] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 12:54:03] main() Starting Program, ...
+[2023-03-24 12:54:03] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 12:54:03] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 12:54:03] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 12:54:03] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 12:54:42] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 12:54:42] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 12:54:42] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 12:54:42] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 12:54:48] MainWindow::exitProgram() Closing Program via Exit Button.
+[2023-03-24 12:54:48] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 12:54:49] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 13:54:44] main() Starting Program, ...
+[2023-03-24 13:54:47] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 13:54:47] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 13:54:48] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 13:54:48] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 13:54:54] main() Starting Program, ...
+[2023-03-24 13:54:54] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 13:54:54] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 13:54:54] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 13:54:54] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 13:55:27] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 13:55:29] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 13:59:45] main() Starting Program, ...
+[2023-03-24 13:59:45] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 13:59:45] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 13:59:45] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 13:59:45] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 13:59:59] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 14:00:00] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 14:05:44] main() Starting Program, ...
+[2023-03-24 14:05:44] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 14:05:44] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 14:05:44] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 14:05:44] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 14:05:57] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 14:05:59] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 14:06:20] main() Starting Program, ...
+[2023-03-24 14:06:20] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 14:06:20] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 14:06:20] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 14:06:20] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 14:06:29] MainWindow::exitProgram() Closing Program via Exit Button.
+[2023-03-24 14:06:29] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 14:06:31] MainWindow::closeEvent(..) Closing the program has been cancelled.
+[2023-03-24 14:06:38] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 14:06:39] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 17:07:27] main() Starting Program, ...
+[2023-03-24 17:07:27] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 17:07:27] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 17:07:27] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 17:07:27] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 17:07:36] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 17:07:37] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 17:09:07] main() Starting Program, ...
+[2023-03-24 17:09:07] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 17:09:07] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 17:09:07] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 17:09:07] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 17:09:16] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 17:09:18] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-03-24 17:09:55] main() Starting Program, ...
+[2023-03-24 17:09:55] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-24 17:09:55] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-24 17:09:55] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-24 17:09:55] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-24 17:10:02] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-24 17:10:03] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
