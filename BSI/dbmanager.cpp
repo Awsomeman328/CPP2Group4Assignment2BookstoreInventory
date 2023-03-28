@@ -354,7 +354,6 @@ bool dbManager::addBookRecordToDatabase(Book newBook)
     return result;
 }
 
-// This function is not yet completed. DO NOT CALL THIS FUNCTION YET in its unfinished state.
 // If adjustAmount is positive this will increase the quantity of that book by that amount.
 // If adjustAmount is negative this will decrease the quantity of that book by that amount
 bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
@@ -392,11 +391,23 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
 
                 if (selectQuery.exec())
                 {
-                    QSqlQuery updateQuery;
-                    updateQuery.prepare("UPDATE BOOKS SET QUANTITY_ON_HAND=QUANTITY_ON_HAND " + QString::fromStdString(to_string(adjustAmount)) + "WHERE ISBN=':I';");
-                    updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
+                    int currentQuantity = selectQuery.value(0).toInt();
 
-                    result = true;
+                    int newQuantity = currentQuantity + adjustAmount;
+
+                    if (newQuantity >= 0) // make sure the new quantity is not negative
+                    {
+                        QSqlQuery updateQuery;
+                        updateQuery.prepare("UPDATE BOOKS SET QUANTITY_ON_HAND=:Q WHERE ISBN=':I';");
+                        updateQuery.bindValue(":Q", newQuantity);
+                        updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
+                        updateQuery.exec();
+                        result = true;
+                    }
+                    else
+                    {
+                        outputToLogFile("dbManager::adjustBookQuantityInInventory() Error: the new quantity for book " + bookISBN + " is negative. Quantity not updated.");
+                    }
                 }
                 else
                 {
