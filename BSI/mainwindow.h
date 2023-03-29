@@ -5,7 +5,7 @@
 #include <QCloseEvent>
 #include <QMessageBox>
 #include <QFileDialog>
-
+#include <deque>
 #include "dbmanager.h"
 #include "hashpasswordencryptor.h"
 #include "backend.h"
@@ -40,7 +40,7 @@ private:
 
         void showAboutDialog();
 
-
+        std::deque<Book> bookList;
 
 public slots:
     void createDB();

@@ -76,27 +76,45 @@ MainWindow::~MainWindow()
 
 void MainWindow::importCSV()
 {
+    outputToLogFile("MainWindow::importCSV() Now starting the attempt to import a .CSV file.");
+
     QDir currentDir = QDir::current();
     QString parentDir = currentDir.dirName(); // get the parent directory name
     QString defaultPath = currentDir.absolutePath() + "/../" + parentDir;
 
+    outputToLogFile("MainWindow::importCSV() Opening up File Dialog Box.");
     QString fileName = QFileDialog::getOpenFileName(this,
         tr("Open File"), defaultPath, tr("CSV Files (*.csv);;All Files (*.*)"));
     if (!fileName.isEmpty()) {
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
+            outputToLogFile("MainWindow::importCSV() Error: Could not open file.");
             QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
             return;
         }
         // Do something with the file
+        outputToLogFile("MainWindow::importCSV() Sucessfully opened the file!");
+
+        // Check that the .CSV file is formated correctly,
+        // then validate that each row in the .CSV will create a valid Book object,
+        // and put each row's data into either a container of valid books and all of the invalid data into a 2nd containter,
+        // finally send both containers to the dbmanager to be inserted into their respective tables.
+
+        outputToLogFile("MainWindow::importCSV() Now closing the .CSV file.");
         file.close();
+    }
+    else
+    {
+        outputToLogFile("MainWindow::importCSV() Warning: Given File name was empty.");
     }
 
 }
 
 void MainWindow::exportCSV()
 {
-
+    for (int i = 0; i < bookList.size(); ++i) {
+        // Do stuff, ...
+    }
 }
 
 void MainWindow::showAboutDialog()

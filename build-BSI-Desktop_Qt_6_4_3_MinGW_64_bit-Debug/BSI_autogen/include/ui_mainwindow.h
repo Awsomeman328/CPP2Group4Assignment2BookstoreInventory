@@ -722,7 +722,7 @@ public:
         QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(readTable()));
         QObject::connect(pushButtonAddBook, SIGNAL(clicked()), MainWindow, SLOT(addBookToDB()));
 
-        tabWidget_2->setCurrentIndex(1);
+        tabWidget_2->setCurrentIndex(0);
         comboBoxSearchBy->setCurrentIndex(1);
 
 
