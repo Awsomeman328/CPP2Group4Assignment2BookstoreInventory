@@ -266,6 +266,9 @@ public:
 
         horizontalLayout_21->addWidget(labelSearchBy);
 
+
+        verticalLayout_13->addLayout(horizontalLayout_21);
+
         comboBoxSearchBy = new QComboBox(verticalLayoutWidget_7);
         comboBoxSearchBy->addItem(QString());
         comboBoxSearchBy->addItem(QString());
@@ -281,10 +284,7 @@ public:
         sizePolicy2.setHeightForWidth(comboBoxSearchBy->sizePolicy().hasHeightForWidth());
         comboBoxSearchBy->setSizePolicy(sizePolicy2);
 
-        horizontalLayout_21->addWidget(comboBoxSearchBy);
-
-
-        verticalLayout_13->addLayout(horizontalLayout_21);
+        verticalLayout_13->addWidget(comboBoxSearchBy);
 
         horizontalLayout_22 = new QHBoxLayout();
         horizontalLayout_22->setObjectName("horizontalLayout_22");
@@ -681,7 +681,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1280, 21));
+        menubar->setGeometry(QRect(0, 0, 1280, 22));
         menuPlease = new QMenu(menubar);
         menuPlease->setObjectName("menuPlease");
         menuAdd = new QMenu(menubar);

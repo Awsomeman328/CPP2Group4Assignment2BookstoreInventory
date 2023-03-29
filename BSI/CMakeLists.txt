@@ -33,6 +33,9 @@ set(PROJECT_SOURCES
         loginscreen.ui
         loginscreen.cpp
         loginscreen.h
+        hardwareinfo.cpp
+        hardwareinfo.h
+        hardwareinfo.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

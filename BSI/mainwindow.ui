@@ -194,55 +194,55 @@
                     </property>
                    </widget>
                   </item>
-                  <item>
-                   <widget class="QComboBox" name="comboBoxSearchBy">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="currentIndex">
-                     <number>1</number>
-                    </property>
-                    <item>
-                     <property name="text">
-                      <string>ISBN</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Title</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Author</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Publication Year</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Publisher</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>MSRP</string>
-                     </property>
-                    </item>
-                    <item>
-                     <property name="text">
-                      <string>Quantity On Hand</string>
-                     </property>
-                    </item>
-                   </widget>
-                  </item>
                  </layout>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBoxSearchBy">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="currentIndex">
+                   <number>1</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>ISBN</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Title</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Author</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Publication Year</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Publisher</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>MSRP</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Quantity On Hand</string>
+                   </property>
+                  </item>
+                 </widget>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_22">
@@ -737,7 +737,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlease">

@@ -191,12 +191,10 @@ void MainWindow::logIn()
 
     QVector<bool> loginStatus = attemptLogin(username, password);
 
-    // We can probably get rid of the commented out lines that would use the status bar to display the logIn results,
     if (loginStatus.size() == NULL)
     {
 
         outputToLogFile("MainWindow::logIn() Login Failed! No UserPass pairs of given inputs.");
-        //ui->statusbar->showMessage("Login Failed! No UserPass pairs of given inputs.");
 
     }
     else if (loginStatus.size() == 1)
@@ -205,12 +203,10 @@ void MainWindow::logIn()
         if (loginStatus[0])
         {
             outputToLogFile("MainWindow::logIn() Login Successful! Admin Access Granted!");
-            //ui->statusbar->showMessage("Login Successful! Admin Access Granted!");
         }
         else
         {
             outputToLogFile("MainWindow::logIn() Login Successful!");
-            //ui->statusbar->showMessage("Login Successful!");
         }
 
     }
@@ -218,7 +214,6 @@ void MainWindow::logIn()
     {
 
         outputToLogFile("MainWindow::logIn() DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
-        //ui->statusbar->showMessage("DB ERROR: Login Attempt Failed! More than 1 UserPass pairs found.");
 
     }
 
