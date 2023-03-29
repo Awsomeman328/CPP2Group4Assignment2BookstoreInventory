@@ -3,13 +3,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h
@@ -298,6 +292,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Qt/6.4.3/mingw_64/include/QtSql/qtsql-config.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlexports.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlglobal.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QFileDialog
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMessageBox
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h
@@ -307,6 +302,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractspinbox.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qdialog.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qframe.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlistview.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmainwindow.h
@@ -678,14 +674,6 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h
->>>>>>> Stashed changes
-=======
-C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h
->>>>>>> Stashed changes
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h

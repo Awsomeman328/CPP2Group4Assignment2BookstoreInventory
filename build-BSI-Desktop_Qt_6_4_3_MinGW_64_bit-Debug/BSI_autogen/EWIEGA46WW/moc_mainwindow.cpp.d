@@ -284,6 +284,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsql-config.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlglobal.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -293,6 +294,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qdialog.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qfiledialog.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmainwindow.h \

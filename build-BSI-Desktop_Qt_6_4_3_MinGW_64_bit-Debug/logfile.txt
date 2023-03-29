@@ -607,3 +607,11 @@
 =======
 >>>>>>> Stashed changes
 
+[2023-03-28 21:40:19] main() Starting Program, ...
+[2023-03-28 21:40:20] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-03-28 21:40:20] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-03-28 21:40:20] dbManager::getTotalNumBooks() Database: closing connection
+[2023-03-28 21:40:20] dbManager::getTotalNumBooks() Database: returning search results
+[2023-03-28 21:40:26] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-03-28 21:40:27] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+

@@ -74,6 +74,31 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::importCSV()
+{
+    QDir currentDir = QDir::current();
+    QString parentDir = currentDir.dirName(); // get the parent directory name
+    QString defaultPath = currentDir.absolutePath() + "/../" + parentDir;
+
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Open File"), defaultPath, tr("CSV Files (*.csv);;All Files (*.*)"));
+    if (!fileName.isEmpty()) {
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
+            return;
+        }
+        // Do something with the file
+        file.close();
+    }
+
+}
+
+void MainWindow::exportCSV()
+{
+
+}
+
 void MainWindow::showAboutDialog()
 {
     QMessageBox::about(this, "About", "This is a simple text editor.");

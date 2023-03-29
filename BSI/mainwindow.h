@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QMessageBox>
+#include <QFileDialog>
 
 #include "dbmanager.h"
 #include "hashpasswordencryptor.h"
@@ -39,6 +40,8 @@ private:
 
         void showAboutDialog();
 
+
+
 public slots:
     void createDB();
     void createTable();
@@ -47,5 +50,7 @@ public slots:
     void logIn();
     void exitProgram();
     void addBookToDB();
+    void importCSV();
+    void exportCSV();
 };
 #endif // MAINWINDOW_H
