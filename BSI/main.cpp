@@ -4,19 +4,28 @@
 #include <QApplication>
 #include <QSplashScreen>
 #include <QTimer>
+#include <QScreen>
 
 int main(int argc, char *argv[])
 {
     outputToLogFile("main() Starting Program, ...");
 
     QApplication a(argc, argv);
+    QPixmap splashPixmap("scrollRackSplash.png");
+    QScreen *screen = QGuiApplication::primaryScreen();
+    QList screens = QGuiApplication::screens();
 
-    QSplashScreen *splash= new QSplashScreen;
-    splash->setPixmap(QPixmap("scrollRackSplash.png"));
-    splash->show();
+    if(screens.size() > 1)
+        screen = screens.at(1);
+    QSize screenGeometry = screen->size();
+    splashPixmap = splashPixmap.scaled(screenGeometry * .15, Qt::KeepAspectRatio);
+
+    QSplashScreen splash(screen, splashPixmap);
+
+    splash.show();
 
     MainWindow w;
-    QTimer::singleShot(2500, splash, SLOT(close()));
+    QTimer::singleShot(2500, &splash, SLOT(close()));
     QTimer::singleShot(2500, &w, SLOT(show()));
     return a.exec();
 }

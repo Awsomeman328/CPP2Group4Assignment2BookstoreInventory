@@ -737,7 +737,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlease">
@@ -870,8 +870,8 @@
    <slot>addBookToDB()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>493</x>
-     <y>388</y>
+     <x>486</x>
+     <y>423</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>

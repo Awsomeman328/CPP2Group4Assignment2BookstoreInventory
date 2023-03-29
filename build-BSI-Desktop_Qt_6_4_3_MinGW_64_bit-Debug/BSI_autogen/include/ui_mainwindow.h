@@ -681,7 +681,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1280, 21));
+        menubar->setGeometry(QRect(0, 0, 1280, 26));
         menuPlease = new QMenu(menubar);
         menuPlease->setObjectName("menuPlease");
         menuAdd = new QMenu(menubar);
