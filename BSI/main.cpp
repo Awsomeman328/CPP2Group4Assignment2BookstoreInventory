@@ -17,12 +17,11 @@ int main(int argc, char *argv[])
 
     if(screens.size() > 1)
         screen = screens.at(1);
-
+    QSize screenGeometry = screen->size();
+    splashPixmap = splashPixmap.scaled(screenGeometry * .15, Qt::KeepAspectRatio);
 
     QSplashScreen splash(screen, splashPixmap);
 
-//    QSplashScreen *splash= new QSplashScreen;
-//    splash->setPixmap(splashPixmap);
     splash.show();
 
     MainWindow w;
