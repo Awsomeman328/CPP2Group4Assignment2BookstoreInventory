@@ -8,6 +8,7 @@
 #include "dbmanager.h"
 #include "hashpasswordencryptor.h"
 #include "backend.h"
+#include "book.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -36,8 +37,11 @@ private:
         QAction *copyAction;
         QAction *pasteAction;
         QAction *aboutAction;
+        QAction *displayHardwareAction;
 
         void showAboutDialog();
+        void showHardwareDialog();
+        void showBookErrorDialog();
 
 public slots:
     void createDB();

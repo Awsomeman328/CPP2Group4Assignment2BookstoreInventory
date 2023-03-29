@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include <./ui_mainwindow.h>
 #include "dbmanager.h"
+#include "book.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
         QAction *copyAction = new QAction("Copy", this);
         QAction *pasteAction = new QAction("Paste", this);
         QAction *aboutAction = new QAction("About", this);
+        QAction *displayHardwareAction = new QAction("Hardware Information", this);
 
         fileMenu->addAction(newAction);
         fileMenu->addAction(openAction);
@@ -31,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
         editMenu->addAction(copyAction);
         editMenu->addAction(pasteAction);
         helpMenu->addAction(aboutAction);
+        helpMenu->addAction(displayHardwareAction);
 
         // Add the menus to the menu bar
         menuBar->addMenu(fileMenu);
@@ -49,6 +52,7 @@ MainWindow::MainWindow(QWidget *parent)
         connect(copyAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::copy);
         connect(pasteAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::paste);
         connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
+        connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
 
 
         // Create a label to display the number of books
@@ -79,6 +83,17 @@ void MainWindow::showAboutDialog()
 {
     QMessageBox::about(this, "About", "This is a simple text editor.");
 }
+
+void MainWindow::showHardwareDialog()
+{
+    QMessageBox::about(this, "HardwareInfo", "Placeholder Text for when Chris gets the hardware info");
+}
+
+void MainWindow::showBookErrorDialog()
+{
+    QMessageBox::about(this, "Error", "Invalid book, please try again.");
+}
+
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
@@ -129,8 +144,13 @@ void MainWindow::addBookToDB()
                 ui->lineEditMSRP->text().toDouble(),
                 ui->lineEditQUANTITY->text().toInt());
 
-    dbManager db("bookstoreInventory.db");
-    db.addBookRecordToDatabase(newBook);
+    if (newBook.getIsValid())
+    {
+        dbManager db("bookstoreInventory.db");
+        db.addBookRecordToDatabase(newBook);
+    }
+    else
+        showBookErrorDialog();
 }
 
 // If we actually use this function for getting our number of books, then rename this function to something more appropreate.

@@ -4,7 +4,7 @@
 Book::Book(string ISBN, string Title, string Author, unsigned int Year, string Publisher,
     double MSRP, unsigned int Quantity)
 {
-    bool result = true;
+    bool result = false;
 
     // After changing these to return bools if they suceeded or not, if any of these return false make the result false.
     // Make sure to not accidentally set result back to true if a later set function returns true.
