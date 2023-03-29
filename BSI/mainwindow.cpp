@@ -129,7 +129,17 @@ void MainWindow::showAboutDialog()
 
 void MainWindow::showHardwareDialog()
 {
-    QMessageBox::about(this, "HardwareInfo", "Placeholder Text for when Chris gets the hardware info");
+    QList<QScreen*> screens = QGuiApplication::screens();
+    QMessageBox hardwareBox;
+    hardwareBox.setWindowTitle("HardwareInfo");
+    hardwareBox.setText("Placeholder Text for when Chris gets the hardware info");
+    if (screens.size() > 1)
+    {
+        // Second screen is available
+        QRect screenGeometry = screens.at(1)->geometry();
+        hardwareBox.move(screenGeometry.center() - hardwareBox.rect().center());
+    }
+    hardwareBox.exec();
 }
 
 void MainWindow::showBookErrorDialog()
