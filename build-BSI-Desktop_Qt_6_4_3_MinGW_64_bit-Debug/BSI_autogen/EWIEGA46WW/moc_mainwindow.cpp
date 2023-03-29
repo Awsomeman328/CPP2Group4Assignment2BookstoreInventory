@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[18];
+    uint offsetsAndSizes[22];
     char stringdata0[11];
     char stringdata1[9];
     char stringdata2[1];
@@ -36,6 +36,8 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata6[6];
     char stringdata7[12];
     char stringdata8[12];
+    char stringdata9[10];
+    char stringdata10[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -49,7 +51,9 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(43, 8),  // "searchDB"
         QT_MOC_LITERAL(52, 5),  // "logIn"
         QT_MOC_LITERAL(58, 11),  // "exitProgram"
-        QT_MOC_LITERAL(70, 11)   // "addBookToDB"
+        QT_MOC_LITERAL(70, 11),  // "addBookToDB"
+        QT_MOC_LITERAL(82, 9),  // "importCSV"
+        QT_MOC_LITERAL(92, 9)   // "exportCSV"
     },
     "MainWindow",
     "createDB",
@@ -59,7 +63,9 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "searchDB",
     "logIn",
     "exitProgram",
-    "addBookToDB"
+    "addBookToDB",
+    "importCSV",
+    "exportCSV"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -70,7 +76,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -78,15 +84,19 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   56,    2, 0x0a,    1 /* Public */,
-       3,    0,   57,    2, 0x0a,    2 /* Public */,
-       4,    0,   58,    2, 0x0a,    3 /* Public */,
-       5,    0,   59,    2, 0x0a,    4 /* Public */,
-       6,    0,   60,    2, 0x0a,    5 /* Public */,
-       7,    0,   61,    2, 0x0a,    6 /* Public */,
-       8,    0,   62,    2, 0x0a,    7 /* Public */,
+       1,    0,   68,    2, 0x0a,    1 /* Public */,
+       3,    0,   69,    2, 0x0a,    2 /* Public */,
+       4,    0,   70,    2, 0x0a,    3 /* Public */,
+       5,    0,   71,    2, 0x0a,    4 /* Public */,
+       6,    0,   72,    2, 0x0a,    5 /* Public */,
+       7,    0,   73,    2, 0x0a,    6 /* Public */,
+       8,    0,   74,    2, 0x0a,    7 /* Public */,
+       9,    0,   75,    2, 0x0a,    8 /* Public */,
+      10,    0,   76,    2, 0x0a,    9 /* Public */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -120,6 +130,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'exitProgram'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'addBookToDB'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'importCSV'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'exportCSV'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -138,6 +152,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->logIn(); break;
         case 5: _t->exitProgram(); break;
         case 6: _t->addBookToDB(); break;
+        case 7: _t->importCSV(); break;
+        case 8: _t->exportCSV(); break;
         default: ;
         }
     }
@@ -163,13 +179,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 7)
+        if (_id < 9)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }

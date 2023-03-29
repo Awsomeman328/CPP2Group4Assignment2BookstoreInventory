@@ -128,7 +128,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>440</width>
+           <width>530</width>
            <height>16777215</height>
           </size>
          </property>
@@ -194,55 +194,55 @@
                     </property>
                    </widget>
                   </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxSearchBy">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="currentIndex">
+                     <number>1</number>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>ISBN</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Title</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Author</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Publication Year</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Publisher</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>MSRP</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Quantity On Hand</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
                  </layout>
-                </item>
-                <item>
-                 <widget class="QComboBox" name="comboBoxSearchBy">
-                  <property name="sizePolicy">
-                   <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                    <horstretch>0</horstretch>
-                    <verstretch>0</verstretch>
-                   </sizepolicy>
-                  </property>
-                  <property name="currentIndex">
-                   <number>1</number>
-                  </property>
-                  <item>
-                   <property name="text">
-                    <string>ISBN</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Title</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Author</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Publication Year</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Publisher</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>MSRP</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>Quantity On Hand</string>
-                   </property>
-                  </item>
-                 </widget>
                 </item>
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_22">
@@ -386,7 +386,7 @@
                </layout>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="pushButtonAddToDB">
                 <property name="text">
                  <string>Add</string>
                 </property>
@@ -720,7 +720,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>800</width>
+           <width>700</width>
            <height>0</height>
           </size>
          </property>
@@ -737,7 +737,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlease">
@@ -863,11 +863,28 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButtonAddToDB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addBookToDB()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>493</x>
+     <y>388</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>399</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>searchDB()</slot>
   <slot>logIn()</slot>
   <slot>exitProgram()</slot>
   <slot>readTable()</slot>
+  <slot>addBookToDB()</slot>
  </slots>
 </ui>

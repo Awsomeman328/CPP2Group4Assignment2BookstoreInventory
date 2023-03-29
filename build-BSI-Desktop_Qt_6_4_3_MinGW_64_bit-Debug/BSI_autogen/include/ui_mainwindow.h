@@ -76,7 +76,7 @@ public:
     QLineEdit *lineEditGENRE;
     QLineEdit *lineEditMSRP;
     QLineEdit *lineEditQUANTITY;
-    QPushButton *pushButton;
+    QPushButton *pushButtonAddToDB;
     QFrame *line_27;
     QHBoxLayout *horizontalLayout_24;
     QLabel *label_28;
@@ -229,7 +229,7 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(tabWidget_2->sizePolicy().hasHeightForWidth());
         tabWidget_2->setSizePolicy(sizePolicy1);
-        tabWidget_2->setMaximumSize(QSize(440, 16777215));
+        tabWidget_2->setMaximumSize(QSize(530, 16777215));
         tabWidget_2->setBaseSize(QSize(0, 0));
         tabWidget_2->setTabPosition(QTabWidget::North);
         tabWidget_2->setTabShape(QTabWidget::Rounded);
@@ -266,9 +266,6 @@ public:
 
         horizontalLayout_21->addWidget(labelSearchBy);
 
-
-        verticalLayout_13->addLayout(horizontalLayout_21);
-
         comboBoxSearchBy = new QComboBox(verticalLayoutWidget_7);
         comboBoxSearchBy->addItem(QString());
         comboBoxSearchBy->addItem(QString());
@@ -284,7 +281,10 @@ public:
         sizePolicy2.setHeightForWidth(comboBoxSearchBy->sizePolicy().hasHeightForWidth());
         comboBoxSearchBy->setSizePolicy(sizePolicy2);
 
-        verticalLayout_13->addWidget(comboBoxSearchBy);
+        horizontalLayout_21->addWidget(comboBoxSearchBy);
+
+
+        verticalLayout_13->addLayout(horizontalLayout_21);
 
         horizontalLayout_22 = new QHBoxLayout();
         horizontalLayout_22->setObjectName("horizontalLayout_22");
@@ -380,10 +380,10 @@ public:
 
         horizontalLayout_23->addLayout(verticalLayout);
 
-        pushButton = new QPushButton(verticalLayoutWidget_7);
-        pushButton->setObjectName("pushButton");
+        pushButtonAddToDB = new QPushButton(verticalLayoutWidget_7);
+        pushButtonAddToDB->setObjectName("pushButtonAddToDB");
 
-        horizontalLayout_23->addWidget(pushButton);
+        horizontalLayout_23->addWidget(pushButtonAddToDB);
 
 
         verticalLayout_12->addLayout(horizontalLayout_23);
@@ -671,7 +671,7 @@ public:
         sizePolicy3.setVerticalStretch(0);
         sizePolicy3.setHeightForWidth(textEditLarge->sizePolicy().hasHeightForWidth());
         textEditLarge->setSizePolicy(sizePolicy3);
-        textEditLarge->setMinimumSize(QSize(800, 0));
+        textEditLarge->setMinimumSize(QSize(700, 0));
 
         horizontalLayout_19->addWidget(textEditLarge);
 
@@ -681,7 +681,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1280, 22));
+        menubar->setGeometry(QRect(0, 0, 1280, 21));
         menuPlease = new QMenu(menubar);
         menuPlease->setObjectName("menuPlease");
         menuAdd = new QMenu(menubar);
@@ -720,6 +720,7 @@ public:
         QObject::connect(pushButtonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
         QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(logIn()));
         QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(readTable()));
+        QObject::connect(pushButtonAddToDB, SIGNAL(clicked()), MainWindow, SLOT(addBookToDB()));
 
         tabWidget_2->setCurrentIndex(0);
         comboBoxSearchBy->setCurrentIndex(1);
@@ -766,7 +767,7 @@ public:
         lineEditMSRP->setPlaceholderText(QCoreApplication::translate("MainWindow", "MSRP", nullptr));
         lineEditQUANTITY->setText(QString());
         lineEditQUANTITY->setPlaceholderText(QCoreApplication::translate("MainWindow", "QUANTITY", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
+        pushButtonAddToDB->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         label_28->setText(QCoreApplication::translate("MainWindow", "Add a book to your Shopping List from the database", nullptr));
         label_29->setText(QCoreApplication::translate("MainWindow", "Not Yet Implemented", nullptr));
         label_30->setText(QCoreApplication::translate("MainWindow", "Display your Shopping List to the screen", nullptr));

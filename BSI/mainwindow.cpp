@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include <./ui_mainwindow.h>
 #include "dbmanager.h"
+#include "book.h"
+#include "hardwareinfo.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -22,6 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
         QAction *copyAction = new QAction("Copy", this);
         QAction *pasteAction = new QAction("Paste", this);
         QAction *aboutAction = new QAction("About", this);
+        QAction *displayHardwareAction = new QAction("Hardware Information", this);
 
         fileMenu->addAction(newAction);
         fileMenu->addAction(openAction);
@@ -31,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent)
         editMenu->addAction(copyAction);
         editMenu->addAction(pasteAction);
         helpMenu->addAction(aboutAction);
+        helpMenu->addAction(displayHardwareAction);
 
         // Add the menus to the menu bar
         menuBar->addMenu(fileMenu);
@@ -49,6 +53,7 @@ MainWindow::MainWindow(QWidget *parent)
         connect(copyAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::copy);
         connect(pasteAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::paste);
         connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
+        connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
 
 
         // Create a label to display the number of books
@@ -75,9 +80,78 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+bool MainWindow::CompareBookByMSRP::operator()(const Book& b1, const Book& b2) const
+{
+    return b1.getMSRP() < b2.getMSRP();
+}
+
+void MainWindow::importCSV()
+{
+    outputToLogFile("MainWindow::importCSV() Now starting the attempt to import a .CSV file.");
+
+    QDir currentDir = QDir::current();
+    QString parentDir = currentDir.dirName(); // get the parent directory name
+    QString defaultPath = currentDir.absolutePath() + "/../" + parentDir;
+
+    outputToLogFile("MainWindow::importCSV() Opening up File Dialog Box.");
+    QString fileName = QFileDialog::getOpenFileName(this,
+        tr("Open File"), defaultPath, tr("CSV Files (*.csv);;All Files (*.*)"));
+    if (!fileName.isEmpty()) {
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly)) {
+            outputToLogFile("MainWindow::importCSV() Error: Could not open file.");
+            QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
+            return;
+        }
+        // Do something with the file
+        outputToLogFile("MainWindow::importCSV() Sucessfully opened the file!");
+
+        // Check that the .CSV file is formated correctly,
+        // then validate that each row in the .CSV will create a valid Book object,
+        // and put each row's data into either a container of valid books and all of the invalid data into a 2nd containter,
+        // finally send both containers to the dbmanager to be inserted into their respective tables.
+
+        outputToLogFile("MainWindow::importCSV() Now closing the .CSV file.");
+        file.close();
+    }
+    else
+    {
+        outputToLogFile("MainWindow::importCSV() Warning: Given File name was empty.");
+    }
+
+}
+
+void MainWindow::exportCSV()
+{
+    for (int i = 0; i < bookList.size(); ++i) {
+        // Do stuff, ...
+    }
+}
+
 void MainWindow::showAboutDialog()
 {
     QMessageBox::about(this, "About", "This is a simple text editor.");
+}
+
+void MainWindow::showHardwareDialog()
+{
+    QList<QScreen*> screens = QGuiApplication::screens();
+    hardwareInfo hardwareBox;
+    //QMessageBox hardwareBox;
+    //hardwareBox.setWindowTitle("HardwareInfo");
+    //hardwareBox.setText("Placeholder Text for when Chris gets the hardware info");
+    if (screens.size() > 1)
+    {
+        // Second screen is available
+        QRect screenGeometry = screens.at(1)->geometry();
+        hardwareBox.move(screenGeometry.center() - hardwareBox.rect().center());
+    }
+    int result = hardwareBox.exec(); // Was .exec() before being turned into a MainWindow Child Class
+}
+
+void MainWindow::showBookErrorDialog()
+{
+    QMessageBox::about(this, "Error", "Invalid book, please try again.");
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
@@ -129,8 +203,13 @@ void MainWindow::addBookToDB()
                 ui->lineEditMSRP->text().toDouble(),
                 ui->lineEditQUANTITY->text().toInt());
 
-    dbManager db("bookstoreInventory.db");
-    db.addBookRecordToDatabase(newBook);
+    if (newBook.getIsValid())
+        {
+            dbManager db("bookstoreInventory.db");
+            db.addBookRecordToDatabase(newBook);
+        }
+        else
+            showBookErrorDialog();
 }
 
 // If we actually use this function for getting our number of books, then rename this function to something more appropreate.

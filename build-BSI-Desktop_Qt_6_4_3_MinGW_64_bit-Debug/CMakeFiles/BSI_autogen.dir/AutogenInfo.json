@@ -1,15 +1,15 @@
 {
-	"BUILD_DIR" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen",
-	"CMAKE_BINARY_DIR" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_BINARY_DIR" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug",
-	"CMAKE_CURRENT_SOURCE_DIR" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI",
+	"BUILD_DIR" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen",
+	"CMAKE_BINARY_DIR" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI",
 	"CMAKE_EXECUTABLE" : "C:/Qt/Tools/CMake_64/bin/cmake.exe",
 	"CMAKE_LIST_FILES" : 
 	[
-		"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/CMakeLists.txt",
-		"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeSystem.cmake",
+		"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/CMakeLists.txt",
+		"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake",
-		"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake",
+		"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeCXXCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeGenericSystem.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake",
@@ -22,7 +22,7 @@
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU.cmake",
-		"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeRCCompiler.cmake",
+		"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/3.24.2/CMakeRCCompiler.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeRCInformation.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-windres.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
@@ -302,75 +302,75 @@
 		"C:/Qt/6.4.3/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginTargets-relwithdebinfo.cmake",
 		"C:/Qt/6.4.3/mingw_64/lib/cmake/Qt6Sql/Qt6QSQLiteDriverPluginAdditionalTargetInfo.cmake"
 	],
-	"CMAKE_SOURCE_DIR" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI",
-	"DEP_FILE" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/deps",
+	"CMAKE_SOURCE_DIR" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI",
+	"DEP_FILE" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/deps",
 	"DEP_FILE_RULE_NAME" : "BSI_autogen/timestamp",
 	"HEADERS" : 
 	[
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h",
 			"MU",
 			"EWIEGA46WW/moc_backend.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/book.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h",
 			"MU",
 			"EWIEGA46WW/moc_book.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h",
 			"MU",
 			"EWIEGA46WW/moc_dbmanager.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/hardwareinfo.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hardwareinfo.h",
 			"MU",
 			"EWIEGA46WW/moc_hardwareinfo.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h",
 			"MU",
 			"EWIEGA46WW/moc_hashpasswordencryptor.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h",
 			"MU",
 			"EWIEGA46WW/moc_loginscreen.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h",
 			"MU",
 			"EWIEGA46WW/moc_md5.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h",
 			"MU",
 			"EWIEGA46WW/moc_rapidcsv.cpp",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h",
 			"MU",
 			"EWIEGA46WW/moc_utilities.cpp",
 			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/include",
-	"MOC_COMPILATION_FILE" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/include",
+	"MOC_COMPILATION_FILE" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"MINGW_HAS_SECURE_API=1",
@@ -426,66 +426,66 @@
 		"-c",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.24/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/BSI_autogen.dir/ParseCache.txt",
+	"PARALLEL" : 10,
+	"PARSE_CACHE_FILE" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/BSI_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "C:/Qt/6.4.3/mingw_64/./bin/moc.exe",
 	"QT_UIC_EXECUTABLE" : "C:/Qt/6.4.3/mingw_64/./bin/uic.exe",
 	"QT_VERSION_MAJOR" : 6,
 	"QT_VERSION_MINOR" : 4,
-	"SETTINGS_FILE" : "C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/BSI_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/CMakeFiles/BSI_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/backend.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/book.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/hardwareinfo.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hardwareinfo.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/main.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/main.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/md5.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.cpp",
 			"MU",
 			null
 		],
 		[
-			"C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.cpp",
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.cpp",
 			"MU",
 			null
 		]

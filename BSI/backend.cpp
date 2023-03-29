@@ -87,78 +87,7 @@ void exportBookList(vector<Book> bookList)
     booklist.close();
 }
 
-bool validateISBN(string ISBN)
-{
-    bool validISBN = true;
 
-    if (ISBN.empty() || ISBN.size() > 16)
-        validISBN = false;
-
-    for (unsigned short int i = 0; i < ISBN.size(); i++)
-    {
-        if (!isdigit(ISBN.at(i)) && (ISBN.at(i) != 'X'))
-            validISBN = false;
-    }
-
-    return validISBN;
-}
-
-bool validateTitle(string title)
-{
-    bool validTitle = true;
-
-    if (title.empty() || title.size() > 255)
-        validTitle = false;
-
-    return validTitle;
-}
-
-bool validateAuthor(string author)
-{
-    bool validAuthor = true;
-
-    if (author.empty()|| author.size() >255)
-        validAuthor = false;
-
-    return validAuthor;
-}
-
-
-bool validatePubYear(int pubYear)
-{
-    bool validPubYear = (pubYear >= 0 && pubYear <= 2023);
-    return validPubYear;
-}
-
-bool validatePublisher(string publisher)
-{
-    bool validPublisher = !publisher.empty() && publisher.size() <= 255;
-    return validPublisher;
-}
-
-bool validateDescription(string description)
-{
-    bool validDescription = description.size() <= 255;
-    return validDescription;
-}
-
-bool validGenre(string genre)
-{
-    bool validGenre = genre.size() <= 255;
-    return validGenre;
-}
-
-bool validMsrp(double msrp)
-{
-    bool validMsrp = (msrp != NULL && msrp >= 0);
-    return validMsrp;
-}
-
-bool validQuantity(int quantity)
-{
-    bool validMsrp = (quantity != NULL && quantity >= 0);
-    return validQuantity;
-}
 
 
 

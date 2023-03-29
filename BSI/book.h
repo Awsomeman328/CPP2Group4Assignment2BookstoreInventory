@@ -8,10 +8,13 @@ using namespace std;
 class Book
 {
 public:
+    // Constructors
     Book(string ISBN, string Title, string Author, unsigned int Year, string Publisher,
         double MSRP, unsigned int Quantity);
     Book(string ISBN, string Title, string Author, unsigned int Year, string Publisher,
         string Description, string Genre, double MSRP, unsigned int Quantity);
+
+    // Getters
     bool getIsValid() const;
     string getTitle() const;
     string getAuthor() const;
@@ -23,8 +26,20 @@ public:
     double getMSRP() const;
     unsigned int getQuantity() const;
 
+    // Validators
+    bool validateISBN(string ISBN);
+    bool validateTitle(string title);
+    bool validateAuthor(string author);
+    bool validatePubYear(int pubYear);
+    bool validatePublisher(string publisher);
+    bool validateDescription(string description);
+    bool validateGenre(string genre);
+    bool validateMSRP(double msrp);
+    bool validateQuantity(int quantity);
+
 
 private:
+    // Member Variables
     bool _isValid; // This flags for if this Book object is a valid Book. This gets set in the constructor and never changed.
     string _isbn; // This can't be NULL and must have values containing only numbers and the letter X and is 16 characters or less.
     string _title; // This can't be NULL.
@@ -36,16 +51,17 @@ private:
     double _msrp; // This can’t be NULL and must be 0 or higher. Using a double to get the decimal values from the database and to be more accurate than a float.
     unsigned int _quantity; // This can’t be NULL and must be 0 or higher.
 
+    // Setters
     void setIsValid(bool b);
-    void setISBN(string i);
-    void setTitle(string t);
-    void setAuthor(string a);
-    void setPublisher(string p);
-    void setYear(unsigned int y);
-    void setDescription(string d);
-    void setGenre(string g);
-    void setMSRP(double m);
-    void setQuantity(unsigned int q);
+    bool setISBN(string i);
+    bool setTitle(string t);
+    bool setAuthor(string a);
+    bool setPublisher(string p);
+    bool setYear(unsigned int y);
+    bool setDescription(string d);
+    bool setGenre(string g);
+    bool setMSRP(double m);
+    bool setQuantity(unsigned int q);
 };
 
 #endif // BOOK_H
