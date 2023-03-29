@@ -555,6 +555,7 @@
 [2023-03-24 17:10:03] MainWindow::closeEvent(..) Now Closing Program via Close Event.
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [2023-03-28 17:00:04] main() Starting Program, ...
 [2023-03-28 17:00:04] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
 [2023-03-28 17:00:04] dbManager::getTotalNumBooks() Database: starting book counting process
@@ -576,6 +577,8 @@
 [2023-03-28 17:13:08] MainWindow::closeEvent(*event) Now attempting to Close Program...
 [2023-03-28 17:13:10] MainWindow::closeEvent(..) Now Closing Program via Close Event.
 =======
+=======
+>>>>>>> Stashed changes
 [2023-03-28 21:14:48] main() Starting Program, ...
 [2023-03-28 21:14:48] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
 [2023-03-28 21:14:48] dbManager::getTotalNumBooks() Database: starting book counting process
@@ -599,5 +602,8 @@
 [2023-03-28 21:15:06] dbManager::getTotalNumBooks() Database: returning search results
 [2023-03-28 21:15:27] MainWindow::closeEvent(*event) Now attempting to Close Program...
 [2023-03-28 21:15:28] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 

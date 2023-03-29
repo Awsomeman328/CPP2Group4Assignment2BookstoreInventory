@@ -10,7 +10,10 @@
 2361	8822	7013952441804914	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
 2517	8832	7013952441939913	CMakeFiles/BSI.dir/backend.cpp.obj	51f33e5c531bf0f8
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 532	2578	7013953903004023	CMakeFiles/BSI.dir/test.cpp.obj	595c2813e1dc879a
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 2449	8899	7013952442566140	CMakeFiles/BSI.dir/dbmanager.cpp.obj	d52fc7423975c586
@@ -18,6 +21,7 @@
 5059	5661	7013953933827315	BSI.exe	79f18ff075779dc6
 7	495	7013953882243851	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
 7	495	7013953882243851	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 530	2547	7013953902699014	CMakeFiles/BSI.dir/dialogtest.cpp.obj	2e31b7a56449258
 143	2258	7017400026331878	BSI_autogen/timestamp	3c852b0e1e935352
@@ -58,6 +62,8 @@
 1985	7245	7017431228682288	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
 7246	7831	7017431234542281	BSI.exe	f1b61b83e6238570
 =======
+=======
+>>>>>>> Stashed changes
 7	1673	7017556485310677	BSI_autogen/timestamp	3c852b0e1e935352
 7	1673	7017556485310677	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
 7	1673	7017556485310677	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
@@ -73,4 +79,7 @@
 1681	6410	7017556536281377	CMakeFiles/BSI.dir/dbmanager.cpp.obj	d52fc7423975c586
 1676	6906	7017556541240366	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
 6907	7481	7017556546991373	BSI.exe	f1b61b83e6238570
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
