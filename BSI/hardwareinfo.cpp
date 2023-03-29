@@ -1,15 +1,5 @@
 #include "hardwareinfo.h"
 #include "ui_hardwareinfo.h"
-#include <QLabel>
-#include <QTableWidget>
-#include <QVBoxLayout>
-#include <QHBoxLayout>
-#include <QLineEdit>
-#include <QDialogButtonBox>
-#include <QVBoxLayout>
-#include <QGridLayout>
-#include <QPushButton>
-#include <QHeaderView>
 
 hardwareInfo::hardwareInfo() :
     QDialog(),

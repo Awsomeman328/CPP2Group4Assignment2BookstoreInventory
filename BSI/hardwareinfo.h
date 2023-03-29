@@ -6,6 +6,16 @@
 #include <QRegularExpression>
 #include <QStringList>
 #include <QStorageInfo>
+#include <QLabel>
+#include <QTableWidget>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QLineEdit>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QGridLayout>
+#include <QPushButton>
+#include <QHeaderView>
 
 namespace Ui {
 class hardwareInfo;
