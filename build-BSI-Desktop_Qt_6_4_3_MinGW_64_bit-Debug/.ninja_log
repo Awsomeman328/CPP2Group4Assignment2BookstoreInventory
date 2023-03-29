@@ -1,69 +1,95 @@
 # ninja log v5
-1717	2021	7017612153559650	CMakeFiles/BSI.dir/loginscreen.cpp.obj	494ec4d3edaf3b46
-1708	2494	7017612158260498	CMakeFiles/BSI.dir/md5.cpp.obj	b82e20abc90e757c
-9	475	7017614377705162	BSI_autogen/timestamp	3c852b0e1e935352
-9	475	7017614377705162	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-504	988	7017614382781422	CMakeFiles/BSI.dir/book.cpp.obj	b3b70f8b5f5218ea
-1710	2427	7017612157599343	CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj	16aede3c32dfc22e
-1696	6448	7017612197810628	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	d69a9222f54fb3a3
-1715	3770	7017612171020953	CMakeFiles/BSI.dir/utilities.cpp.obj	8ab09a85c7808adf
-1699	6435	7017612197680491	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
-1712	6515	7017612198442062	CMakeFiles/BSI.dir/backend.cpp.obj	51f33e5c531bf0f8
-1705	6488	7017612198182080	CMakeFiles/BSI.dir/dbmanager.cpp.obj	d52fc7423975c586
-506	5097	7017614423851359	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
-5098	5642	7017614429304881	BSI.exe	f1b61b83e6238570
-9	475	7017614377705162	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
-9	475	7017614377705162	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-0	36	0	CMakeFiles/clean.additional	baedbe210acaa455
-37	55	0	clean	577b940aee94fbd7
-0	21	0	CMakeFiles/clean.additional	baedbe210acaa455
-22	29	0	clean	577b940aee94fbd7
-7	1697	7017627844047756	BSI_autogen/timestamp	3c852b0e1e935352
-7	1697	7017627844047756	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-7	1697	7017627844047756	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
-7	1697	7017627844047756	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-1722	2150	7017627851550233	CMakeFiles/BSI.dir/loginscreen.cpp.obj	494ec4d3edaf3b46
-1705	2381	7017627853835628	CMakeFiles/BSI.dir/book.cpp.obj	b3b70f8b5f5218ea
-1720	2504	7017627855085897	CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj	16aede3c32dfc22e
-1711	2524	7017627855305884	CMakeFiles/BSI.dir/md5.cpp.obj	b82e20abc90e757c
-1718	3725	7017627867298569	CMakeFiles/BSI.dir/utilities.cpp.obj	8ab09a85c7808adf
-1698	6169	7017627891728984	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	d69a9222f54fb3a3
-1700	6334	7017627893389238	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
-1709	6394	7017627893974359	CMakeFiles/BSI.dir/backend.cpp.obj	51f33e5c531bf0f8
-1707	6545	7017627895479603	CMakeFiles/BSI.dir/dbmanager.cpp.obj	d52fc7423975c586
-1703	7082	7017627900855647	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
-7083	7659	7017627906632087	BSI.exe	f1b61b83e6238570
-10	500	7017651604066068	BSI_autogen/timestamp	3c852b0e1e935352
-10	500	7017651604066068	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-10	500	7017651604066068	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
-10	500	7017651604066068	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-539	4938	7017651648399452	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
-542	5604	7017651655025860	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
-5604	6241	7017651661436927	BSI.exe	f1b61b83e6238570
-8	471	7017654565804167	BSI_autogen/timestamp	3c852b0e1e935352
-8	471	7017654565804167	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-8	471	7017654565804167	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
-8	471	7017654565804167	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-501	4950	7017654610508571	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
-504	5678	7017654617794860	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
-5678	6314	7017654624151438	BSI.exe	f1b61b83e6238570
-11	460	7017657063373328	BSI_autogen/timestamp	3c852b0e1e935352
-11	460	7017657063373328	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-11	460	7017657063373328	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
-11	460	7017657063373328	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-494	4645	7017657105149323	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
-496	5295	7017657111645399	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
-5296	5908	7017657117786648	BSI.exe	f1b61b83e6238570
-7	457	7017658122655164	BSI_autogen/timestamp	3c852b0e1e935352
-7	457	7017658122655164	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-7	457	7017658122655164	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
-7	457	7017658122655164	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-496	4815	7017658166184147	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
-499	5425	7017658172260550	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
-5426	6046	7017658178451677	BSI.exe	f1b61b83e6238570
-8	501	7017661957655193	BSI_autogen/timestamp	3c852b0e1e935352
-8	501	7017661957655193	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-8	501	7017661957655193	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	3c852b0e1e935352
-8	501	7017661957655193	C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
-535	5374	7017662006298621	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
-5375	6020	7017662012719663	BSI.exe	f1b61b83e6238570
+533	744	7013799287689643	CMakeFiles/BSI.dir/loginscreen.cpp.obj	494ec4d3edaf3b46
+2081	2875	7013773419651149	CMakeFiles/BSI.dir/md5.cpp.obj	b82e20abc90e757c
+7	495	7013953882243851	BSI_autogen/timestamp	3c852b0e1e935352
+7	495	7013953882243851	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
+2492	3301	7013952386619445	CMakeFiles/BSI.dir/book.cpp.obj	b3b70f8b5f5218ea
+2165	2922	7013773420116121	CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj	16aede3c32dfc22e
+2341	8923	7013952442831175	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	d69a9222f54fb3a3
+2472	5656	7013952410164638	CMakeFiles/BSI.dir/utilities.cpp.obj	8ab09a85c7808adf
+2361	8822	7013952441804914	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
+2517	8832	7013952441939913	CMakeFiles/BSI.dir/backend.cpp.obj	51f33e5c531bf0f8
+2449	8899	7013952442566140	CMakeFiles/BSI.dir/dbmanager.cpp.obj	d52fc7423975c586
+527	5059	7013953927739528	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
+5059	5661	7013953933827315	BSI.exe	79f18ff075779dc6
+18	4205	7017568001685904	BSI_autogen/timestamp	d9301e3c5f30b81e
+18	4205	7017568001685904	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+18	4205	7017568001685904	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+18	4205	7017568001685904	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+4270	4367	7017568012661582	CMakeFiles/BSI.dir/loginscreen.cpp.obj	fc91163a6e936b50
+4222	4995	7017568018912151	CMakeFiles/BSI.dir/book.cpp.obj	9514efadd2b382da
+4248	5185	7017568020852104	CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj	da1a569b719f89aa
+4240	5276	7017568021762120	CMakeFiles/BSI.dir/md5.cpp.obj	e22258330cc56596
+4234	7446	7017568043458172	CMakeFiles/BSI.dir/utilities.cpp.obj	bbbff4be5a38c290
+4263	8117	7017568050179776	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+4211	11037	7017568079373170	CMakeFiles/BSI.dir/main.cpp.obj	a0ed79403f530b8d
+4255	11112	7017568080103168	CMakeFiles/BSI.dir/backend.cpp.obj	1b1d2f352a54d8ca
+4207	11166	7017568080663020	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	b7dd535263fbc9d3
+4227	11422	7017568083219143	CMakeFiles/BSI.dir/dbmanager.cpp.obj	ed51e83ca7e6f324
+4217	11926	7017568088219277	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+11926	12697	7017568095919783	BSI.exe	d4ee1226d86f3dee
+13	1312	7017570804599398	BSI_autogen/timestamp	d9301e3c5f30b81e
+13	1312	7017570804599398	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+13	1312	7017570804599398	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+13	1312	7017570804599398	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1416	4390	7017570835375567	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1411	7942	7017570870827680	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+7943	8659	7017570877997666	BSI.exe	d4ee1226d86f3dee
+21	1232	7017581775516742	BSI_autogen/timestamp	d9301e3c5f30b81e
+21	1232	7017581775516742	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+21	1232	7017581775516742	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+21	1232	7017581775516742	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1356	4684	7017581809998656	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1351	8079	7017581843946130	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8080	8827	7017581851381228	BSI.exe	d4ee1226d86f3dee
+21	1386	7017587062636532	BSI_autogen/timestamp	d9301e3c5f30b81e
+21	1386	7017587062636532	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+21	1386	7017587062636532	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+21	1386	7017587062636532	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1495	4862	7017587097385319	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1490	8264	7017587131388698	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8265	9017	7017587138858399	BSI.exe	d4ee1226d86f3dee
+13	1361	7017587977105397	BSI_autogen/timestamp	d9301e3c5f30b81e
+13	1361	7017587977105397	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+13	1361	7017587977105397	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+13	1361	7017587977105397	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1466	4603	7017588009520148	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1461	8101	7017588044465035	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8102	8834	7017588051771628	BSI.exe	d4ee1226d86f3dee
+17	1489	7017604019550222	BSI_autogen/timestamp	d9301e3c5f30b81e
+17	1489	7017604019550222	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+17	1489	7017604019550222	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+17	1489	7017604019550222	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1602	4883	7017604053482722	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1596	8296	7017604087588078	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8297	9044	7017604095036593	BSI.exe	d4ee1226d86f3dee
+22	1411	7017608049582805	BSI_autogen/timestamp	d9301e3c5f30b81e
+22	1411	7017608049582805	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+22	1411	7017608049582805	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+22	1411	7017608049582805	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1516	4743	7017608082901649	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1510	8187	7017608117317330	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8188	8933	7017608124732815	BSI.exe	d4ee1226d86f3dee
+21	1336	7017744579760671	BSI_autogen/timestamp	d9301e3c5f30b81e
+21	1336	7017744579760671	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+21	1336	7017744579760671	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+21	1336	7017744579760671	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1446	5116	7017744617538014	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1441	8069	7017744647056855	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8070	8868	7017744654963636	BSI.exe	d4ee1226d86f3dee
+23	1555	7017766671443594	BSI_autogen/timestamp	d9301e3c5f30b81e
+23	1555	7017766671443594	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+23	1555	7017766671443594	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+23	1555	7017766671443594	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1664	5532	7017766711186126	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1659	8208	7017766737931008	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8208	9053	7017766746307840	BSI.exe	d4ee1226d86f3dee
+25	1276	7017819463275524	BSI_autogen/timestamp	d9301e3c5f30b81e
+25	1276	7017819463275524	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+25	1276	7017819463275524	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+25	1276	7017819463275524	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1404	1501	7017819465500786	CMakeFiles/BSI.dir/loginscreen.cpp.obj	fc91163a6e936b50
+1398	5850	7017819508986141	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1391	7735	7017819527846139	CMakeFiles/BSI.dir/backend.cpp.obj	1b1d2f352a54d8ca
+1384	8534	7017819535812570	CMakeFiles/BSI.dir/mainwindow.cpp.obj	1a48c63c1631dd59
+8534	9397	7017819544402701	BSI.exe	d4ee1226d86f3dee

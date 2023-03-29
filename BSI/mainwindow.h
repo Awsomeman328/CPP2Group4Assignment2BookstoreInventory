@@ -4,12 +4,10 @@
 #include <QMainWindow>
 #include <QCloseEvent>
 #include <QMessageBox>
-#include <QFileDialog>
-#include <deque>
+
 #include "dbmanager.h"
 #include "hashpasswordencryptor.h"
 #include "backend.h"
-#include "book.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -38,13 +36,8 @@ private:
         QAction *copyAction;
         QAction *pasteAction;
         QAction *aboutAction;
-        QAction *displayHardwareAction;
 
         void showAboutDialog();
-        void showHardwareDialog();
-        void showBookErrorDialog();
-
-        std::deque<Book> bookList;
 
 public slots:
     void createDB();
@@ -54,7 +47,5 @@ public slots:
     void logIn();
     void exitProgram();
     void addBookToDB();
-    void importCSV();
-    void exportCSV();
 };
 #endif // MAINWINDOW_H

@@ -1,5 +1,5 @@
-C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
+C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QHash \
@@ -284,7 +284,6 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsql-config.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlglobal.h \
-  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QFileDialog \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMessageBox \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -294,7 +293,6 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qdialog.h \
-  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qfiledialog.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmainwindow.h \
@@ -390,7 +388,6 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cpp_type_traits.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_forced.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/cxxabi_init_exception.h \
-  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/deque.tcc \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/enable_special_members.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/erase_if.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/exception.h \
@@ -449,7 +446,6 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_algobase.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_bvector.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_construct.h \
-  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_deque.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_function.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_heap.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/bits/stl_iterator.h \
@@ -497,7 +493,6 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/cwctype \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/assertions.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/debug/debug.h \
-  C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/deque \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/exception \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/aligned_buffer.h \
   C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/ext/alloc_traits.h \
@@ -662,10 +657,10 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h
