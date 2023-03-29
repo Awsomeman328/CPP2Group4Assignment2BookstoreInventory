@@ -1,5 +1,4 @@
 #include "dbmanager.h"
-#include <iostream>
 
 dbManager::dbManager(const QString& path)
 {

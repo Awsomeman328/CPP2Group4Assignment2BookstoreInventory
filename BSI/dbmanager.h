@@ -2,6 +2,7 @@
 #define DBMANAGER_H
 
 
+#include <iostream>
 #include <Qtsql/QtSql>
 #include <QVector>
 #include "utilities.h"

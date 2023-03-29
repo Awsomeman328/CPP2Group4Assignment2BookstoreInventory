@@ -31,10 +31,12 @@ static int callback(void* list, int argCount, char** argValue, char** azColName)
 
 QVector<bool> attemptLogin(QString username, QString password)
 {
+    outputToLogFile("backend::attemptLogin(.., ..) Now attempting to log in");
+
     dbManager db("bookstoreInventory.db");
     QVector<bool> results = db.checkLogInInfo(username, password);
 
-    //outputToLogFile("attemptLogin");
+    outputToLogFile("backend::attemptLogin(.., ..) Now returning log in attempt result");
 
     return results;
 }
