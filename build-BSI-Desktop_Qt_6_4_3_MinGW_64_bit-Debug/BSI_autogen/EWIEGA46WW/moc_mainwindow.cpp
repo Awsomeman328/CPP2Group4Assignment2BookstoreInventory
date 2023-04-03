@@ -26,7 +26,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
-    uint offsetsAndSizes[22];
+    uint offsetsAndSizes[26];
     char stringdata0[11];
     char stringdata1[9];
     char stringdata2[1];
@@ -38,6 +38,8 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata8[12];
     char stringdata9[10];
     char stringdata10[10];
+    char stringdata11[20];
+    char stringdata12[10];
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -53,7 +55,9 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(58, 11),  // "exitProgram"
         QT_MOC_LITERAL(70, 11),  // "addBookToDB"
         QT_MOC_LITERAL(82, 9),  // "importCSV"
-        QT_MOC_LITERAL(92, 9)   // "exportCSV"
+        QT_MOC_LITERAL(92, 9),  // "exportCSV"
+        QT_MOC_LITERAL(102, 19),  // "toggleAdminFeatures"
+        QT_MOC_LITERAL(122, 9)   // "isEnabled"
     },
     "MainWindow",
     "createDB",
@@ -65,7 +69,9 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "exitProgram",
     "addBookToDB",
     "importCSV",
-    "exportCSV"
+    "exportCSV",
+    "toggleAdminFeatures",
+    "isEnabled"
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -76,7 +82,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -84,15 +90,16 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   68,    2, 0x0a,    1 /* Public */,
-       3,    0,   69,    2, 0x0a,    2 /* Public */,
-       4,    0,   70,    2, 0x0a,    3 /* Public */,
-       5,    0,   71,    2, 0x0a,    4 /* Public */,
-       6,    0,   72,    2, 0x0a,    5 /* Public */,
-       7,    0,   73,    2, 0x0a,    6 /* Public */,
-       8,    0,   74,    2, 0x0a,    7 /* Public */,
-       9,    0,   75,    2, 0x0a,    8 /* Public */,
-      10,    0,   76,    2, 0x0a,    9 /* Public */,
+       1,    0,   74,    2, 0x0a,    1 /* Public */,
+       3,    0,   75,    2, 0x0a,    2 /* Public */,
+       4,    0,   76,    2, 0x0a,    3 /* Public */,
+       5,    0,   77,    2, 0x0a,    4 /* Public */,
+       6,    0,   78,    2, 0x0a,    5 /* Public */,
+       7,    0,   79,    2, 0x0a,    6 /* Public */,
+       8,    0,   80,    2, 0x0a,    7 /* Public */,
+       9,    0,   81,    2, 0x0a,    8 /* Public */,
+      10,    0,   82,    2, 0x0a,    9 /* Public */,
+      11,    1,   83,    2, 0x0a,   10 /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -104,6 +111,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Bool,   12,
 
        0        // eod
 };
@@ -134,7 +142,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'importCSV'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'exportCSV'
-        QtPrivate::TypeAndForceComplete<void, std::false_type>
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'toggleAdminFeatures'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<bool, std::false_type>
     >,
     nullptr
 } };
@@ -154,10 +165,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->addBookToDB(); break;
         case 7: _t->importCSV(); break;
         case 8: _t->exportCSV(); break;
+        case 9: _t->toggleAdminFeatures((*reinterpret_cast< std::add_pointer_t<bool>>(_a[1]))); break;
         default: ;
         }
     }
-    (void)_a;
 }
 
 const QMetaObject *MainWindow::metaObject() const
@@ -179,13 +190,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

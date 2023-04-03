@@ -3,76 +3,85 @@
 #include "dbmanager.h"
 #include "book.h"
 #include "hardwareinfo.h"
+#include "notesdialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
     // Create the menu bar and menus
-        QMenuBar *menuBar = new QMenuBar(this);
-        QMenu *fileMenu = new QMenu("File");
-        QMenu *editMenu = new QMenu("Edit");
-        QMenu *helpMenu = new QMenu("Help");
+    QMenuBar *menuBar = new QMenuBar(this);
+    QMenu *fileMenu = new QMenu("File");
+    QMenu *editMenu = new QMenu("Edit");
+    QMenu *helpMenu = new QMenu("Help");
 
-        // Create the menu items and add them to the menus
-        QAction *newAction = new QAction("New", this);
-        QAction *openAction = new QAction("Open", this);
-        QAction *saveAction = new QAction("Save", this);
-        QAction *exitAction = new QAction("Exit", this);
-        QAction *cutAction = new QAction("Cut", this);
-        QAction *copyAction = new QAction("Copy", this);
-        QAction *pasteAction = new QAction("Paste", this);
-        QAction *aboutAction = new QAction("About", this);
-        QAction *displayHardwareAction = new QAction("Hardware Information", this);
+    // Create the menu items and add them to the menus
+    //QAction *newAction = new QAction("New", this);
+    importAction = new QAction("Import", this);
+    exportAction = new QAction("Export", this);
+    QAction *exitAction = new QAction("Exit", this);
+    QAction *cutAction = new QAction("Cut", this);
+    QAction *copyAction = new QAction("Copy", this);
+    QAction *pasteAction = new QAction("Paste", this);
+    QAction *displayNotesAction = new QAction("Notes", this);
+    QAction *aboutAction = new QAction("About", this);
+    QAction *displayHardwareAction = new QAction("Hardware Information", this);
 
-        fileMenu->addAction(newAction);
-        fileMenu->addAction(openAction);
-        fileMenu->addAction(saveAction);
-        fileMenu->addAction(exitAction);
-        editMenu->addAction(cutAction);
-        editMenu->addAction(copyAction);
-        editMenu->addAction(pasteAction);
-        helpMenu->addAction(aboutAction);
-        helpMenu->addAction(displayHardwareAction);
+    // Disable the functionality meant for Admins only!
+    importAction->setEnabled(false);
+    exportAction->setEnabled(false);
 
-        // Add the menus to the menu bar
-        menuBar->addMenu(fileMenu);
-        menuBar->addMenu(editMenu);
-        menuBar->addMenu(helpMenu);
+    fileMenu->addAction(importAction);
+    fileMenu->addAction(exportAction);
+    fileMenu->addSeparator();
+    fileMenu->addAction(exitAction);
+    editMenu->addAction(cutAction);
+    editMenu->addAction(copyAction);
+    editMenu->addAction(pasteAction);
+    editMenu->addSeparator();
+    editMenu->addAction(displayNotesAction);
+    helpMenu->addAction(aboutAction);
+    helpMenu->addAction(displayHardwareAction);
 
-        // Set the menu bar as the main window's menu bar
-        setMenuBar(menuBar);
+    // Add the menus to the menu bar
+    menuBar->addMenu(fileMenu);
+    menuBar->addMenu(editMenu);
+    menuBar->addMenu(helpMenu);
 
-        // Connect the menu items to their respective functions
-        connect(newAction, &QAction::triggered, this, &MainWindow::createDB);
-        connect(openAction, &QAction::triggered, this, &MainWindow::readTable);
-        connect(saveAction, &QAction::triggered, this, &MainWindow::createTable);
-        connect(exitAction, &QAction::triggered, this, &MainWindow::exitProgram);
-        connect(cutAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::cut);
-        connect(copyAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::copy);
-        connect(pasteAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::paste);
-        connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
-        connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
+    // Set the menu bar as the main window's menu bar
+    setMenuBar(menuBar);
+
+    // Connect the menu items to their respective functions
+    connect(importAction, &QAction::triggered, this, &MainWindow::importCSV);
+    connect(exportAction, &QAction::triggered, this, &MainWindow::exportCSV);
+    connect(exitAction, &QAction::triggered, this, &MainWindow::exitProgram);
+    connect(cutAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::cut);
+    connect(copyAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::copy);
+    connect(pasteAction, &QAction::triggered, ui->textEditLarge, &QTextEdit::paste);
+    connect(displayNotesAction, &QAction::triggered, this, &MainWindow::showNotesDialog);
+    connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
+    connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
 
 
-        // Create a label to display the number of books
-            QLabel *statusLabel = new QLabel(this);
+    // Create a label to display the number of books
+    QLabel *statusLabel = new QLabel(this);
 
-            // Get the total number of books from the database
-            dbManager db("bookstoreInventory.db");
-            QVector<QVariant> totalNumBooks = db.getTotalNumBooks();
-            QString numBooks = totalNumBooks[0].toString();
-            QString totalQuantity = totalNumBooks[1].toString();
+    // Get the total number of books from the database
+    dbManager db("bookstoreInventory.db");
+    QVector<QVariant> totalNumBooks = db.getTotalNumBooks();
+    QString numBooks = totalNumBooks[0].toString();
+    QString totalQuantity = totalNumBooks[1].toString();
 
-            // Set the text of the status label to display the total number of books
-            statusLabel->setText(QString("Total number of unique books: " + numBooks + " | Total quantity of books currently on hand: " + totalQuantity));
+    // Set the text of the status label to display the total number of books
+    statusLabel->setText(QString("Total number of unique books: " + numBooks + " | Total quantity of books currently on hand: " + totalQuantity));
 
-            // Add the label to the status bar
-            statusBar()->addWidget(statusLabel);
+    // Add the label to the status bar
+    statusBar()->addWidget(statusLabel);
 
-            // Add the status bar to the main window
-            setStatusBar(statusBar());
+    // Add the status bar to the main window
+    setStatusBar(statusBar());
 }
 
 MainWindow::~MainWindow()
@@ -128,9 +137,24 @@ void MainWindow::exportCSV()
     }
 }
 
+void MainWindow::showNotesDialog()
+{
+    NotesDialog notesDialog;
+    notesDialog.exec();
+}
+
 void MainWindow::showAboutDialog()
 {
-    QMessageBox::about(this, "About", "This is a simple text editor.");
+    QMessageBox::about(this, "About",
+        "This is a demo Bookstore Inventory Database Manager Application written by "
+        "three college students: Michael Dolan, Christopher Rodela, and Jacob Wiles."
+        "\n\n"
+        "Everything in this application is for edjucational use and purposes only. "
+        "If you have somehow paid ACTUAL money for this, you have been scammed. "
+        "\n\n"
+        "\"Scroll Rack\" illustration used for the splash screen was illustrated by "
+        "Heather Hudson and is protected under Copyright for both her and for the  "
+        "company \"Wizards of the Coast\" and the \"Magic: the Gathering\" brand.");
 }
 
 void MainWindow::showHardwareDialog()
@@ -270,6 +294,9 @@ void MainWindow::logIn()
 
     QVector<bool> loginStatus = attemptLogin(username, password);
 
+    // Set Admin features to false just in case they were enabled by a previous admin login
+    toggleAdminFeatures(false);
+
     if (loginStatus.size() == NULL)
     {
 
@@ -282,6 +309,7 @@ void MainWindow::logIn()
         if (loginStatus[0])
         {
             outputToLogFile("MainWindow::logIn() Login Successful! Admin Access Granted!");
+            toggleAdminFeatures(true);
         }
         else
         {
@@ -298,6 +326,13 @@ void MainWindow::logIn()
 
 
 
+}
+
+void MainWindow::toggleAdminFeatures(bool isEnabled)
+{
+    ui->tabAdminMenu->setEnabled(isEnabled);
+    importAction->setEnabled(isEnabled);
+    exportAction->setEnabled(isEnabled);
 }
 
 

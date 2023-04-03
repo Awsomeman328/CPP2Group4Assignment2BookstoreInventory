@@ -36,6 +36,9 @@ set(PROJECT_SOURCES
         hardwareinfo.cpp
         hardwareinfo.h
         hardwareinfo.ui
+        notesdialog.h
+        notesdialog.cpp
+        NotesDialog.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

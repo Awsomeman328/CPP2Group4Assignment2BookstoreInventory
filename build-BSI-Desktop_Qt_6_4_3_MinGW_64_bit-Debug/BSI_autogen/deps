@@ -1,6 +1,7 @@
 BSI_autogen/timestamp: \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QDeadlineTimer \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QDebug \
+	C:/Qt/6.4.3/mingw_64/include/QtCore/QFile \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QHash \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QList \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QMap \
@@ -15,6 +16,7 @@ BSI_autogen/timestamp: \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QString \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QStringList \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QSysInfo \
+	C:/Qt/6.4.3/mingw_64/include/QtCore/QTextStream \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QVariant \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QVector \
 	C:/Qt/6.4.3/mingw_64/include/QtCore/QtCore \
@@ -912,6 +914,8 @@ BSI_autogen/timestamp: \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.cpp \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.cpp \
+	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.cpp \
 	C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h \

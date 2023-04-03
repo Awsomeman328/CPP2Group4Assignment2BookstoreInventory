@@ -88,7 +88,7 @@
          <item>
           <widget class="QPushButton" name="pushButtonLogIn">
            <property name="text">
-            <string>Log In - Not Yet Implemented</string>
+            <string>Log In (Not Yet Implemented)</string>
            </property>
           </widget>
          </item>
@@ -120,6 +120,9 @@
       <layout class="QHBoxLayout" name="horizontalLayout_19">
        <item>
         <widget class="QTabWidget" name="tabWidget_2">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -128,7 +131,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>530</width>
+           <width>630</width>
            <height>16777215</height>
           </size>
          </property>
@@ -147,7 +150,7 @@
          <property name="currentIndex">
           <number>0</number>
          </property>
-         <widget class="QWidget" name="tab_3">
+         <widget class="QWidget" name="tabMainMenu">
           <attribute name="title">
            <string>Main Menu</string>
           </attribute>
@@ -156,8 +159,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>512</width>
-             <height>490</height>
+             <width>601</width>
+             <height>571</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -424,11 +427,87 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_29">
-                <property name="text">
-                 <string>Not Yet Implemented</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_15">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_33">
+                  <item>
+                   <widget class="QLabel" name="labelSearchBy_2">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Add By: </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxSearchBy_2">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="currentIndex">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>ISBN</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Title</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Author</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Publication Year</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Publisher</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>MSRP</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Quantity On Hand</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_34">
+                  <item>
+                   <widget class="QLineEdit" name="lineEditSearchDB_2"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="btnSearchDB_2">
+                    <property name="text">
+                     <string>Search Database</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -456,9 +535,9 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_31">
+               <widget class="QPushButton" name="pushButton">
                 <property name="text">
-                 <string>Not Yet Implemented</string>
+                 <string>Display Shopping List (Not Yet Implemented)</string>
                 </property>
                </widget>
               </item>
@@ -488,9 +567,9 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_33">
+               <widget class="QPushButton" name="pushButton_2">
                 <property name="text">
-                 <string>Not Yet Implemented</string>
+                 <string>Purchase Shopping List (Not Yet Implemented)</string>
                 </property>
                </widget>
               </item>
@@ -499,7 +578,10 @@
            </layout>
           </widget>
          </widget>
-         <widget class="QWidget" name="tab_4">
+         <widget class="QWidget" name="tabAdminMenu">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
           <attribute name="title">
            <string>Admin Menu</string>
           </attribute>
@@ -508,8 +590,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>482</width>
-             <height>381</height>
+             <width>601</width>
+             <height>571</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -530,11 +612,51 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_34">
-                <property name="text">
-                 <string>Not Yet Implemented</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_16">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_11">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_17">
+                    <item>
+                     <widget class="QLabel" name="labelUsername_2">
+                      <property name="text">
+                       <string>Username</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="labelPassword_2">
+                      <property name="text">
+                       <string>Password</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_18">
+                    <item>
+                     <widget class="QLineEdit" name="lineEditUsername_2"/>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditPassword_2">
+                      <property name="placeholderText">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButtonLogIn_2">
+                  <property name="text">
+                   <string>Add New User (Not Yet Implemented)</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -562,11 +684,51 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_36">
-                <property name="text">
-                 <string>Not Yet Implemented</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_19">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_12">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_20">
+                    <item>
+                     <widget class="QLabel" name="labelUsername_3">
+                      <property name="text">
+                       <string>Username</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="labelPassword_3">
+                      <property name="text">
+                       <string>Password</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_21">
+                    <item>
+                     <widget class="QLineEdit" name="lineEditUsername_3"/>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditPassword_3">
+                      <property name="placeholderText">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButtonLogIn_3">
+                  <property name="text">
+                   <string>Change User's Password (Not Yet Implemented)</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -626,11 +788,87 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_40">
-                <property name="text">
-                 <string>Not Yet Implemented</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_22">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_35">
+                  <item>
+                   <widget class="QLabel" name="labelSearchBy_3">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="text">
+                     <string>Add By: </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="comboBoxSearchBy_3">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="currentIndex">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <property name="text">
+                      <string>ISBN</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Title</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Author</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Publication Year</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Publisher</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>MSRP</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Quantity On Hand</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_36">
+                  <item>
+                   <widget class="QLineEdit" name="lineEditSearchDB_3"/>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="btnSearchDB_3">
+                    <property name="text">
+                     <string>Search Database</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -658,9 +896,9 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_42">
+               <widget class="QPushButton" name="pushButton_3">
                 <property name="text">
-                 <string>Not Yet Implemented</string>
+                 <string>Print Book List (Not Yet Implemented)</string>
                 </property>
                </widget>
               </item>
@@ -720,7 +958,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>700</width>
+           <width>600</width>
            <height>0</height>
           </size>
          </property>

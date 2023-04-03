@@ -356,6 +356,12 @@
 			null
 		],
 		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.h",
+			"MU",
+			"EWIEGA46WW/moc_notesdialog.cpp",
+			null
+		],
+		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h",
 			"MU",
 			"EWIEGA46WW/moc_rapidcsv.cpp",
@@ -481,6 +487,11 @@
 		],
 		[
 			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.cpp",
 			"MU",
 			null
 		],

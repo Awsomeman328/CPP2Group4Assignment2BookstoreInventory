@@ -32,15 +32,17 @@ private:
     QMenu *fileMenu;
     QMenu *editMenu;
     QMenu *helpMenu;
-    QAction *newAction;
-    QAction *openAction;
-    QAction *saveAction;
+    //QAction *newAction;
+    QAction *importAction;
+    QAction *exportAction;
     QAction *exitAction;
     QAction *cutAction;
     QAction *copyAction;
     QAction *pasteAction;
+    QAction *notesAction;
     QAction *aboutAction;
 
+    void showNotesDialog();
     void showAboutDialog();
     void showHardwareDialog();
     void showBookErrorDialog();
@@ -65,5 +67,6 @@ public slots:
     void addBookToDB();
     void importCSV();
     void exportCSV();
+    void toggleAdminFeatures(bool isEnabled);
 };
 #endif // MAINWINDOW_H
