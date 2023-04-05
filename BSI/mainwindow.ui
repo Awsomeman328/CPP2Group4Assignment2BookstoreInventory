@@ -19,10 +19,6 @@
   <property name="windowTitle">
    <string>Scroll Rack - A Bookstore Inventory Database</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>scrollRackSplash.png</normaloff>scrollRackSplash.png</iconset>
-  </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
   </property>
