@@ -912,8 +912,15 @@ public:
         QObject::connect(pushButtonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
         QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(logIn()));
         QObject::connect(pushButtonAddToDB, SIGNAL(clicked()), MainWindow, SLOT(addBookToDB()));
+        QObject::connect(btnSearchDBAddShoppingList, SIGNAL(clicked()), MainWindow, SLOT(searchBookToShoppingList()));
+        QObject::connect(btnSearchDBAddBookList, SIGNAL(clicked()), MainWindow, SLOT(searchBookToBookList()));
+        QObject::connect(pushButtonDisplayShoppingList, SIGNAL(clicked()), MainWindow, SLOT(displayShoppingList()));
+        QObject::connect(pushButtonPurchaseShoppingList, SIGNAL(clicked()), MainWindow, SLOT(purchaseShoppingList()));
+        QObject::connect(pushButtonPrintBookList, SIGNAL(clicked()), MainWindow, SLOT(displayBookList()));
+        QObject::connect(pushButtonAddNewUser, SIGNAL(clicked()), MainWindow, SLOT(addNewUser()));
+        QObject::connect(pushButtonChangeUserPass, SIGNAL(clicked()), MainWindow, SLOT(changeUsersPassword()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         comboBoxSearchBy->setCurrentIndex(1);
         comboBoxShoppingListAddBy->setCurrentIndex(0);
         comboBoxBookListAddBy->setCurrentIndex(0);

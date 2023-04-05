@@ -68,5 +68,12 @@ public slots:
     void importCSV();
     void exportCSV();
     void toggleAdminFeatures(bool isEnabled);
+    void searchBookToShoppingList();
+    void searchBookToBookList();
+    void displayShoppingList();
+    void purchaseShoppingList();
+    void displayBookList();
+    void addNewUser();
+    void changeUsersPassword();
 };
 #endif // MAINWINDOW_H

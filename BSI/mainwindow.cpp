@@ -335,5 +335,40 @@ void MainWindow::toggleAdminFeatures(bool isEnabled)
     exportAction->setEnabled(isEnabled);
 }
 
+void MainWindow::searchBookToShoppingList()
+{
+
+}
+
+void MainWindow::searchBookToBookList()
+{
+
+}
+
+void MainWindow::displayShoppingList()
+{
+
+}
+
+void MainWindow::purchaseShoppingList()
+{
+
+}
+
+void MainWindow::displayBookList()
+{
+
+}
+
+void MainWindow::addNewUser()
+{
+
+}
+
+void MainWindow::changeUsersPassword()
+{
+
+}
+
 
 
