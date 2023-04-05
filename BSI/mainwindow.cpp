@@ -337,17 +337,114 @@ void MainWindow::toggleAdminFeatures(bool isEnabled)
 
 void MainWindow::searchBookToShoppingList()
 {
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxShoppingListAddBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddShoppingList->text(), searchCategory);
 
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][0].toString().toStdString();
+        string Title = searchResults[0][1].toString().toStdString();
+        string Author = searchResults[0][2].toString().toStdString();
+        unsigned int Year = searchResults[0][3].toInt();
+        string Publisher = searchResults[0][4].toString().toStdString();
+        string Description = searchResults[0][5].toString().toStdString();
+        string Genre = searchResults[0][6].toString().toStdString();
+        double MSRP = searchResults[0][7].toDouble();
+        unsigned int Quantity = searchResults[0][8].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            shoppingList.insert(newBook);
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Book Added");
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book, Book not added");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term");
+    }
+
+    ui->textEditLarge->append("\n");
 }
 
 void MainWindow::searchBookToBookList()
 {
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxBookListAddBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddBookList->text(), searchCategory);
 
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][0].toString().toStdString();
+        string Title = searchResults[0][1].toString().toStdString();
+        string Author = searchResults[0][2].toString().toStdString();
+        unsigned int Year = searchResults[0][3].toInt();
+        string Publisher = searchResults[0][4].toString().toStdString();
+        string Description = searchResults[0][5].toString().toStdString();
+        string Genre = searchResults[0][6].toString().toStdString();
+        double MSRP = searchResults[0][7].toDouble();
+        unsigned int Quantity = searchResults[0][8].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            bookList.push_back(newBook);
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Book Added");
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book, Book not added");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term");
+    }
+
+    ui->textEditLarge->append("\n");
 }
 
 void MainWindow::displayShoppingList()
 {
+    ui->textEditLarge->append(&"Number of Results: " [ shoppingList.size() ]);
 
+    multiset<Book, CompareBookByMSRP>::iterator shoppingListIterator = shoppingList.begin();
+    while (shoppingListIterator != shoppingList.end())
+    {
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getISBN()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getTitle()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getAuthor()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getYear()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getPublisher()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getDescription()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getGenre()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getMSRP()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getQuantity()));
+        ui->textEditLarge->append("\n");
+
+        shoppingListIterator++;
+    }
 }
 
 void MainWindow::purchaseShoppingList()
@@ -357,7 +454,21 @@ void MainWindow::purchaseShoppingList()
 
 void MainWindow::displayBookList()
 {
+    ui->textEditLarge->append(&"Number of Results: " [ shoppingList.size() ]);
 
+    for (int i = 0; i < bookList.size(); ++i)
+    {
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getISBN()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getTitle()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getAuthor()));
+        ui->textEditLarge->append(QString::number(bookList[i].getYear()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getPublisher()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getDescription()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getGenre()));
+        ui->textEditLarge->append(QString::number(bookList[i].getMSRP()));
+        ui->textEditLarge->append(QString::number(bookList[i].getQuantity()));
+        ui->textEditLarge->append("\n");
+    }
 }
 
 void MainWindow::addNewUser()

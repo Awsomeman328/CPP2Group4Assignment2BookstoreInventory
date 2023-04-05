@@ -420,5 +420,5 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
     m_db.close();
 
     outputToLogFile("dbManager::adjustBookQuantityInInventory() Database: returning result [" + to_string(result) + "]");
-    return false;
+    return result;
 }
