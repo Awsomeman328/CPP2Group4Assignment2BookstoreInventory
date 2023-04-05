@@ -119,7 +119,7 @@
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout_19">
        <item>
-        <widget class="QTabWidget" name="tabWidget_2">
+        <widget class="QTabWidget" name="tabWidget">
          <property name="enabled">
           <bool>true</bool>
          </property>
@@ -169,7 +169,7 @@
               <item>
                <widget class="QLabel" name="labelSearchDatabase">
                 <property name="text">
-                 <string>Search the Database 2</string>
+                 <string>Search the Database</string>
                 </property>
                </widget>
               </item>
@@ -431,7 +431,7 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_33">
                   <item>
-                   <widget class="QLabel" name="labelSearchBy_2">
+                   <widget class="QLabel" name="labelAddBy">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                       <horstretch>0</horstretch>
@@ -444,7 +444,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxSearchBy_2">
+                   <widget class="QComboBox" name="comboBoxShoppingListAddBy">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                       <horstretch>0</horstretch>
@@ -496,12 +496,12 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_34">
                   <item>
-                   <widget class="QLineEdit" name="lineEditSearchDB_2"/>
+                   <widget class="QLineEdit" name="lineEditSearchDBAddShoppingList"/>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="btnSearchDB_2">
+                   <widget class="QPushButton" name="btnSearchDBAddShoppingList">
                     <property name="text">
-                     <string>Search Database</string>
+                     <string>Search Database And Add</string>
                     </property>
                    </widget>
                   </item>
@@ -535,7 +535,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton">
+               <widget class="QPushButton" name="pushButtonDisplayShoppingList">
                 <property name="text">
                  <string>Display Shopping List (Not Yet Implemented)</string>
                 </property>
@@ -567,7 +567,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_2">
+               <widget class="QPushButton" name="pushButtonPurchaseShoppingList">
                 <property name="text">
                  <string>Purchase Shopping List (Not Yet Implemented)</string>
                 </property>
@@ -636,10 +636,10 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_18">
                     <item>
-                     <widget class="QLineEdit" name="lineEditUsername_2"/>
+                     <widget class="QLineEdit" name="lineEditNewUserUsername"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEditPassword_2">
+                     <widget class="QLineEdit" name="lineEditNewUserPassword">
                       <property name="placeholderText">
                        <string/>
                       </property>
@@ -650,7 +650,7 @@
                  </layout>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButtonLogIn_2">
+                 <widget class="QPushButton" name="pushButtonAddNewUser">
                   <property name="text">
                    <string>Add New User (Not Yet Implemented)</string>
                   </property>
@@ -708,10 +708,10 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_21">
                     <item>
-                     <widget class="QLineEdit" name="lineEditUsername_3"/>
+                     <widget class="QLineEdit" name="lineEditChangeUserUsername"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="lineEditPassword_3">
+                     <widget class="QLineEdit" name="lineEditChangeUserPassword">
                       <property name="placeholderText">
                        <string/>
                       </property>
@@ -722,7 +722,7 @@
                  </layout>
                 </item>
                 <item>
-                 <widget class="QPushButton" name="pushButtonLogIn_3">
+                 <widget class="QPushButton" name="pushButtonChangeUserPass">
                   <property name="text">
                    <string>Change User's Password (Not Yet Implemented)</string>
                   </property>
@@ -792,7 +792,7 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_35">
                   <item>
-                   <widget class="QLabel" name="labelSearchBy_3">
+                   <widget class="QLabel" name="labelAddBy_2">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
                       <horstretch>0</horstretch>
@@ -805,7 +805,7 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QComboBox" name="comboBoxSearchBy_3">
+                   <widget class="QComboBox" name="comboBoxBookListAddBy">
                     <property name="sizePolicy">
                      <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                       <horstretch>0</horstretch>
@@ -857,12 +857,12 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_36">
                   <item>
-                   <widget class="QLineEdit" name="lineEditSearchDB_3"/>
+                   <widget class="QLineEdit" name="lineEditSearchDBAddBookList"/>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="btnSearchDB_3">
+                   <widget class="QPushButton" name="btnSearchDBAddBookList">
                     <property name="text">
-                     <string>Search Database</string>
+                     <string>Search Database And Add</string>
                     </property>
                    </widget>
                   </item>
@@ -896,7 +896,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButton_3">
+               <widget class="QPushButton" name="pushButtonPrintBookList">
                 <property name="text">
                  <string>Print Book List (Not Yet Implemented)</string>
                 </property>
@@ -1074,22 +1074,6 @@
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
    <slot>logIn()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>357</x>
-     <y>108</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonLogIn</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>readTable()</slot>
    <hints>
     <hint type="sourcelabel">
      <x>357</x>

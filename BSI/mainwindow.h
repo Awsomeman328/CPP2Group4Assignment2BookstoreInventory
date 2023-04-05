@@ -58,9 +58,9 @@ private:
 
 
 public slots:
-    void createDB();
-    void createTable();
-    void readTable();
+    void createDB(); // This was for the demonstration/lesson, not actually using, ...
+    void createTable(); // This was for the demonstration/lesson, not actually using, ...
+    void readTable(); // This was for the demonstration/lesson, not actually using, ...
     void searchDB();
     void logIn();
     void exitProgram();
