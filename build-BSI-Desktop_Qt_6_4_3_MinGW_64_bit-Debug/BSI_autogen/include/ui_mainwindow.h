@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
+#include <QtGui/QIcon>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
@@ -172,6 +173,9 @@ public:
             MainWindow->setObjectName("MainWindow");
         MainWindow->resize(1280, 800);
         MainWindow->setMinimumSize(QSize(1280, 800));
+        QIcon icon;
+        icon.addFile(QString::fromUtf8("scrollRackSplash.png"), QSize(), QIcon::Normal, QIcon::Off);
+        MainWindow->setWindowIcon(icon);
         MainWindow->setTabShape(QTabWidget::Rounded);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
@@ -920,7 +924,7 @@ public:
         QObject::connect(pushButtonAddNewUser, SIGNAL(clicked()), MainWindow, SLOT(addNewUser()));
         QObject::connect(pushButtonChangeUserPass, SIGNAL(clicked()), MainWindow, SLOT(changeUsersPassword()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
         comboBoxSearchBy->setCurrentIndex(1);
         comboBoxShoppingListAddBy->setCurrentIndex(0);
         comboBoxBookListAddBy->setCurrentIndex(0);

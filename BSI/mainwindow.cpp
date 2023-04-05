@@ -271,7 +271,8 @@ void MainWindow::searchDB()
 
     //outputToLogFile("dbManager.searchDB");
 
-    ui->textEditLarge->append(&"Number of Results: " [ searchResults.size() ]);
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Database Search - Number of Results: " [ searchResults.size() ]);
     for (unsigned short index = 0; index < searchResults.size(); index++)
     {
         for (unsigned short innerIndex = 0; innerIndex < searchResults.at(index).size(); innerIndex++)
@@ -345,15 +346,15 @@ void MainWindow::searchBookToShoppingList()
 
     if (searchResults.size() == 1)
     {
-        string ISBN = searchResults[0][0].toString().toStdString();
-        string Title = searchResults[0][1].toString().toStdString();
-        string Author = searchResults[0][2].toString().toStdString();
-        unsigned int Year = searchResults[0][3].toInt();
-        string Publisher = searchResults[0][4].toString().toStdString();
-        string Description = searchResults[0][5].toString().toStdString();
-        string Genre = searchResults[0][6].toString().toStdString();
-        double MSRP = searchResults[0][7].toDouble();
-        unsigned int Quantity = searchResults[0][8].toUInt();
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
 
         Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
                                  Description, Genre, MSRP, Quantity);
@@ -363,11 +364,13 @@ void MainWindow::searchBookToShoppingList()
             shoppingList.insert(newBook);
             // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
             ui->textEditLarge->append("Book Added");
+            outputToLogFile("MainWindow::searchBookToShoppingList() Found Book is Valid! Adding the valid result into the Shopping List.");
         }
         else
         {
             // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
             ui->textEditLarge->append("Invalid Book, Book not added");
+            outputToLogFile("MainWindow::searchBookToShoppingList() [Error]: Found Book is Invalid! ...");
         }
 
     }
@@ -375,6 +378,7 @@ void MainWindow::searchBookToShoppingList()
     {
         // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
         ui->textEditLarge->append("Invalid search term");
+        outputToLogFile("MainWindow::searchBookToShoppingList() [Error]: Invalid search Term! Search returned with either 0 or 2+ number of results.");
     }
 
     ui->textEditLarge->append("\n");
@@ -390,15 +394,15 @@ void MainWindow::searchBookToBookList()
 
     if (searchResults.size() == 1)
     {
-        string ISBN = searchResults[0][0].toString().toStdString();
-        string Title = searchResults[0][1].toString().toStdString();
-        string Author = searchResults[0][2].toString().toStdString();
-        unsigned int Year = searchResults[0][3].toInt();
-        string Publisher = searchResults[0][4].toString().toStdString();
-        string Description = searchResults[0][5].toString().toStdString();
-        string Genre = searchResults[0][6].toString().toStdString();
-        double MSRP = searchResults[0][7].toDouble();
-        unsigned int Quantity = searchResults[0][8].toUInt();
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
 
         Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
                                  Description, Genre, MSRP, Quantity);
@@ -427,7 +431,8 @@ void MainWindow::searchBookToBookList()
 
 void MainWindow::displayShoppingList()
 {
-    ui->textEditLarge->append(&"Number of Results: " [ shoppingList.size() ]);
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Display Shopping List - Number of Results: " [ shoppingList.size() ]);
 
     multiset<Book, CompareBookByMSRP>::iterator shoppingListIterator = shoppingList.begin();
     while (shoppingListIterator != shoppingList.end())
@@ -454,7 +459,8 @@ void MainWindow::purchaseShoppingList()
 
 void MainWindow::displayBookList()
 {
-    ui->textEditLarge->append(&"Number of Results: " [ shoppingList.size() ]);
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Display Book List - Number of Results: " [ shoppingList.size() ]);
 
     for (int i = 0; i < bookList.size(); ++i)
     {

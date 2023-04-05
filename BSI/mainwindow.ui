@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Scroll Rack - A Bookstore Inventory Database</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>scrollRackSplash.png</normaloff>scrollRackSplash.png</iconset>
+  </property>
   <property name="tabShape">
    <enum>QTabWidget::Rounded</enum>
   </property>
@@ -148,7 +152,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tabMainMenu">
           <attribute name="title">
