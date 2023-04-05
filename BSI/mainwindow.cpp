@@ -335,5 +335,22 @@ void MainWindow::toggleAdminFeatures(bool isEnabled)
     exportAction->setEnabled(isEnabled);
 }
 
+void MainWindow::addBookToShoppingList()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxSearchBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddShoppingList->text(), searchCategory);
 
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        shoppingList.insert(searchResults.at(0));
+        ui->textEditLarge->append("Book Added");
+    }
+    else
+        ui->textEditLarge->append("Invalid search term");
+
+    ui->textEditLarge->append("\n");
+}
 
