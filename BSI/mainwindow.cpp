@@ -271,7 +271,8 @@ void MainWindow::searchDB()
 
     //outputToLogFile("dbManager.searchDB");
 
-    ui->textEditLarge->append(&"Number of Results: " [ searchResults.size() ]);
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Database Search - Number of Results: " [ searchResults.size() ]);
     for (unsigned short index = 0; index < searchResults.size(); index++)
     {
         for (unsigned short innerIndex = 0; innerIndex < searchResults.at(index).size(); innerIndex++)
@@ -335,11 +336,311 @@ void MainWindow::toggleAdminFeatures(bool isEnabled)
     exportAction->setEnabled(isEnabled);
 }
 
-void MainWindow::addBookToShoppingList()
+void MainWindow::searchBookToShoppingList()
 {
     dbManager db("bookstoreInventory.db");
-    const int searchCategory = ui->comboBoxSearchBy->currentIndex();
+    const int searchCategory = ui->comboBoxShoppingListAddBy->currentIndex();
     QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddShoppingList->text(), searchCategory);
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            shoppingList.insert(newBook);
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Book Added");
+            outputToLogFile("MainWindow::searchBookToShoppingList() Found Book is Valid! Adding the valid result into the Shopping List.");
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book, Book not added");
+            outputToLogFile("MainWindow::searchBookToShoppingList() [Error]: Found Book is Invalid! ...");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term");
+        outputToLogFile("MainWindow::searchBookToShoppingList() [Error]: Invalid search Term! Search returned with either 0 or 2+ number of results.");
+    }
+
+    ui->textEditLarge->append("\n");
+}
+
+void MainWindow::searchBookToBookList()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxBookListAddBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddBookList->text(), searchCategory);
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            bookList.push_back(newBook);
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Book Added");
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book, Book not added");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term");
+    }
+
+    ui->textEditLarge->append("\n");
+}
+
+void MainWindow::displayShoppingList()
+{
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Display Shopping List - Number of Results: " [ shoppingList.size() ]);
+
+    multiset<Book, CompareBookByMSRP>::iterator shoppingListIterator = shoppingList.begin();
+    while (shoppingListIterator != shoppingList.end())
+    {
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getISBN()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getTitle()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getAuthor()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getYear()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getPublisher()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getDescription()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getGenre()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getMSRP()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getQuantity()));
+        ui->textEditLarge->append("\n");
+
+        shoppingListIterator++;
+    }
+}
+
+void MainWindow::purchaseShoppingList()
+{
+
+}
+
+void MainWindow::displayBookList()
+{
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Display Book List - Number of Results: " [ shoppingList.size() ]);
+
+    for (int i = 0; i < bookList.size(); ++i)
+    {
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getISBN()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getTitle()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getAuthor()));
+        ui->textEditLarge->append(QString::number(bookList[i].getYear()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getPublisher()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getDescription()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getGenre()));
+        ui->textEditLarge->append(QString::number(bookList[i].getMSRP()));
+        ui->textEditLarge->append(QString::number(bookList[i].getQuantity()));
+        ui->textEditLarge->append("\n");
+    }
+}
+
+void MainWindow::addNewUser()
+{
+
+}
+
+void MainWindow::changeUsersPassword()
+{
+
+}
+
+<<<<<<< HEAD
+=======
+void MainWindow::searchBookToShoppingList()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxShoppingListAddBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddShoppingList->text(), searchCategory);
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            shoppingList.insert(newBook);
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Book Added");
+            outputToLogFile("MainWindow::searchBookToShoppingList() Found Book is Valid! Adding the valid result into the Shopping List.");
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book, Book not added");
+            outputToLogFile("MainWindow::searchBookToShoppingList() [Error]: Found Book is Invalid! ...");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term");
+        outputToLogFile("MainWindow::searchBookToShoppingList() [Error]: Invalid search Term! Search returned with either 0 or 2+ number of results.");
+    }
+
+    ui->textEditLarge->append("\n");
+}
+
+void MainWindow::searchBookToBookList()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxBookListAddBy->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddBookList->text(), searchCategory);
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            bookList.push_back(newBook);
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Book Added");
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book, Book not added");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term");
+    }
+
+    ui->textEditLarge->append("\n");
+}
+
+void MainWindow::displayShoppingList()
+{
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Display Shopping List - Number of Results: " [ shoppingList.size() ]);
+
+    multiset<Book, CompareBookByMSRP>::iterator shoppingListIterator = shoppingList.begin();
+    while (shoppingListIterator != shoppingList.end())
+    {
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getISBN()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getTitle()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getAuthor()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getYear()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getPublisher()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getDescription()));
+        ui->textEditLarge->append(QString::fromStdString(shoppingListIterator->getGenre()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getMSRP()));
+        ui->textEditLarge->append(QString::number(shoppingListIterator->getQuantity()));
+        ui->textEditLarge->append("\n");
+
+        shoppingListIterator++;
+    }
+}
+
+void MainWindow::purchaseShoppingList()
+{
+
+}
+
+void MainWindow::displayBookList()
+{
+    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
+    ui->textEditLarge->append(&"Display Book List - Number of Results: " [ shoppingList.size() ]);
+
+    for (int i = 0; i < bookList.size(); ++i)
+    {
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getISBN()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getTitle()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getAuthor()));
+        ui->textEditLarge->append(QString::number(bookList[i].getYear()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getPublisher()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getDescription()));
+        ui->textEditLarge->append(QString::fromStdString(bookList[i].getGenre()));
+        ui->textEditLarge->append(QString::number(bookList[i].getMSRP()));
+        ui->textEditLarge->append(QString::number(bookList[i].getQuantity()));
+        ui->textEditLarge->append("\n");
+    }
+}
+
+void MainWindow::addNewUser()
+{
+
+}
+
+void MainWindow::changeUsersPassword()
+{
+
+}
+
+>>>>>>> Role/FrontEnd
 
     //outputToLogFile("dbManager.searchDB");
 

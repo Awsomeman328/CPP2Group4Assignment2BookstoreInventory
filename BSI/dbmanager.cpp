@@ -159,6 +159,8 @@ QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QStrin
         int idAuthor = query.record().indexOf("AUTHOR");
         int idYear = query.record().indexOf("PUBLICATION_YEAR");
         int idPublisher = query.record().indexOf("PUBLISHER");
+        int idDescription = query.record().indexOf("DESCRIPTION");
+        int idGenre = query.record().indexOf("GENRE");
         int idMSRP = query.record().indexOf("MSRP");
         int idCurQuantity = query.record().indexOf("QUANTITY_ON_HAND");
 
@@ -181,6 +183,20 @@ QVector<QVector<QVariant>> dbManager::searchDB(const QString& path, const QStrin
             rowResult.push_back( query.value(idAuthor) );
             rowResult.push_back( query.value(idYear) );
             rowResult.push_back( query.value(idPublisher) );
+
+            // Check if Description and Genre are NULLS, which they shouldn't be anymore but just in case.
+            if (query.value(idDescription) == "")
+            {
+                rowResult.push_back( "No Description Data" );
+            }
+            else rowResult.push_back( query.value(idDescription) );
+
+            if (query.value(idGenre) == "")
+            {
+                rowResult.push_back( "No Genre Data" );
+            }
+            else rowResult.push_back( query.value(idGenre) );
+
             rowResult.push_back( query.value(idMSRP) );
             rowResult.push_back( query.value(idCurQuantity) );
 
