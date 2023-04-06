@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS
-#include "backEnd.h"
+#include "backend.h"
 
 /* A callback function which is meant to be used with the C API(not the C++ API) of SQLite3
 // This function is called once per row in the result set and appends each row to a vector

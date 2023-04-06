@@ -487,5 +487,3 @@ void MainWindow::changeUsersPassword()
 
 }
 
-
-
