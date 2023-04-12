@@ -17,6 +17,7 @@ public:
     QVector<QVariant> getTotalNumBooks();
     bool addBookRecordToDatabase(Book newBook);
     bool removeBookRecordFromDatabase(Book bookToRemove);
+    bool removeBookRecordFromDatabase(string bookISBN);
     bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
 
 

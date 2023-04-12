@@ -372,10 +372,75 @@ bool dbManager::addBookRecordToDatabase(Book newBook)
 
 bool dbManager::removeBookRecordFromDatabase(Book bookToRemove)
 {
+    string bookISBN = bookToRemove.getISBN();
+    bool result = removeBookRecordFromDatabase(bookISBN);
 
+    return result;
 }
 
-// This function is not yet completed. DO NOT CALL THIS FUNCTION YET in its unfinished state.
+bool dbManager::removeBookRecordFromDatabase(string bookISBN)
+{
+    bool result = false;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::removeBookRecordFromDatabase(string) Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::removeBookRecordFromDatabase(string) Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::removeBookRecordFromDatabase(string) Database: attempting to remove a book record from the database");
+
+
+        QSqlQuery countQuery;
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
+        countQuery.bindValue(":I", QString::fromStdString(bookISBN));
+        QVariant count;
+
+        if (countQuery.next())
+        {
+            count = countQuery.value(0);
+
+            if (count.convert(qMetaTypeId<int>()) == 1)
+            {
+
+                QSqlQuery deleteQuery;
+                deleteQuery.prepare("DELETE FROM BOOKS WHERE ISBN=':I';");
+                deleteQuery.bindValue(":I", QString::fromStdString(bookISBN));
+
+                if (deleteQuery.exec())
+                {
+                    result = true;
+                }
+                else
+                {
+                   outputToLogFile("dbManager::removeBookRecordFromDatabase(string) Execution Error: " + (deleteQuery.lastError().text().toStdString()));
+                }
+
+            }
+            else
+            {
+               outputToLogFile("dbManager::removeBookRecordFromDatabase(string) DB countQuery Error: db did not return exactly 1 result (0 or 2+ results returned)");
+            }
+        }
+        else
+        {
+           outputToLogFile("dbManager::removeBookRecordFromDatabase(string) DB countQuery Error: " + (countQuery.lastError().text().toStdString()));
+        }
+
+    }
+
+    outputToLogFile("dbManager::removeBookRecordFromDatabase(string) Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::removeBookRecordFromDatabase(string) Database: returning result [" + to_string(result) + "]");
+    return result;
+}
+
+// This function SHOULD be completed now. I am not 100% sure, but so long as we can test this to make sure.
 // If adjustAmount is positive this will increase the quantity of that book by that amount.
 // If adjustAmount is negative this will decrease the quantity of that book by that amount
 bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
@@ -417,7 +482,15 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
                     updateQuery.prepare("UPDATE BOOKS SET QUANTITY_ON_HAND=QUANTITY_ON_HAND " + QString::fromStdString(to_string(adjustAmount)) + "WHERE ISBN=':I';");
                     updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
 
-                    result = true;
+                    if (updateQuery.exec())
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        outputToLogFile("dbManager::adjustBookQuantityInInventory() Execution Error: " + (updateQuery.lastError().text().toStdString()));
+                    }
+
                 }
                 else
                 {

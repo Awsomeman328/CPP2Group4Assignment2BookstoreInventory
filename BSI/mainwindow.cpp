@@ -189,6 +189,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
             outputToLogFile("MainWindow::closeEvent(..) Closing the program has been cancelled.");
             event->ignore();
         } else {
+            dbManager db("bookstoreInventory.db");
+            while (!bookList.empty()) {
+                db.addBookRecordToDatabase(bookList.front());
+
+                bookList.pop_front();
+            }
+
             outputToLogFile("MainWindow::closeEvent(..) Now Closing Program via Close Event.\n");
             event->accept();
         }
@@ -196,6 +203,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::exitProgram()
 {
+    dbManager db("bookstoreInventory.db");
+    while (!bookList.empty()) {
+        db.addBookRecordToDatabase(bookList.front());
+
+        bookList.pop_front();
+    }
+
     outputToLogFile("MainWindow::exitProgram() Closing Program via Exit Button.");
     close();
 }
@@ -409,14 +423,24 @@ void MainWindow::searchBookToBookList()
 
         if (newBook.getIsValid())
         {
-            bookList.push_back(newBook);
-            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
-            ui->textEditLarge->append("Book Added");
+            if (db.removeBookRecordFromDatabase(newBook))
+            {
+                bookList.push_back(newBook);
+
+                // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+                ui->textEditLarge->append("Book Added to List and Removed from Database.");
+            }
+            else
+            {
+                // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+                ui->textEditLarge->append("Book is valid, but couldn't be Removed from Database.");
+            }
+
         }
         else
         {
             // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
-            ui->textEditLarge->append("Invalid Book, Book not added");
+            ui->textEditLarge->append("Invalid Book, Book not added to list");
         }
 
     }
