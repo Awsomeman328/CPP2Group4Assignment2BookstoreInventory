@@ -370,6 +370,11 @@ bool dbManager::addBookRecordToDatabase(Book newBook)
     return result;
 }
 
+bool dbManager::removeBookRecordFromDatabase(Book bookToRemove)
+{
+
+}
+
 // This function is not yet completed. DO NOT CALL THIS FUNCTION YET in its unfinished state.
 // If adjustAmount is positive this will increase the quantity of that book by that amount.
 // If adjustAmount is negative this will decrease the quantity of that book by that amount

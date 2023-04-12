@@ -16,6 +16,7 @@ public:
     QVector<bool> checkLogInInfo(const QString username, const QString password);
     QVector<QVariant> getTotalNumBooks();
     bool addBookRecordToDatabase(Book newBook);
+    bool removeBookRecordFromDatabase(Book bookToRemove);
     bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
 
 
