@@ -85,6 +85,9 @@ public:
     QHBoxLayout *horizontalLayout_33;
     QLabel *labelAddBy;
     QComboBox *comboBoxShoppingListAddBy;
+    QHBoxLayout *horizontalLayout;
+    QLabel *labelAmountToAdd;
+    QLineEdit *lineEditShoppingListAddAmount;
     QHBoxLayout *horizontalLayout_34;
     QLineEdit *lineEditSearchDBAddShoppingList;
     QPushButton *btnSearchDBAddShoppingList;
@@ -467,6 +470,22 @@ public:
 
 
         verticalLayout_15->addLayout(horizontalLayout_33);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName("horizontalLayout");
+        labelAmountToAdd = new QLabel(verticalLayoutWidget_7);
+        labelAmountToAdd->setObjectName("labelAmountToAdd");
+
+        horizontalLayout->addWidget(labelAmountToAdd);
+
+        lineEditShoppingListAddAmount = new QLineEdit(verticalLayoutWidget_7);
+        lineEditShoppingListAddAmount->setObjectName("lineEditShoppingListAddAmount");
+        lineEditShoppingListAddAmount->setEnabled(false);
+
+        horizontalLayout->addWidget(lineEditShoppingListAddAmount);
+
+
+        verticalLayout_15->addLayout(horizontalLayout);
 
         horizontalLayout_34 = new QHBoxLayout();
         horizontalLayout_34->setObjectName("horizontalLayout_34");
@@ -935,7 +954,7 @@ public:
         labelUsername->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
         labelPassword->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
         lineEditPassword->setPlaceholderText(QString());
-        pushButtonLogIn->setText(QCoreApplication::translate("MainWindow", "Log In (Not Yet Implemented)", nullptr));
+        pushButtonLogIn->setText(QCoreApplication::translate("MainWindow", "Log In", nullptr));
         pushButtonExit->setText(QCoreApplication::translate("MainWindow", "Exit Program", nullptr));
         labelSearchDatabase->setText(QCoreApplication::translate("MainWindow", "Search the Database", nullptr));
         labelSearchBy->setText(QCoreApplication::translate("MainWindow", "Search By: ", nullptr));
@@ -978,9 +997,11 @@ public:
         comboBoxShoppingListAddBy->setItemText(5, QCoreApplication::translate("MainWindow", "MSRP", nullptr));
         comboBoxShoppingListAddBy->setItemText(6, QCoreApplication::translate("MainWindow", "Quantity On Hand", nullptr));
 
+        labelAmountToAdd->setText(QCoreApplication::translate("MainWindow", "Amount To Add: ", nullptr));
+        lineEditShoppingListAddAmount->setText(QCoreApplication::translate("MainWindow", "(Not Yet Implemented)", nullptr));
         btnSearchDBAddShoppingList->setText(QCoreApplication::translate("MainWindow", "Search Database And Add", nullptr));
         label_30->setText(QCoreApplication::translate("MainWindow", "Display your Shopping List to the screen", nullptr));
-        pushButtonDisplayShoppingList->setText(QCoreApplication::translate("MainWindow", "Display Shopping List (Not Yet Implemented)", nullptr));
+        pushButtonDisplayShoppingList->setText(QCoreApplication::translate("MainWindow", "Display Shopping List", nullptr));
         label_32->setText(QCoreApplication::translate("MainWindow", "Purchase Items in Shopping List", nullptr));
         pushButtonPurchaseShoppingList->setText(QCoreApplication::translate("MainWindow", "Purchase Shopping List (Not Yet Implemented)", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabMainMenu), QCoreApplication::translate("MainWindow", "Main Menu", nullptr));
@@ -1008,7 +1029,7 @@ public:
 
         btnSearchDBAddBookList->setText(QCoreApplication::translate("MainWindow", "Search Database And Add", nullptr));
         label_41->setText(QCoreApplication::translate("MainWindow", "Print your Book List to the screen", nullptr));
-        pushButtonPrintBookList->setText(QCoreApplication::translate("MainWindow", "Print Book List (Not Yet Implemented)", nullptr));
+        pushButtonPrintBookList->setText(QCoreApplication::translate("MainWindow", "Print Book List", nullptr));
         label_43->setText(QCoreApplication::translate("MainWindow", "Export your Book List to a .CSV file", nullptr));
         label_44->setText(QCoreApplication::translate("MainWindow", "Not Yet Implemented", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabAdminMenu), QCoreApplication::translate("MainWindow", "Admin Menu", nullptr));

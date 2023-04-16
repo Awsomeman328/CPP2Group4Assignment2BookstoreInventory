@@ -370,6 +370,44 @@ bool dbManager::addBookRecordToDatabase(Book newBook)
     return result;
 }
 
+bool dbManager::addInvalid_BookRecordToDatabase(QString newRecord)
+{
+    bool result = false;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::addInvalid_BookRecordToDatabase() Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::addInvalid_BookRecordToDatabase() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::addInvalid_BookRecordToDatabase() Database: attempting to add a new invalid_book record to the database");
+
+        QSqlQuery query;
+        query.prepare("INSERT INTO INVALID_BOOKS (INFO) VALUES (:I);");
+        query.bindValue(":I", newRecord);
+
+        if (query.exec())
+        {
+           result = true;
+        }
+        else
+        {
+           outputToLogFile("dbManager::addInvalid_BookRecordToDatabase() Execution Error: " + (query.lastError().text().toStdString()));
+        }
+    }
+
+    outputToLogFile("dbManager::addInvalid_BookRecordToDatabase() Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::addInvalid_BookRecordToDatabase() Database: returning result [" + to_string(result) + "]");
+
+    return result;
+}
+
 bool dbManager::removeBookRecordFromDatabase(Book bookToRemove)
 {
     string bookISBN = bookToRemove.getISBN();
@@ -396,11 +434,11 @@ bool dbManager::removeBookRecordFromDatabase(string bookISBN)
 
 
         QSqlQuery countQuery;
-        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=:I;");
         countQuery.bindValue(":I", QString::fromStdString(bookISBN));
         QVariant count;
 
-        if (countQuery.next())
+        if (countQuery.exec() && countQuery.next())
         {
             count = countQuery.value(0);
 
@@ -408,7 +446,7 @@ bool dbManager::removeBookRecordFromDatabase(string bookISBN)
             {
 
                 QSqlQuery deleteQuery;
-                deleteQuery.prepare("DELETE FROM BOOKS WHERE ISBN=':I';");
+                deleteQuery.prepare("DELETE FROM BOOKS WHERE ISBN=:I;");
                 deleteQuery.bindValue(":I", QString::fromStdString(bookISBN));
 
                 if (deleteQuery.exec())
@@ -461,11 +499,11 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
 
 
         QSqlQuery countQuery;
-        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=:I;");
         countQuery.bindValue(":I", QString::fromStdString(bookISBN));
         QVariant count;
 
-        if (countQuery.next())
+        if (countQuery.exec() && countQuery.next())
         {
             count = countQuery.value(0);
 
@@ -473,7 +511,7 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
             {
 
                 QSqlQuery selectQuery;
-                selectQuery.prepare("SELECT QUANTITY_ON_HAND FROM BOOKS WHERE ISBN=':I';");
+                selectQuery.prepare("SELECT QUANTITY_ON_HAND FROM BOOKS WHERE ISBN=:I;");
                 selectQuery.bindValue(":I", QString::fromStdString(bookISBN));
 
                 if (selectQuery.exec())

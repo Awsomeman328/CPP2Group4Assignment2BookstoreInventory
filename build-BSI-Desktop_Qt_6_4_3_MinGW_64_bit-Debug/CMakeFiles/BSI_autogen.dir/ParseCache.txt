@@ -412,24 +412,28 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h
  mdp:C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h
-C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h
  mmc:Q_OBJECT
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QDeadlineTimer
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QDebug
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QFile
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QHash
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QList
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QMap
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QMutex
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QObject
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QRect
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QRegularExpression
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QScopedPointer
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QSize
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QSizeF
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QStorageInfo
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QString
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QStringList
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QSysInfo
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QTextStream
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QVariant
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QVector
  mdp:C:/Qt/6.4.3/mingw_64/include/QtCore/QtCore
@@ -674,6 +678,8 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qkeysequence.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qpaintdevice.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qpalette.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qpen.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qpicture.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qpixelformat.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qpixmap.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qpointingdevice.h
@@ -682,6 +688,10 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qrgb.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qrgba64.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qscreen.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qtextcursor.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qtextdocument.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qtextformat.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qtextoption.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qtgui-config.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qtguiexports.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtGui/qtguiglobal.h
@@ -701,21 +711,41 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Qt/6.4.3/mingw_64/include/QtSql/qtsql-config.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlexports.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlglobal.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QDialog
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QDialogButtonBox
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QFileDialog
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QGridLayout
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QHBoxLayout
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QHeaderView
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QLabel
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QLineEdit
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMessageBox
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QPushButton
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QTableWidget
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/QVBoxLayout
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractbutton.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemview.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractscrollarea.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractslider.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractspinbox.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qboxlayout.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qcombobox.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qdialog.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qfiledialog.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qframe.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qgridlayout.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qheaderview.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlabel.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlayout.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlayoutitem.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlineedit.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlistview.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmessagebox.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qpushbutton.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qrubberband.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qsizepolicy.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qslider.h
@@ -723,6 +753,8 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qstyleditemdelegate.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qstyleoption.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtabbar.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtableview.h
+ mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtablewidget.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtabwidget.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsexports.h
@@ -1082,10 +1114,13 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2B
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h
+ mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hardwareinfo.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h
+ mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h
+C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h
 C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h
  mmc:Q_OBJECT
  mdp:C:/Users/Awsoe/OneDrive/Documents/School/Winter 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/loginscreen.h
