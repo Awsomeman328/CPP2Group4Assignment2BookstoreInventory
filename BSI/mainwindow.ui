@@ -148,7 +148,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tabMainMenu">
           <attribute name="title">
@@ -742,14 +742,14 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_17">
                     <item>
-                     <widget class="QLabel" name="labelUsername_2">
+                     <widget class="QLabel" name="labelUsernameNewUser">
                       <property name="text">
                        <string>Username</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="labelPassword_2">
+                     <widget class="QLabel" name="labelPasswordNewUser">
                       <property name="text">
                        <string>Password</string>
                       </property>
@@ -814,14 +814,14 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_20">
                     <item>
-                     <widget class="QLabel" name="labelUsername_3">
+                     <widget class="QLabel" name="labelUsernameChangePass">
                       <property name="text">
                        <string>Username</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="labelPassword_3">
+                     <widget class="QLabel" name="labelPasswordChangePass">
                       <property name="text">
                        <string>Password</string>
                       </property>
@@ -1039,7 +1039,7 @@
                      </widget>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="comboBoxBookListAddBy_2">
+                     <widget class="QComboBox" name="comboBoxUpdateBook">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1091,10 +1091,10 @@
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_39">
                     <item>
-                     <widget class="QLineEdit" name="lineEditSearchDBAddBookList_2"/>
+                     <widget class="QLineEdit" name="lineEditSearchDBUpdateBook"/>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="btnSearchDBAddBookList_2">
+                     <widget class="QPushButton" name="btnSearchDBUpdateBook">
                       <property name="text">
                        <string>Check Database For Valid Record</string>
                       </property>
@@ -1490,6 +1490,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnSearchDBUpdateBook</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>checkValidBookToUpdate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>529</x>
+     <y>576</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonUpdateBookRecord</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateBook()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>562</x>
+     <y>730</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>searchDB()</slot>
@@ -1504,5 +1536,7 @@
   <slot>displayBookList()</slot>
   <slot>addNewUser()</slot>
   <slot>changeUsersPassword()</slot>
+  <slot>checkValidBookToUpdate()</slot>
+  <slot>updateBook()</slot>
  </slots>
 </ui>

@@ -385,13 +385,20 @@ void MainWindow::searchDB()
     QString message = QString("Display Search Results - Number of Results: %1").arg(listSize);
     ui->textEditLarge->append(message);
 
-    for (unsigned short index = 0; index < searchResults.size(); index++)
+    for (unsigned short i = 0; i < searchResults.size(); i++)
     {
-        for (unsigned short innerIndex = 0; innerIndex < searchResults.at(index).size(); innerIndex++)
-        {
-            ui->textEditLarge->append(searchResults[index][innerIndex].toString());
+        ui->textEditLarge->append("Result #: \t" + searchResults[i][0].toString());
 
-        }
+        ui->textEditLarge->append("ISBN: \t" + searchResults[i][1].toString());
+        ui->textEditLarge->append("Title: \t" + searchResults[i][2].toString());
+        ui->textEditLarge->append("Author: \t" + searchResults[i][3].toString());
+        ui->textEditLarge->append("Year: \t" + searchResults[i][4].toString());
+        ui->textEditLarge->append("Publisher: \t" + searchResults[i][5].toString());
+        ui->textEditLarge->append("Description: \t" + searchResults[i][6].toString());
+        ui->textEditLarge->append("Genre: \t" + searchResults[i][7].toString());
+        ui->textEditLarge->append("MSRP: \t$" + searchResults[i][8].toString());
+        ui->textEditLarge->append("Quantity: \t" + searchResults[i][9].toString());
+
         ui->textEditLarge->append("\n");
 
     }
@@ -612,5 +619,122 @@ void MainWindow::addNewUser()
 void MainWindow::changeUsersPassword()
 {
 
+}
+
+void MainWindow::checkValidBookToUpdate()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxUpdateBook->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBUpdateBook->text(), searchCategory);
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("A valid Book was found in the Database!");
+
+            ui->textEditLarge->append("ISBN: \t" + searchResults[0][1].toString());
+            ui->textEditLarge->append("Title: \t" + searchResults[0][2].toString());
+            ui->textEditLarge->append("Author: \t" + searchResults[0][3].toString());
+            ui->textEditLarge->append("Year: \t" + searchResults[0][4].toString());
+            ui->textEditLarge->append("Publisher: \t" + searchResults[0][5].toString());
+            ui->textEditLarge->append("Description: \t" + searchResults[0][6].toString());
+            ui->textEditLarge->append("Genre: \t" + searchResults[0][7].toString());
+            ui->textEditLarge->append("MSRP: \t$" + searchResults[0][8].toString());
+            ui->textEditLarge->append("Quantity: \t" + searchResults[0][9].toString());
+
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book! Book found in the Database, but is not valid!");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term! Either 0 or 2+ results were found from your search.");
+    }
+
+    ui->textEditLarge->append("\n");
+}
+
+void MainWindow::updateBook()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxUpdateBook->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBUpdateBook->text(), searchCategory);
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        if (!ui->lineEditISBNUpdate->text().isEmpty())
+        {
+
+        }
+
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        //newBook.validateISBN();
+
+        if (newBook.getIsValid())
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("A valid Book was found in the Database! Time to update!");
+
+            ui->textEditLarge->append("ISBN: \t" + searchResults[0][1].toString());
+            ui->textEditLarge->append("Title: \t" + searchResults[0][2].toString());
+            ui->textEditLarge->append("Author: \t" + searchResults[0][3].toString());
+            ui->textEditLarge->append("Year: \t" + searchResults[0][4].toString());
+            ui->textEditLarge->append("Publisher: \t" + searchResults[0][5].toString());
+            ui->textEditLarge->append("Description: \t" + searchResults[0][6].toString());
+            ui->textEditLarge->append("Genre: \t" + searchResults[0][7].toString());
+            ui->textEditLarge->append("MSRP: \t$" + searchResults[0][8].toString());
+            ui->textEditLarge->append("Quantity: \t" + searchResults[0][9].toString());
+
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book! Book found in the Database, but is not valid!");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term! Either 0 or 2+ results were found from your search.");
+    }
+
+    ui->textEditLarge->append("\n");
 }
 

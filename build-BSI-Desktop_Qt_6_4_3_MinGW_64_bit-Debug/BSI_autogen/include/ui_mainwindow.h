@@ -123,8 +123,8 @@ public:
     QVBoxLayout *verticalLayout_16;
     QHBoxLayout *horizontalLayout_11;
     QVBoxLayout *verticalLayout_17;
-    QLabel *labelUsername_2;
-    QLabel *labelPassword_2;
+    QLabel *labelUsernameNewUser;
+    QLabel *labelPasswordNewUser;
     QVBoxLayout *verticalLayout_18;
     QLineEdit *lineEditNewUserUsername;
     QLineEdit *lineEditNewUserPassword;
@@ -136,8 +136,8 @@ public:
     QVBoxLayout *verticalLayout_19;
     QHBoxLayout *horizontalLayout_12;
     QVBoxLayout *verticalLayout_20;
-    QLabel *labelUsername_3;
-    QLabel *labelPassword_3;
+    QLabel *labelUsernameChangePass;
+    QLabel *labelPasswordChangePass;
     QVBoxLayout *verticalLayout_21;
     QLineEdit *lineEditChangeUserUsername;
     QLineEdit *lineEditChangeUserPassword;
@@ -166,10 +166,10 @@ public:
     QVBoxLayout *verticalLayout_24;
     QHBoxLayout *horizontalLayout_38;
     QLabel *labelAddBy_3;
-    QComboBox *comboBoxBookListAddBy_2;
+    QComboBox *comboBoxUpdateBook;
     QHBoxLayout *horizontalLayout_39;
-    QLineEdit *lineEditSearchDBAddBookList_2;
-    QPushButton *btnSearchDBAddBookList_2;
+    QLineEdit *lineEditSearchDBUpdateBook;
+    QPushButton *btnSearchDBUpdateBook;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_5;
     QLineEdit *lineEditISBNUpdate;
@@ -697,15 +697,15 @@ public:
         horizontalLayout_11->setObjectName("horizontalLayout_11");
         verticalLayout_17 = new QVBoxLayout();
         verticalLayout_17->setObjectName("verticalLayout_17");
-        labelUsername_2 = new QLabel(verticalLayoutWidget_8);
-        labelUsername_2->setObjectName("labelUsername_2");
+        labelUsernameNewUser = new QLabel(verticalLayoutWidget_8);
+        labelUsernameNewUser->setObjectName("labelUsernameNewUser");
 
-        verticalLayout_17->addWidget(labelUsername_2);
+        verticalLayout_17->addWidget(labelUsernameNewUser);
 
-        labelPassword_2 = new QLabel(verticalLayoutWidget_8);
-        labelPassword_2->setObjectName("labelPassword_2");
+        labelPasswordNewUser = new QLabel(verticalLayoutWidget_8);
+        labelPasswordNewUser->setObjectName("labelPasswordNewUser");
 
-        verticalLayout_17->addWidget(labelPassword_2);
+        verticalLayout_17->addWidget(labelPasswordNewUser);
 
 
         horizontalLayout_11->addLayout(verticalLayout_17);
@@ -766,15 +766,15 @@ public:
         horizontalLayout_12->setObjectName("horizontalLayout_12");
         verticalLayout_20 = new QVBoxLayout();
         verticalLayout_20->setObjectName("verticalLayout_20");
-        labelUsername_3 = new QLabel(verticalLayoutWidget_8);
-        labelUsername_3->setObjectName("labelUsername_3");
+        labelUsernameChangePass = new QLabel(verticalLayoutWidget_8);
+        labelUsernameChangePass->setObjectName("labelUsernameChangePass");
 
-        verticalLayout_20->addWidget(labelUsername_3);
+        verticalLayout_20->addWidget(labelUsernameChangePass);
 
-        labelPassword_3 = new QLabel(verticalLayoutWidget_8);
-        labelPassword_3->setObjectName("labelPassword_3");
+        labelPasswordChangePass = new QLabel(verticalLayoutWidget_8);
+        labelPasswordChangePass->setObjectName("labelPasswordChangePass");
 
-        verticalLayout_20->addWidget(labelPassword_3);
+        verticalLayout_20->addWidget(labelPasswordChangePass);
 
 
         horizontalLayout_12->addLayout(verticalLayout_20);
@@ -941,34 +941,34 @@ public:
 
         horizontalLayout_38->addWidget(labelAddBy_3);
 
-        comboBoxBookListAddBy_2 = new QComboBox(verticalLayoutWidget_8);
-        comboBoxBookListAddBy_2->addItem(QString());
-        comboBoxBookListAddBy_2->addItem(QString());
-        comboBoxBookListAddBy_2->addItem(QString());
-        comboBoxBookListAddBy_2->addItem(QString());
-        comboBoxBookListAddBy_2->addItem(QString());
-        comboBoxBookListAddBy_2->addItem(QString());
-        comboBoxBookListAddBy_2->addItem(QString());
-        comboBoxBookListAddBy_2->setObjectName("comboBoxBookListAddBy_2");
-        sizePolicy2.setHeightForWidth(comboBoxBookListAddBy_2->sizePolicy().hasHeightForWidth());
-        comboBoxBookListAddBy_2->setSizePolicy(sizePolicy2);
+        comboBoxUpdateBook = new QComboBox(verticalLayoutWidget_8);
+        comboBoxUpdateBook->addItem(QString());
+        comboBoxUpdateBook->addItem(QString());
+        comboBoxUpdateBook->addItem(QString());
+        comboBoxUpdateBook->addItem(QString());
+        comboBoxUpdateBook->addItem(QString());
+        comboBoxUpdateBook->addItem(QString());
+        comboBoxUpdateBook->addItem(QString());
+        comboBoxUpdateBook->setObjectName("comboBoxUpdateBook");
+        sizePolicy2.setHeightForWidth(comboBoxUpdateBook->sizePolicy().hasHeightForWidth());
+        comboBoxUpdateBook->setSizePolicy(sizePolicy2);
 
-        horizontalLayout_38->addWidget(comboBoxBookListAddBy_2);
+        horizontalLayout_38->addWidget(comboBoxUpdateBook);
 
 
         verticalLayout_24->addLayout(horizontalLayout_38);
 
         horizontalLayout_39 = new QHBoxLayout();
         horizontalLayout_39->setObjectName("horizontalLayout_39");
-        lineEditSearchDBAddBookList_2 = new QLineEdit(verticalLayoutWidget_8);
-        lineEditSearchDBAddBookList_2->setObjectName("lineEditSearchDBAddBookList_2");
+        lineEditSearchDBUpdateBook = new QLineEdit(verticalLayoutWidget_8);
+        lineEditSearchDBUpdateBook->setObjectName("lineEditSearchDBUpdateBook");
 
-        horizontalLayout_39->addWidget(lineEditSearchDBAddBookList_2);
+        horizontalLayout_39->addWidget(lineEditSearchDBUpdateBook);
 
-        btnSearchDBAddBookList_2 = new QPushButton(verticalLayoutWidget_8);
-        btnSearchDBAddBookList_2->setObjectName("btnSearchDBAddBookList_2");
+        btnSearchDBUpdateBook = new QPushButton(verticalLayoutWidget_8);
+        btnSearchDBUpdateBook->setObjectName("btnSearchDBUpdateBook");
 
-        horizontalLayout_39->addWidget(btnSearchDBAddBookList_2);
+        horizontalLayout_39->addWidget(btnSearchDBUpdateBook);
 
 
         verticalLayout_24->addLayout(horizontalLayout_39);
@@ -1116,12 +1116,14 @@ public:
         QObject::connect(pushButtonPrintBookList, SIGNAL(clicked()), MainWindow, SLOT(displayBookList()));
         QObject::connect(pushButtonAddNewUser, SIGNAL(clicked()), MainWindow, SLOT(addNewUser()));
         QObject::connect(pushButtonChangeUserPass, SIGNAL(clicked()), MainWindow, SLOT(changeUsersPassword()));
+        QObject::connect(btnSearchDBUpdateBook, SIGNAL(clicked()), MainWindow, SLOT(checkValidBookToUpdate()));
+        QObject::connect(pushButtonUpdateBookRecord, SIGNAL(clicked()), MainWindow, SLOT(updateBook()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         comboBoxSearchBy->setCurrentIndex(1);
         comboBoxShoppingListAddBy->setCurrentIndex(0);
         comboBoxBookListAddBy->setCurrentIndex(0);
-        comboBoxBookListAddBy_2->setCurrentIndex(0);
+        comboBoxUpdateBook->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -1195,13 +1197,13 @@ public:
         pushButtonPurchaseShoppingList->setText(QCoreApplication::translate("MainWindow", "Purchase Shopping List (Not Yet Implemented)", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabMainMenu), QCoreApplication::translate("MainWindow", "Main Menu", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Add a new User", nullptr));
-        labelUsername_2->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
-        labelPassword_2->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
+        labelUsernameNewUser->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
+        labelPasswordNewUser->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
         lineEditNewUserPassword->setPlaceholderText(QString());
         pushButtonAddNewUser->setText(QCoreApplication::translate("MainWindow", "Add New User (Not Yet Implemented)", nullptr));
         label_35->setText(QCoreApplication::translate("MainWindow", "Change a User's Password", nullptr));
-        labelUsername_3->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
-        labelPassword_3->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
+        labelUsernameChangePass->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
+        labelPasswordChangePass->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
         lineEditChangeUserPassword->setPlaceholderText(QString());
         pushButtonChangeUserPass->setText(QCoreApplication::translate("MainWindow", "Change User's Password (Not Yet Implemented)", nullptr));
         label_39->setText(QCoreApplication::translate("MainWindow", "Add a book to your Book List from the inventory", nullptr));
@@ -1219,15 +1221,15 @@ public:
         pushButtonPrintBookList->setText(QCoreApplication::translate("MainWindow", "Print Book List", nullptr));
         label_43->setText(QCoreApplication::translate("MainWindow", "Edit Book Record in Database", nullptr));
         labelAddBy_3->setText(QCoreApplication::translate("MainWindow", "Update By: ", nullptr));
-        comboBoxBookListAddBy_2->setItemText(0, QCoreApplication::translate("MainWindow", "ISBN", nullptr));
-        comboBoxBookListAddBy_2->setItemText(1, QCoreApplication::translate("MainWindow", "Title", nullptr));
-        comboBoxBookListAddBy_2->setItemText(2, QCoreApplication::translate("MainWindow", "Author", nullptr));
-        comboBoxBookListAddBy_2->setItemText(3, QCoreApplication::translate("MainWindow", "Publication Year", nullptr));
-        comboBoxBookListAddBy_2->setItemText(4, QCoreApplication::translate("MainWindow", "Publisher", nullptr));
-        comboBoxBookListAddBy_2->setItemText(5, QCoreApplication::translate("MainWindow", "MSRP", nullptr));
-        comboBoxBookListAddBy_2->setItemText(6, QCoreApplication::translate("MainWindow", "Quantity On Hand", nullptr));
+        comboBoxUpdateBook->setItemText(0, QCoreApplication::translate("MainWindow", "ISBN", nullptr));
+        comboBoxUpdateBook->setItemText(1, QCoreApplication::translate("MainWindow", "Title", nullptr));
+        comboBoxUpdateBook->setItemText(2, QCoreApplication::translate("MainWindow", "Author", nullptr));
+        comboBoxUpdateBook->setItemText(3, QCoreApplication::translate("MainWindow", "Publication Year", nullptr));
+        comboBoxUpdateBook->setItemText(4, QCoreApplication::translate("MainWindow", "Publisher", nullptr));
+        comboBoxUpdateBook->setItemText(5, QCoreApplication::translate("MainWindow", "MSRP", nullptr));
+        comboBoxUpdateBook->setItemText(6, QCoreApplication::translate("MainWindow", "Quantity On Hand", nullptr));
 
-        btnSearchDBAddBookList_2->setText(QCoreApplication::translate("MainWindow", "Check Database For Valid Record", nullptr));
+        btnSearchDBUpdateBook->setText(QCoreApplication::translate("MainWindow", "Check Database For Valid Record", nullptr));
         lineEditISBNUpdate->setText(QString());
         lineEditISBNUpdate->setPlaceholderText(QCoreApplication::translate("MainWindow", "ISBN", nullptr));
         lineEditTITLEUpdate->setText(QString());

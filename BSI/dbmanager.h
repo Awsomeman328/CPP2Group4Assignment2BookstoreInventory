@@ -20,6 +20,7 @@ public:
     bool removeBookRecordFromDatabase(Book bookToRemove);
     bool removeBookRecordFromDatabase(string bookISBN);
     bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
+    bool updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue);
 
 
 private:

@@ -434,7 +434,7 @@ bool dbManager::removeBookRecordFromDatabase(string bookISBN)
 
 
         QSqlQuery countQuery;
-        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=:I;");
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
         countQuery.bindValue(":I", QString::fromStdString(bookISBN));
         QVariant count;
 
@@ -446,7 +446,7 @@ bool dbManager::removeBookRecordFromDatabase(string bookISBN)
             {
 
                 QSqlQuery deleteQuery;
-                deleteQuery.prepare("DELETE FROM BOOKS WHERE ISBN=:I;");
+                deleteQuery.prepare("DELETE FROM BOOKS WHERE ISBN=':I';");
                 deleteQuery.bindValue(":I", QString::fromStdString(bookISBN));
 
                 if (deleteQuery.exec())
@@ -499,7 +499,7 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
 
 
         QSqlQuery countQuery;
-        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=:I;");
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
         countQuery.bindValue(":I", QString::fromStdString(bookISBN));
         QVariant count;
 
@@ -511,14 +511,15 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
             {
 
                 QSqlQuery selectQuery;
-                selectQuery.prepare("SELECT QUANTITY_ON_HAND FROM BOOKS WHERE ISBN=:I;");
+                selectQuery.prepare("SELECT QUANTITY_ON_HAND FROM BOOKS WHERE ISBN=':I';");
                 selectQuery.bindValue(":I", QString::fromStdString(bookISBN));
 
                 if (selectQuery.exec())
                 {
                     QSqlQuery updateQuery;
-                    updateQuery.prepare("UPDATE BOOKS SET QUANTITY_ON_HAND=QUANTITY_ON_HAND " + QString::fromStdString(to_string(adjustAmount)) + "WHERE ISBN=':I';");
+                    updateQuery.prepare("UPDATE BOOKS SET QUANTITY_ON_HAND=QUANTITY_ON_HAND+:A WHERE ISBN=':I';");
                     updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
+                    updateQuery.bindValue(":A", QString::fromStdString(to_string(adjustAmount)));
 
                     if (updateQuery.exec())
                     {
@@ -552,5 +553,82 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
     m_db.close();
 
     outputToLogFile("dbManager::adjustBookQuantityInInventory() Database: returning result [" + to_string(result) + "]");
+    return result;
+}
+
+bool dbManager::updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue)
+{
+    bool result = false;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::updateBookRecordColumnValue() Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::updateBookRecordColumnValue() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's '" + categoryToUpdate + "' value in the database");
+
+
+        QSqlQuery countQuery;
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
+        countQuery.bindValue(":I", QString::fromStdString(bookISBN));
+        QVariant count;
+
+        if (countQuery.exec() && countQuery.next())
+        {
+            count = countQuery.value(0);
+
+            if (count.convert(qMetaTypeId<int>()) == 1)
+            {
+
+                QSqlQuery selectQuery;
+                selectQuery.prepare("SELECT :C FROM BOOKS WHERE ISBN=':I';");
+                selectQuery.bindValue(":I", QString::fromStdString(bookISBN));
+                selectQuery.bindValue(":C", QString::fromStdString(categoryToUpdate));
+
+                if (selectQuery.exec())
+                {
+                    QSqlQuery updateQuery;
+                    updateQuery.prepare("UPDATE BOOKS SET :C=:N WHERE ISBN=':I';");
+                    updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
+                    selectQuery.bindValue(":C", QString::fromStdString(categoryToUpdate));
+                    selectQuery.bindValue(":N", QString::fromStdString(newValue));
+
+                    if (updateQuery.exec())
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        outputToLogFile("dbManager::updateBookRecordColumnValue() Execution Error: " + (updateQuery.lastError().text().toStdString()));
+                    }
+
+                }
+                else
+                {
+                   outputToLogFile("dbManager::updateBookRecordColumnValue() Execution Error: " + (selectQuery.lastError().text().toStdString()));
+                }
+
+            }
+            else
+            {
+               outputToLogFile("dbManager::updateBookRecordColumnValue() DB countQuery Error: db did not return exactly 1 result (0 or 2+ results returned)");
+            }
+        }
+        else
+        {
+           outputToLogFile("dbManager::updateBookRecordColumnValue() DB countQuery Error: " + (countQuery.lastError().text().toStdString()));
+        }
+
+    }
+
+    outputToLogFile("dbManager::updateBookRecordColumnValue() Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::updateBookRecordColumnValue() Database: returning result [" + to_string(result) + "]");
     return result;
 }

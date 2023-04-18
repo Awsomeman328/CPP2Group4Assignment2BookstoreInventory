@@ -77,5 +77,7 @@ public slots:
     void displayBookList();
     void addNewUser();
     void changeUsersPassword();
+    void checkValidBookToUpdate();
+    void updateBook();
 };
 #endif // MAINWINDOW_H
