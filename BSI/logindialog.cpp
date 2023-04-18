@@ -6,6 +6,10 @@ loginDialog::loginDialog(QWidget *parent) :
     ui(new Ui::loginDialog)
 {
     ui->setupUi(this);
+
+    MainWindow w;
+    QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
+    w.move(primaryGeometry.center() - w.rect().center());
 }
 
 loginDialog::~loginDialog()
@@ -22,12 +26,9 @@ void loginDialog::on_loginbutton_clicked()
 
     if(loginresults[0])
     {
-        MainWindow w;
-        QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
-        w.move(primaryGeometry.center() - w.rect().center());
         QMessageBox::information(this, "Login", "Successful login!");
-        QTimer::singleShot(3872, &w, SLOT(show()));
-        loginDialog::hide();
+        w.show();
+        loginDialog::close();
     }
 
     else

@@ -14,6 +14,7 @@
 #include "utilities.h"
 #include "hardwareinfo.h"
 #include "notesdialog.h"
+#include "logindialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
