@@ -148,7 +148,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tabMainMenu">
           <attribute name="title">
@@ -159,8 +159,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>601</width>
-             <height>691</height>
+             <width>635</width>
+             <height>735</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -714,8 +714,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>601</width>
-             <height>691</height>
+             <width>603</width>
+             <height>735</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -1252,7 +1252,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlease">

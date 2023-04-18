@@ -17,6 +17,8 @@ class loginscreen : public QDialog
 
 public:
     explicit loginscreen();
+//
+    explicit loginscreen(QWidget *parent = nullptr);
     ~loginscreen();
 
 private:
