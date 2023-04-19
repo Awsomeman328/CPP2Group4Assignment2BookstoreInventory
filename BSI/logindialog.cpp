@@ -27,7 +27,7 @@ void loginDialog::on_loginbutton_clicked()
     if(loginresults[0])
     {
         QMessageBox::information(this, "Login", "Successful login!");
-        w.show();
+//        mainW.show();
         loginDialog::close();
     }
 
