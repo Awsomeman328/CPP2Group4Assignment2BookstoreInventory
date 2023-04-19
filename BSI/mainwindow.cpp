@@ -66,10 +66,13 @@ MainWindow::MainWindow(QWidget *parent)
     connect(displayNotesAction, &QAction::triggered, this, &MainWindow::showNotesDialog);
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
     connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
+<<<<<<< Updated upstream
     connect(login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
     connect(login, SIGNAL(userIsAdmin()), this, SLOT(enableAdmin()));
+=======
     connect(lowStockAction, &QAction::triggered, this, &MainWindow::searchLowStockBooks);
 
+>>>>>>> Stashed changes
 
     // Create a label to display the number of books
     QLabel *statusLabel = new QLabel(this);
@@ -121,8 +124,11 @@ void MainWindow::importCSV()
 
     outputToLogFile("MainWindow::importCSV() Opening up File Dialog Box.");
     QString fileName = QFileDialog::getOpenFileName(this,
+<<<<<<< Updated upstream
         tr("Open & Import File"), defaultPath, tr("CSV Files (*.csv);;All Files (*.*)"));
+=======
                                                     tr("Open & Import File"), defaultPath, tr("CSV Files (*.csv);;All Files (*.*)"));
+>>>>>>> Stashed changes
     if (!fileName.isEmpty()) {
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
@@ -138,10 +144,13 @@ void MainWindow::importCSV()
         // Check that the .CSV file's top row (or its header row) is formated correctly,
         QStringList headers = in.readLine().split(","); // read the first line and split by commas to get the headers
         if (headers.at(0) != "ISBN" || headers.at(1) != "Book-Title" || headers.at(2) != "Book-Author" ||
+<<<<<<< Updated upstream
                 headers.at(3) != "Year-Of-Publication" || headers.at(4) != "Publisher" || headers.at(5) != "Description" ||
                 headers.at(6) != "Genre" || headers.at(7) != "MSRP" || headers.at(8) != "Quantity-On-Hand")
+=======
             headers.at(3) != "Year-Of-Publication" || headers.at(4) != "Publisher" || headers.at(5) != "Description" ||
             headers.at(6) != "Genre" || headers.at(7) != "MSRP" || headers.at(8) != "Quantity-On-Hand")
+>>>>>>> Stashed changes
         {
             outputToLogFile("MainWindow::importCSV() Error: Selected file's Header Row is not properly formated.");
             QMessageBox::critical(this, tr("Error"), tr("Selected file's Header Row is not properly formated."));
@@ -215,8 +224,11 @@ void MainWindow::exportCSV()
     QString defaultPath = currentDir.absolutePath() + "/../" + parentDir;
 
     QString fileName = QFileDialog::getSaveFileName(this,
+<<<<<<< Updated upstream
         tr("Save & Export Book List to File"), defaultPath, tr("CSV File (*.csv)"));
+=======
                                                     tr("Save & Export Book List to File"), defaultPath, tr("CSV File (*.csv)"));
+>>>>>>> Stashed changes
     if (!fileName.isEmpty()) {
         QFile file(fileName);
         if (!file.open(QIODevice::WriteOnly)) {
@@ -297,6 +309,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 {
     outputToLogFile("MainWindow::closeEvent(*event) Now attempting to Close Program...");
     QMessageBox::StandardButton resBtn = QMessageBox::question( this, "Scroll Rack",
+<<<<<<< Updated upstream
                                                                     tr("Are you sure?\n"),
                                                                     QMessageBox::Cancel | QMessageBox::No | QMessageBox::Yes,
                                                                     QMessageBox::Yes);
@@ -313,6 +326,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
             outputToLogFile("MainWindow::closeEvent(..) Now Closing Program via Close Event.\n");
             event->accept();
+=======
                                                                tr("Are you sure?\n"),
                                                                QMessageBox::Cancel | QMessageBox::No | QMessageBox::Yes,
                                                                QMessageBox::Yes);
@@ -325,6 +339,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
             db.addBookRecordToDatabase(bookList.front());
 
             bookList.pop_front();
+>>>>>>> Stashed changes
         }
 
         outputToLogFile("MainWindow::closeEvent(..) Now Closing Program via Close Event.\n");

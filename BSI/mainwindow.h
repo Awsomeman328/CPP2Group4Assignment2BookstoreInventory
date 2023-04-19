@@ -16,7 +16,10 @@
 #include "utilities.h"
 #include "hardwareinfo.h"
 #include "notesdialog.h"
+<<<<<<< Updated upstream
 #include "logindialog.h"
+=======
+>>>>>>> Stashed changes
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -86,10 +89,13 @@ public slots:
     void changeUsersPassword();
     void checkValidBookToUpdate();
     void updateBook();
+<<<<<<< Updated upstream
     void enableWindow();
 //    void enableExit();
     void enableAdmin();
+=======
 private slots:
     void on_pushButtonAddNewUser_clicked();
+>>>>>>> Stashed changes
 };
 #endif // MAINWINDOW_H
