@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtGui/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QCheckBox>
 #include <QtWidgets/QComboBox>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHBoxLayout>
@@ -35,18 +36,6 @@ public:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout_5;
-    QVBoxLayout *verticalLayout_9;
-    QHBoxLayout *horizontalLayout_10;
-    QVBoxLayout *verticalLayout_10;
-    QLabel *labelUsername;
-    QLabel *labelPassword;
-    QVBoxLayout *verticalLayout_11;
-    QLineEdit *lineEditUsername;
-    QLineEdit *lineEditPassword;
-    QPushButton *pushButtonLogIn;
-    QPushButton *pushButtonExit;
-    QFrame *line_23;
     QHBoxLayout *horizontalLayout_19;
     QTabWidget *tabWidget;
     QWidget *tabMainMenu;
@@ -125,6 +114,7 @@ public:
     QVBoxLayout *verticalLayout_17;
     QLabel *labelUsernameNewUser;
     QLabel *labelPasswordNewUser;
+    QCheckBox *checkBoxIsAdmin;
     QVBoxLayout *verticalLayout_18;
     QLineEdit *lineEditNewUserUsername;
     QLineEdit *lineEditNewUserPassword;
@@ -200,95 +190,28 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1280, 920);
+        MainWindow->resize(1280, 864);
         MainWindow->setMinimumSize(QSize(1280, 800));
         MainWindow->setTabShape(QTabWidget::Rounded);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         verticalLayoutWidget = new QWidget(centralwidget);
         verticalLayoutWidget->setObjectName("verticalLayoutWidget");
-        verticalLayoutWidget->setGeometry(QRect(0, 0, 1271, 871));
+        verticalLayoutWidget->setGeometry(QRect(0, 0, 1271, 821));
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(10, 10, 10, 10);
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName("horizontalLayout_5");
-        verticalLayout_9 = new QVBoxLayout();
-        verticalLayout_9->setObjectName("verticalLayout_9");
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName("horizontalLayout_10");
-        verticalLayout_10 = new QVBoxLayout();
-        verticalLayout_10->setObjectName("verticalLayout_10");
-        labelUsername = new QLabel(verticalLayoutWidget);
-        labelUsername->setObjectName("labelUsername");
-
-        verticalLayout_10->addWidget(labelUsername);
-
-        labelPassword = new QLabel(verticalLayoutWidget);
-        labelPassword->setObjectName("labelPassword");
-
-        verticalLayout_10->addWidget(labelPassword);
-
-
-        horizontalLayout_10->addLayout(verticalLayout_10);
-
-        verticalLayout_11 = new QVBoxLayout();
-        verticalLayout_11->setObjectName("verticalLayout_11");
-        lineEditUsername = new QLineEdit(verticalLayoutWidget);
-        lineEditUsername->setObjectName("lineEditUsername");
-
-        verticalLayout_11->addWidget(lineEditUsername);
-
-        lineEditPassword = new QLineEdit(verticalLayoutWidget);
-        lineEditPassword->setObjectName("lineEditPassword");
-
-        verticalLayout_11->addWidget(lineEditPassword);
-
-
-        horizontalLayout_10->addLayout(verticalLayout_11);
-
-
-        verticalLayout_9->addLayout(horizontalLayout_10);
-
-        pushButtonLogIn = new QPushButton(verticalLayoutWidget);
-        pushButtonLogIn->setObjectName("pushButtonLogIn");
-
-        verticalLayout_9->addWidget(pushButtonLogIn);
-
-
-        horizontalLayout_5->addLayout(verticalLayout_9);
-
-        pushButtonExit = new QPushButton(verticalLayoutWidget);
-        pushButtonExit->setObjectName("pushButtonExit");
-        QSizePolicy sizePolicy(QSizePolicy::Minimum, QSizePolicy::Ignored);
-        sizePolicy.setHorizontalStretch(0);
-        sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(pushButtonExit->sizePolicy().hasHeightForWidth());
-        pushButtonExit->setSizePolicy(sizePolicy);
-
-        horizontalLayout_5->addWidget(pushButtonExit);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_5);
-
-        line_23 = new QFrame(verticalLayoutWidget);
-        line_23->setObjectName("line_23");
-        line_23->setFrameShape(QFrame::HLine);
-        line_23->setFrameShadow(QFrame::Sunken);
-
-        verticalLayout_2->addWidget(line_23);
-
         horizontalLayout_19 = new QHBoxLayout();
         horizontalLayout_19->setObjectName("horizontalLayout_19");
         tabWidget = new QTabWidget(verticalLayoutWidget);
         tabWidget->setObjectName("tabWidget");
         tabWidget->setEnabled(true);
-        QSizePolicy sizePolicy1(QSizePolicy::Preferred, QSizePolicy::Preferred);
-        sizePolicy1.setHorizontalStretch(0);
-        sizePolicy1.setVerticalStretch(0);
-        sizePolicy1.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
-        tabWidget->setSizePolicy(sizePolicy1);
-        tabWidget->setMaximumSize(QSize(630, 16777215));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(tabWidget->sizePolicy().hasHeightForWidth());
+        tabWidget->setSizePolicy(sizePolicy);
+        tabWidget->setMaximumSize(QSize(660, 16777215));
         tabWidget->setBaseSize(QSize(0, 0));
         tabWidget->setTabPosition(QTabWidget::North);
         tabWidget->setTabShape(QTabWidget::Rounded);
@@ -296,7 +219,7 @@ public:
         tabMainMenu->setObjectName("tabMainMenu");
         verticalLayoutWidget_7 = new QWidget(tabMainMenu);
         verticalLayoutWidget_7->setObjectName("verticalLayoutWidget_7");
-        verticalLayoutWidget_7->setGeometry(QRect(10, 10, 601, 691));
+        verticalLayoutWidget_7->setGeometry(QRect(10, 10, 635, 741));
         verticalLayout_12 = new QVBoxLayout(verticalLayoutWidget_7);
         verticalLayout_12->setObjectName("verticalLayout_12");
         verticalLayout_12->setContentsMargins(0, 0, 0, 0);
@@ -320,8 +243,8 @@ public:
         horizontalLayout_21->setObjectName("horizontalLayout_21");
         labelSearchBy = new QLabel(verticalLayoutWidget_7);
         labelSearchBy->setObjectName("labelSearchBy");
-        sizePolicy1.setHeightForWidth(labelSearchBy->sizePolicy().hasHeightForWidth());
-        labelSearchBy->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(labelSearchBy->sizePolicy().hasHeightForWidth());
+        labelSearchBy->setSizePolicy(sizePolicy);
 
         horizontalLayout_21->addWidget(labelSearchBy);
 
@@ -334,11 +257,11 @@ public:
         comboBoxSearchBy->addItem(QString());
         comboBoxSearchBy->addItem(QString());
         comboBoxSearchBy->setObjectName("comboBoxSearchBy");
-        QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Fixed);
-        sizePolicy2.setHorizontalStretch(0);
-        sizePolicy2.setVerticalStretch(0);
-        sizePolicy2.setHeightForWidth(comboBoxSearchBy->sizePolicy().hasHeightForWidth());
-        comboBoxSearchBy->setSizePolicy(sizePolicy2);
+        QSizePolicy sizePolicy1(QSizePolicy::Maximum, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(comboBoxSearchBy->sizePolicy().hasHeightForWidth());
+        comboBoxSearchBy->setSizePolicy(sizePolicy1);
 
         horizontalLayout_21->addWidget(comboBoxSearchBy);
 
@@ -377,8 +300,8 @@ public:
         horizontalLayout_23->setObjectName("horizontalLayout_23");
         label_26 = new QLabel(verticalLayoutWidget_7);
         label_26->setObjectName("label_26");
-        sizePolicy1.setHeightForWidth(label_26->sizePolicy().hasHeightForWidth());
-        label_26->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(label_26->sizePolicy().hasHeightForWidth());
+        label_26->setSizePolicy(sizePolicy);
 
         horizontalLayout_23->addWidget(label_26);
 
@@ -458,8 +381,8 @@ public:
         horizontalLayout_37->setObjectName("horizontalLayout_37");
         label_29 = new QLabel(verticalLayoutWidget_7);
         label_29->setObjectName("label_29");
-        sizePolicy1.setHeightForWidth(label_29->sizePolicy().hasHeightForWidth());
-        label_29->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(label_29->sizePolicy().hasHeightForWidth());
+        label_29->setSizePolicy(sizePolicy);
 
         horizontalLayout_37->addWidget(label_29);
 
@@ -511,8 +434,8 @@ public:
         horizontalLayout_24->setObjectName("horizontalLayout_24");
         label_28 = new QLabel(verticalLayoutWidget_7);
         label_28->setObjectName("label_28");
-        sizePolicy1.setHeightForWidth(label_28->sizePolicy().hasHeightForWidth());
-        label_28->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(label_28->sizePolicy().hasHeightForWidth());
+        label_28->setSizePolicy(sizePolicy);
 
         horizontalLayout_24->addWidget(label_28);
 
@@ -529,8 +452,8 @@ public:
         horizontalLayout_33->setObjectName("horizontalLayout_33");
         labelAddBy = new QLabel(verticalLayoutWidget_7);
         labelAddBy->setObjectName("labelAddBy");
-        sizePolicy1.setHeightForWidth(labelAddBy->sizePolicy().hasHeightForWidth());
-        labelAddBy->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(labelAddBy->sizePolicy().hasHeightForWidth());
+        labelAddBy->setSizePolicy(sizePolicy);
 
         horizontalLayout_33->addWidget(labelAddBy);
 
@@ -543,8 +466,8 @@ public:
         comboBoxShoppingListAddBy->addItem(QString());
         comboBoxShoppingListAddBy->addItem(QString());
         comboBoxShoppingListAddBy->setObjectName("comboBoxShoppingListAddBy");
-        sizePolicy2.setHeightForWidth(comboBoxShoppingListAddBy->sizePolicy().hasHeightForWidth());
-        comboBoxShoppingListAddBy->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(comboBoxShoppingListAddBy->sizePolicy().hasHeightForWidth());
+        comboBoxShoppingListAddBy->setSizePolicy(sizePolicy1);
 
         horizontalLayout_33->addWidget(comboBoxShoppingListAddBy);
 
@@ -673,7 +596,7 @@ public:
         tabAdminMenu->setEnabled(false);
         verticalLayoutWidget_8 = new QWidget(tabAdminMenu);
         verticalLayoutWidget_8->setObjectName("verticalLayoutWidget_8");
-        verticalLayoutWidget_8->setGeometry(QRect(10, 10, 601, 691));
+        verticalLayoutWidget_8->setGeometry(QRect(10, 10, 631, 741));
         verticalLayout_14 = new QVBoxLayout(verticalLayoutWidget_8);
         verticalLayout_14->setObjectName("verticalLayout_14");
         verticalLayout_14->setContentsMargins(0, 0, 0, 0);
@@ -707,6 +630,11 @@ public:
 
         verticalLayout_17->addWidget(labelPasswordNewUser);
 
+        checkBoxIsAdmin = new QCheckBox(verticalLayoutWidget_8);
+        checkBoxIsAdmin->setObjectName("checkBoxIsAdmin");
+
+        verticalLayout_17->addWidget(checkBoxIsAdmin);
+
 
         horizontalLayout_11->addLayout(verticalLayout_17);
 
@@ -722,16 +650,16 @@ public:
 
         verticalLayout_18->addWidget(lineEditNewUserPassword);
 
+        pushButtonAddNewUser = new QPushButton(verticalLayoutWidget_8);
+        pushButtonAddNewUser->setObjectName("pushButtonAddNewUser");
+
+        verticalLayout_18->addWidget(pushButtonAddNewUser);
+
 
         horizontalLayout_11->addLayout(verticalLayout_18);
 
 
         verticalLayout_16->addLayout(horizontalLayout_11);
-
-        pushButtonAddNewUser = new QPushButton(verticalLayoutWidget_8);
-        pushButtonAddNewUser->setObjectName("pushButtonAddNewUser");
-
-        verticalLayout_16->addWidget(pushButtonAddNewUser);
 
 
         horizontalLayout_27->addLayout(verticalLayout_16);
@@ -835,8 +763,8 @@ public:
         horizontalLayout_35->setObjectName("horizontalLayout_35");
         labelAddBy_2 = new QLabel(verticalLayoutWidget_8);
         labelAddBy_2->setObjectName("labelAddBy_2");
-        sizePolicy1.setHeightForWidth(labelAddBy_2->sizePolicy().hasHeightForWidth());
-        labelAddBy_2->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(labelAddBy_2->sizePolicy().hasHeightForWidth());
+        labelAddBy_2->setSizePolicy(sizePolicy);
 
         horizontalLayout_35->addWidget(labelAddBy_2);
 
@@ -849,8 +777,8 @@ public:
         comboBoxBookListAddBy->addItem(QString());
         comboBoxBookListAddBy->addItem(QString());
         comboBoxBookListAddBy->setObjectName("comboBoxBookListAddBy");
-        sizePolicy2.setHeightForWidth(comboBoxBookListAddBy->sizePolicy().hasHeightForWidth());
-        comboBoxBookListAddBy->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(comboBoxBookListAddBy->sizePolicy().hasHeightForWidth());
+        comboBoxBookListAddBy->setSizePolicy(sizePolicy1);
 
         horizontalLayout_35->addWidget(comboBoxBookListAddBy);
 
@@ -936,8 +864,8 @@ public:
         horizontalLayout_38->setObjectName("horizontalLayout_38");
         labelAddBy_3 = new QLabel(verticalLayoutWidget_8);
         labelAddBy_3->setObjectName("labelAddBy_3");
-        sizePolicy1.setHeightForWidth(labelAddBy_3->sizePolicy().hasHeightForWidth());
-        labelAddBy_3->setSizePolicy(sizePolicy1);
+        sizePolicy.setHeightForWidth(labelAddBy_3->sizePolicy().hasHeightForWidth());
+        labelAddBy_3->setSizePolicy(sizePolicy);
 
         horizontalLayout_38->addWidget(labelAddBy_3);
 
@@ -950,8 +878,8 @@ public:
         comboBoxUpdateBook->addItem(QString());
         comboBoxUpdateBook->addItem(QString());
         comboBoxUpdateBook->setObjectName("comboBoxUpdateBook");
-        sizePolicy2.setHeightForWidth(comboBoxUpdateBook->sizePolicy().hasHeightForWidth());
-        comboBoxUpdateBook->setSizePolicy(sizePolicy2);
+        sizePolicy1.setHeightForWidth(comboBoxUpdateBook->sizePolicy().hasHeightForWidth());
+        comboBoxUpdateBook->setSizePolicy(sizePolicy1);
 
         horizontalLayout_38->addWidget(comboBoxUpdateBook);
 
@@ -1055,12 +983,12 @@ public:
 
         textEditLarge = new QTextEdit(verticalLayoutWidget);
         textEditLarge->setObjectName("textEditLarge");
-        QSizePolicy sizePolicy3(QSizePolicy::Maximum, QSizePolicy::Expanding);
-        sizePolicy3.setHorizontalStretch(0);
-        sizePolicy3.setVerticalStretch(0);
-        sizePolicy3.setHeightForWidth(textEditLarge->sizePolicy().hasHeightForWidth());
-        textEditLarge->setSizePolicy(sizePolicy3);
-        textEditLarge->setMinimumSize(QSize(600, 0));
+        QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Expanding);
+        sizePolicy2.setHorizontalStretch(0);
+        sizePolicy2.setVerticalStretch(0);
+        sizePolicy2.setHeightForWidth(textEditLarge->sizePolicy().hasHeightForWidth());
+        textEditLarge->setSizePolicy(sizePolicy2);
+        textEditLarge->setMinimumSize(QSize(570, 0));
 
         horizontalLayout_19->addWidget(textEditLarge);
 
@@ -1106,8 +1034,6 @@ public:
 
         retranslateUi(MainWindow);
         QObject::connect(btnSearchDB, SIGNAL(clicked()), MainWindow, SLOT(searchDB()));
-        QObject::connect(pushButtonExit, &QPushButton::clicked, MainWindow, qOverload<>(&QMainWindow::close));
-        QObject::connect(pushButtonLogIn, SIGNAL(clicked()), MainWindow, SLOT(logIn()));
         QObject::connect(pushButtonAddToDB, SIGNAL(clicked()), MainWindow, SLOT(addBookToDB()));
         QObject::connect(btnSearchDBAddShoppingList, SIGNAL(clicked()), MainWindow, SLOT(searchBookToShoppingList()));
         QObject::connect(btnSearchDBAddBookList, SIGNAL(clicked()), MainWindow, SLOT(searchBookToBookList()));
@@ -1119,7 +1045,7 @@ public:
         QObject::connect(btnSearchDBUpdateBook, SIGNAL(clicked()), MainWindow, SLOT(checkValidBookToUpdate()));
         QObject::connect(pushButtonUpdateBookRecord, SIGNAL(clicked()), MainWindow, SLOT(updateBook()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
         comboBoxSearchBy->setCurrentIndex(1);
         comboBoxShoppingListAddBy->setCurrentIndex(0);
         comboBoxBookListAddBy->setCurrentIndex(0);
@@ -1132,11 +1058,6 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Scroll Rack - A Bookstore Inventory Database", nullptr));
-        labelUsername->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
-        labelPassword->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
-        lineEditPassword->setPlaceholderText(QString());
-        pushButtonLogIn->setText(QCoreApplication::translate("MainWindow", "Log In", nullptr));
-        pushButtonExit->setText(QCoreApplication::translate("MainWindow", "Exit Program", nullptr));
         labelSearchDatabase->setText(QCoreApplication::translate("MainWindow", "Search the Database", nullptr));
         labelSearchBy->setText(QCoreApplication::translate("MainWindow", "Search By: ", nullptr));
         comboBoxSearchBy->setItemText(0, QCoreApplication::translate("MainWindow", "ISBN", nullptr));
@@ -1199,6 +1120,7 @@ public:
         label_6->setText(QCoreApplication::translate("MainWindow", "Add a new User", nullptr));
         labelUsernameNewUser->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
         labelPasswordNewUser->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
+        checkBoxIsAdmin->setText(QCoreApplication::translate("MainWindow", "Is An Admin?", nullptr));
         lineEditNewUserPassword->setPlaceholderText(QString());
         pushButtonAddNewUser->setText(QCoreApplication::translate("MainWindow", "Add New User (Not Yet Implemented)", nullptr));
         label_35->setText(QCoreApplication::translate("MainWindow", "Change a User's Password", nullptr));

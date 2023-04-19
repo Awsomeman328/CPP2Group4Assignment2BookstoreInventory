@@ -424,6 +424,7 @@ void MainWindow::searchDB()
 
 void MainWindow::logIn()
 {
+    /*
     QString username = ui->lineEditUsername->text();
     QString password = QString::fromStdString( hash_password( ui->lineEditPassword->text().toStdString() ) );
 
@@ -460,7 +461,7 @@ void MainWindow::logIn()
     }
 
 
-
+    */
 }
 
 void MainWindow::toggleAdminFeatures(bool isEnabled)
@@ -638,15 +639,17 @@ void MainWindow::changeUsersPassword()
 
 }
 
+void MainWindow::enableWindow()
+{
+    this->setEnabled(true);
+}
+
 void MainWindow::checkValidBookToUpdate()
 {
     dbManager db("bookstoreInventory.db");
     const int searchCategory = ui->comboBoxUpdateBook->currentIndex();
     QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBUpdateBook->text(), searchCategory);
-void MainWindow::enableWindow()
-{
-    this->setEnabled(true);
-}
+
 
     //outputToLogFile("dbManager.searchDB");
 
