@@ -715,7 +715,7 @@
              <x>10</x>
              <y>10</y>
              <width>601</width>
-             <height>691</height>
+             <height>700</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -755,6 +755,13 @@
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBoxIsAdmin">
+                      <property name="text">
+                       <string>Is An Admin?</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </item>
                   <item>
@@ -769,16 +776,16 @@
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonAddNewUser">
+                      <property name="text">
+                       <string>Add New User (Not Yet Implemented)</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </item>
                  </layout>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButtonAddNewUser">
-                  <property name="text">
-                   <string>Add New User (Not Yet Implemented)</string>
-                  </property>
-                 </widget>
                 </item>
                </layout>
               </item>
