@@ -556,6 +556,7 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
     return result;
 }
 
+// For text/string values, surround the new value in 'single quotes'. For numbers do not.
 bool dbManager::updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue)
 {
     bool result = false;
@@ -593,10 +594,9 @@ bool dbManager::updateBookRecordColumnValue(string bookISBN, string categoryToUp
                 if (selectQuery.exec())
                 {
                     QSqlQuery updateQuery;
-                    updateQuery.prepare("UPDATE BOOKS SET :C=:N WHERE ISBN=':I';");
+                    updateQuery.prepare("UPDATE BOOKS SET " + QString::fromStdString(categoryToUpdate) + " = :N WHERE ISBN= :I;");
                     updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
-                    selectQuery.bindValue(":C", QString::fromStdString(categoryToUpdate));
-                    selectQuery.bindValue(":N", QString::fromStdString(newValue));
+                    updateQuery.bindValue(":N", QString::fromStdString(newValue));
 
                     if (updateQuery.exec())
                     {

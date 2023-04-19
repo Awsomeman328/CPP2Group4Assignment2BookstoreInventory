@@ -1630,3 +1630,216 @@
 [2023-04-18 16:40:06] MainWindow::closeEvent(*event) Now attempting to Close Program...
 [2023-04-18 16:40:07] MainWindow::closeEvent(..) Now Closing Program via Close Event.
 
+[2023-04-18 21:13:22] main() Starting Program, ...
+[2023-04-18 21:13:22] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:13:22] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-18 21:13:22] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-18 21:13:22] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-18 21:13:38] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:13:38] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-18 21:13:38] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-18 21:13:38] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-18 21:13:38] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-18 21:13:38] MainWindow::logIn() Login Successful! Admin Access Granted!
+[2023-04-18 21:13:42] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:13:42] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:13:42] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:13:42] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:13:42] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:13:51] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:13:51] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:13:51] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:13:51] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:13:51] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:13:51] dbManager::updateBookRecordColumnValue() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:13:51] dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's 'TITLE' value in the database
+[2023-04-18 21:13:51] dbManager::updateBookRecordColumnValue() Execution Error: Parameter count mismatch
+[2023-04-18 21:13:51] dbManager::updateBookRecordColumnValue() Database: closing connection
+[2023-04-18 21:13:51] dbManager::updateBookRecordColumnValue() Database: returning result [0]
+[2023-04-18 21:13:53] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:13:53] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:13:53] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:13:53] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:13:53] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:14:53] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-18 21:14:54] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-18 21:19:05] main() Starting Program, ...
+[2023-04-18 21:19:05] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:19:05] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-18 21:19:05] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-18 21:19:05] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-18 21:19:20] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:19:20] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-18 21:19:20] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-18 21:19:20] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-18 21:19:20] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-18 21:19:20] MainWindow::logIn() Login Successful! Admin Access Granted!
+[2023-04-18 21:19:28] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:19:28] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:19:29] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:19:29] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:19:29] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:19:29] dbManager::updateBookRecordColumnValue() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:19:29] dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's 'TITLE' value in the database
+[2023-04-18 21:19:29] dbManager::updateBookRecordColumnValue() Execution Error: Parameter count mismatch
+[2023-04-18 21:19:29] dbManager::updateBookRecordColumnValue() Database: closing connection
+[2023-04-18 21:19:29] dbManager::updateBookRecordColumnValue() Database: returning result [0]
+[2023-04-18 21:19:29] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:19:29] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:19:29] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:19:29] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:19:29] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:19:36] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:19:36] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:19:36] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:19:36] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:19:36] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:19:38] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:19:38] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:19:38] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:19:38] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:19:38] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:19:38] dbManager::updateBookRecordColumnValue() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:19:38] dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's 'TITLE' value in the database
+[2023-04-18 21:19:38] dbManager::updateBookRecordColumnValue() Execution Error: Parameter count mismatch
+[2023-04-18 21:19:38] dbManager::updateBookRecordColumnValue() Database: closing connection
+[2023-04-18 21:19:38] dbManager::updateBookRecordColumnValue() Database: returning result [0]
+[2023-04-18 21:19:38] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:19:38] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:19:38] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:19:38] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:19:38] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:19:47] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-18 21:19:48] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-18 21:20:27] main() Starting Program, ...
+[2023-04-18 21:20:28] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:20:28] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-18 21:20:28] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-18 21:20:28] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-18 21:20:46] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:20:46] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-18 21:20:46] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-18 21:20:46] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-18 21:20:46] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-18 21:20:46] MainWindow::logIn() Login Successful! Admin Access Granted!
+[2023-04-18 21:20:53] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:20:53] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:20:53] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:20:53] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:20:53] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:20:57] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:20:57] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:20:57] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:20:57] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:20:57] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:20:57] dbManager::updateBookRecordColumnValue() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:20:57] dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's 'TITLE' value in the database
+[2023-04-18 21:21:47] dbManager::updateBookRecordColumnValue() Execution Error: Parameter count mismatch
+[2023-04-18 21:26:48] dbManager::updateBookRecordColumnValue() Database: closing connection
+[2023-04-18 21:26:48] dbManager::updateBookRecordColumnValue() Database: returning result [0]
+[2023-04-18 21:26:48] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:26:48] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:26:48] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:26:48] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:26:48] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:26:51] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-18 21:26:52] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-18 21:27:18] main() Starting Program, ...
+[2023-04-18 21:27:18] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:27:18] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-18 21:27:18] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-18 21:27:18] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-18 21:27:32] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:27:32] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-18 21:27:32] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-18 21:27:32] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-18 21:27:32] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-18 21:27:32] MainWindow::logIn() Login Successful! Admin Access Granted!
+[2023-04-18 21:27:35] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:27:35] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:27:35] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:27:35] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:27:35] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:27:37] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:27:37] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:27:38] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:27:38] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:27:38] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:27:38] dbManager::updateBookRecordColumnValue() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:27:38] dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's 'TITLE' value in the database
+[2023-04-18 21:27:38] dbManager::updateBookRecordColumnValue() Execution Error: database is locked Unable to fetch row
+[2023-04-18 21:27:38] dbManager::updateBookRecordColumnValue() Database: closing connection
+[2023-04-18 21:27:38] dbManager::updateBookRecordColumnValue() Database: returning result [0]
+[2023-04-18 21:27:38] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:27:38] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:27:38] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:27:38] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:27:38] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:28:11] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:28:11] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:28:11] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:28:11] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:28:11] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:28:13] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:28:13] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:28:13] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:28:13] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:28:13] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:28:13] dbManager::updateBookRecordColumnValue() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:28:13] dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's 'TITLE' value in the database
+[2023-04-18 21:28:13] dbManager::updateBookRecordColumnValue() Database: closing connection
+[2023-04-18 21:28:13] dbManager::updateBookRecordColumnValue() Database: returning result [1]
+[2023-04-18 21:28:13] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:28:13] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:28:13] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:28:13] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:28:13] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:28:19] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:28:19] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:28:19] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:28:19] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:28:19] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:28:30] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-18 21:28:32] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-18 21:29:47] main() Starting Program, ...
+[2023-04-18 21:29:48] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:29:48] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-18 21:29:48] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-18 21:29:48] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-18 21:30:01] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:30:01] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-18 21:30:01] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-18 21:30:01] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-18 21:30:01] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-18 21:30:01] MainWindow::logIn() Login Successful! Admin Access Granted!
+[2023-04-18 21:30:04] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:30:04] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:30:04] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:30:04] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:30:04] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:30:09] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:30:09] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:30:09] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:30:09] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:30:09] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:30:09] dbManager::updateBookRecordColumnValue() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-18 21:30:09] dbManager::updateBookRecordColumnValue() Database: attempting to update a book record's 'TITLE' value in the database
+[2023-04-18 21:30:09] dbManager::updateBookRecordColumnValue() Database: closing connection
+[2023-04-18 21:30:09] dbManager::updateBookRecordColumnValue() Database: returning result [1]
+[2023-04-18 21:30:09] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:30:09] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:30:09] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:30:09] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:30:09] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:30:12] dbManager::searchDB(bookstoreInventory.db, .., ..) Database: connection ok
+[2023-04-18 21:30:12] dbManager::searchDB(.., XXXX, 0) Database: connection ok
+[2023-04-18 21:30:12] dbManager::searchDB(.., .., ..) Database: found at least 1 result
+[2023-04-18 21:30:12] dbManager::searchDB(.., .., ..) Database: closing connection
+[2023-04-18 21:30:12] dbManager::searchDB(.., .., ..) Database: returning search results
+[2023-04-18 21:30:16] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-18 21:30:16] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+

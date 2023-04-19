@@ -686,11 +686,6 @@ void MainWindow::updateBook()
 
     if (searchResults.size() == 1)
     {
-        if (!ui->lineEditISBNUpdate->text().isEmpty())
-        {
-
-        }
-
         string ISBN = searchResults[0][1].toString().toStdString();
         string Title = searchResults[0][2].toString().toStdString();
         string Author = searchResults[0][3].toString().toStdString();
@@ -701,31 +696,139 @@ void MainWindow::updateBook()
         double MSRP = searchResults[0][8].toDouble();
         unsigned int Quantity = searchResults[0][9].toUInt();
 
-        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+        Book oldBook = *new Book(ISBN, Title, Author, Year, Publisher,
                                  Description, Genre, MSRP, Quantity);
 
-        //newBook.validateISBN();
+        if (!ui->lineEditISBNUpdate->text().isEmpty() && oldBook.validateISBN(ui->lineEditISBNUpdate->text().toStdString()))
+        {
+            ISBN = ui->lineEditISBNUpdate->text().toStdString();
+        }
+        if (!ui->lineEditTITLEUpdate->text().isEmpty() && oldBook.validateTitle(ui->lineEditTITLEUpdate->text().toStdString()))
+        {
+            Title = ui->lineEditTITLEUpdate->text().toStdString();
+        }
+        if (!ui->lineEditAUTHORUpdate->text().isEmpty() && oldBook.validateAuthor(ui->lineEditAUTHORUpdate->text().toStdString()))
+        {
+            Author = ui->lineEditAUTHORUpdate->text().toStdString();
+        }
+        if (!ui->lineEditYEARUpdate->text().isEmpty() && oldBook.validatePubYear(ui->lineEditYEARUpdate->text().toUInt()))
+        {
+            Year = ui->lineEditYEARUpdate->text().toUInt();
+        }
+        if (!ui->lineEditPUBLISHERUpdate->text().isEmpty() && oldBook.validatePublisher(ui->lineEditPUBLISHERUpdate->text().toStdString()))
+        {
+            Publisher = ui->lineEditPUBLISHERUpdate->text().toStdString();
+        }
+        if (!ui->lineEditDESCUpdate->text().isEmpty() && oldBook.validateDescription(ui->lineEditDESCUpdate->text().toStdString()))
+        {
+            Description = ui->lineEditDESCUpdate->text().toStdString();
+        }
+        if (!ui->lineEditGENREUpdate->text().isEmpty() && oldBook.validateGenre(ui->lineEditGENREUpdate->text().toStdString()))
+        {
+            Genre = ui->lineEditGENREUpdate->text().toStdString();
+        }
+        if (!ui->lineEditMSRPUpdate->text().isEmpty() && oldBook.validateMSRP(ui->lineEditMSRPUpdate->text().toDouble()))
+        {
+            MSRP = ui->lineEditMSRPUpdate->text().toDouble();
+        }
+        if (!ui->lineEditQUANTITYUpdate->text().isEmpty() && oldBook.validateQuantity(ui->lineEditQUANTITYUpdate->text().toUInt()))
+        {
+            Quantity = ui->lineEditQUANTITYUpdate->text().toUInt();
+        }
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
 
         if (newBook.getIsValid())
         {
             // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
-            ui->textEditLarge->append("A valid Book was found in the Database! Time to update!");
+            ui->textEditLarge->append("A new valid book can be created! Time to update!");
 
-            ui->textEditLarge->append("ISBN: \t" + searchResults[0][1].toString());
-            ui->textEditLarge->append("Title: \t" + searchResults[0][2].toString());
-            ui->textEditLarge->append("Author: \t" + searchResults[0][3].toString());
-            ui->textEditLarge->append("Year: \t" + searchResults[0][4].toString());
-            ui->textEditLarge->append("Publisher: \t" + searchResults[0][5].toString());
-            ui->textEditLarge->append("Description: \t" + searchResults[0][6].toString());
-            ui->textEditLarge->append("Genre: \t" + searchResults[0][7].toString());
-            ui->textEditLarge->append("MSRP: \t$" + searchResults[0][8].toString());
-            ui->textEditLarge->append("Quantity: \t" + searchResults[0][9].toString());
+            // Update all of the fields that are different. If ISBN is different, update that last.
+            // For text/string values, surround the new value in 'single quotes'. For numbers do not.
+            if (oldBook.getTitle() != newBook.getTitle())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "TITLE", newBook.getTitle()))
+                {
+                    ui->textEditLarge->append("Title Updated!");
+                }
+            }
+            if (oldBook.getAuthor() != newBook.getAuthor())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "AUTHOR", newBook.getAuthor()))
+                {
+                    ui->textEditLarge->append("Author Updated!");
+                }
+            }
+            if (oldBook.getYear() != newBook.getYear())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "PUBLICATION_YEAR", QString::number(newBook.getYear()).toStdString()))
+                {
+                    ui->textEditLarge->append("Publication Year Updated!");
+                }
+            }
+            if (oldBook.getPublisher() != newBook.getPublisher())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "PUBLISHER", newBook.getPublisher()))
+                {
+                    ui->textEditLarge->append("Publisher Updated!");
+                }
+            }
+            if (oldBook.getDescription() != newBook.getDescription())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "DESCRIPTION", newBook.getDescription()))
+                {
+                    ui->textEditLarge->append("Description Updated!");
+                }
+            }
+            if (oldBook.getGenre() != newBook.getGenre())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "GENRE", newBook.getGenre()))
+                {
+                    ui->textEditLarge->append("Genre Updated!");
+                }
+            }
+            if (oldBook.getMSRP() != newBook.getMSRP())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "MSRP", QString::number(newBook.getMSRP()).toStdString()))
+                {
+                    ui->textEditLarge->append("MSRP Updated!");
+                }
+            }
+            if (oldBook.getQuantity() != newBook.getQuantity())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "QUANTITY_ON_HAND", QString::number(newBook.getQuantity()).toStdString()))
+                {
+                    ui->textEditLarge->append("Quantity On Hand Updated!");
+                }
+            }
+            if (oldBook.getISBN() != newBook.getISBN())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "ISBN", newBook.getISBN()))
+                {
+                    ui->textEditLarge->append("ISBN Updated!");
+                }
+            }
+
+            ui->textEditLarge->append("New Book Updated! Here are the results:");
+
+            QVector<QVector<QVariant>> newResults = db.searchDB("bookstoreInventory.db", QString::fromStdString(newBook.getISBN()), 0);
+
+            ui->textEditLarge->append("ISBN: \t" + newResults[0][1].toString());
+            ui->textEditLarge->append("Title: \t" + newResults[0][2].toString());
+            ui->textEditLarge->append("Author: \t" + newResults[0][3].toString());
+            ui->textEditLarge->append("Year: \t" + newResults[0][4].toString());
+            ui->textEditLarge->append("Publisher: \t" + newResults[0][5].toString());
+            ui->textEditLarge->append("Description: \t" + newResults[0][6].toString());
+            ui->textEditLarge->append("Genre: \t" + newResults[0][7].toString());
+            ui->textEditLarge->append("MSRP: \t$" + newResults[0][8].toString());
+            ui->textEditLarge->append("Quantity: \t" + newResults[0][9].toString());
 
         }
         else
         {
             // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
-            ui->textEditLarge->append("Invalid Book! Book found in the Database, but is not valid!");
+            ui->textEditLarge->append("Invalid Book! Book found in the Database, but your updates are not valid!");
         }
 
     }
