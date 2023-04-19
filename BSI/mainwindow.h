@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <set>
 #include <deque>
+#include <QSqlQuery>
+#include <QPlainTextEdit>
 #include "dbmanager.h"
 #include "hashpasswordencryptor.h"
 #include "backend.h"
@@ -28,6 +30,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void searchLowStockBooks();
+
 private:
     Ui::MainWindow *ui;
     void closeEvent(QCloseEvent *event);
@@ -44,6 +48,8 @@ private:
     QAction *pasteAction;
     QAction *notesAction;
     QAction *aboutAction;
+    QPlainTextEdit *lowStockTextEdit;
+    QPlainTextEdit *lowStockBooks;
 
     void showNotesDialog();
     void showAboutDialog();
@@ -83,5 +89,7 @@ public slots:
     void enableWindow();
 //    void enableExit();
     void enableAdmin();
+private slots:
+    void on_pushButtonAddNewUser_clicked();
 };
 #endif // MAINWINDOW_H

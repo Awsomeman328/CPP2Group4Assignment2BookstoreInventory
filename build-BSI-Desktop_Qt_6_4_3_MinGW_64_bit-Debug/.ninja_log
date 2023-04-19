@@ -1,4 +1,5 @@
 # ninja log v5
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 829	5794	7035709794450413	CMakeFiles/BSI.dir/loginscreen.cpp.obj	494ec4d3edaf3b46
 1810	2638	7029355919391810	CMakeFiles/BSI.dir/md5.cpp.obj	b82e20abc90e757c
@@ -94,3 +95,39 @@
 2737	9165	7035758944586159	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
 9165	10389	7035758956830723	BSI.exe	f87e866aa01f7fd3
 >>>>>>> BackEnd
+=======
+509	4504	7024193457102734	CMakeFiles/BSI.dir/loginscreen.cpp.obj	494ec4d3edaf3b46
+1563	2291	7018125507291701	CMakeFiles/BSI.dir/md5.cpp.obj	b82e20abc90e757c
+7	479	7024193416930515	BSI_autogen/timestamp	3c852b0e1e935352
+7	479	7024193416930515	BSI_autogen/mocs_compilation.cpp	3c852b0e1e935352
+1591	2168	7018185034989517	CMakeFiles/BSI.dir/book.cpp.obj	b3b70f8b5f5218ea
+1568	2246	7018125506861701	CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj	16aede3c32dfc22e
+505	4765	7024193459737585	CMakeFiles/BSI.dir/BSI_autogen/mocs_compilation.cpp.obj	d69a9222f54fb3a3
+1593	3478	7018185048089647	CMakeFiles/BSI.dir/utilities.cpp.obj	8ab09a85c7808adf
+1796	6026	7023610834457940	CMakeFiles/BSI.dir/main.cpp.obj	9d3c7baadda54951
+1801	6034	7023610834568119	CMakeFiles/BSI.dir/backend.cpp.obj	51f33e5c531bf0f8
+701	5807	7024182760714809	CMakeFiles/BSI.dir/dbmanager.cpp.obj	d52fc7423975c586
+507	5365	7024193465691639	CMakeFiles/BSI.dir/mainwindow.cpp.obj	c71647d657a4624b
+5365	6137	7024193473425676	BSI.exe	57ba8e612585a3b4
+512	3525	7024193447307589	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	9afc94a1c4cedbc8
+1	19	0	CMakeFiles/clean.additional	baedbe210acaa455
+20	27	0	clean	577b940aee94fbd7
+564	3511	7022538238395535	CMakeFiles/BSI.dir/notesdialog.cpp.obj	b0827cc80e2a16b4
+12	1760	7036270797768220	BSI_autogen/timestamp	d9301e3c5f30b81e
+12	1760	7036270797768220	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+12	1760	7036270797768220	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+12	1760	7036270797768220	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+1792	2566	7036270815106474	CMakeFiles/BSI.dir/book.cpp.obj	9514efadd2b382da
+1809	2725	7036270816706432	CMakeFiles/BSI.dir/hashpasswordencryptor.cpp.obj	da1a569b719f89aa
+1798	2796	7036270817416436	CMakeFiles/BSI.dir/md5.cpp.obj	e22258330cc56596
+1803	4519	7036270834672935	CMakeFiles/BSI.dir/utilities.cpp.obj	bbbff4be5a38c290
+1830	5585	7036270845323647	CMakeFiles/BSI.dir/notesdialog.cpp.obj	23e626b42d56aa3a
+1838	6497	7036270854430079	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+1787	8091	7036270870353452	CMakeFiles/BSI.dir/dbmanager.cpp.obj	ed51e83ca7e6f324
+20	4265	7036272380404682	BSI_autogen/timestamp	d9301e3c5f30b81e
+20	4265	7036272380404682	BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+20	4265	7036272380404682	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/timestamp	d9301e3c5f30b81e
+20	4265	7036272380404682	C:/School/c++ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/mocs_compilation.cpp	d9301e3c5f30b81e
+4284	6654	7036272413777932	CMakeFiles/BSI.dir/utilities.cpp.obj	bbbff4be5a38c290
+4302	8445	7036272431650206	CMakeFiles/BSI.dir/hardwareinfo.cpp.obj	e61010e845da5870
+>>>>>>> Stashed changes

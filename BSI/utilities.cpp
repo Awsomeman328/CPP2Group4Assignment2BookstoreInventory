@@ -100,15 +100,14 @@ void outputToLogFile(string logMessage)
     }
 
     else
-        {
-            struct tm * timeinfo;
-            timeinfo = localtime(&operationCompleted);
-            char buffer[80];
-            strftime(buffer, 80, "[%Y-%m-%d %H:%M:%S] ", timeinfo);
+    {
+        struct tm * timeinfo;
+        timeinfo = localtime(&operationCompleted);
+        char buffer[80];
+        strftime(buffer, 80, "[%Y-%m-%d %H:%M:%S] ", timeinfo);
 
-            log << buffer << logMessage << endl;
-            qDebug() << "Log created: " << buffer << QString::fromStdString(logMessage);
-        }
-
+        log << buffer << logMessage << endl;
+        qDebug() << "Log created: " << buffer << QString::fromStdString(logMessage);
+    }
     log.close();
 }

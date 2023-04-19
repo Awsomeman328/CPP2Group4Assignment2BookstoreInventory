@@ -1,5 +1,5 @@
-C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h \
-  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
+C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/mainwindow.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDebug \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QFile \
@@ -246,6 +246,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtCore/qxpfunctional.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/QCloseEvent \
   C:/Qt/6.4.3/mingw_64/include/QtGui/QTransform \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qabstracttextdocumentlayout.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qaction.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qbitmap.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qbrush.h \
@@ -254,8 +255,10 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtGui/qevent.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qeventpoint.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qfont.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qfontdatabase.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qfontinfo.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qfontmetrics.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qglyphrun.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qicon.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qimage.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qinputdevice.h \
@@ -268,6 +271,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpointingdevice.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpolygon.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qrawfont.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qregion.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qrgba64.h \
@@ -275,6 +279,10 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtextcursor.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtextdocument.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtextformat.h \
+<<<<<<< Updated upstream
+=======
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qtextlayout.h \
+>>>>>>> Stashed changes
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtguiexports.h \
@@ -285,9 +293,11 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtGui/qvectornd.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.4.3/mingw_64/include/QtSql/QSqlQuery \
   C:/Qt/6.4.3/mingw_64/include/QtSql/QtSqlDepends \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qsqldatabase.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qsqldriver.h \
+  C:/Qt/6.4.3/mingw_64/include/QtSql/qsqlquery.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qsqlquerymodel.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qsqlrecord.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qsqlrelationaltablemodel.h \
@@ -305,6 +315,10 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMessageBox \
+<<<<<<< Updated upstream
+=======
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QPlainTextEdit \
+>>>>>>> Stashed changes
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QPushButton \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QTableWidget \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QVBoxLayout \
@@ -329,6 +343,10 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmessagebox.h \
+<<<<<<< Updated upstream
+=======
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qplaintextedit.h \
+>>>>>>> Stashed changes
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -340,6 +358,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtableview.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtablewidget.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtabwidget.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtextedit.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
@@ -695,6 +714,7 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
+<<<<<<< Updated upstream
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
@@ -704,3 +724,14 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h
+=======
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/hardwareinfo.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
+  C:/School/c++\ II/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h
+>>>>>>> Stashed changes
