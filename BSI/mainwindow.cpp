@@ -6,11 +6,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    loginDialog* login;
 
-    loginDialog login;
-    login.setWindowFlags(Qt::WindowStaysOnTopHint);
-    QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
-    login.move(primaryGeometry.center() - login.rect().center());
 
     // Create the menu bar and menus
     QMenuBar *menuBar = new QMenuBar(this);
@@ -64,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(displayNotesAction, &QAction::triggered, this, &MainWindow::showNotesDialog);
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
     connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
-    connect(&login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
+    connect(login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
 
     // Create a label to display the number of books
     QLabel *statusLabel = new QLabel(this);
@@ -83,7 +80,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Add the status bar to the main window
     setStatusBar(statusBar());
-    login.show();
 }
 
 MainWindow::~MainWindow()
