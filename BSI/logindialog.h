@@ -2,14 +2,13 @@
 #define LOGINDIALOG_H
 
 #include <QDialog>
-#include <QVector>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
+
 #include "backend.h"
 #include "utilities.h"
 #include "mainwindow.h"
-
-namespace Ui {
-class loginDialog;
-}
 
 class loginDialog : public QDialog
 {
@@ -20,7 +19,7 @@ public:
     ~loginDialog();
 
 private slots:
-    void on_loginbutton_clicked();
+    void login();
 
 
 signals:
@@ -28,8 +27,11 @@ signals:
     void exitClicked();
 
 private:
-    //Ui::loginDialog *ui;
-//    MainWindow mainW;
+    QLabel *usernameLabel;
+    QLineEdit *usernameLineEdit;
+    QLabel *passwordLabel;
+    QLineEdit *passwordLineEdit;
+    QPushButton *loginButton;
 };
 
 #endif // LOGINDIALOG_H

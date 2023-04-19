@@ -83,7 +83,16 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Add the status bar to the main window
     setStatusBar(statusBar());
-    login.exec();
+
+    // Start Login Process
+    int result = login.exec();
+    if (result == QDialog::Accepted) {
+        // Authentication successful - proceed to main window!
+        this->setEnabled(true);
+    } else {
+        // User cancelled login or authentication failed
+        close();
+    }
 }
 
 MainWindow::~MainWindow()
