@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loginDialog* login = new loginDialog;
+
 
 
     // Create the menu bar and menus
@@ -61,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(displayNotesAction, &QAction::triggered, this, &MainWindow::showNotesDialog);
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
     connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
-    connect(login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
+//    connect(login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
 
     // Create a label to display the number of books
     QLabel *statusLabel = new QLabel(this);
