@@ -1004,51 +1004,32 @@ void MainWindow::updateBook()
 
 void MainWindow::searchLowStockBooks()
 {
-    if (!QSqlDatabase::contains("qt_sql_default_connection")) {
-        dbManager db("bookstoreInventory.db");
-    }
-    // Set the low stock limit
-    int lowStockThreshold = 10;
+    dbManager db("bookstoreInventory.db");
 
-    // Create a connection to the database
-    QSqlDatabase db = QSqlDatabase::database();
-
-    // Prepare a SELECT statement to find the books with low stock levels
-    QSqlQuery query;
-    query.prepare("SELECT * FROM books WHERE quantity < :threshold");
-    query.bindValue(":threshold", lowStockThreshold);
-
-    // Execute the prepared statement
-    if (!query.exec()) {
-        /*
-        outputToLogFile("Error executing query: " + query.lastError().text());
-*/
-        return;
-    }
-
-    // Check if any low stock books were found
-    if (!query.next()) {
-        outputToLogFile("No books found with low stock levels!");
-        return;
-    }
+    QVector<QVector<QVariant>> searchResults = db.getLowStockedBooks();
 
     // Output the low stock books to user
-    ui->textEditLarge->append("Low stock books:");
+    ui->textEditLarge->append("Low Stocked Books (Under 4 Copies):");
 
-    do {
-        ui->textEditLarge->append("Result #: \t" + query.value(0).toString());
-        ui->textEditLarge->append("ISBN: \t" + query.value(1).toString());
-        ui->textEditLarge->append("Title: \t" + query.value(2).toString());
-        ui->textEditLarge->append("Author: \t" + query.value(3).toString());
-        ui->textEditLarge->append("Year: \t" + query.value(4).toString());
-        ui->textEditLarge->append("Publisher: \t" + query.value(5).toString());
-        ui->textEditLarge->append("Description: \t" + query.value(6).toString());
-        ui->textEditLarge->append("Genre: \t" + query.value(7).toString());
-        ui->textEditLarge->append("MSRP: \t$" + query.value(8).toString());
-        ui->textEditLarge->append("Quantity: \t" + query.value(9).toString());
+    for (unsigned short i = 0; i < searchResults.size(); i++)
+    {
+        ui->textEditLarge->append("Result #: \t" + searchResults[i][0].toString());
+
+        ui->textEditLarge->append("ISBN: \t" + searchResults[i][1].toString());
+        ui->textEditLarge->append("Title: \t" + searchResults[i][2].toString());
+        ui->textEditLarge->append("Author: \t" + searchResults[i][3].toString());
+        ui->textEditLarge->append("Year: \t" + searchResults[i][4].toString());
+        ui->textEditLarge->append("Publisher: \t" + searchResults[i][5].toString());
+        ui->textEditLarge->append("Description: \t" + searchResults[i][6].toString());
+        ui->textEditLarge->append("Genre: \t" + searchResults[i][7].toString());
+        ui->textEditLarge->append("MSRP: \t$" + searchResults[i][8].toString());
+        ui->textEditLarge->append("Quantity: \t" + searchResults[i][9].toString());
+
         ui->textEditLarge->append("\n");
-    } while (query.next());
 
+    }
+
+    /*
     // Create the low stock books plain text edit and set its properties
     if (!lowStockBooks) {
         lowStockBooks = new QPlainTextEdit(this);
@@ -1057,6 +1038,7 @@ void MainWindow::searchLowStockBooks()
     }
 
     lowStockBooks->show();
+    */
 }
 
 void MainWindow::enableWindow()

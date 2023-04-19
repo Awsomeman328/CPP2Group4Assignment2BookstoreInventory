@@ -916,3 +916,98 @@ bool dbManager::increaseShopperTotalSpent(QString shopperEmail, int amount)
     outputToLogFile("dbManager::increaseShopperTotalSpent() Database: returning result [" + to_string(result) + "]");
     return result;
 }
+
+QVector<QVector<QVariant>> dbManager::getLowStockedBooks()
+{
+    QVector<QVector<QVariant>> searchResults;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+        outputToLogFile("dbManager::searchDB() Error: connection with database failed");
+        //qDebug() << "dbManager::searchDB(" + path + ", .., ..) Error: connection with database failed";
+    }
+    else
+    {
+        outputToLogFile("dbManager::searchDB() Database: connection ok");
+        //qDebug() << "Database: connection ok";
+
+        outputToLogFile("dbManager::searchDB() Database: connection ok");
+        //qDebug() << "dbManager::searchDB(.., " + searchTerm + ", " + QString::fromStdString(to_string(searchCategory)) + ") Database: connection ok";
+
+        // Set the low stock limit
+        int lowStockThreshold = 4;
+
+        // Prepare a SELECT statement to find the books with low stock levels
+        QString queryString;
+
+        queryString = "SELECT * FROM BOOKS WHERE QUANTITY_ON_HAND < " + QString::number(lowStockThreshold);
+
+
+
+        QSqlQuery query(queryString);
+        int idISBN = query.record().indexOf("ISBN");
+        int idTitle = query.record().indexOf("TITLE");
+        int idAuthor = query.record().indexOf("AUTHOR");
+        int idYear = query.record().indexOf("PUBLICATION_YEAR");
+        int idPublisher = query.record().indexOf("PUBLISHER");
+        int idDescription = query.record().indexOf("DESCRIPTION");
+        int idGenre = query.record().indexOf("GENRE");
+        int idMSRP = query.record().indexOf("MSRP");
+        int idCurQuantity = query.record().indexOf("QUANTITY_ON_HAND");
+
+        int numResults = 0;
+
+        if (query.exec())
+        {
+            while (query.next())
+            {
+
+                if (numResults == 0)
+                {
+                    outputToLogFile("dbManager::searchDB(.., .., ..) Database: found at least 1 result");
+                    //qDebug() << "dbManager::searchDB(.., .., ..) Database: found at least 1 result";
+                }
+                numResults++;
+
+                QVector<QVariant> rowResult;
+                rowResult.push_back( numResults );
+                rowResult.push_back( query.value(idISBN) );
+                rowResult.push_back( query.value(idTitle) );
+                rowResult.push_back( query.value(idAuthor) );
+                rowResult.push_back( query.value(idYear) );
+                rowResult.push_back( query.value(idPublisher) );
+
+                // Check if Description and Genre are NULLS, which they shouldn't be anymore but just in case.
+                if (query.value(idDescription) == "")
+                {
+                    rowResult.push_back( "No Description Data" );
+                }
+                else rowResult.push_back( query.value(idDescription) );
+
+                if (query.value(idGenre) == "")
+                {
+                    rowResult.push_back( "No Genre Data" );
+                }
+                else rowResult.push_back( query.value(idGenre) );
+
+                rowResult.push_back( query.value(idMSRP) );
+                rowResult.push_back( query.value(idCurQuantity) );
+
+                searchResults.push_back(rowResult);
+
+            }
+        }
+
+    }
+
+
+    outputToLogFile("dbManager::searchDB(.., .., ..) Database: closing connection");
+    //qDebug() << "dbManager::searchDB(.., .., ..) Database: closing connection";
+    m_db.close();
+
+    outputToLogFile("dbManager::searchDB(.., .., ..) Database: returning search results");
+    //qDebug() << "dbManager::searchDB(.., .., ..) Database: returning search results";
+    return searchResults;
+}

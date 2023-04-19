@@ -26,6 +26,7 @@ public:
     bool changeUserPassword(QString username, QString password);
     bool checkForValidShopper(QString shopperEmail);
     bool increaseShopperTotalSpent(QString shopperEmail, int amount);
+    QVector<QVector<QVariant>> getLowStockedBooks();
 
 
 private:

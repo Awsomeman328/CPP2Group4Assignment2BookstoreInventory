@@ -998,7 +998,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1280, 21));
+        menubar->setGeometry(QRect(0, 0, 1280, 26));
         menuPlease = new QMenu(menubar);
         menuPlease->setObjectName("menuPlease");
         menuAdd = new QMenu(menubar);
@@ -1115,7 +1115,7 @@ public:
         label_32->setText(QCoreApplication::translate("MainWindow", "Purchase Items in Shopping List", nullptr));
         labelCurrentShopper->setText(QCoreApplication::translate("MainWindow", "Current Shopper By Email: ", nullptr));
         lineEditCurrentShopper->setText(QString());
-        pushButtonPurchaseShoppingList->setText(QCoreApplication::translate("MainWindow", "Purchase Shopping List (Not Yet Implemented)", nullptr));
+        pushButtonPurchaseShoppingList->setText(QCoreApplication::translate("MainWindow", "Purchase Shopping List", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabMainMenu), QCoreApplication::translate("MainWindow", "Main Menu", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Add a new User", nullptr));
         labelUsernameNewUser->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
