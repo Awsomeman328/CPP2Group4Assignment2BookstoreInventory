@@ -24,6 +24,8 @@ public:
     bool updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue);
     bool addNewUser(QString username, QString password, bool isAdmin);
     bool changeUserPassword(QString username, QString password);
+    bool checkForValidShopper(QString shopperEmail);
+    bool increaseShopperTotalSpent(QString shopperEmail, int amount);
 
 
 private:

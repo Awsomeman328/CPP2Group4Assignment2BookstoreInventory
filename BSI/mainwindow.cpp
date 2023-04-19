@@ -614,7 +614,47 @@ void MainWindow::displayShoppingList()
 
 void MainWindow::purchaseShoppingList()
 {
+    QString shopperEmail = ui->lineEditCurrentShopper->text();
+    if (shopperEmail.isEmpty())
+    {
+        ui->textEditLarge->append("Empty Email! Please enter a valid shopper email!\n");
+        return;
+    }
 
+    dbManager db("bookstoreInventory.db");
+
+    // First check for a valid shopper. If not valid, then give a warning.
+    if (!db.checkForValidShopper(shopperEmail))
+    {
+        ui->textEditLarge->append("Invalid Shopper! Please enter a valid shopper!\n");
+        return;
+    }
+
+    ui->textEditLarge->append("Starting Buying Process");
+
+    // For each book in the Shopping List,
+    // Try to decrease that book's amount by 1.
+    // If you can, then increase the Shopper's total spent by that book's MSRP.
+    // Then remove all of the books from the list
+    multiset<Book, bool(*)(const Book&, const Book&)>::iterator shoppingListIterator = shoppingList.begin();
+    while (shoppingListIterator != shoppingList.end())
+    {
+        // Do stuff
+        if (db.adjustBookQuantityInInventory(shoppingListIterator->getISBN(), -1))
+        {
+            if (db.increaseShopperTotalSpent(shopperEmail, shoppingListIterator->getMSRP()))
+            {
+                ui->textEditLarge->append("Sucessfully Bought the book: " + QString::fromStdString(shoppingListIterator->getTitle()));
+            }
+            else
+            {
+                db.adjustBookQuantityInInventory(shoppingListIterator->getISBN(), 1);
+            }
+        }
+        shoppingListIterator++;
+    }
+
+    shoppingList.clear();
 }
 
 void MainWindow::displayBookList()

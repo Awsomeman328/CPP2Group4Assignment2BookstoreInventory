@@ -572,7 +572,7 @@ public:
 
         lineEditCurrentShopper = new QLineEdit(verticalLayoutWidget_7);
         lineEditCurrentShopper->setObjectName("lineEditCurrentShopper");
-        lineEditCurrentShopper->setEnabled(false);
+        lineEditCurrentShopper->setEnabled(true);
 
         horizontalLayout_3->addWidget(lineEditCurrentShopper);
 
@@ -1045,7 +1045,7 @@ public:
         QObject::connect(btnSearchDBUpdateBook, SIGNAL(clicked()), MainWindow, SLOT(checkValidBookToUpdate()));
         QObject::connect(pushButtonUpdateBookRecord, SIGNAL(clicked()), MainWindow, SLOT(updateBook()));
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
         comboBoxSearchBy->setCurrentIndex(1);
         comboBoxShoppingListAddBy->setCurrentIndex(0);
         comboBoxBookListAddBy->setCurrentIndex(0);
@@ -1096,7 +1096,7 @@ public:
         lineEditShopperLastName->setPlaceholderText(QCoreApplication::translate("MainWindow", "Last Name", nullptr));
         lineEditShopperEmail->setText(QString());
         lineEditShopperEmail->setPlaceholderText(QCoreApplication::translate("MainWindow", "Email", nullptr));
-        pushButtonAddShopperToDB->setText(QCoreApplication::translate("MainWindow", "Add (Not Yet Implemented)", nullptr));
+        pushButtonAddShopperToDB->setText(QCoreApplication::translate("MainWindow", "Add", nullptr));
         label_28->setText(QCoreApplication::translate("MainWindow", "Add a book to your Shopping List from the Database", nullptr));
         labelAddBy->setText(QCoreApplication::translate("MainWindow", "Add By: ", nullptr));
         comboBoxShoppingListAddBy->setItemText(0, QCoreApplication::translate("MainWindow", "ISBN", nullptr));
@@ -1113,8 +1113,8 @@ public:
         label_30->setText(QCoreApplication::translate("MainWindow", "Display your Shopping List to the screen", nullptr));
         pushButtonDisplayShoppingList->setText(QCoreApplication::translate("MainWindow", "Display Shopping List", nullptr));
         label_32->setText(QCoreApplication::translate("MainWindow", "Purchase Items in Shopping List", nullptr));
-        labelCurrentShopper->setText(QCoreApplication::translate("MainWindow", "Current Shopper By ID: ", nullptr));
-        lineEditCurrentShopper->setText(QCoreApplication::translate("MainWindow", "(Not Yet Implemented)", nullptr));
+        labelCurrentShopper->setText(QCoreApplication::translate("MainWindow", "Current Shopper By Email: ", nullptr));
+        lineEditCurrentShopper->setText(QString());
         pushButtonPurchaseShoppingList->setText(QCoreApplication::translate("MainWindow", "Purchase Shopping List (Not Yet Implemented)", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tabMainMenu), QCoreApplication::translate("MainWindow", "Main Menu", nullptr));
         label_6->setText(QCoreApplication::translate("MainWindow", "Add a new User", nullptr));
@@ -1122,12 +1122,12 @@ public:
         labelPasswordNewUser->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
         checkBoxIsAdmin->setText(QCoreApplication::translate("MainWindow", "Is An Admin?", nullptr));
         lineEditNewUserPassword->setPlaceholderText(QString());
-        pushButtonAddNewUser->setText(QCoreApplication::translate("MainWindow", "Add New User (Not Yet Implemented)", nullptr));
+        pushButtonAddNewUser->setText(QCoreApplication::translate("MainWindow", "Add New User", nullptr));
         label_35->setText(QCoreApplication::translate("MainWindow", "Change a User's Password", nullptr));
         labelUsernameChangePass->setText(QCoreApplication::translate("MainWindow", "Username", nullptr));
         labelPasswordChangePass->setText(QCoreApplication::translate("MainWindow", "Password", nullptr));
         lineEditChangeUserPassword->setPlaceholderText(QString());
-        pushButtonChangeUserPass->setText(QCoreApplication::translate("MainWindow", "Change User's Password (Not Yet Implemented)", nullptr));
+        pushButtonChangeUserPass->setText(QCoreApplication::translate("MainWindow", "Change User's Password", nullptr));
         label_39->setText(QCoreApplication::translate("MainWindow", "Add a book to your Book List from the inventory", nullptr));
         labelAddBy_2->setText(QCoreApplication::translate("MainWindow", "Add By: ", nullptr));
         comboBoxBookListAddBy->setItemText(0, QCoreApplication::translate("MainWindow", "ISBN", nullptr));

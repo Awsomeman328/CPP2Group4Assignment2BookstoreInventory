@@ -499,7 +499,7 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
 
 
         QSqlQuery countQuery;
-        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=:I;");
         countQuery.bindValue(":I", QString::fromStdString(bookISBN));
         QVariant count;
 
@@ -511,13 +511,13 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
             {
 
                 QSqlQuery selectQuery;
-                selectQuery.prepare("SELECT QUANTITY_ON_HAND FROM BOOKS WHERE ISBN=':I';");
+                selectQuery.prepare("SELECT QUANTITY_ON_HAND FROM BOOKS WHERE ISBN=:I;");
                 selectQuery.bindValue(":I", QString::fromStdString(bookISBN));
 
                 if (selectQuery.exec())
                 {
                     QSqlQuery updateQuery;
-                    updateQuery.prepare("UPDATE BOOKS SET QUANTITY_ON_HAND=QUANTITY_ON_HAND+:A WHERE ISBN=':I';");
+                    updateQuery.prepare("UPDATE BOOKS SET QUANTITY_ON_HAND=QUANTITY_ON_HAND+:A WHERE ISBN=:I;");
                     updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
                     updateQuery.bindValue(":A", QString::fromStdString(to_string(adjustAmount)));
 
@@ -793,5 +793,126 @@ bool dbManager::changeUserPassword(QString username, QString password)
 
     outputToLogFile("dbManager::changeUserPassword() Database: returning result [" + to_string(result) + "]");
     return result;
+
+
 }
 
+bool dbManager::checkForValidShopper(QString shopperEmail)
+{
+    bool result = false;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::checkForValidShopper() Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::checkForValidShopper() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::checkForValidShopper() Database: attempting to check for a valid shopper record in the database");
+
+
+        QSqlQuery countQuery;
+        countQuery.prepare("SELECT COUNT(*) FROM SHOPPERS WHERE EMAIL=:E;");
+        countQuery.bindValue(":E", shopperEmail);
+        QVariant count;
+
+        if (countQuery.exec() && countQuery.next())
+        {
+            count = countQuery.value(0);
+
+            if (count.convert(qMetaTypeId<int>()) == 1)
+            {
+                result = true;
+            }
+            else
+            {
+               outputToLogFile("dbManager::checkForValidShopper() DB countQuery Error: db did not return exactly 1 result (0 or 2+ results returned)");
+            }
+        }
+        else
+        {
+           outputToLogFile("dbManager::checkForValidShopper() DB countQuery Error: " + (countQuery.lastError().text().toStdString()));
+        }
+    }
+
+    outputToLogFile("dbManager::checkForValidShopper() Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::checkForValidShopper() Database: returning result [" + to_string(result) + "]");
+    return result;
+}
+
+bool dbManager::increaseShopperTotalSpent(QString shopperEmail, int amount)
+{
+    bool result = false;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::increaseShopperTotalSpent() Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::increaseShopperTotalSpent() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::increaseShopperTotalSpent() Database: attempting to increase a shopper's total_spent in the database");
+
+
+        QSqlQuery countQuery;
+        countQuery.prepare("SELECT COUNT(*) FROM SHOPPERS WHERE EMAIL=:E;");
+        countQuery.bindValue(":E", shopperEmail);
+        QVariant count;
+
+        if (countQuery.exec() && countQuery.next())
+        {
+            count = countQuery.value(0);
+
+            if (count.convert(qMetaTypeId<int>()) == 1)
+            {
+                QSqlQuery selectQuery;
+                selectQuery.prepare("SELECT TOTAL_SPENT FROM SHOPPERS WHERE EMAIL=:E");
+                selectQuery.bindValue(":E", shopperEmail);
+
+                if (selectQuery.exec())
+                {
+                    QSqlQuery updateQuery;
+                    updateQuery.prepare("UPDATE SHOPPERS SET TOTAL_SPENT=TOTAL_SPENT+:A WHERE EMAIL=:E");
+                    updateQuery.bindValue(":E", shopperEmail);
+                    updateQuery.bindValue(":A", amount);
+
+                    if (updateQuery.exec())
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        outputToLogFile("dbManager::adjustBookQuantityInInventory() Execution Error: " + (updateQuery.lastError().text().toStdString()));
+                    }
+
+                }
+                else
+                {
+                   outputToLogFile("dbManager::adjustBookQuantityInInventory() Execution Error: " + (selectQuery.lastError().text().toStdString()));
+                }
+            }
+            else
+            {
+               outputToLogFile("dbManager::increaseShopperTotalSpent() DB countQuery Error: db did not return exactly 1 result (0 or 2+ results returned)");
+            }
+        }
+        else
+        {
+           outputToLogFile("dbManager::increaseShopperTotalSpent() DB countQuery Error: " + (countQuery.lastError().text().toStdString()));
+        }
+    }
+
+    outputToLogFile("dbManager::increaseShopperTotalSpent() Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::increaseShopperTotalSpent() Database: returning result [" + to_string(result) + "]");
+    return result;
+}

@@ -601,17 +601,17 @@
                   <item>
                    <widget class="QLabel" name="labelCurrentShopper">
                     <property name="text">
-                     <string>Current Shopper By ID: </string>
+                     <string>Current Shopper By Email: </string>
                     </property>
                    </widget>
                   </item>
                   <item>
                    <widget class="QLineEdit" name="lineEditCurrentShopper">
                     <property name="enabled">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                     <property name="text">
-                     <string>(Not Yet Implemented)</string>
+                     <string/>
                     </property>
                    </widget>
                   </item>
@@ -620,7 +620,7 @@
                 <item>
                  <widget class="QPushButton" name="pushButtonPurchaseShoppingList">
                   <property name="text">
-                   <string>Purchase Shopping List (Not Yet Implemented)</string>
+                   <string>Purchase Shopping List</string>
                   </property>
                  </widget>
                 </item>
@@ -708,7 +708,7 @@
                     <item>
                      <widget class="QPushButton" name="pushButtonAddNewUser">
                       <property name="text">
-                       <string>Add New User (Not Yet Implemented)</string>
+                       <string>Add New User</string>
                       </property>
                      </widget>
                     </item>
@@ -784,7 +784,7 @@
                 <item>
                  <widget class="QPushButton" name="pushButtonChangeUserPass">
                   <property name="text">
-                   <string>Change User's Password (Not Yet Implemented)</string>
+                   <string>Change User's Password</string>
                   </property>
                  </widget>
                 </item>
