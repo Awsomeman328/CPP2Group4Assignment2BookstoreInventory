@@ -2030,3 +2030,16 @@
 [2023-04-19 13:19:45] MainWindow::closeEvent(*event) Now attempting to Close Program...
 [2023-04-19 13:19:47] MainWindow::closeEvent(..) Now Closing Program via Close Event.
 
+[2023-04-19 13:36:04] main() Starting Program, ...
+[2023-04-19 13:36:04] loginDialog() ... I have been made!
+[2023-04-19 13:36:04] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 13:36:04] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 13:36:04] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 13:36:04] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 13:36:14] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 13:36:14] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 13:36:14] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 13:36:14] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 13:36:14] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 13:36:39] MainWindow::addNewUser() New user added successfully!
+[2023-04-19 13:36:39] MainWindow::addNewUser() New user added successfully!

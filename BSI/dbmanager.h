@@ -21,6 +21,7 @@ public:
     bool removeBookRecordFromDatabase(string bookISBN);
     bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
     bool updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue);
+    bool addNewUser(QString username, QString password, bool isAdmin);
 
 
 private:

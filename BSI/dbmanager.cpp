@@ -632,3 +632,79 @@ bool dbManager::updateBookRecordColumnValue(string bookISBN, string categoryToUp
     outputToLogFile("dbManager::updateBookRecordColumnValue() Database: returning result [" + to_string(result) + "]");
     return result;
 }
+
+bool dbManager::addNewUser(QString username, QString password, bool isAdmin)
+{
+    bool result = false;
+    /*m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::addNewUser() Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::addNewUser() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::addNewUser() Database: attempting to add a new user record into the database");
+
+
+        QSqlQuery countQuery;
+        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
+        countQuery.bindValue(":I", QString::fromStdString(bookISBN));
+        QVariant count;
+
+        if (countQuery.exec() && countQuery.next())
+        {
+            count = countQuery.value(0);
+
+            if (count.convert(qMetaTypeId<int>()) == 1)
+            {
+
+                QSqlQuery selectQuery;
+                selectQuery.prepare("SELECT :C FROM BOOKS WHERE ISBN=':I';");
+                selectQuery.bindValue(":I", QString::fromStdString(bookISBN));
+                selectQuery.bindValue(":C", QString::fromStdString(categoryToUpdate));
+
+                if (selectQuery.exec())
+                {
+                    QSqlQuery updateQuery;
+                    updateQuery.prepare("UPDATE BOOKS SET " + QString::fromStdString(categoryToUpdate) + " = :N WHERE ISBN= :I;");
+                    updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
+                    updateQuery.bindValue(":N", QString::fromStdString(newValue));
+
+                    if (updateQuery.exec())
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        outputToLogFile("dbManager::addNewUser() Execution Error: " + (updateQuery.lastError().text().toStdString()));
+                    }
+
+                }
+                else
+                {
+                   outputToLogFile("dbManager::addNewUser() Execution Error: " + (selectQuery.lastError().text().toStdString()));
+                }
+
+            }
+            else
+            {
+               outputToLogFile("dbManager::addNewUser() DB countQuery Error: db did not return exactly 1 result (0 or 2+ results returned)");
+            }
+        }
+        else
+        {
+           outputToLogFile("dbManager::addNewUser() DB countQuery Error: " + (countQuery.lastError().text().toStdString()));
+        }
+
+    }
+
+    outputToLogFile("dbManager::addNewUser() Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::addNewUser() Database: returning result [" + to_string(result) + "]");*/
+    return result;
+}
