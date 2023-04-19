@@ -83,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Add the status bar to the main window
     setStatusBar(statusBar());
-    login.show();
+    login.exec();
 }
 
 MainWindow::~MainWindow()

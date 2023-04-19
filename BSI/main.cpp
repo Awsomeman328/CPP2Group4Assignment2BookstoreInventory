@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
         MainWindow w;
         QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
         w.move(primaryGeometry.center() - w.rect().center());
-        QTimer::singleShot(3872, &w, SLOT(show()));
+        QTimer::singleShot(15, &w, SLOT(show()));
         w.setEnabled(false);
         return a.exec();
 }

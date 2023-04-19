@@ -1,24 +1,24 @@
 #include "logindialog.h"
 #include "ui_logindialog.h"
 
-loginDialog::loginDialog(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::loginDialog)
+loginDialog::loginDialog() :
+    QDialog()
 {
-    ui->setupUi(this);
+    //ui->setupUi(this);
 
-    MainWindow w;
-    QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
-    w.move(primaryGeometry.center() - w.rect().center());
+    outputToLogFile("loginDialog() ... I have been made!");
+
 }
 
 loginDialog::~loginDialog()
 {
-    delete ui;
+    //delete ui;
+    outputToLogFile("loginDialog() ... I have been deleted!");
 }
 
 void loginDialog::on_loginbutton_clicked()
 {
+    /*
     QString username = ui->username->text();
     QString password = QString::fromStdString( hash_password( ui->password->text().toStdString() ) );
 
@@ -35,5 +35,6 @@ void loginDialog::on_loginbutton_clicked()
     {
         QMessageBox::information(this, "Login", "Login failed");
     }
+    */
 }
 
