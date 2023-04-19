@@ -32,14 +32,11 @@ int main(int argc, char *argv[])
 
         QTimer::singleShot(3872, &splash, SLOT(close())); // This time amount is EXTREMELY arbitrary.
 
-        loginDialog login;
-        login.setWindowFlags(Qt::WindowStaysOnTopHint);
-        QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
-        login.move(primaryGeometry.center() - login.rect().center());
-        QTimer::singleShot(3872, &login, SLOT(show()));
+
+//        QTimer::singleShot(3872, &login, SLOT(show()));
 
         MainWindow w;
-        primaryGeometry = QGuiApplication::primaryScreen()->geometry();
+        QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
         w.move(primaryGeometry.center() - w.rect().center());
         QTimer::singleShot(15, &w, SLOT(show()));
         w.setEnabled(false);

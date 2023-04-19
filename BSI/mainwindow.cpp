@@ -7,7 +7,10 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
+    loginDialog login;
+    login.setWindowFlags(Qt::WindowStaysOnTopHint);
+    QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
+    login.move(primaryGeometry.center() - login.rect().center());
 
     // Create the menu bar and menus
     QMenuBar *menuBar = new QMenuBar(this);
