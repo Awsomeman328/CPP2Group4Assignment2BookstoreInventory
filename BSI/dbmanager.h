@@ -22,6 +22,7 @@ public:
     bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
     bool updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue);
     bool addNewUser(QString username, QString password, bool isAdmin);
+    bool changeUserPassword(QString username, QString password);
 
 
 private:

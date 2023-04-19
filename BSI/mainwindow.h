@@ -90,6 +90,6 @@ public slots:
 //    void enableExit();
     void enableAdmin();
 private slots:
-    void on_pushButtonAddNewUser_clicked();
+    //void on_pushButtonAddNewUser_clicked();
 };
 #endif // MAINWINDOW_H

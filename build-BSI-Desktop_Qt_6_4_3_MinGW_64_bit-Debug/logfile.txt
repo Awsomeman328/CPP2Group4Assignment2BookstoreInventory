@@ -2043,3 +2043,256 @@
 [2023-04-19 13:36:14] dbManager::checkLogInInfo() Database: returning login results: 
 [2023-04-19 13:36:39] MainWindow::addNewUser() New user added successfully!
 [2023-04-19 13:36:39] MainWindow::addNewUser() New user added successfully!
+[2023-04-19 14:04:07] main() Starting Program, ...
+[2023-04-19 14:04:07] loginDialog() ... I have been made!
+[2023-04-19 14:04:07] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:04:07] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:04:07] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:04:07] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:04:14] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:04:14] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:04:14] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:04:14] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:04:14] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: attempting to add a new user record to the database
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: closing connection
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: returning result [1]
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: attempting to add a new user record to the database
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: closing connection
+[2023-04-19 14:04:23] dbManager::addNewUser() Database: returning result [1]
+[2023-04-19 14:05:22] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:05:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:05:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:06:26] main() Starting Program, ...
+[2023-04-19 14:06:26] loginDialog() ... I have been made!
+[2023-04-19 14:06:26] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:06:26] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:06:26] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:06:26] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:06:34] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:06:34] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:06:34] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:06:34] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:06:34] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:06:44] dbManager::addNewUser() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:06:44] dbManager::addNewUser() Database: attempting to add a new user record to the database
+[2023-04-19 14:06:44] dbManager::addNewUser() Database: closing connection
+[2023-04-19 14:06:44] dbManager::addNewUser() Database: returning result [1]
+[2023-04-19 14:07:03] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:07:04] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:07:04] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:17:20] main() Starting Program, ...
+[2023-04-19 14:17:20] loginDialog() ... I have been made!
+[2023-04-19 14:17:20] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:17:20] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:17:20] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:17:20] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:17:30] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:17:30] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:17:30] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:17:30] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:17:30] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:17:33] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:17:34] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:17:34] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:17:35] main() Starting Program, ...
+[2023-04-19 14:17:35] loginDialog() ... I have been made!
+[2023-04-19 14:17:35] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:17:35] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:17:35] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:17:35] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:17:42] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:17:42] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:17:42] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:17:42] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:17:42] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:17:52] dbManager::changeUserPassword() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:17:52] dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database
+[2023-04-19 14:17:52] dbManager::changeUserPassword() Database: closing connection
+[2023-04-19 14:17:52] dbManager::changeUserPassword() Database: returning result [1]
+[2023-04-19 14:18:06] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:18:08] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:18:08] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:18:09] main() Starting Program, ...
+[2023-04-19 14:18:09] loginDialog() ... I have been made!
+[2023-04-19 14:18:09] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:18:09] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:18:09] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:18:09] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:18:15] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:18:15] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:18:16] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:18:16] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:18:16] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:18:18] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:18:19] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:18:19] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:18:23] main() Starting Program, ...
+[2023-04-19 14:18:23] loginDialog() ... I have been made!
+[2023-04-19 14:18:23] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:18:23] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:18:23] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:18:23] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:18:28] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:18:28] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:18:28] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:18:28] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:18:28] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:18:38] dbManager::changeUserPassword() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:18:38] dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database
+[2023-04-19 14:18:38] dbManager::changeUserPassword() Database: closing connection
+[2023-04-19 14:18:38] dbManager::changeUserPassword() Database: returning result [1]
+[2023-04-19 14:20:22] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:20:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:20:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:21:02] main() Starting Program, ...
+[2023-04-19 14:21:02] loginDialog() ... I have been made!
+[2023-04-19 14:21:02] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:21:02] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:21:02] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:21:02] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:21:11] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:21:11] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:21:11] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:21:11] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:21:11] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:21:23] dbManager::changeUserPassword() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:21:23] dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database
+[2023-04-19 14:21:23] dbManager::changeUserPassword() UpdateQuery has been executed.
+[2023-04-19 14:21:23] dbManager::changeUserPassword() Database: closing connection
+[2023-04-19 14:21:23] dbManager::changeUserPassword() Database: returning result [1]
+[2023-04-19 14:22:22] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:22:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:22:23] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:23:02] main() Starting Program, ...
+[2023-04-19 14:23:02] loginDialog() ... I have been made!
+[2023-04-19 14:23:02] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:23:02] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:23:02] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:23:02] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:23:09] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:23:09] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:23:09] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:23:09] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:23:09] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:23:17] dbManager::changeUserPassword() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:23:17] dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database
+[2023-04-19 14:23:17] dbManager::changeUserPassword() UpdateQuery has been executed.
+[2023-04-19 14:23:17] dbManager::changeUserPassword() Database: closing connection
+[2023-04-19 14:23:17] dbManager::changeUserPassword() Database: returning result [1]
+[2023-04-19 14:23:24] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:23:25] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:23:25] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:23:27] main() Starting Program, ...
+[2023-04-19 14:23:27] loginDialog() ... I have been made!
+[2023-04-19 14:23:27] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:23:27] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:23:27] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:23:27] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:23:32] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:23:32] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:23:32] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:23:32] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:23:32] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:23:35] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:23:36] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:23:36] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:23:55] main() Starting Program, ...
+[2023-04-19 14:23:57] loginDialog() ... I have been made!
+[2023-04-19 14:23:57] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:23:57] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:23:57] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:23:57] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:24:16] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:24:16] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:24:16] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:24:16] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:24:16] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:24:26] dbManager::changeUserPassword() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:24:26] dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database
+[2023-04-19 14:26:35] dbManager::changeUserPassword() UpdateQuery has been executed.
+[2023-04-19 14:26:35] dbManager::changeUserPassword() Database: closing connection
+[2023-04-19 14:26:35] dbManager::changeUserPassword() Database: returning result [1]
+[2023-04-19 14:26:38] dbManager::changeUserPassword() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:26:38] dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database
+[2023-04-19 14:26:40] dbManager::changeUserPassword() UpdateQuery has been executed.
+[2023-04-19 14:26:40] dbManager::changeUserPassword() Database: closing connection
+[2023-04-19 14:26:40] dbManager::changeUserPassword() Database: returning result [1]
+[2023-04-19 14:27:51] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:27:52] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:27:52] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:28:31] main() Starting Program, ...
+[2023-04-19 14:28:31] loginDialog() ... I have been made!
+[2023-04-19 14:28:31] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:28:31] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:28:31] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:28:31] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:28:36] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:28:37] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:28:37] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:28:38] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:28:39] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:28:39] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:28:48] main() Starting Program, ...
+[2023-04-19 14:28:49] loginDialog() ... I have been made!
+[2023-04-19 14:28:49] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:28:49] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:28:49] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:28:49] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:29:00] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:29:00] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:29:00] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:29:00] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:29:00] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:29:14] dbManager::changeUserPassword() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:29:14] dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database
+[2023-04-19 14:29:26] dbManager::changeUserPassword() UpdateQuery has been executed.
+[2023-04-19 14:29:28] dbManager::changeUserPassword() Database: closing connection
+[2023-04-19 14:29:28] dbManager::changeUserPassword() Database: returning result [1]
+[2023-04-19 14:29:45] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:29:46] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:29:46] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:29:55] main() Starting Program, ...
+[2023-04-19 14:29:56] loginDialog() ... I have been made!
+[2023-04-19 14:29:56] dbManager::getTotalNumBooks() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:29:56] dbManager::getTotalNumBooks() Database: starting book counting process
+[2023-04-19 14:29:56] dbManager::getTotalNumBooks() Database: closing connection
+[2023-04-19 14:29:56] dbManager::getTotalNumBooks() Database: returning search results
+[2023-04-19 14:30:01] dbManager::checkLogInInfo() Database: connection ok with database named "bookstoreInventory.db"
+[2023-04-19 14:30:01] dbManager::checkLogInInfo() Database: starting login process
+[2023-04-19 14:30:01] dbManager::checkLogInInfo() Database: found at least 1 result
+[2023-04-19 14:30:01] dbManager::checkLogInInfo() Database: closing connection
+[2023-04-19 14:30:01] dbManager::checkLogInInfo() Database: returning login results: 
+[2023-04-19 14:30:03] MainWindow::closeEvent(*event) Now attempting to Close Program...
+[2023-04-19 14:30:05] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
+[2023-04-19 14:30:05] MainWindow::closeEvent(..) Now Closing Program via Close Event.
+
