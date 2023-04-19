@@ -14,6 +14,7 @@
 #include "utilities.h"
 #include "hardwareinfo.h"
 #include "notesdialog.h"
+#include "logindialog.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -79,5 +80,8 @@ public slots:
     void changeUsersPassword();
     void checkValidBookToUpdate();
     void updateBook();
+    void enableWindow();
+//    void enableExit();
+    void enableAdmin();
 };
 #endif // MAINWINDOW_H

@@ -257,7 +257,7 @@ QVector<bool> dbManager::checkLogInInfo(const QString username, const QString pa
                 break;
             }
 
-            //logInResults.push_back(true);
+            logInResults.push_back(true);
 
             if (query.value(idAdmin) == 1) logInResults.push_back(true);
             else logInResults.push_back(false);

@@ -7,6 +7,11 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    loginDialog *login = new loginDialog;
+    login->setWindowFlags(Qt::WindowStaysOnTopHint);
+    QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
+    login->move(primaryGeometry.center() - login->rect().center());
+
     // Create the menu bar and menus
     QMenuBar *menuBar = new QMenuBar(this);
     QMenu *fileMenu = new QMenu("File");
@@ -59,7 +64,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(displayNotesAction, &QAction::triggered, this, &MainWindow::showNotesDialog);
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
     connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
-
+    connect(login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
+    connect(login, SIGNAL(userIsAdmin()), this, SLOT(enableAdmin()));
 
     // Create a label to display the number of books
     QLabel *statusLabel = new QLabel(this);
@@ -78,6 +84,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Add the status bar to the main window
     setStatusBar(statusBar());
+
+    this->setEnabled(false);
+    // Start Login Process
+    int result = login->exec();
+    if (result == QDialog::Accepted) {
+        // Authentication successful - proceed to main window!
+        this->setEnabled(true);
+    } else {
+        // User cancelled login or authentication failed
+        close();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -626,6 +643,10 @@ void MainWindow::checkValidBookToUpdate()
     dbManager db("bookstoreInventory.db");
     const int searchCategory = ui->comboBoxUpdateBook->currentIndex();
     QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBUpdateBook->text(), searchCategory);
+void MainWindow::enableWindow()
+{
+    this->setEnabled(true);
+}
 
     //outputToLogFile("dbManager.searchDB");
 
@@ -841,3 +862,8 @@ void MainWindow::updateBook()
     ui->textEditLarge->append("\n");
 }
 
+
+void MainWindow::enableAdmin()
+{
+    ui->tabAdminMenu->setEnabled(true);
+}

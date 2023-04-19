@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "utilities.h"
+#include "loginscreen.h"
+#include "logindialog.h"
 
 #include <QApplication>
 #include <QSplashScreen>
@@ -30,9 +32,12 @@ int main(int argc, char *argv[])
 
         QTimer::singleShot(3872, &splash, SLOT(close())); // This time amount is EXTREMELY arbitrary.
 
+
+//        QTimer::singleShot(3872, &login, SLOT(show()));
+
         MainWindow w;
         QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
         w.move(primaryGeometry.center() - w.rect().center());
-        QTimer::singleShot(3872, &w, SLOT(show())); // This time is to match up with the time above.
+        QTimer::singleShot(15, &w, SLOT(show()));
         return a.exec();
 }

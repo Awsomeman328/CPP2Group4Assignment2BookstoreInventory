@@ -39,6 +39,9 @@ set(PROJECT_SOURCES
         notesdialog.h
         notesdialog.cpp
         NotesDialog.ui
+        logindialog.h
+        logindialog.cpp
+        logindialog.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
