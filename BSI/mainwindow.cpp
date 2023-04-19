@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    loginDialog* login;
+    loginDialog* login = new loginDialog;
 
 
     // Create the menu bar and menus
