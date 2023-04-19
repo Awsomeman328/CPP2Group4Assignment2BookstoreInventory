@@ -23,6 +23,10 @@ private slots:
     void on_loginbutton_clicked();
 
 
+signals:
+    void loginClicked();
+    void exitClicked();
+
 private:
     Ui::loginDialog *ui;
 //    MainWindow mainW;

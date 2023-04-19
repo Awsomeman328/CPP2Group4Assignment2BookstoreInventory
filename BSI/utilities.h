@@ -9,6 +9,8 @@
 #include <iostream>
 #include <string>
 #include "book.h"
+#include <QDialog>
+#include <QMainWindow>
 using namespace std;
 
 void clearConsole();
