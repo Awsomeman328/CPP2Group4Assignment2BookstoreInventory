@@ -27,7 +27,15 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 namespace {
 struct qt_meta_stringdata_MainWindow_t {
+<<<<<<< HEAD
     uint offsetsAndSizes[48];
+=======
+<<<<<<< Updated upstream
+    uint offsetsAndSizes[44];
+=======
+    uint offsetsAndSizes[46];
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
     char stringdata0[11];
     char stringdata1[9];
     char stringdata2[1];
@@ -50,8 +58,15 @@ struct qt_meta_stringdata_MainWindow_t {
     char stringdata19[20];
     char stringdata20[23];
     char stringdata21[11];
+<<<<<<< HEAD
     char stringdata22[13];
     char stringdata23[12];
+=======
+<<<<<<< Updated upstream
+=======
+    char stringdata22[32];
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
 };
 #define QT_MOC_LITERAL(ofs, len) \
     uint(sizeof(qt_meta_stringdata_MainWindow_t::offsetsAndSizes) + ofs), len 
@@ -78,9 +93,18 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
         QT_MOC_LITERAL(235, 10),  // "addNewUser"
         QT_MOC_LITERAL(246, 19),  // "changeUsersPassword"
         QT_MOC_LITERAL(266, 22),  // "checkValidBookToUpdate"
+<<<<<<< HEAD
         QT_MOC_LITERAL(289, 10),  // "updateBook"
         QT_MOC_LITERAL(300, 12),  // "enableWindow"
         QT_MOC_LITERAL(313, 11)   // "enableAdmin"
+=======
+<<<<<<< Updated upstream
+        QT_MOC_LITERAL(289, 10)   // "updateBook"
+=======
+        QT_MOC_LITERAL(289, 10),  // "updateBook"
+        QT_MOC_LITERAL(300, 31)   // "on_pushButtonAddNewUser_clicked"
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
     },
     "MainWindow",
     "createDB",
@@ -103,9 +127,18 @@ Q_CONSTINIT static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_Main
     "addNewUser",
     "changeUsersPassword",
     "checkValidBookToUpdate",
+<<<<<<< HEAD
     "updateBook",
     "enableWindow",
     "enableAdmin"
+=======
+<<<<<<< Updated upstream
+    "updateBook"
+=======
+    "updateBook",
+    "on_pushButtonAddNewUser_clicked"
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
 };
 #undef QT_MOC_LITERAL
 } // unnamed namespace
@@ -116,7 +149,15 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       10,       // revision
        0,       // classname
        0,    0, // classinfo
+<<<<<<< HEAD
       21,   14, // methods
+=======
+<<<<<<< Updated upstream
+      19,   14, // methods
+=======
+      20,   14, // methods
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -124,6 +165,7 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
+<<<<<<< HEAD
        1,    0,  140,    2, 0x0a,    1 /* Public */,
        3,    0,  141,    2, 0x0a,    2 /* Public */,
        4,    0,  142,    2, 0x0a,    3 /* Public */,
@@ -145,6 +187,50 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
       21,    0,  160,    2, 0x0a,   20 /* Public */,
       22,    0,  161,    2, 0x0a,   21 /* Public */,
       23,    0,  162,    2, 0x0a,   22 /* Public */,
+=======
+<<<<<<< Updated upstream
+       1,    0,  128,    2, 0x0a,    1 /* Public */,
+       3,    0,  129,    2, 0x0a,    2 /* Public */,
+       4,    0,  130,    2, 0x0a,    3 /* Public */,
+       5,    0,  131,    2, 0x0a,    4 /* Public */,
+       6,    0,  132,    2, 0x0a,    5 /* Public */,
+       7,    0,  133,    2, 0x0a,    6 /* Public */,
+       8,    0,  134,    2, 0x0a,    7 /* Public */,
+       9,    0,  135,    2, 0x0a,    8 /* Public */,
+      10,    0,  136,    2, 0x0a,    9 /* Public */,
+      11,    1,  137,    2, 0x0a,   10 /* Public */,
+      13,    0,  140,    2, 0x0a,   12 /* Public */,
+      14,    0,  141,    2, 0x0a,   13 /* Public */,
+      15,    0,  142,    2, 0x0a,   14 /* Public */,
+      16,    0,  143,    2, 0x0a,   15 /* Public */,
+      17,    0,  144,    2, 0x0a,   16 /* Public */,
+      18,    0,  145,    2, 0x0a,   17 /* Public */,
+      19,    0,  146,    2, 0x0a,   18 /* Public */,
+      20,    0,  147,    2, 0x0a,   19 /* Public */,
+      21,    0,  148,    2, 0x0a,   20 /* Public */,
+=======
+       1,    0,  134,    2, 0x0a,    1 /* Public */,
+       3,    0,  135,    2, 0x0a,    2 /* Public */,
+       4,    0,  136,    2, 0x0a,    3 /* Public */,
+       5,    0,  137,    2, 0x0a,    4 /* Public */,
+       6,    0,  138,    2, 0x0a,    5 /* Public */,
+       7,    0,  139,    2, 0x0a,    6 /* Public */,
+       8,    0,  140,    2, 0x0a,    7 /* Public */,
+       9,    0,  141,    2, 0x0a,    8 /* Public */,
+      10,    0,  142,    2, 0x0a,    9 /* Public */,
+      11,    1,  143,    2, 0x0a,   10 /* Public */,
+      13,    0,  146,    2, 0x0a,   12 /* Public */,
+      14,    0,  147,    2, 0x0a,   13 /* Public */,
+      15,    0,  148,    2, 0x0a,   14 /* Public */,
+      16,    0,  149,    2, 0x0a,   15 /* Public */,
+      17,    0,  150,    2, 0x0a,   16 /* Public */,
+      18,    0,  151,    2, 0x0a,   17 /* Public */,
+      19,    0,  152,    2, 0x0a,   18 /* Public */,
+      20,    0,  153,    2, 0x0a,   19 /* Public */,
+      21,    0,  154,    2, 0x0a,   20 /* Public */,
+      22,    0,  155,    2, 0x08,   21 /* Private */,
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
 
  // slots: parameters
     QMetaType::Void,
@@ -166,8 +252,15 @@ Q_CONSTINIT static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+<<<<<<< HEAD
     QMetaType::Void,
     QMetaType::Void,
+=======
+<<<<<<< Updated upstream
+=======
+    QMetaType::Void,
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
 
        0        // eod
 };
@@ -219,10 +312,18 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'checkValidBookToUpdate'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'updateBook'
+<<<<<<< HEAD
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'enableWindow'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'enableAdmin'
+=======
+<<<<<<< Updated upstream
+=======
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_pushButtonAddNewUser_clicked'
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -253,8 +354,15 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 16: _t->changeUsersPassword(); break;
         case 17: _t->checkValidBookToUpdate(); break;
         case 18: _t->updateBook(); break;
+<<<<<<< HEAD
         case 19: _t->enableWindow(); break;
         case 20: _t->enableAdmin(); break;
+=======
+<<<<<<< Updated upstream
+=======
+        case 19: _t->on_pushButtonAddNewUser_clicked(); break;
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
         default: ;
         }
     }
@@ -279,13 +387,31 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
+<<<<<<< HEAD
         if (_id < 21)
+=======
+<<<<<<< Updated upstream
+        if (_id < 19)
+>>>>>>> BackEnd
             qt_static_metacall(this, _c, _id, _a);
         _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         if (_id < 21)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+<<<<<<< HEAD
         _id -= 21;
+=======
+        _id -= 19;
+=======
+        if (_id < 20)
+            qt_static_metacall(this, _c, _id, _a);
+        _id -= 20;
+    } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
+        if (_id < 20)
+            *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
+        _id -= 20;
+>>>>>>> Stashed changes
+>>>>>>> BackEnd
     }
     return _id;
 }

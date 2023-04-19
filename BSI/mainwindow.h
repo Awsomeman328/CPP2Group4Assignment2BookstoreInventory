@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <set>
 #include <deque>
+#include <QSqlQuery>
+#include <QPlainTextEdit>
 #include "dbmanager.h"
 #include "hashpasswordencryptor.h"
 #include "backend.h"
@@ -14,7 +16,10 @@
 #include "utilities.h"
 #include "hardwareinfo.h"
 #include "notesdialog.h"
+<<<<<<< Updated upstream
 #include "logindialog.h"
+=======
+>>>>>>> Stashed changes
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +32,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+    void searchLowStockBooks();
 
 private:
     Ui::MainWindow *ui;
@@ -44,6 +51,8 @@ private:
     QAction *pasteAction;
     QAction *notesAction;
     QAction *aboutAction;
+    QPlainTextEdit *lowStockTextEdit;
+    QPlainTextEdit *lowStockBooks;
 
     void showNotesDialog();
     void showAboutDialog();
@@ -80,8 +89,13 @@ public slots:
     void changeUsersPassword();
     void checkValidBookToUpdate();
     void updateBook();
+<<<<<<< Updated upstream
     void enableWindow();
 //    void enableExit();
     void enableAdmin();
+=======
+private slots:
+    void on_pushButtonAddNewUser_clicked();
+>>>>>>> Stashed changes
 };
 #endif // MAINWINDOW_H
