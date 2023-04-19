@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1280</width>
-    <height>920</height>
+    <height>864</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -29,7 +29,7 @@
       <x>0</x>
       <y>0</y>
       <width>1271</width>
-      <height>871</height>
+      <height>821</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -46,77 +46,6 @@
       <number>10</number>
      </property>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
-       <item>
-        <layout class="QVBoxLayout" name="verticalLayout_9">
-         <item>
-          <layout class="QHBoxLayout" name="horizontalLayout_10">
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_10">
-             <item>
-              <widget class="QLabel" name="labelUsername">
-               <property name="text">
-                <string>Username</string>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QLabel" name="labelPassword">
-               <property name="text">
-                <string>Password</string>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_11">
-             <item>
-              <widget class="QLineEdit" name="lineEditUsername"/>
-             </item>
-             <item>
-              <widget class="QLineEdit" name="lineEditPassword">
-               <property name="placeholderText">
-                <string/>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QPushButton" name="pushButtonLogIn">
-           <property name="text">
-            <string>Log In</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <widget class="QPushButton" name="pushButtonExit">
-         <property name="sizePolicy">
-          <sizepolicy hsizetype="Minimum" vsizetype="Ignored">
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
-         <property name="text">
-          <string>Exit Program</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <widget class="Line" name="line_23">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout_19">
        <item>
         <widget class="QTabWidget" name="tabWidget">
@@ -131,7 +60,7 @@
          </property>
          <property name="maximumSize">
           <size>
-           <width>630</width>
+           <width>660</width>
            <height>16777215</height>
           </size>
          </property>
@@ -160,7 +89,7 @@
              <x>10</x>
              <y>10</y>
              <width>635</width>
-             <height>735</height>
+             <height>741</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -714,8 +643,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>603</width>
-             <height>735</height>
+             <width>631</width>
+             <height>741</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -742,16 +671,23 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_17">
                     <item>
-                     <widget class="QLabel" name="labelUsername_2">
+                     <widget class="QLabel" name="labelUsernameNewUser">
                       <property name="text">
                        <string>Username</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="labelPassword_2">
+                     <widget class="QLabel" name="labelPasswordNewUser">
                       <property name="text">
                        <string>Password</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBoxIsAdmin">
+                      <property name="text">
+                       <string>Is An Admin?</string>
                       </property>
                      </widget>
                     </item>
@@ -769,16 +705,16 @@
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonAddNewUser">
+                      <property name="text">
+                       <string>Add New User (Not Yet Implemented)</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </item>
                  </layout>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButtonAddNewUser">
-                  <property name="text">
-                   <string>Add New User (Not Yet Implemented)</string>
-                  </property>
-                 </widget>
                 </item>
                </layout>
               </item>
@@ -814,14 +750,14 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_20">
                     <item>
-                     <widget class="QLabel" name="labelUsername_3">
+                     <widget class="QLabel" name="labelUsernameChangePass">
                       <property name="text">
                        <string>Username</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="labelPassword_3">
+                     <widget class="QLabel" name="labelPasswordChangePass">
                       <property name="text">
                        <string>Password</string>
                       </property>
@@ -1039,7 +975,7 @@
                      </widget>
                     </item>
                     <item>
-                     <widget class="QComboBox" name="comboBoxBookListAddBy_2">
+                     <widget class="QComboBox" name="comboBoxUpdateBook">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
                         <horstretch>0</horstretch>
@@ -1091,10 +1027,10 @@
                   <item>
                    <layout class="QHBoxLayout" name="horizontalLayout_39">
                     <item>
-                     <widget class="QLineEdit" name="lineEditSearchDBAddBookList_2"/>
+                     <widget class="QLineEdit" name="lineEditSearchDBUpdateBook"/>
                     </item>
                     <item>
-                     <widget class="QPushButton" name="btnSearchDBAddBookList_2">
+                     <widget class="QPushButton" name="btnSearchDBUpdateBook">
                       <property name="text">
                        <string>Check Database For Valid Record</string>
                       </property>
@@ -1235,7 +1171,7 @@
          </property>
          <property name="minimumSize">
           <size>
-           <width>600</width>
+           <width>570</width>
            <height>0</height>
           </size>
          </property>
@@ -1252,7 +1188,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlease">
@@ -1323,38 +1259,6 @@
     <hint type="sourcelabel">
      <x>653</x>
      <y>260</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonExit</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>close()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>1259</x>
-     <y>113</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>399</x>
-     <y>299</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>pushButtonLogIn</sender>
-   <signal>clicked()</signal>
-   <receiver>MainWindow</receiver>
-   <slot>logIn()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>357</x>
-     <y>108</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -1491,14 +1395,30 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButtonAddShopperToDB</sender>
+   <sender>btnSearchDBUpdateBook</sender>
    <signal>clicked()</signal>
    <receiver>MainWindow</receiver>
-   <slot>addShopper()</slot>
+   <slot>checkValidBookToUpdate()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>609</x>
-     <y>629</y>
+     <x>529</x>
+     <y>576</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonUpdateBookRecord</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateBook()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>562</x>
+     <y>730</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1520,6 +1440,7 @@
   <slot>displayBookList()</slot>
   <slot>addNewUser()</slot>
   <slot>changeUsersPassword()</slot>
-  <slot>addShopper()</slot>
+  <slot>checkValidBookToUpdate()</slot>
+  <slot>updateBook()</slot>
  </slots>
 </ui>
