@@ -89,6 +89,7 @@ public slots:
     void enableWindow();
 //    void enableExit();
     void enableAdmin();
+    void addShopper();
 private slots:
     //void on_pushButtonAddNewUser_clicked();
 };

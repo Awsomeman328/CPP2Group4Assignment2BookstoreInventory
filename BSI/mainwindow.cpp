@@ -1028,5 +1028,24 @@ void MainWindow::enableWindow()
 
 void MainWindow::enableAdmin()
 {
-    ui->tabAdminMenu->setEnabled(true);
+    toggleAdminFeatures(true);
+}
+
+void MainWindow::addShopper()
+{
+    dbManager db("bookstoreInventory.db");
+    QString firstname = ui->lineEditShopperFirstName->text();
+    QString lastname = ui->lineEditShopperLastName->text();
+    QString email = ui->lineEditShopperEmail->text();
+
+    if (!firstname.isEmpty() && !lastname.isEmpty() && !email.isEmpty())
+    {
+        db.addShopperToDatabase(firstname, lastname, email);
+        ui->textEditLarge->append("Shopper " + firstname + " " + lastname + " added to database.");
+    }
+
+    else
+    {
+        QMessageBox::warning(this, "Shopper", "Must fill out all fields");
+    }
 }
