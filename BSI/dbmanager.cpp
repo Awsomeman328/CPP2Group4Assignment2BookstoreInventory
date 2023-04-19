@@ -678,7 +678,7 @@ bool dbManager::updateBookRecordColumnValue(string bookISBN, string categoryToUp
 bool dbManager::addNewUser(QString username, QString password, bool isAdmin)
 {
     bool result = false;
-    /*m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
     m_db.setDatabaseName("bookstoreInventory.db");
 
     if (!m_db.open())
@@ -689,12 +689,56 @@ bool dbManager::addNewUser(QString username, QString password, bool isAdmin)
     {
         outputToLogFile("dbManager::addNewUser() Database: connection ok with database named \"bookstoreInventory.db\"");
 
-        outputToLogFile("dbManager::addNewUser() Database: attempting to add a new user record into the database");
+        outputToLogFile("dbManager::addNewUser() Database: attempting to add a new user record to the database");
+
+
+        //QString queryString1 = "SELECT COUNT(*) FROM BOOKS;";
+
+
+        QSqlQuery query;
+        query.prepare("INSERT INTO USERS (USERNAME, PASSWORD, IS_ADMIN) VALUES (:U, :P, :A);");
+        query.bindValue(":U", username);
+        query.bindValue(":P", password);
+        query.bindValue(":A", isAdmin);
+
+        if (query.exec())
+        {
+           result = true;
+        }
+        else
+        {
+           outputToLogFile("dbManager::addNewUser() Execution Error: " + (query.lastError().text().toStdString()));
+        }
+
+    }
+
+    outputToLogFile("dbManager::addNewUser() Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::addNewUser() Database: returning result [" + to_string(result) + "]");
+    return result;
+}
+
+bool dbManager::changeUserPassword(QString username, QString password)
+{
+    bool result = false;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::changeUserPassword() Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::changeUserPassword() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::changeUserPassword() Database: attempting to adjust a user record's Password value in the database");
 
 
         QSqlQuery countQuery;
-        countQuery.prepare("SELECT COUNT(*) FROM BOOKS WHERE ISBN=':I';");
-        countQuery.bindValue(":I", QString::fromStdString(bookISBN));
+        countQuery.prepare("SELECT COUNT(*) FROM USERS WHERE USERNAME=':U';");
+        countQuery.bindValue(":U", username);
         QVariant count;
 
         if (countQuery.exec() && countQuery.next())
@@ -705,48 +749,49 @@ bool dbManager::addNewUser(QString username, QString password, bool isAdmin)
             {
 
                 QSqlQuery selectQuery;
-                selectQuery.prepare("SELECT :C FROM BOOKS WHERE ISBN=':I';");
-                selectQuery.bindValue(":I", QString::fromStdString(bookISBN));
-                selectQuery.bindValue(":C", QString::fromStdString(categoryToUpdate));
+                selectQuery.prepare("SELECT PASSWORD FROM USERS WHERE USERNAME=':U';");
+                selectQuery.bindValue(":U", username);
 
                 if (selectQuery.exec())
                 {
                     QSqlQuery updateQuery;
-                    updateQuery.prepare("UPDATE BOOKS SET " + QString::fromStdString(categoryToUpdate) + " = :N WHERE ISBN= :I;");
-                    updateQuery.bindValue(":I", QString::fromStdString(bookISBN));
-                    updateQuery.bindValue(":N", QString::fromStdString(newValue));
+                    updateQuery.prepare("UPDATE USERS SET PASSWORD=:P WHERE USERNAME=:U;");
+                    updateQuery.bindValue(":U", username);
+                    updateQuery.bindValue(":P", password);
 
                     if (updateQuery.exec())
                     {
+                        outputToLogFile("dbManager::changeUserPassword() UpdateQuery has been executed.");
                         result = true;
                     }
                     else
                     {
-                        outputToLogFile("dbManager::addNewUser() Execution Error: " + (updateQuery.lastError().text().toStdString()));
+                        outputToLogFile("dbManager::changeUserPassword() Execution Error: " + (updateQuery.lastError().text().toStdString()));
                     }
 
                 }
                 else
                 {
-                   outputToLogFile("dbManager::addNewUser() Execution Error: " + (selectQuery.lastError().text().toStdString()));
+                   outputToLogFile("dbManager::changeUserPassword() Execution Error: " + (selectQuery.lastError().text().toStdString()));
                 }
 
             }
             else
             {
-               outputToLogFile("dbManager::addNewUser() DB countQuery Error: db did not return exactly 1 result (0 or 2+ results returned)");
+               outputToLogFile("dbManager::changeUserPassword() DB countQuery Error: db did not return exactly 1 result (0 or 2+ results returned)");
             }
         }
         else
         {
-           outputToLogFile("dbManager::addNewUser() DB countQuery Error: " + (countQuery.lastError().text().toStdString()));
+           outputToLogFile("dbManager::changeUserPassword() DB countQuery Error: " + (countQuery.lastError().text().toStdString()));
         }
 
     }
 
-    outputToLogFile("dbManager::addNewUser() Database: closing connection");
+    outputToLogFile("dbManager::changeUserPassword() Database: closing connection");
     m_db.close();
 
-    outputToLogFile("dbManager::addNewUser() Database: returning result [" + to_string(result) + "]");*/
+    outputToLogFile("dbManager::changeUserPassword() Database: returning result [" + to_string(result) + "]");
     return result;
 }
+

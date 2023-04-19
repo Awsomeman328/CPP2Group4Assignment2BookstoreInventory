@@ -1045,7 +1045,7 @@ public:
         QObject::connect(btnSearchDBUpdateBook, SIGNAL(clicked()), MainWindow, SLOT(checkValidBookToUpdate()));
         QObject::connect(pushButtonUpdateBookRecord, SIGNAL(clicked()), MainWindow, SLOT(updateBook()));
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
         comboBoxSearchBy->setCurrentIndex(1);
         comboBoxShoppingListAddBy->setCurrentIndex(0);
         comboBoxBookListAddBy->setCurrentIndex(0);

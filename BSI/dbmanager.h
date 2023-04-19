@@ -23,6 +23,7 @@ public:
     bool addShopperToDatabase(QString firstName, QString lastName, QString email);
     bool updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue);
     bool addNewUser(QString username, QString password, bool isAdmin);
+    bool changeUserPassword(QString username, QString password);
 
 
 private:

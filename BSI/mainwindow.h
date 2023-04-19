@@ -91,6 +91,6 @@ public slots:
     void enableAdmin();
     void addShopper();
 private slots:
-    void on_pushButtonAddNewUser_clicked();
+    //void on_pushButtonAddNewUser_clicked();
 };
 #endif // MAINWINDOW_H

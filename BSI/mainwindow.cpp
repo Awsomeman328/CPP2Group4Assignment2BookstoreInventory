@@ -677,6 +677,17 @@ void MainWindow::changeUsersPassword()
     QString username = ui->lineEditChangeUserUsername->text();
     QString password = QString::fromStdString( hash_password( ui->lineEditChangeUserPassword->text().toStdString() ) );
 
+    dbManager db("bookstoreInventory.db");
+
+    if (db.changeUserPassword(username, password))
+    {
+        ui->textEditLarge->append("User password changed successfully!");
+    }
+    else
+    {
+        ui->textEditLarge->append("Failed to change user password.");
+    }
+
     /* We are not using .CSV files to store our user Info in anymore!
     // Open the users.csv file for reading and writing
     QFile file("users.csv");
@@ -949,10 +960,7 @@ void MainWindow::updateBook()
 
     ui->textEditLarge->append("\n");
 }
-void MainWindow::on_pushButtonAddNewUser_clicked()
-{
-    addNewUser();
-}
+
 
 void MainWindow::searchLowStockBooks()
 {
