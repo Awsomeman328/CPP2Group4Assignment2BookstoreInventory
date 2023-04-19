@@ -16,7 +16,7 @@ class loginDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit loginDialog(QWidget *parent = nullptr);
+    explicit loginDialog();
     ~loginDialog();
 
 private slots:
@@ -28,7 +28,7 @@ signals:
     void exitClicked();
 
 private:
-    Ui::loginDialog *ui;
+    //Ui::loginDialog *ui;
 //    MainWindow mainW;
 };
 
