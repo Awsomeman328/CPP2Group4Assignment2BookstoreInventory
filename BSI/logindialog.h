@@ -25,6 +25,7 @@ private slots:
 signals:
     void loginClicked();
     void exitClicked();
+    void userIsAdmin();
 
 private:
     QLabel *usernameLabel;

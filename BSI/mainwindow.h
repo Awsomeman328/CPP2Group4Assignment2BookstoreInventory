@@ -80,5 +80,6 @@ public slots:
     void changeUsersPassword();
     void enableWindow();
 //    void enableExit();
+    void enableAdmin();
 };
 #endif // MAINWINDOW_H

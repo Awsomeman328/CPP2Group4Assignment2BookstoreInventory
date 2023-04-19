@@ -48,7 +48,12 @@ void loginDialog::login()
         {
 
 //        QMessageBox::information(this, "Login", "Successful login!");
-        emit loginClicked();
+            emit loginClicked();
+            if (loginresults.size() > 1)
+            {
+                if (loginresults[1])
+                    emit userIsAdmin();
+            }
 //        loginDialog::close();
 
             accept(); // Close the dialog and allow access to the main application

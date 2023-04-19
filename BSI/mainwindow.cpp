@@ -65,6 +65,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
     connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
     connect(login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
+    connect(login, SIGNAL(userIsAdmin()), this, SLOT(enableAdmin()));
 
     // Create a label to display the number of books
     QLabel *statusLabel = new QLabel(this);
@@ -633,4 +634,9 @@ void MainWindow::changeUsersPassword()
 void MainWindow::enableWindow()
 {
     this->setEnabled(true);
+}
+
+void MainWindow::enableAdmin()
+{
+    ui->tabAdminMenu->setEnabled(true);
 }
