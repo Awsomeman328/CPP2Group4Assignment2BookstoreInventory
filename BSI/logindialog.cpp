@@ -37,19 +37,22 @@ void loginDialog::login()
 {
 
     QString username = usernameLineEdit->text();
-    QString password = passwordLineEdit->text();
+    QString password = QString::fromStdString( hash_password( passwordLineEdit->text().toStdString() ) );
 
     // Authenticate username and password against system
     QVector<bool> loginresults = attemptLogin(username, password);
 
-    if(loginresults[0])
+    if (loginresults.size() != 0)
     {
-        /*
-        QMessageBox::information(this, "Login", "Successful login!");
+        if(loginresults[0])
+        {
+
+//        QMessageBox::information(this, "Login", "Successful login!");
         emit loginClicked();
-        loginDialog::close();
-        */
-        accept(); // Close the dialog and allow access to the main application
+//        loginDialog::close();
+
+            accept(); // Close the dialog and allow access to the main application
+        }
     }
 
     else
