@@ -554,3 +554,45 @@ bool dbManager::adjustBookQuantityInInventory(string bookISBN, int adjustAmount)
     outputToLogFile("dbManager::adjustBookQuantityInInventory() Database: returning result [" + to_string(result) + "]");
     return result;
 }
+
+bool dbManager::addShopperToDatabase(QString firstName, QString lastName, QString email)
+{
+    bool result = false;
+    m_db = QSqlDatabase::addDatabase("QSQLITE");
+    m_db.setDatabaseName("bookstoreInventory.db");
+
+    if (!m_db.open())
+    {
+       outputToLogFile("dbManager::addShopperToDatabase() Error: connection with database named \"bookstoreInventory.db\" failed");
+    }
+    else
+    {
+        outputToLogFile("dbManager::addShopperToDatabase() Database: connection ok with database named \"bookstoreInventory.db\"");
+
+        outputToLogFile("dbManager::addShopperToDatabase() Database: attempting to add a shopper record to the database");
+
+        QSqlQuery query;
+        query.prepare("INSERT INTO SHOPPERS (FIRST_NAME, LAST_NAME, EMAIL, TOTAL_SPENT) VALUES (:F, :L, :E, :T);");
+        query.bindValue(":F", firstName);
+        query.bindValue(":L", lastName);
+        query.bindValue(":E", email);
+        query.bindValue(":T", 0);
+
+
+        if (query.exec())
+        {
+           result = true;
+        }
+        else
+        {
+           outputToLogFile("dbManager::addShopperToDatabase() Execution Error: " + (query.lastError().text().toStdString()));
+        }
+    }
+
+    outputToLogFile("dbManager::addShopperToDatabase() Database: closing connection");
+    m_db.close();
+
+    outputToLogFile("dbManager::addShopperToDatabase() Database: returning result [" + to_string(result) + "]");
+
+    return result;
+}

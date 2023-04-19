@@ -81,5 +81,6 @@ public slots:
     void enableWindow();
 //    void enableExit();
     void enableAdmin();
+    void addShopper();
 };
 #endif // MAINWINDOW_H

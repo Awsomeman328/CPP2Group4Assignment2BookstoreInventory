@@ -148,7 +148,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tabMainMenu">
           <attribute name="title">
@@ -469,7 +469,7 @@
               <item>
                <widget class="QPushButton" name="pushButtonAddShopperToDB">
                 <property name="text">
-                 <string>Add (Not Yet Implemented)</string>
+                 <string>Add</string>
                 </property>
                </widget>
               </item>
@@ -1321,8 +1321,8 @@
    <slot>searchDB()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>383</x>
-     <y>225</y>
+     <x>653</x>
+     <y>260</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -1337,8 +1337,8 @@
    <slot>close()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>749</x>
-     <y>76</y>
+     <x>1259</x>
+     <y>113</y>
     </hint>
     <hint type="destinationlabel">
      <x>399</x>
@@ -1369,8 +1369,8 @@
    <slot>addBookToDB()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>493</x>
-     <y>388</y>
+     <x>655</x>
+     <y>437</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1385,8 +1385,8 @@
    <slot>searchBookToShoppingList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>548</x>
-     <y>584</y>
+     <x>653</x>
+     <y>792</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1401,8 +1401,8 @@
    <slot>searchBookToBookList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>548</x>
-     <y>542</y>
+     <x>621</x>
+     <y>496</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1417,8 +1417,8 @@
    <slot>displayShoppingList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>477</x>
-     <y>643</y>
+     <x>655</x>
+     <y>842</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1433,8 +1433,8 @@
    <slot>purchaseShoppingList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>477</x>
-     <y>717</y>
+     <x>654</x>
+     <y>925</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1449,8 +1449,8 @@
    <slot>displayBookList()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>477</x>
-     <y>615</y>
+     <x>623</x>
+     <y>546</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1465,8 +1465,8 @@
    <slot>addNewUser()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>255</y>
+     <x>509</x>
+     <y>293</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
@@ -1481,12 +1481,28 @@
    <slot>changeUsersPassword()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>400</x>
-     <y>362</y>
+     <x>602</x>
+     <y>411</y>
     </hint>
     <hint type="destinationlabel">
      <x>639</x>
      <y>399</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonAddShopperToDB</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>addShopper()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>609</x>
+     <y>629</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>459</y>
     </hint>
    </hints>
   </connection>
@@ -1504,5 +1520,6 @@
   <slot>displayBookList()</slot>
   <slot>addNewUser()</slot>
   <slot>changeUsersPassword()</slot>
+  <slot>addShopper()</slot>
  </slots>
 </ui>

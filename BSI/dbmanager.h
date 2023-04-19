@@ -20,6 +20,7 @@ public:
     bool removeBookRecordFromDatabase(Book bookToRemove);
     bool removeBookRecordFromDatabase(string bookISBN);
     bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
+    bool addShopperToDatabase(QString firstName, QString lastName, QString email);
 
 
 private:
