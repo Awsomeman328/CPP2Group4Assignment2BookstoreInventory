@@ -708,7 +708,7 @@
                     <item>
                      <widget class="QPushButton" name="pushButtonAddNewUser">
                       <property name="text">
-                       <string>Add New User (Not Yet Implemented)</string>
+                       <string>Add New User</string>
                       </property>
                      </widget>
                     </item>
@@ -784,7 +784,7 @@
                 <item>
                  <widget class="QPushButton" name="pushButtonChangeUserPass">
                   <property name="text">
-                   <string>Change User's Password (Not Yet Implemented)</string>
+                   <string>Change User's Password</string>
                   </property>
                  </widget>
                 </item>
@@ -1188,7 +1188,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlease">
