@@ -1,15 +1,16 @@
 #include "mainwindow.h"
 #include <./ui_mainwindow.h>
-#include "dbmanager.h"
-#include "book.h"
-#include "hardwareinfo.h"
-#include "notesdialog.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    loginDialog *login = new loginDialog;
+    login->setWindowFlags(Qt::WindowStaysOnTopHint);
+    QRect primaryGeometry = QGuiApplication::primaryScreen()->geometry();
+    login->move(primaryGeometry.center() - login->rect().center());
 
     // Create the menu bar and menus
     QMenuBar *menuBar = new QMenuBar(this);
@@ -63,7 +64,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(displayNotesAction, &QAction::triggered, this, &MainWindow::showNotesDialog);
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutDialog);
     connect(displayHardwareAction, &QAction::triggered, this, &MainWindow::showHardwareDialog);
-
+    connect(login, SIGNAL(loginClicked()), this, SLOT(enableWindow()));
+    connect(login, SIGNAL(userIsAdmin()), this, SLOT(enableAdmin()));
 
     // Create a label to display the number of books
     QLabel *statusLabel = new QLabel(this);
@@ -82,6 +84,17 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Add the status bar to the main window
     setStatusBar(statusBar());
+
+    this->setEnabled(false);
+    // Start Login Process
+    int result = login->exec();
+    if (result == QDialog::Accepted) {
+        // Authentication successful - proceed to main window!
+        this->setEnabled(true);
+    } else {
+        // User cancelled login or authentication failed
+        close();
+    }
 }
 
 MainWindow::~MainWindow()
@@ -104,7 +117,7 @@ void MainWindow::importCSV()
 
     outputToLogFile("MainWindow::importCSV() Opening up File Dialog Box.");
     QString fileName = QFileDialog::getOpenFileName(this,
-        tr("Open File"), defaultPath, tr("CSV Files (*.csv);;All Files (*.*)"));
+        tr("Open & Import File"), defaultPath, tr("CSV Files (*.csv);;All Files (*.*)"));
     if (!fileName.isEmpty()) {
         QFile file(fileName);
         if (!file.open(QIODevice::ReadOnly)) {
@@ -115,10 +128,68 @@ void MainWindow::importCSV()
         // Do something with the file
         outputToLogFile("MainWindow::importCSV() Sucessfully opened the file!");
 
-        // Check that the .CSV file is formated correctly,
+        QTextStream in(&file);
+
+        // Check that the .CSV file's top row (or its header row) is formated correctly,
+        QStringList headers = in.readLine().split(","); // read the first line and split by commas to get the headers
+        if (headers.at(0) != "ISBN" || headers.at(1) != "Book-Title" || headers.at(2) != "Book-Author" ||
+                headers.at(3) != "Year-Of-Publication" || headers.at(4) != "Publisher" || headers.at(5) != "Description" ||
+                headers.at(6) != "Genre" || headers.at(7) != "MSRP" || headers.at(8) != "Quantity-On-Hand")
+        {
+            outputToLogFile("MainWindow::importCSV() Error: Selected file's Header Row is not properly formated.");
+            QMessageBox::critical(this, tr("Error"), tr("Selected file's Header Row is not properly formated."));
+            file.close();
+            return;
+        }
+
         // then validate that each row in the .CSV will create a valid Book object,
         // and put each row's data into either a container of valid books and all of the invalid data into a 2nd containter,
+        QVector<Book> importList;
+        QVector<QString> invalidImportList;
+        while (!in.atEnd()) {
+            QString line = in.readLine();
+            QStringList fields = line.split(",");
+            if (fields.size() != headers.size()) {
+                outputToLogFile("MainWindow::importCSV() Error: Invalid row in CSV file. [Invalid Column Count]");
+                // handle invalid row
+                invalidImportList.push_back(line);
+            }
+            else if (fields.at(0).isEmpty() || fields.at(1).isEmpty() || fields.at(2).isEmpty() ||
+                     fields.at(3).isEmpty() || fields.at(4).isEmpty() || fields.at(5).isEmpty() ||
+                     fields.at(6).isEmpty() || fields.at(7).isEmpty() || fields.at(8).isEmpty())
+            {
+                outputToLogFile("MainWindow::importCSV() Error: Invalid row in CSV file. [Empty Row Value]");
+                // handle invalid row
+                invalidImportList.push_back(line);
+            }
+            else
+            {
+                Book book(fields.at(0).toStdString(), fields.at(1).toStdString(), fields.at(2).toStdString(),
+                          fields.at(3).toInt(), fields.at(4).toStdString(), fields.at(5).toStdString(),
+                          fields.at(6).toStdString(), fields.at(7).toDouble(), fields.at(8).toInt());
+
+                if (book.getIsValid()) importList.push_back(book);
+                else
+                {
+                    outputToLogFile("MainWindow::importCSV() Error: Invalid row in CSV file. [Invalid Row Value]");
+                    // handle invalid row
+                    invalidImportList.push_back(line);
+                }
+            }
+        }
+
         // finally send both containers to the dbmanager to be inserted into their respective tables.
+        dbManager db("bookstoreInventory.db");
+        while (!importList.empty()) {
+            db.addBookRecordToDatabase(importList.front());
+
+            importList.pop_front();
+        }
+        while (!invalidImportList.empty()) {
+            db.addInvalid_BookRecordToDatabase(invalidImportList.front());
+
+            invalidImportList.pop_front();
+        }
 
         outputToLogFile("MainWindow::importCSV() Now closing the .CSV file.");
         file.close();
@@ -132,9 +203,45 @@ void MainWindow::importCSV()
 
 void MainWindow::exportCSV()
 {
-    for (int i = 0; i < bookList.size(); ++i) {
-        // Do stuff, ...
+    QDir currentDir = QDir::current();
+    QString parentDir = currentDir.dirName(); // get the parent directory name
+    QString defaultPath = currentDir.absolutePath() + "/../" + parentDir;
+
+    QString fileName = QFileDialog::getSaveFileName(this,
+        tr("Save & Export Book List to File"), defaultPath, tr("CSV File (*.csv)"));
+    if (!fileName.isEmpty()) {
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly)) {
+            outputToLogFile("MainWindow::exportCSV() Error: Could not open file.");
+            QMessageBox::critical(this, tr("Error"), tr("Could not open file"));
+            return;
+        }
+        outputToLogFile("MainWindow::exportCSV() Sucessfully opened the file!");
+
+        QTextStream out(&file);
+        // Write the header row
+        out << "ISBN,Book-Title,Book-Author,Year-Of-Publication,Publisher,Description,Genre,MSRP,Quantity-On-Hand\n";
+
+        // Write each row of data
+        for (const auto& book : bookList) {
+            // Do stuff, ...
+            out << QString::fromStdString(book.getISBN()) << "," << QString::fromStdString(book.getTitle()) << ","
+                << QString::fromStdString(book.getAuthor()) << "," << book.getYear() << ","
+                << QString::fromStdString(book.getPublisher()) << "," << QString::fromStdString(book.getDescription()) << ","
+                << QString::fromStdString(book.getGenre()) << "," << QString::number(book.getMSRP(), 'f', 2) << ","
+                << book.getQuantity() << "\n";
+        }
+
+        bookList.clear();
+
+        outputToLogFile("MainWindow::exportCSV() Now closing the .CSV file.");
+        file.close();
     }
+    else
+    {
+        outputToLogFile("MainWindow::exportCSV() Warning: Given File name was empty.");
+    }
+
 }
 
 void MainWindow::showNotesDialog()
@@ -189,6 +296,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
             outputToLogFile("MainWindow::closeEvent(..) Closing the program has been cancelled.");
             event->ignore();
         } else {
+            dbManager db("bookstoreInventory.db");
+            while (!bookList.empty()) {
+                db.addBookRecordToDatabase(bookList.front());
+
+                bookList.pop_front();
+            }
+
             outputToLogFile("MainWindow::closeEvent(..) Now Closing Program via Close Event.\n");
             event->accept();
         }
@@ -196,6 +310,13 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
 void MainWindow::exitProgram()
 {
+    dbManager db("bookstoreInventory.db");
+    while (!bookList.empty()) {
+        db.addBookRecordToDatabase(bookList.front());
+
+        bookList.pop_front();
+    }
+
     outputToLogFile("MainWindow::exitProgram() Closing Program via Exit Button.");
     close();
 }
@@ -265,26 +386,39 @@ void MainWindow::readTable()
 
 void MainWindow::searchDB()
 {
+    if (ui->lineEditSearchDB->text().isEmpty())
+    {
+        QMessageBox::critical(this, tr("Search Formatting Error"), tr("Search parameters must have at least 1 character"));
+        return;
+    }
+
     dbManager db("bookstoreInventory.db");
     const int searchCategory = ui->comboBoxSearchBy->currentIndex();
     QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDB->text(), searchCategory);
 
     //outputToLogFile("dbManager.searchDB");
 
-    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
-    ui->textEditLarge->append(&"Database Search - Number of Results: " [ searchResults.size() ]);
-    for (unsigned short index = 0; index < searchResults.size(); index++)
-    {
-        for (unsigned short innerIndex = 0; innerIndex < searchResults.at(index).size(); innerIndex++)
-        {
-            ui->textEditLarge->append(searchResults[index][innerIndex].toString());
+    int listSize = searchResults.size();
+    QString message = QString("Display Search Results - Number of Results: %1").arg(listSize);
+    ui->textEditLarge->append(message);
 
-        }
+    for (unsigned short i = 0; i < searchResults.size(); i++)
+    {
+        ui->textEditLarge->append("Result #: \t" + searchResults[i][0].toString());
+
+        ui->textEditLarge->append("ISBN: \t" + searchResults[i][1].toString());
+        ui->textEditLarge->append("Title: \t" + searchResults[i][2].toString());
+        ui->textEditLarge->append("Author: \t" + searchResults[i][3].toString());
+        ui->textEditLarge->append("Year: \t" + searchResults[i][4].toString());
+        ui->textEditLarge->append("Publisher: \t" + searchResults[i][5].toString());
+        ui->textEditLarge->append("Description: \t" + searchResults[i][6].toString());
+        ui->textEditLarge->append("Genre: \t" + searchResults[i][7].toString());
+        ui->textEditLarge->append("MSRP: \t$" + searchResults[i][8].toString());
+        ui->textEditLarge->append("Quantity: \t" + searchResults[i][9].toString());
+
         ui->textEditLarge->append("\n");
 
     }
-
-
 
 }
 
@@ -338,6 +472,8 @@ void MainWindow::toggleAdminFeatures(bool isEnabled)
 
 void MainWindow::searchBookToShoppingList()
 {
+    // check that ui->lineEditShoppingListAddAmount->text() is a valid positive number (greater than 0)
+
     dbManager db("bookstoreInventory.db");
     const int searchCategory = ui->comboBoxShoppingListAddBy->currentIndex();
     QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBAddShoppingList->text(), searchCategory);
@@ -346,6 +482,9 @@ void MainWindow::searchBookToShoppingList()
 
     if (searchResults.size() == 1)
     {
+        // check that ui->lineEditShoppingListAddAmount->text() is a number that is less than the searched book's Quantity On Hand Amount.
+        // if we do not have enough on hand, then throw an error message box
+
         string ISBN = searchResults[0][1].toString().toStdString();
         string Title = searchResults[0][2].toString().toStdString();
         string Author = searchResults[0][3].toString().toStdString();
@@ -354,7 +493,7 @@ void MainWindow::searchBookToShoppingList()
         string Description = searchResults[0][6].toString().toStdString();
         string Genre = searchResults[0][7].toString().toStdString();
         double MSRP = searchResults[0][8].toDouble();
-        unsigned int Quantity = searchResults[0][9].toUInt();
+        unsigned int Quantity = searchResults[0][9].toUInt(); // replace with ui->lineEditShoppingListAddAmount->text()
 
         Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
                                  Description, Genre, MSRP, Quantity);
@@ -409,14 +548,24 @@ void MainWindow::searchBookToBookList()
 
         if (newBook.getIsValid())
         {
-            bookList.push_back(newBook);
-            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
-            ui->textEditLarge->append("Book Added");
+            if (db.removeBookRecordFromDatabase(newBook))
+            {
+                bookList.push_back(newBook);
+
+                // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+                ui->textEditLarge->append("Book Added to List and Removed from Database.");
+            }
+            else
+            {
+                // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+                ui->textEditLarge->append("Book is valid, but couldn't be Removed from Database.");
+            }
+
         }
         else
         {
             // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
-            ui->textEditLarge->append("Invalid Book, Book not added");
+            ui->textEditLarge->append("Invalid Book, Book not added to list");
         }
 
     }
@@ -431,8 +580,9 @@ void MainWindow::searchBookToBookList()
 
 void MainWindow::displayShoppingList()
 {
-    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
-    ui->textEditLarge->append(&"Display Shopping List - Number of Results: " [ shoppingList.size() ]);
+    int listSize = shoppingList.size();
+    QString message = QString("Display Shopping List - Number of Results: %1").arg(listSize);
+    ui->textEditLarge->append(message);
 
     multiset<Book, CompareBookByMSRP>::iterator shoppingListIterator = shoppingList.begin();
     while (shoppingListIterator != shoppingList.end())
@@ -459,8 +609,9 @@ void MainWindow::purchaseShoppingList()
 
 void MainWindow::displayBookList()
 {
-    // If the size of this container is 0, it won't display the size of 0. Need to figure out a fix for this, ...
-    ui->textEditLarge->append(&"Display Book List - Number of Results: " [ shoppingList.size() ]);
+    int listSize = bookList.size();
+    QString message = QString("Display Book List - Number of Results: %1").arg(listSize);
+    ui->textEditLarge->append(message);
 
     for (int i = 0; i < bookList.size(); ++i)
     {
@@ -487,3 +638,232 @@ void MainWindow::changeUsersPassword()
 
 }
 
+void MainWindow::checkValidBookToUpdate()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxUpdateBook->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBUpdateBook->text(), searchCategory);
+void MainWindow::enableWindow()
+{
+    this->setEnabled(true);
+}
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("A valid Book was found in the Database!");
+
+            ui->textEditLarge->append("ISBN: \t" + searchResults[0][1].toString());
+            ui->textEditLarge->append("Title: \t" + searchResults[0][2].toString());
+            ui->textEditLarge->append("Author: \t" + searchResults[0][3].toString());
+            ui->textEditLarge->append("Year: \t" + searchResults[0][4].toString());
+            ui->textEditLarge->append("Publisher: \t" + searchResults[0][5].toString());
+            ui->textEditLarge->append("Description: \t" + searchResults[0][6].toString());
+            ui->textEditLarge->append("Genre: \t" + searchResults[0][7].toString());
+            ui->textEditLarge->append("MSRP: \t$" + searchResults[0][8].toString());
+            ui->textEditLarge->append("Quantity: \t" + searchResults[0][9].toString());
+
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book! Book found in the Database, but is not valid!");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term! Either 0 or 2+ results were found from your search.");
+    }
+
+    ui->textEditLarge->append("\n");
+}
+
+void MainWindow::updateBook()
+{
+    dbManager db("bookstoreInventory.db");
+    const int searchCategory = ui->comboBoxUpdateBook->currentIndex();
+    QVector<QVector<QVariant>> searchResults = db.searchDB("bookstoreInventory.db", ui->lineEditSearchDBUpdateBook->text(), searchCategory);
+
+    //outputToLogFile("dbManager.searchDB");
+
+    if (searchResults.size() == 1)
+    {
+        string ISBN = searchResults[0][1].toString().toStdString();
+        string Title = searchResults[0][2].toString().toStdString();
+        string Author = searchResults[0][3].toString().toStdString();
+        unsigned int Year = searchResults[0][4].toInt();
+        string Publisher = searchResults[0][5].toString().toStdString();
+        string Description = searchResults[0][6].toString().toStdString();
+        string Genre = searchResults[0][7].toString().toStdString();
+        double MSRP = searchResults[0][8].toDouble();
+        unsigned int Quantity = searchResults[0][9].toUInt();
+
+        Book oldBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (!ui->lineEditISBNUpdate->text().isEmpty() && oldBook.validateISBN(ui->lineEditISBNUpdate->text().toStdString()))
+        {
+            ISBN = ui->lineEditISBNUpdate->text().toStdString();
+        }
+        if (!ui->lineEditTITLEUpdate->text().isEmpty() && oldBook.validateTitle(ui->lineEditTITLEUpdate->text().toStdString()))
+        {
+            Title = ui->lineEditTITLEUpdate->text().toStdString();
+        }
+        if (!ui->lineEditAUTHORUpdate->text().isEmpty() && oldBook.validateAuthor(ui->lineEditAUTHORUpdate->text().toStdString()))
+        {
+            Author = ui->lineEditAUTHORUpdate->text().toStdString();
+        }
+        if (!ui->lineEditYEARUpdate->text().isEmpty() && oldBook.validatePubYear(ui->lineEditYEARUpdate->text().toUInt()))
+        {
+            Year = ui->lineEditYEARUpdate->text().toUInt();
+        }
+        if (!ui->lineEditPUBLISHERUpdate->text().isEmpty() && oldBook.validatePublisher(ui->lineEditPUBLISHERUpdate->text().toStdString()))
+        {
+            Publisher = ui->lineEditPUBLISHERUpdate->text().toStdString();
+        }
+        if (!ui->lineEditDESCUpdate->text().isEmpty() && oldBook.validateDescription(ui->lineEditDESCUpdate->text().toStdString()))
+        {
+            Description = ui->lineEditDESCUpdate->text().toStdString();
+        }
+        if (!ui->lineEditGENREUpdate->text().isEmpty() && oldBook.validateGenre(ui->lineEditGENREUpdate->text().toStdString()))
+        {
+            Genre = ui->lineEditGENREUpdate->text().toStdString();
+        }
+        if (!ui->lineEditMSRPUpdate->text().isEmpty() && oldBook.validateMSRP(ui->lineEditMSRPUpdate->text().toDouble()))
+        {
+            MSRP = ui->lineEditMSRPUpdate->text().toDouble();
+        }
+        if (!ui->lineEditQUANTITYUpdate->text().isEmpty() && oldBook.validateQuantity(ui->lineEditQUANTITYUpdate->text().toUInt()))
+        {
+            Quantity = ui->lineEditQUANTITYUpdate->text().toUInt();
+        }
+
+        Book newBook = *new Book(ISBN, Title, Author, Year, Publisher,
+                                 Description, Genre, MSRP, Quantity);
+
+        if (newBook.getIsValid())
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("A new valid book can be created! Time to update!");
+
+            // Update all of the fields that are different. If ISBN is different, update that last.
+            // For text/string values, surround the new value in 'single quotes'. For numbers do not.
+            if (oldBook.getTitle() != newBook.getTitle())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "TITLE", newBook.getTitle()))
+                {
+                    ui->textEditLarge->append("Title Updated!");
+                }
+            }
+            if (oldBook.getAuthor() != newBook.getAuthor())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "AUTHOR", newBook.getAuthor()))
+                {
+                    ui->textEditLarge->append("Author Updated!");
+                }
+            }
+            if (oldBook.getYear() != newBook.getYear())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "PUBLICATION_YEAR", QString::number(newBook.getYear()).toStdString()))
+                {
+                    ui->textEditLarge->append("Publication Year Updated!");
+                }
+            }
+            if (oldBook.getPublisher() != newBook.getPublisher())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "PUBLISHER", newBook.getPublisher()))
+                {
+                    ui->textEditLarge->append("Publisher Updated!");
+                }
+            }
+            if (oldBook.getDescription() != newBook.getDescription())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "DESCRIPTION", newBook.getDescription()))
+                {
+                    ui->textEditLarge->append("Description Updated!");
+                }
+            }
+            if (oldBook.getGenre() != newBook.getGenre())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "GENRE", newBook.getGenre()))
+                {
+                    ui->textEditLarge->append("Genre Updated!");
+                }
+            }
+            if (oldBook.getMSRP() != newBook.getMSRP())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "MSRP", QString::number(newBook.getMSRP()).toStdString()))
+                {
+                    ui->textEditLarge->append("MSRP Updated!");
+                }
+            }
+            if (oldBook.getQuantity() != newBook.getQuantity())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "QUANTITY_ON_HAND", QString::number(newBook.getQuantity()).toStdString()))
+                {
+                    ui->textEditLarge->append("Quantity On Hand Updated!");
+                }
+            }
+            if (oldBook.getISBN() != newBook.getISBN())
+            {
+                if (db.updateBookRecordColumnValue(oldBook.getISBN(), "ISBN", newBook.getISBN()))
+                {
+                    ui->textEditLarge->append("ISBN Updated!");
+                }
+            }
+
+            ui->textEditLarge->append("New Book Updated! Here are the results:");
+
+            QVector<QVector<QVariant>> newResults = db.searchDB("bookstoreInventory.db", QString::fromStdString(newBook.getISBN()), 0);
+
+            ui->textEditLarge->append("ISBN: \t" + newResults[0][1].toString());
+            ui->textEditLarge->append("Title: \t" + newResults[0][2].toString());
+            ui->textEditLarge->append("Author: \t" + newResults[0][3].toString());
+            ui->textEditLarge->append("Year: \t" + newResults[0][4].toString());
+            ui->textEditLarge->append("Publisher: \t" + newResults[0][5].toString());
+            ui->textEditLarge->append("Description: \t" + newResults[0][6].toString());
+            ui->textEditLarge->append("Genre: \t" + newResults[0][7].toString());
+            ui->textEditLarge->append("MSRP: \t$" + newResults[0][8].toString());
+            ui->textEditLarge->append("Quantity: \t" + newResults[0][9].toString());
+
+        }
+        else
+        {
+            // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+            ui->textEditLarge->append("Invalid Book! Book found in the Database, but your updates are not valid!");
+        }
+
+    }
+    else
+    {
+        // Since this is a DB operation, this should probably be a QMessageBox Pop-Up, ...
+        ui->textEditLarge->append("Invalid search term! Either 0 or 2+ results were found from your search.");
+    }
+
+    ui->textEditLarge->append("\n");
+}
+
+
+void MainWindow::enableAdmin()
+{
+    ui->tabAdminMenu->setEnabled(true);
+}

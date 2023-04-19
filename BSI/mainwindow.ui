@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1280</width>
-    <height>800</height>
+    <height>920</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -29,7 +29,7 @@
       <x>0</x>
       <y>0</y>
       <width>1271</width>
-      <height>751</height>
+      <height>871</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -88,7 +88,7 @@
          <item>
           <widget class="QPushButton" name="pushButtonLogIn">
            <property name="text">
-            <string>Log In (Not Yet Implemented)</string>
+            <string>Log In</string>
            </property>
           </widget>
          </item>
@@ -148,7 +148,7 @@
           <enum>QTabWidget::Rounded</enum>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="tabMainMenu">
           <attribute name="title">
@@ -159,8 +159,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>601</width>
-             <height>571</height>
+             <width>635</width>
+             <height>735</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_12">
@@ -405,6 +405,84 @@
              </widget>
             </item>
             <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_37">
+              <item>
+               <widget class="QLabel" name="label_29">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                  <horstretch>0</horstretch>
+                  <verstretch>0</verstretch>
+                 </sizepolicy>
+                </property>
+                <property name="text">
+                 <string>Add a Shopper to the Database</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="Line" name="line_45">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <layout class="QVBoxLayout" name="verticalLayout_23">
+                <item>
+                 <widget class="QLineEdit" name="lineEditShopperFirstName">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
+                   <string>First Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditShopperLastName">
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Last Name</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLineEdit" name="lineEditShopperEmail">
+                  <property name="enabled">
+                   <bool>true</bool>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Email</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButtonAddShopperToDB">
+                <property name="text">
+                 <string>Add (Not Yet Implemented)</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="Line" name="line_46">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item>
              <layout class="QHBoxLayout" name="horizontalLayout_24">
               <item>
                <widget class="QLabel" name="label_28">
@@ -415,7 +493,7 @@
                  </sizepolicy>
                 </property>
                 <property name="text">
-                 <string>Add a book to your Shopping List from the database</string>
+                 <string>Add a book to your Shopping List from the Database</string>
                 </property>
                </widget>
               </item>
@@ -494,6 +572,27 @@
                  </layout>
                 </item>
                 <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout">
+                  <item>
+                   <widget class="QLabel" name="labelAmountToAdd">
+                    <property name="text">
+                     <string>Amount To Add: </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEditShoppingListAddAmount">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>(Not Yet Implemented)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_34">
                   <item>
                    <widget class="QLineEdit" name="lineEditSearchDBAddShoppingList"/>
@@ -537,7 +636,7 @@
               <item>
                <widget class="QPushButton" name="pushButtonDisplayShoppingList">
                 <property name="text">
-                 <string>Display Shopping List (Not Yet Implemented)</string>
+                 <string>Display Shopping List</string>
                 </property>
                </widget>
               </item>
@@ -567,11 +666,36 @@
                </widget>
               </item>
               <item>
-               <widget class="QPushButton" name="pushButtonPurchaseShoppingList">
-                <property name="text">
-                 <string>Purchase Shopping List (Not Yet Implemented)</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_4">
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                   <widget class="QLabel" name="labelCurrentShopper">
+                    <property name="text">
+                     <string>Current Shopper By ID: </string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLineEdit" name="lineEditCurrentShopper">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>(Not Yet Implemented)</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="pushButtonPurchaseShoppingList">
+                  <property name="text">
+                   <string>Purchase Shopping List (Not Yet Implemented)</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -590,8 +714,8 @@
             <rect>
              <x>10</x>
              <y>10</y>
-             <width>601</width>
-             <height>571</height>
+             <width>603</width>
+             <height>735</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -618,16 +742,23 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_17">
                     <item>
-                     <widget class="QLabel" name="labelUsername_2">
+                     <widget class="QLabel" name="labelUsernameNewUser">
                       <property name="text">
                        <string>Username</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="labelPassword_2">
+                     <widget class="QLabel" name="labelPasswordNewUser">
                       <property name="text">
                        <string>Password</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QCheckBox" name="checkBoxIsAdmin">
+                      <property name="text">
+                       <string>Is An Admin?</string>
                       </property>
                      </widget>
                     </item>
@@ -645,16 +776,16 @@
                       </property>
                      </widget>
                     </item>
+                    <item>
+                     <widget class="QPushButton" name="pushButtonAddNewUser">
+                      <property name="text">
+                       <string>Add New User (Not Yet Implemented)</string>
+                      </property>
+                     </widget>
+                    </item>
                    </layout>
                   </item>
                  </layout>
-                </item>
-                <item>
-                 <widget class="QPushButton" name="pushButtonAddNewUser">
-                  <property name="text">
-                   <string>Add New User (Not Yet Implemented)</string>
-                  </property>
-                 </widget>
                 </item>
                </layout>
               </item>
@@ -690,14 +821,14 @@
                   <item>
                    <layout class="QVBoxLayout" name="verticalLayout_20">
                     <item>
-                     <widget class="QLabel" name="labelUsername_3">
+                     <widget class="QLabel" name="labelUsernameChangePass">
                       <property name="text">
                        <string>Username</string>
                       </property>
                      </widget>
                     </item>
                     <item>
-                     <widget class="QLabel" name="labelPassword_3">
+                     <widget class="QLabel" name="labelPasswordChangePass">
                       <property name="text">
                        <string>Password</string>
                       </property>
@@ -734,38 +865,6 @@
             </item>
             <item>
              <widget class="Line" name="line_36">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <layout class="QHBoxLayout" name="horizontalLayout_29">
-              <item>
-               <widget class="QLabel" name="label_37">
-                <property name="text">
-                 <string>Import a .CSV file into the database</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="Line" name="line_37">
-                <property name="orientation">
-                 <enum>Qt::Vertical</enum>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_38">
-                <property name="text">
-                 <string>Not Yet Implemented</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </item>
-            <item>
-             <widget class="Line" name="line_38">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -898,7 +997,7 @@
               <item>
                <widget class="QPushButton" name="pushButtonPrintBookList">
                 <property name="text">
-                 <string>Print Book List (Not Yet Implemented)</string>
+                 <string>Print Book List</string>
                 </property>
                </widget>
               </item>
@@ -916,7 +1015,7 @@
               <item>
                <widget class="QLabel" name="label_43">
                 <property name="text">
-                 <string>Export your Book List to a .CSV file</string>
+                 <string>Edit Book Record in Database</string>
                 </property>
                </widget>
               </item>
@@ -928,11 +1027,196 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_44">
-                <property name="text">
-                 <string>Not Yet Implemented</string>
-                </property>
-               </widget>
+               <layout class="QVBoxLayout" name="verticalLayout_7">
+                <item>
+                 <layout class="QVBoxLayout" name="verticalLayout_24">
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_38">
+                    <item>
+                     <widget class="QLabel" name="labelAddBy_3">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="text">
+                       <string>Update By: </string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QComboBox" name="comboBoxUpdateBook">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="currentIndex">
+                       <number>0</number>
+                      </property>
+                      <item>
+                       <property name="text">
+                        <string>ISBN</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Title</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Author</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Publication Year</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Publisher</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>MSRP</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>Quantity On Hand</string>
+                       </property>
+                      </item>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <layout class="QHBoxLayout" name="horizontalLayout_39">
+                    <item>
+                     <widget class="QLineEdit" name="lineEditSearchDBUpdateBook"/>
+                    </item>
+                    <item>
+                     <widget class="QPushButton" name="btnSearchDBUpdateBook">
+                      <property name="text">
+                       <string>Check Database For Valid Record</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout_5">
+                    <item>
+                     <widget class="QLineEdit" name="lineEditISBNUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>ISBN</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditTITLEUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>TITLE</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditAUTHORUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>AUTHOR</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditYEARUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>PUBLICATION YEAR</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditPUBLISHERUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>PUBLISHER</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditDESCUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>DESCRIPTION</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditGENREUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>GENRE</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditMSRPUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>MSRP</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLineEdit" name="lineEditQUANTITYUpdate">
+                      <property name="text">
+                       <string/>
+                      </property>
+                      <property name="placeholderText">
+                       <string>QUANTITY</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="pushButtonUpdateBookRecord">
+                    <property name="text">
+                     <string>Update Book Record</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+               </layout>
               </item>
              </layout>
             </item>
@@ -975,7 +1259,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>21</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPlease">
@@ -1213,6 +1497,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>btnSearchDBUpdateBook</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>checkValidBookToUpdate()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>529</x>
+     <y>576</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButtonUpdateBookRecord</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>updateBook()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>562</x>
+     <y>730</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>639</x>
+     <y>459</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>searchDB()</slot>
@@ -1227,5 +1543,7 @@
   <slot>displayBookList()</slot>
   <slot>addNewUser()</slot>
   <slot>changeUsersPassword()</slot>
+  <slot>checkValidBookToUpdate()</slot>
+  <slot>updateBook()</slot>
  </slots>
 </ui>

@@ -12,7 +12,7 @@
 #include "rapidcsv.h"
 #include "book.h"
 #include "utilities.h"
-#include <boost/log/trivial.hpp>
+//#include <boost/log/trivial.hpp>
 
 using namespace std;
 

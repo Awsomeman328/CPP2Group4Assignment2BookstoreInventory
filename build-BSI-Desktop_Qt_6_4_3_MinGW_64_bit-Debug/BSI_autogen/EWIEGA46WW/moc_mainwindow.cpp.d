@@ -2,17 +2,22 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/build-BSI-Desktop_Qt_6_4_3_MinGW_64_bit-Debug/BSI_autogen/moc_predefs.h \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QDebug \
+  C:/Qt/6.4.3/mingw_64/include/QtCore/QFile \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QHash \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QList \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QMap \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QMutex \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QObject \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QRect \
+  C:/Qt/6.4.3/mingw_64/include/QtCore/QRegularExpression \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QScopedPointer \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QSize \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QSizeF \
+  C:/Qt/6.4.3/mingw_64/include/QtCore/QStorageInfo \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QString \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QStringList \
+  C:/Qt/6.4.3/mingw_64/include/QtCore/QSysInfo \
+  C:/Qt/6.4.3/mingw_64/include/QtCore/QTextStream \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QVariant \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QVector \
   C:/Qt/6.4.3/mingw_64/include/QtCore/QtCore \
@@ -257,6 +262,8 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtGui/qkeysequence.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpaintdevice.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpalette.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qpen.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qpicture.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpixelformat.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpixmap.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qpointingdevice.h \
@@ -265,6 +272,10 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtGui/qrgb.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qrgba64.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qscreen.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qtextcursor.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qtextdocument.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qtextformat.h \
+  C:/Qt/6.4.3/mingw_64/include/QtGui/qtextoption.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtgui-config.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtguiexports.h \
   C:/Qt/6.4.3/mingw_64/include/QtGui/qtguiglobal.h \
@@ -284,21 +295,41 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsql-config.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlexports.h \
   C:/Qt/6.4.3/mingw_64/include/QtSql/qtsqlglobal.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QDialog \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QDialogButtonBox \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QFileDialog \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QGridLayout \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QHBoxLayout \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QHeaderView \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QLabel \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QLineEdit \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/QMessageBox \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QTableWidget \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/QVBoxLayout \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractitemview.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractscrollarea.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractslider.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qabstractspinbox.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qcombobox.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qdialog.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qdialogbuttonbox.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qfiledialog.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qgridlayout.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qheaderview.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlayoutitem.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlineedit.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qlistview.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmainwindow.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qmessagebox.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qrubberband.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qslider.h \
@@ -306,6 +337,8 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qstyleditemdelegate.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qstyleoption.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtabbar.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtableview.h \
+  C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtablewidget.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtabwidget.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.4.3/mingw_64/include/QtWidgets/qtwidgetsexports.h \
@@ -665,7 +698,9 @@ C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/backend.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/book.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/dbmanager.h \
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hardwareinfo.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/hashpasswordencryptor.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/md5.h \
+  C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/notesdialog.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/rapidcsv.h \
   C:/Users/Awsoe/OneDrive/Documents/School/Winter\ 2023/C++2/CPP2Group4Assignment2BookstoreInventory/BSI/utilities.h

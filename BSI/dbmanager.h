@@ -16,7 +16,11 @@ public:
     QVector<bool> checkLogInInfo(const QString username, const QString password);
     QVector<QVariant> getTotalNumBooks();
     bool addBookRecordToDatabase(Book newBook);
+    bool addInvalid_BookRecordToDatabase(QString newRecord);
+    bool removeBookRecordFromDatabase(Book bookToRemove);
+    bool removeBookRecordFromDatabase(string bookISBN);
     bool adjustBookQuantityInInventory(string bookISBN, int adjustAmount);
+    bool updateBookRecordColumnValue(string bookISBN, string categoryToUpdate, string newValue);
 
 
 private:
